@@ -605,12 +605,12 @@ msgstr "Închide automat după"
 msgid "Away"
 msgstr "Departe"
 
-#: src/components/farcaster/FarcasterPage.tsx:285
-#: src/components/farcaster/FarcasterPage.tsx:736
+#: src/components/farcaster/FarcasterPage.tsx:291
+#: src/components/farcaster/FarcasterPage.tsx:749
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:733
+#: src/components/farcaster/FarcasterPage.tsx:746
 msgid "Back to feed"
 msgstr ""
 
@@ -702,7 +702,7 @@ msgstr "Marcaje în acest Spațiu"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Răsfoiește Spațiile publice și găsește o comunitate la care să te alături."
 
-#: src/components/farcaster/FarcasterPage.tsx:317
+#: src/components/farcaster/FarcasterPage.tsx:323
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -718,7 +718,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "Nu se poate sincroniza: nicio cheie nu este disponibilă pe acest dispozitiv."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:621
+#: src/components/farcaster/FarcasterPage.tsx:629
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -743,7 +743,7 @@ msgstr "Anulează"
 msgid "CANCEL"
 msgstr "ANULARE"
 
-#: src/components/farcaster/FarcasterPage.tsx:593
+#: src/components/farcaster/FarcasterPage.tsx:601
 msgid "Cancel reply"
 msgstr ""
 
@@ -757,23 +757,23 @@ msgstr "Nu se poate șterge un grup care conține canalul implicit."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Nu poți încărca mai mult de {0} fișiere simultan ({remaining} sloturi rămase)"
 
-#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:381
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:267
+#: src/components/farcaster/FarcasterPage.tsx:273
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:727
+#: src/components/farcaster/FarcasterPage.tsx:740
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:514
+#: src/components/farcaster/FarcasterPage.tsx:521
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:521
+#: src/components/farcaster/FarcasterPage.tsx:528
 msgid "Casts & Replies"
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Modificările sunt efectuate automat, dar pagina activă s-ar putea să nu fie actualizată. Reîmprospătează pagina pentru a aplica noua limbă."
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:406
 msgid "Channel feed"
 msgstr ""
 
@@ -1342,7 +1342,7 @@ msgstr "Mesaj Direct"
 msgid "Direct messages"
 msgstr "Mesaje directe"
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:319
 msgid "Disconnect"
 msgstr ""
 
@@ -1760,7 +1760,7 @@ msgstr "Salvarea setărilor Spațiului a eșuat"
 msgid "Failed to send invite. Please try again."
 msgstr "Nu s-a putut trimite invitația. Te rugăm să încerci din nou."
 
-#: src/components/farcaster/FarcasterPage.tsx:575
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1790,7 +1790,7 @@ msgstr "Eșec la actualizarea previzualizării de alăturare. Te rugăm să înc
 msgid "Failed to update profile"
 msgstr "Actualizarea profilului a eșuat"
 
-#: src/components/farcaster/FarcasterPage.tsx:288
+#: src/components/farcaster/FarcasterPage.tsx:294
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1799,7 +1799,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:439
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1899,17 +1899,17 @@ msgstr "Numele folderului este necesar"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Numele folderului trebuie să aibă {MAX_NAME_LENGTH} caractere sau mai puțin"
 
-#: src/components/farcaster/FarcasterPage.tsx:61
+#: src/components/farcaster/FarcasterPage.tsx:62
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:503
+#: src/components/farcaster/FarcasterPage.tsx:510
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:235
-#: src/components/farcaster/FarcasterPage.tsx:331
-#: src/components/farcaster/FarcasterPage.tsx:502
+#: src/components/farcaster/FarcasterPage.tsx:241
+#: src/components/farcaster/FarcasterPage.tsx:337
+#: src/components/farcaster/FarcasterPage.tsx:509
 msgid "Following"
 msgstr ""
 
@@ -2064,7 +2064,7 @@ msgid "Import a backup instead"
 msgstr "În loc de asta, importă o copie de siguranță"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:318
+#: src/components/farcaster/FarcasterPage.tsx:324
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Importă cont"
@@ -2294,13 +2294,13 @@ msgstr "Lumină"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Link copiat. Lipește-l unde vrei să-l distribui."
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:406
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:550
+#: src/components/farcaster/FarcasterPage.tsx:421
+#: src/components/farcaster/FarcasterPage.tsx:557
 msgid "Load more"
 msgstr "Încărcați mai multe"
 
@@ -2309,11 +2309,11 @@ msgstr "Încărcați mai multe"
 msgid "Loading bookmarks..."
 msgstr "Încărcare marcaje..."
 
-#: src/components/farcaster/FarcasterPage.tsx:532
+#: src/components/farcaster/FarcasterPage.tsx:539
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:402
+#: src/components/farcaster/FarcasterPage.tsx:409
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2329,7 +2329,7 @@ msgstr "Se încarcă notificările..."
 msgid "Loading pinned messages..."
 msgstr "Se încarcă mesajele fixate..."
 
-#: src/components/farcaster/FarcasterPage.tsx:488
+#: src/components/farcaster/FarcasterPage.tsx:495
 msgid "Loading profile..."
 msgstr ""
 
@@ -2337,7 +2337,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Se încarcă Spațiile publice..."
 
-#: src/components/farcaster/FarcasterPage.tsx:761
+#: src/components/farcaster/FarcasterPage.tsx:774
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Încărcare fir..."
@@ -2347,8 +2347,8 @@ msgid "Loading your profile..."
 msgstr "Încărcarea profilului tău..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:550
+#: src/components/farcaster/FarcasterPage.tsx:421
+#: src/components/farcaster/FarcasterPage.tsx:557
 msgid "Loading..."
 msgstr "Se încarcă..."
 
@@ -2420,7 +2420,7 @@ msgstr "Marchezi totul ca citit?"
 msgid "Mark all read"
 msgstr "Marchează totul ca citit"
 
-#: src/components/farcaster/FarcasterPage.tsx:528
+#: src/components/farcaster/FarcasterPage.tsx:535
 msgid "Media"
 msgstr ""
 
@@ -2610,8 +2610,8 @@ msgstr "Nu s-au găsit marcatoare care să corespundă căutării tale."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Nu există încă marcatoare. Adaugă marcatoare la mesaje pentru a le salva pentru referințe ulterioare."
 
-#: src/components/farcaster/FarcasterPage.tsx:407
-#: src/components/farcaster/FarcasterPage.tsx:537
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:544
 msgid "No casts found."
 msgstr ""
 
@@ -2788,7 +2788,7 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Doar proprietarii Spațiului pot genera link-uri publice de invitație."
 
-#: src/components/farcaster/FarcasterPage.tsx:304
+#: src/components/farcaster/FarcasterPage.tsx:310
 msgid "Open"
 msgstr ""
 
@@ -2797,7 +2797,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Deschideți {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:299
+#: src/components/farcaster/FarcasterPage.tsx:305
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2805,7 +2805,7 @@ msgstr ""
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:38
+#: src/components/farcaster/FarcasterPage.tsx:39
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2945,11 +2945,11 @@ msgstr "Fixat de {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Mesaje fixate"
 
-#: src/components/farcaster/FarcasterPage.tsx:346
+#: src/components/farcaster/FarcasterPage.tsx:352
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:406
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3020,7 +3020,7 @@ msgstr "Profil public"
 msgid "Public spaces"
 msgstr "Spatii publice"
 
-#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:381
 msgid "Publishing..."
 msgstr ""
 
@@ -3043,7 +3043,7 @@ msgstr "Quorum este o platformă de mesajare descentralizată unde deții identi
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum a fost încărcat în timp ce browserul nu era în prim-plan sau o cerere de passkey a fost respinsă. Te rugăm să te reautorizezi pentru a accesa mesajele tale."
 
-#: src/components/farcaster/FarcasterPage.tsx:208
+#: src/components/farcaster/FarcasterPage.tsx:214
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3092,13 +3092,13 @@ msgstr "configurație primită cu semnătură invalidă!"
 msgid "Recipient has no devices"
 msgstr "Destinatarul nu are dispozitive"
 
-#: src/components/farcaster/FarcasterPage.tsx:400
+#: src/components/farcaster/FarcasterPage.tsx:407
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Reîmprospătează"
 
-#: src/components/farcaster/FarcasterPage.tsx:743
+#: src/components/farcaster/FarcasterPage.tsx:756
 msgid "Refresh thread"
 msgstr ""
 
@@ -3157,7 +3157,7 @@ msgid "Replies"
 msgstr "Răspunsuri"
 
 #: src/components/farcaster/FarcasterCastCard.tsx:519
-#: src/components/farcaster/FarcasterPage.tsx:630
+#: src/components/farcaster/FarcasterPage.tsx:638
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3169,14 +3169,14 @@ msgid "Reply in thread..."
 msgstr "Răspunde în fir..."
 
 #: src/components/farcaster/FarcasterCastCard.tsx:432
-#: src/components/farcaster/FarcasterPage.tsx:583
+#: src/components/farcaster/FarcasterPage.tsx:591
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "Răspunzând lui {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:630
+#: src/components/farcaster/FarcasterPage.tsx:638
 msgid "Replying..."
 msgstr ""
 
@@ -3273,7 +3273,7 @@ msgid "Restoring..."
 msgstr "Restaurare..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:433
+#: src/components/farcaster/FarcasterPage.tsx:440
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Reîncercare"
@@ -3403,7 +3403,7 @@ msgstr "Caută numele de utilizator sau adresa"
 msgid "Search..."
 msgstr "Caută..."
 
-#: src/components/farcaster/FarcasterPage.tsx:304
+#: src/components/farcaster/FarcasterPage.tsx:310
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Căutare..."
@@ -3930,7 +3930,7 @@ msgstr ""
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:738
+#: src/components/farcaster/FarcasterPage.tsx:751
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3986,9 +3986,9 @@ msgstr "Astăzi"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Prea multe mențiuni în mesaj. Maxim {MAX_MENTIONS_PER_MESSAGE} permis."
 
-#: src/components/farcaster/FarcasterPage.tsx:215
-#: src/components/farcaster/FarcasterPage.tsx:235
-#: src/components/farcaster/FarcasterPage.tsx:338
+#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:241
+#: src/components/farcaster/FarcasterPage.tsx:344
 msgid "Trending"
 msgstr ""
 
@@ -4270,7 +4270,7 @@ msgstr "Validare invitație..."
 msgid "View edit history"
 msgstr "Vezi istoricul editărilor"
 
-#: src/components/farcaster/FarcasterPage.tsx:756
+#: src/components/farcaster/FarcasterPage.tsx:769
 msgid "View full thread"
 msgstr ""
 
@@ -4315,7 +4315,7 @@ msgstr "Ce este Cheia Contului?"
 msgid "What should we call you?"
 msgstr "Cum ai vrea să te numim?"
 
-#: src/components/farcaster/FarcasterPage.tsx:366
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "What's happening?"
 msgstr ""
 
@@ -4400,7 +4400,7 @@ msgstr "De ce trebuie să fac asta?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Fără această copie de rezervă, pierderea dispozitivului înseamnă pierderea contului - nu există opțiune de „parolă uitată”. Acesta este prețul pe care îl plătești pentru confidențialitate :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:604
+#: src/components/farcaster/FarcasterPage.tsx:612
 msgid "Write a reply..."
 msgstr ""
 

@@ -11,6 +11,7 @@ import {
   isSafeFarcasterCast,
   useDesktopChannelFeed,
   useDesktopChannelInfo,
+  useDesktopUserAppContext,
   useFarcasterProfile,
   useFarcasterThread,
   useTrendingFeed,
@@ -144,6 +145,11 @@ export const FarcasterPage: React.FC = () => {
     view.kind === 'channel' ? view.channel : null,
     account?.authToken
   );
+  const userContext = useDesktopUserAppContext(account?.authToken);
+  const maxByteLimit =
+    userContext.data?.longCastByteLimit ||
+    userContext.data?.regularCastByteLimit ||
+    (account ? 10_000 : 320);
   const profile = useFarcasterProfile(view.kind === 'profile' ? view.fid : null);
   const thread = useFarcasterThread(view.kind === 'thread' ? view.hash : null);
   const submitCast = useSubmitCast({
@@ -370,8 +376,8 @@ export const FarcasterPage: React.FC = () => {
               disabled={submitCast.isPending}
             />
             <div className="farcaster-compose__footer">
-              <span>{new TextEncoder().encode(composeText).length} / 320 bytes</span>
-              <Button type="primary" size="small" disabled={!composeText.trim() || new TextEncoder().encode(composeText).length > 320 || submitCast.isPending} onClick={publish}>
+              <span>{new TextEncoder().encode(composeText).length} / {maxByteLimit.toLocaleString()} bytes</span>
+              <Button type="primary" size="small" disabled={!composeText.trim() || new TextEncoder().encode(composeText).length > maxByteLimit || submitCast.isPending} onClick={publish}>
                 {submitCast.isPending ? t`Publishing...` : t`Cast`}
               </Button>
             </div>
@@ -388,6 +394,7 @@ export const FarcasterPage: React.FC = () => {
             onOpenThread={(hash: string) => setView({ kind: 'thread', hash })}
             cardProps={cardProps}
             submitCast={submitCast}
+            maxByteLimit={maxByteLimit}
           />
         )}
 
@@ -560,13 +567,14 @@ const InlineReplyComposer: React.FC<{
   onCancel?: () => void;
   onSubmit: (text: string, targetCast: NormalizedCast) => Promise<void>;
   isSubmitting: boolean;
-}> = ({ targetCast, onCancel, onSubmit, isSubmitting }) => {
+  maxByteLimit?: number;
+}> = ({ targetCast, onCancel, onSubmit, isSubmitting, maxByteLimit = 10_000 }) => {
   const [text, setText] = React.useState('');
   const [error, setError] = React.useState<string | null>(null);
   const byteLength = new TextEncoder().encode(text).length;
 
   const handleSubmit = async () => {
-    if (!text.trim() || byteLength > 320 || isSubmitting) return;
+    if (!text.trim() || byteLength > maxByteLimit || isSubmitting) return;
     setError(null);
     try {
       await onSubmit(text, targetCast);
@@ -609,7 +617,7 @@ const InlineReplyComposer: React.FC<{
         autoFocus
       />
       <div className="farcaster-inline-reply__footer">
-        <span className="farcaster-inline-reply__bytes">{byteLength} / 320 bytes</span>
+        <span className="farcaster-inline-reply__bytes">{byteLength} / {maxByteLimit.toLocaleString()} bytes</span>
         <div className="farcaster-inline-reply__actions">
           {onCancel && (
             <Button
@@ -624,7 +632,7 @@ const InlineReplyComposer: React.FC<{
           <Button
             type="primary"
             size="small"
-            disabled={!text.trim() || byteLength > 320 || isSubmitting}
+            disabled={!text.trim() || byteLength > maxByteLimit || isSubmitting}
             onClick={handleSubmit}
           >
             {isSubmitting ? t`Replying...` : t`Reply`}
@@ -642,6 +650,7 @@ const ThreadNodeItem: React.FC<{
   onSubmitReply: (text: string, targetCast: NormalizedCast) => Promise<void>;
   isSubmitting: boolean;
   cardProps: Omit<React.ComponentProps<typeof FarcasterCastCard>, 'cast' | 'isRoot' | 'depth' | 'onReply'>;
+  maxByteLimit?: number;
 }> = ({
   node,
   activeReplyCast,
@@ -649,6 +658,7 @@ const ThreadNodeItem: React.FC<{
   onSubmitReply,
   isSubmitting,
   cardProps,
+  maxByteLimit,
 }) => {
   const isTargetForReply = activeReplyCast?.hash === node.cast.hash;
 
@@ -669,6 +679,7 @@ const ThreadNodeItem: React.FC<{
           onCancel={() => onSelectReply(null)}
           onSubmit={onSubmitReply}
           isSubmitting={isSubmitting}
+          maxByteLimit={maxByteLimit}
         />
       )}
       {node.replies.length > 0 && (
@@ -682,6 +693,7 @@ const ThreadNodeItem: React.FC<{
               onSubmitReply={onSubmitReply}
               isSubmitting={isSubmitting}
               cardProps={cardProps}
+              maxByteLimit={maxByteLimit}
             />
           ))}
         </div>
@@ -697,7 +709,8 @@ const ThreadView: React.FC<{
   onOpenThread: (hash: string) => void;
   cardProps: Omit<React.ComponentProps<typeof FarcasterCastCard>, 'cast' | 'isRoot' | 'depth' | 'onReply'>;
   submitCast: ReturnType<typeof useSubmitCast>;
-}> = ({ rootHash, account, onBack, onOpenThread, cardProps, submitCast }) => {
+  maxByteLimit?: number;
+}> = ({ rootHash, account, onBack, onOpenThread, cardProps, submitCast, maxByteLimit }) => {
   const queryClient = useQueryClient();
   const thread = useFarcasterThread(rootHash);
   const [activeReplyCast, setActiveReplyCast] = React.useState<NormalizedCast | null>(null);
@@ -770,6 +783,7 @@ const ThreadView: React.FC<{
             onSubmitReply={handleSubmitReply}
             isSubmitting={submitCast.isPending}
             cardProps={cardProps}
+            maxByteLimit={maxByteLimit}
           />
           {!activeReplyCast && account && (
             <div className="farcaster-thread-tree__bottom-reply">
@@ -777,6 +791,7 @@ const ThreadView: React.FC<{
                 targetCast={thread.data.cast}
                 onSubmit={handleSubmitReply}
                 isSubmitting={submitCast.isPending}
+                maxByteLimit={maxByteLimit}
               />
             </div>
           )}

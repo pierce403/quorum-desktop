@@ -278,3 +278,39 @@ export async function resolveChannelParentUrl(channel: string): Promise<string> 
   } catch { /* use the canonical legacy-channel fallback */ }
   return `https://warpcast.com/~/channel/${channel}`;
 }
+
+export function useDesktopUserAppContext(token?: string) {
+  return useQuery({
+    queryKey: ['farcaster', 'desktop', 'user-app-context', token],
+    queryFn: async () => {
+      if (!token) return null;
+      try {
+        const res = await fetch('https://client.farcaster.xyz/v2/user-app-context', {
+          headers: {
+            accept: 'application/json',
+            authorization: `Bearer ${token}`,
+            origin: 'https://farcaster.xyz',
+            referer: 'https://farcaster.xyz/',
+          },
+        });
+        if (!res.ok) return null;
+        const data = (await res.json()) as {
+          result?: {
+            context?: {
+              regularCastByteLimit?: number;
+              longCastByteLimit?: number;
+              castEmbedLimit?: number;
+              isAdmin?: boolean;
+              canUploadVideo?: boolean;
+            };
+          };
+        };
+        return data.result?.context ?? null;
+      } catch {
+        return null;
+      }
+    },
+    enabled: Boolean(token),
+    staleTime: 1000 * 60 * 60 * 24,
+  });
+}

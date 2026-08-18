@@ -605,12 +605,12 @@ msgstr "Αυτόματο κλείσιμο μετά από"
 msgid "Away"
 msgstr "Απών"
 
-#: src/components/farcaster/FarcasterPage.tsx:285
-#: src/components/farcaster/FarcasterPage.tsx:736
+#: src/components/farcaster/FarcasterPage.tsx:291
+#: src/components/farcaster/FarcasterPage.tsx:749
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:733
+#: src/components/farcaster/FarcasterPage.tsx:746
 msgid "Back to feed"
 msgstr ""
 
@@ -702,7 +702,7 @@ msgstr "Σελιδοδείκτες σε αυτόν τον Χώρο"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Περιηγήσου σε δημόσιους Χώρους και βρες μια κοινότητα για να συμμετάσχεις."
 
-#: src/components/farcaster/FarcasterPage.tsx:317
+#: src/components/farcaster/FarcasterPage.tsx:323
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -718,7 +718,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "Δεν είναι δυνατός ο συγχρονισμός: δεν υπάρχει διαθέσιμο κλειδί σε αυτήν τη συσκευή."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:621
+#: src/components/farcaster/FarcasterPage.tsx:629
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -743,7 +743,7 @@ msgstr "Ακύρωση"
 msgid "CANCEL"
 msgstr "ΑΚΥΡΩΣΗ"
 
-#: src/components/farcaster/FarcasterPage.tsx:593
+#: src/components/farcaster/FarcasterPage.tsx:601
 msgid "Cancel reply"
 msgstr ""
 
@@ -757,23 +757,23 @@ msgstr "Δεν μπορεί να διαγραφεί μια ομάδα που π�
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Δεν μπορείς να ανεβάσεις περισσότερα από {0} αρχεία ταυτόχρονα ({remaining} θέσεις διαθέσιμες)"
 
-#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:381
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:267
+#: src/components/farcaster/FarcasterPage.tsx:273
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:727
+#: src/components/farcaster/FarcasterPage.tsx:740
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:514
+#: src/components/farcaster/FarcasterPage.tsx:521
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:521
+#: src/components/farcaster/FarcasterPage.tsx:528
 msgid "Casts & Replies"
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Οι αλλαγές γίνονται αυτόματα, αλλά η ενεργή σελίδα μπορεί να μην έχει ενημερωθεί. Ανανέωσε τη σελίδα για να εφαρμόσεις τη νέα γλώσσα."
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:406
 msgid "Channel feed"
 msgstr ""
 
@@ -1342,7 +1342,7 @@ msgstr "Άμεσο Μήνυμα"
 msgid "Direct messages"
 msgstr "Προσωπικά μηνύματα"
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:319
 msgid "Disconnect"
 msgstr ""
 
@@ -1760,7 +1760,7 @@ msgstr "Αποτυχία αποθήκευσης ρυθμίσεων Χώρου"
 msgid "Failed to send invite. Please try again."
 msgstr "Αποτυχία αποστολής πρόσκλησης. Παρακαλώ δοκίμασε ξανά."
 
-#: src/components/farcaster/FarcasterPage.tsx:575
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1790,7 +1790,7 @@ msgstr "Αποτυχία ενημέρωσης προεπισκόπησης συ�
 msgid "Failed to update profile"
 msgstr "Αποτυχία ενημέρωσης προφίλ"
 
-#: src/components/farcaster/FarcasterPage.tsx:288
+#: src/components/farcaster/FarcasterPage.tsx:294
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1799,7 +1799,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:439
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1899,17 +1899,17 @@ msgstr "Το όνομα του φακέλου είναι υποχρεωτικό"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Το όνομα του φακέλου πρέπει να είναι {MAX_NAME_LENGTH} χαρακτήρες ή λιγότερο"
 
-#: src/components/farcaster/FarcasterPage.tsx:61
+#: src/components/farcaster/FarcasterPage.tsx:62
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:503
+#: src/components/farcaster/FarcasterPage.tsx:510
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:235
-#: src/components/farcaster/FarcasterPage.tsx:331
-#: src/components/farcaster/FarcasterPage.tsx:502
+#: src/components/farcaster/FarcasterPage.tsx:241
+#: src/components/farcaster/FarcasterPage.tsx:337
+#: src/components/farcaster/FarcasterPage.tsx:509
 msgid "Following"
 msgstr ""
 
@@ -2064,7 +2064,7 @@ msgid "Import a backup instead"
 msgstr "Εισάγαγε αντί αυτού ένα αντίγραφο ασφαλείας"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:318
+#: src/components/farcaster/FarcasterPage.tsx:324
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Εισαγωγή λογαριασμού"
@@ -2294,13 +2294,13 @@ msgstr "Φωτεινό"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Ο σύνδεσμος αντιγράφηκε. Επικόλλησέ τον όπου θέλεις να τον μοιραστείς."
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:406
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:550
+#: src/components/farcaster/FarcasterPage.tsx:421
+#: src/components/farcaster/FarcasterPage.tsx:557
 msgid "Load more"
 msgstr "Φόρτωση περισσότερων"
 
@@ -2309,11 +2309,11 @@ msgstr "Φόρτωση περισσότερων"
 msgid "Loading bookmarks..."
 msgstr "Φόρτωση σελιδοδεικτών..."
 
-#: src/components/farcaster/FarcasterPage.tsx:532
+#: src/components/farcaster/FarcasterPage.tsx:539
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:402
+#: src/components/farcaster/FarcasterPage.tsx:409
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2329,7 +2329,7 @@ msgstr "Φόρτωση ειδοποιήσεων..."
 msgid "Loading pinned messages..."
 msgstr "Φόρτωση καρφιτσωμένων μηνυμάτων..."
 
-#: src/components/farcaster/FarcasterPage.tsx:488
+#: src/components/farcaster/FarcasterPage.tsx:495
 msgid "Loading profile..."
 msgstr ""
 
@@ -2337,7 +2337,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Φόρτωση δημόσιων Χώρων..."
 
-#: src/components/farcaster/FarcasterPage.tsx:761
+#: src/components/farcaster/FarcasterPage.tsx:774
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Φόρτωση συζήτησης..."
@@ -2347,8 +2347,8 @@ msgid "Loading your profile..."
 msgstr "Φορτώνω το προφίλ σου..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:550
+#: src/components/farcaster/FarcasterPage.tsx:421
+#: src/components/farcaster/FarcasterPage.tsx:557
 msgid "Loading..."
 msgstr "Φόρτωση..."
 
@@ -2420,7 +2420,7 @@ msgstr "Να επισημανθούν όλα ως αναγνωσμένα;"
 msgid "Mark all read"
 msgstr "Επισήμανση όλων ως αναγνωσμένων"
 
-#: src/components/farcaster/FarcasterPage.tsx:528
+#: src/components/farcaster/FarcasterPage.tsx:535
 msgid "Media"
 msgstr ""
 
@@ -2610,8 +2610,8 @@ msgstr "Δεν βρέθηκαν σελιδοδείκτες που να ταιρ�
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Δεν υπάρχουν ακόμη μάρκες. Μάρκαρε μηνύματα για να τα αποθηκεύσετε για μεταγενέστερη αναφορά."
 
-#: src/components/farcaster/FarcasterPage.tsx:407
-#: src/components/farcaster/FarcasterPage.tsx:537
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:544
 msgid "No casts found."
 msgstr ""
 
@@ -2788,7 +2788,7 @@ msgstr "Συνδεδεμένος"
 msgid "Only space owners can generate public invite links."
 msgstr "Μόνο οι κάτοχοι Χώρων μπορούν να δημιουργήσουν δημόσιους συνδέσμους πρόσκλησης."
 
-#: src/components/farcaster/FarcasterPage.tsx:304
+#: src/components/farcaster/FarcasterPage.tsx:310
 msgid "Open"
 msgstr ""
 
@@ -2797,7 +2797,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Άνοιγμα {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:299
+#: src/components/farcaster/FarcasterPage.tsx:305
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2805,7 +2805,7 @@ msgstr ""
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:38
+#: src/components/farcaster/FarcasterPage.tsx:39
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2945,11 +2945,11 @@ msgstr "Καρφιτσωμένο από {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Καρφιτσωμένα μηνύματα"
 
-#: src/components/farcaster/FarcasterPage.tsx:346
+#: src/components/farcaster/FarcasterPage.tsx:352
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:406
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3020,7 +3020,7 @@ msgstr "Δημόσιο προφίλ"
 msgid "Public spaces"
 msgstr "Δημόσιοι χώροι"
 
-#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:381
 msgid "Publishing..."
 msgstr ""
 
@@ -3043,7 +3043,7 @@ msgstr "Το Quorum είναι μια αποκεντρωμένη πλατφόρ�
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Το Quorum φορτώθηκε ενώ ο περιηγητής δεν ήταν σε εστίαση ή ένα αίτημα passkey απορρίφθηκε. Παρακαλώ επαναπιστοποιήσου για να αποκτήσεις πρόσβαση στα μηνύματά σου."
 
-#: src/components/farcaster/FarcasterPage.tsx:208
+#: src/components/farcaster/FarcasterPage.tsx:214
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3092,13 +3092,13 @@ msgstr "ελήφθη ρύθμιση με μη έγκυρη υπογραφή!"
 msgid "Recipient has no devices"
 msgstr "Ο παραλήπτης δεν έχει συσκευές"
 
-#: src/components/farcaster/FarcasterPage.tsx:400
+#: src/components/farcaster/FarcasterPage.tsx:407
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Ανανέωση"
 
-#: src/components/farcaster/FarcasterPage.tsx:743
+#: src/components/farcaster/FarcasterPage.tsx:756
 msgid "Refresh thread"
 msgstr ""
 
@@ -3157,7 +3157,7 @@ msgid "Replies"
 msgstr "Απαντήσεις"
 
 #: src/components/farcaster/FarcasterCastCard.tsx:519
-#: src/components/farcaster/FarcasterPage.tsx:630
+#: src/components/farcaster/FarcasterPage.tsx:638
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3169,14 +3169,14 @@ msgid "Reply in thread..."
 msgstr "Απάντηση στη συζήτηση..."
 
 #: src/components/farcaster/FarcasterCastCard.tsx:432
-#: src/components/farcaster/FarcasterPage.tsx:583
+#: src/components/farcaster/FarcasterPage.tsx:591
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "Απαντώντας στον {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:630
+#: src/components/farcaster/FarcasterPage.tsx:638
 msgid "Replying..."
 msgstr ""
 
@@ -3273,7 +3273,7 @@ msgid "Restoring..."
 msgstr "Αποκατάσταση..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:433
+#: src/components/farcaster/FarcasterPage.tsx:440
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Δοκίμασε ξανά"
@@ -3403,7 +3403,7 @@ msgstr "Αναζήτηση Όνομα χρήστη ή Διεύθυνση"
 msgid "Search..."
 msgstr "Αναζήτηση..."
 
-#: src/components/farcaster/FarcasterPage.tsx:304
+#: src/components/farcaster/FarcasterPage.tsx:310
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Αναζητώντας..."
@@ -3930,7 +3930,7 @@ msgstr ""
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:738
+#: src/components/farcaster/FarcasterPage.tsx:751
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3986,9 +3986,9 @@ msgstr "Σήμερα"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Πάρα πολλές αναφορές στο μήνυμα. Μέγιστο {MAX_MENTIONS_PER_MESSAGE} επιτρεπόμενες."
 
-#: src/components/farcaster/FarcasterPage.tsx:215
-#: src/components/farcaster/FarcasterPage.tsx:235
-#: src/components/farcaster/FarcasterPage.tsx:338
+#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:241
+#: src/components/farcaster/FarcasterPage.tsx:344
 msgid "Trending"
 msgstr ""
 
@@ -4270,7 +4270,7 @@ msgstr "Επικύρωση πρόσκλησης..."
 msgid "View edit history"
 msgstr "Δες το ιστορικό επεξεργασίας"
 
-#: src/components/farcaster/FarcasterPage.tsx:756
+#: src/components/farcaster/FarcasterPage.tsx:769
 msgid "View full thread"
 msgstr ""
 
@@ -4315,7 +4315,7 @@ msgstr "Τι είναι το Κλειδί Λογαριασμού;"
 msgid "What should we call you?"
 msgstr "Πώς θα σε αποκαλούμε;"
 
-#: src/components/farcaster/FarcasterPage.tsx:366
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "What's happening?"
 msgstr ""
 
@@ -4400,7 +4400,7 @@ msgstr "Γιατί χρειάζεται να κάνω αυτό;"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Χωρίς αυτό το αντίγραφο, η απώλεια της συσκευής σου σημαίνει την απώλεια του λογαριασμού σου - δεν υπάρχει επιλογή \"έχασα τον κωδικό πρόσβασης\". Αυτό είναι το τίμημα που πληρώνεις για την ιδιωτικότητα :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:604
+#: src/components/farcaster/FarcasterPage.tsx:612
 msgid "Write a reply..."
 msgstr ""
 
