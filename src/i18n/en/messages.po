@@ -626,7 +626,7 @@ msgstr "Auto-close after"
 msgid "Away"
 msgstr "Away"
 
-#: src/components/farcaster/FarcasterPage.tsx:193
+#: src/components/farcaster/FarcasterPage.tsx:251
 msgid "Back"
 msgstr "Back"
 
@@ -719,7 +719,7 @@ msgstr "Bookmarks in this Space"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Browse public Spaces and find a community to join."
 
-#: src/components/farcaster/FarcasterPage.tsx:225
+#: src/components/farcaster/FarcasterPage.tsx:283
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr "Browse the public network or import your Farcaster account to post and react."
 
@@ -770,15 +770,15 @@ msgstr "Cannot delete a group containing the default channel."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Cast"
 msgstr "Cast"
 
-#: src/components/farcaster/FarcasterPage.tsx:176
+#: src/components/farcaster/FarcasterPage.tsx:233
 msgid "Cast could not be published."
 msgstr "Cast could not be published."
 
-#: src/components/farcaster/FarcasterPage.tsx:255
+#: src/components/farcaster/FarcasterPage.tsx:350
 msgid "Cast thread"
 msgstr "Cast thread"
 
@@ -786,7 +786,7 @@ msgstr "Cast thread"
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Channel feed"
 msgstr "Channel feed"
 
@@ -1349,7 +1349,7 @@ msgstr "Direct Message"
 msgid "Direct messages"
 msgstr "Direct messages"
 
-#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:279
 msgid "Disconnect"
 msgstr "Disconnect"
 
@@ -1792,7 +1792,7 @@ msgstr "Failed to update join preview. Please try again."
 msgid "Failed to update profile"
 msgstr "Failed to update profile"
 
-#: src/components/farcaster/FarcasterPage.tsx:196
+#: src/components/farcaster/FarcasterPage.tsx:254
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1801,7 +1801,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr "Farcaster account import failed."
 
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:393
 msgid "Farcaster could not be reached."
 msgstr "Farcaster could not be reached."
 
@@ -1901,7 +1901,8 @@ msgstr "Folder name is required"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Folder name must be {MAX_NAME_LENGTH} characters or less"
 
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:297
 msgid "Following"
 msgstr "Following"
 
@@ -2059,7 +2060,7 @@ msgid "Import a backup instead"
 msgstr "Import a backup instead"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:226
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Import account"
@@ -2287,13 +2288,13 @@ msgstr "Light"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Link copied. Paste it where you want to share it."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Live from the Farcaster network"
 msgstr "Live from the Farcaster network"
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Load more"
 msgstr "Load more"
 
@@ -2302,11 +2303,11 @@ msgstr "Load more"
 msgid "Loading bookmarks..."
 msgstr "Loading bookmarks..."
 
-#: src/components/farcaster/FarcasterPage.tsx:330
+#: src/components/farcaster/FarcasterPage.tsx:435
 msgid "Loading casts..."
 msgstr "Loading casts..."
 
-#: src/components/farcaster/FarcasterPage.tsx:268
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Loading Farcaster..."
 msgstr "Loading Farcaster..."
 
@@ -2322,7 +2323,7 @@ msgstr "Loading notifications..."
 msgid "Loading pinned messages..."
 msgstr "Loading pinned messages..."
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:418
 msgid "Loading profile..."
 msgstr "Loading profile..."
 
@@ -2330,7 +2331,7 @@ msgstr "Loading profile..."
 msgid "Loading public Spaces..."
 msgstr "Loading public Spaces..."
 
-#: src/components/farcaster/FarcasterPage.tsx:256
+#: src/components/farcaster/FarcasterPage.tsx:351
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Loading thread..."
@@ -2340,8 +2341,8 @@ msgid "Loading your profile..."
 msgstr "Loading your profile..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -2599,7 +2600,7 @@ msgstr "No bookmarks match your search."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "No bookmarks yet. Bookmark messages to save them for later reference."
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:368
 msgid "No casts found."
 msgstr "No casts found."
 
@@ -2779,7 +2780,7 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Only space owners can generate public invite links."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 msgid "Open"
 msgstr "Open"
 
@@ -2788,7 +2789,7 @@ msgstr "Open"
 msgid "Open {0}"
 msgstr "Open {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:207
+#: src/components/farcaster/FarcasterPage.tsx:265
 msgid "Open @username or /channel"
 msgstr "Open @username or /channel"
 
@@ -2941,7 +2942,11 @@ msgstr "Pinned by {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Pinned Messages"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:312
+msgid "Popular:"
+msgstr "Popular:"
+
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Posts from accounts you follow"
 msgstr "Posts from accounts you follow"
 
@@ -3015,7 +3020,7 @@ msgstr "Public profile"
 msgid "Public spaces"
 msgstr "Public spaces"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Publishing..."
 msgstr "Publishing..."
 
@@ -3035,11 +3040,11 @@ msgstr "Quorum infrastructure is being deployed at this time. Please try refresh
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 
-#: src/components/context/RegistrationPersister.tsx:502
+#: src/components/context/RegistrationPersister.tsx:512
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 
-#: src/components/farcaster/FarcasterPage.tsx:125
+#: src/components/farcaster/FarcasterPage.tsx:175
 msgid "Reaction could not be published."
 msgstr "Reaction could not be published."
 
@@ -3076,7 +3081,7 @@ msgstr "Reading your key..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Ready to start a truly private conversation?"
 
-#: src/components/context/RegistrationPersister.tsx:517
+#: src/components/context/RegistrationPersister.tsx:527
 msgid "Reauthorize"
 msgstr "Reauthorize"
 
@@ -3088,7 +3093,7 @@ msgstr "received config with invalid signature!"
 msgid "Recipient has no devices"
 msgstr "Recipient has no devices"
 
-#: src/components/farcaster/FarcasterPage.tsx:266
+#: src/components/farcaster/FarcasterPage.tsx:361
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3134,12 +3139,12 @@ msgstr "Rename this device"
 msgid "Reopen"
 msgstr "Reopen"
 
-#: src/components/context/RegistrationPersister.tsx:438
-#: src/components/context/RegistrationPersister.tsx:473
+#: src/components/context/RegistrationPersister.tsx:448
+#: src/components/context/RegistrationPersister.tsx:483
 msgid "Repair this device"
 msgstr "Repair this device"
 
-#: src/components/context/RegistrationPersister.tsx:472
+#: src/components/context/RegistrationPersister.tsx:482
 msgid "Repairing…"
 msgstr "Repairing…"
 
@@ -3148,7 +3153,7 @@ msgstr "Repairing…"
 msgid "Replies"
 msgstr "Replies"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3255,7 +3260,7 @@ msgid "Restoring..."
 msgstr "Restoring..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:298
+#: src/components/farcaster/FarcasterPage.tsx:394
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Retry"
@@ -3386,7 +3391,7 @@ msgstr "Search Username or Address"
 msgid "Search..."
 msgstr "Search..."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Searching..."
@@ -3464,7 +3469,7 @@ msgstr "Send via DM"
 msgid "Sending..."
 msgstr "Sending..."
 
-#: src/components/context/RegistrationPersister.tsx:489
+#: src/components/context/RegistrationPersister.tsx:499
 msgid "Session Encrypted"
 msgstr "Session Encrypted"
 
@@ -3726,7 +3731,7 @@ msgstr "The passkey setup timed out. You can try again, or continue without one.
 #~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 #~ msgstr "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 
-#: src/components/context/RegistrationPersister.tsx:458
+#: src/components/context/RegistrationPersister.tsx:468
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr "The repair could not be completed. Check your connection and try again."
 
@@ -3972,8 +3977,9 @@ msgstr "Today"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 
-#: src/components/farcaster/FarcasterPage.tsx:130
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:181
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Trending"
 msgstr "Trending"
 
@@ -4297,7 +4303,7 @@ msgstr "What is the Account Key?"
 msgid "What should we call you?"
 msgstr "What should we call you?"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "What's happening?"
 msgstr "What's happening?"
 
@@ -4382,7 +4388,7 @@ msgstr "Why do I need to do this?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "Write a reply..."
 msgstr "Write a reply..."
 
@@ -4546,7 +4552,7 @@ msgstr "Your account key is a private key that proves ownership of your account.
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 
-#: src/components/context/RegistrationPersister.tsx:451
+#: src/components/context/RegistrationPersister.tsx:461
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 

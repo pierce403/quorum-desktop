@@ -38,15 +38,53 @@ const PhoneHeader: React.FC = () => {
   );
 };
 
+const POPULAR_CHANNELS = [
+  'farcaster',
+  'ethereum',
+  'base',
+  'dev',
+  'zk',
+  'crypto',
+  'nouns',
+  'memes',
+];
+
+const useInfiniteScroll = (
+  sentinelRef: React.RefObject<HTMLDivElement | null>,
+  hasNextPage: boolean | undefined,
+  isFetchingNextPage: boolean,
+  fetchNextPage: () => void
+) => {
+  React.useEffect(() => {
+    const node = sentinelRef.current;
+    if (!node || !hasNextPage || isFetchingNextPage) return;
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          fetchNextPage();
+        }
+      },
+      { rootMargin: '400px 0px' }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [sentinelRef, hasNextPage, isFetchingNextPage, fetchNextPage]);
+};
+
 type View =
-  | { kind: 'trending' }
+  | { kind: 'feed' }
   | { kind: 'channel'; channel: string }
   | { kind: 'profile'; fid: number }
   | { kind: 'thread'; hash: string };
 
+type FeedTab = 'following' | 'trending';
+
 export const FarcasterPage: React.FC = () => {
   const queryClient = useQueryClient();
-  const [view, setView] = React.useState<View>({ kind: 'trending' });
+  const [view, setView] = React.useState<View>({ kind: 'feed' });
+  const [feedTab, setFeedTab] = React.useState<FeedTab>('following');
   const [search, setSearch] = React.useState('');
   const [searching, setSearching] = React.useState(false);
   const [searchError, setSearchError] = React.useState(false);
@@ -55,18 +93,23 @@ export const FarcasterPage: React.FC = () => {
   const [showImport, setShowImport] = React.useState(false);
   const [composeText, setComposeText] = React.useState('');
   const [composeError, setComposeError] = React.useState<string | null>(null);
+  const sentinelRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
     void loadDesktopFarcasterAccount()
-      .then(setAccount)
+      .then((acc) => {
+        setAccount(acc);
+        if (!acc) setFeedTab('trending');
+      })
       .finally(() => setAccountLoaded(true));
   }, []);
 
-  const trending = useTrendingFeed(accountLoaded && account === null);
+  const showFollowing = accountLoaded && account !== null && feedTab === 'following';
+  const trending = useTrendingFeed(accountLoaded && (feedTab === 'trending' || account === null));
   const home = useHomeFeed({
     fid: account?.fid,
     token: account?.authToken,
-    enabled: accountLoaded && account !== null,
+    enabled: showFollowing,
     filterCast: isSafeFarcasterCast,
   });
   const channel = useDesktopChannelFeed(view.kind === 'channel' ? view.channel : null);
@@ -83,16 +126,23 @@ export const FarcasterPage: React.FC = () => {
     signerStore: desktopFarcasterSignerStore,
   });
 
-  const openUsername = React.useCallback(async (username: string) => {
+  const openUsername = React.useCallback(async (query: string) => {
+    const clean = query.replace(/^[@/]/, '').trim();
+    if (!clean) return;
     setSearchError(false);
     setSearching(true);
-    const fid = await resolveFarcasterUsername(username);
-    setSearching(false);
-    if (fid === null) {
-      setSearchError(true);
-      return;
+    try {
+      const fid = await resolveFarcasterUsername(clean);
+      setSearching(false);
+      if (fid !== null) {
+        setView({ kind: 'profile', fid });
+        return;
+      }
+      setView({ kind: 'channel', channel: clean });
+    } catch {
+      setSearching(false);
+      setView({ kind: 'channel', channel: clean });
     }
-    setView({ kind: 'profile', fid });
   }, []);
 
   const submitSearch = React.useCallback(() => {
@@ -127,9 +177,9 @@ export const FarcasterPage: React.FC = () => {
     } : undefined,
   };
 
+  const primaryFeed = showFollowing ? home : trending;
   let title = t`Trending`;
   let casts: NormalizedCast[] = [];
-  const primaryFeed = account ? home : trending;
   let isLoading = primaryFeed.isLoading;
   let isFetchingNextPage = primaryFeed.isFetchingNextPage;
   let hasNextPage = primaryFeed.hasNextPage;
@@ -146,12 +196,19 @@ export const FarcasterPage: React.FC = () => {
     error = channel.error;
     fetchNextPage = channel.fetchNextPage;
     refetch = channel.refetch;
-  } else if (view.kind === 'trending') {
+  } else if (view.kind === 'feed') {
     casts = primaryFeed.data?.pages.flatMap((page) => page.casts) ?? [];
-    title = account ? t`Following` : t`Trending`;
+    title = showFollowing ? t`Following` : t`Trending`;
   }
 
-  const isDetail = view.kind !== 'trending';
+  useInfiniteScroll(
+    sentinelRef,
+    hasNextPage,
+    isFetchingNextPage,
+    () => void fetchNextPage()
+  );
+
+  const isDetail = view.kind !== 'feed';
 
   const publish = async () => {
     const text = composeText.trim();
@@ -180,7 +237,8 @@ export const FarcasterPage: React.FC = () => {
   const disconnect = async () => {
     await disconnectDesktopFarcasterAccount();
     setAccount(null);
-    setView({ kind: 'trending' });
+    setFeedTab('trending');
+    setView({ kind: 'feed' });
     queryClient.removeQueries({ queryKey: ['farcaster'] });
   };
 
@@ -190,7 +248,7 @@ export const FarcasterPage: React.FC = () => {
       <div className="farcaster-page__inner">
         <header className="farcaster-page__header">
           <div className="farcaster-page__heading">
-            {isDetail && <Button type="unstyled" iconName="arrow-left" iconOnly ariaLabel={t`Back`} onClick={() => setView({ kind: 'trending' })} />}
+            {isDetail && <Button type="unstyled" iconName="arrow-left" iconOnly ariaLabel={t`Back`} onClick={() => setView({ kind: 'feed' })} />}
             <Icon name="farcaster" size="2xl" />
             <div>
               <h1 className="farcaster-page__title">{t`Farcaster`}</h1>
@@ -228,6 +286,43 @@ export const FarcasterPage: React.FC = () => {
           )}
         </div>
 
+        {/* Feed tabs when account is connected */}
+        {view.kind === 'feed' && account && (
+          <div className="farcaster-tabs">
+            <Button
+              type="unstyled"
+              className={`farcaster-tabs__button ${feedTab === 'following' ? 'farcaster-tabs__button--active' : ''}`}
+              onClick={() => setFeedTab('following')}
+            >
+              {t`Following`}
+            </Button>
+            <Button
+              type="unstyled"
+              className={`farcaster-tabs__button ${feedTab === 'trending' ? 'farcaster-tabs__button--active' : ''}`}
+              onClick={() => setFeedTab('trending')}
+            >
+              {t`Trending`}
+            </Button>
+          </div>
+        )}
+
+        {/* Quick channel pills */}
+        {view.kind === 'feed' && (
+          <div className="farcaster-channels-strip">
+            <span className="farcaster-channels-strip__label">{t`Popular:`}</span>
+            {POPULAR_CHANNELS.map((ch) => (
+              <Button
+                key={ch}
+                type="unstyled"
+                className="farcaster-channels-strip__chip"
+                onClick={() => setView({ kind: 'channel', channel: ch })}
+              >
+                /{ch}
+              </Button>
+            ))}
+          </div>
+        )}
+
         {account && (
           <div className="farcaster-compose">
             {composeError && <Callout variant="error" size="sm">{composeError}</Callout>}
@@ -259,10 +354,10 @@ export const FarcasterPage: React.FC = () => {
           </section>
         )}
 
-        {(view.kind === 'trending' || view.kind === 'channel') && (
+        {(view.kind === 'feed' || view.kind === 'channel') && (
           <section className="farcaster-feed" aria-label={title}>
             <div className="farcaster-feed__toolbar">
-              <span>{view.kind === 'trending' ? (account ? t`Posts from accounts you follow` : t`Live from the Farcaster network`) : t`Channel feed`}</span>
+              <span>{view.kind === 'feed' ? (showFollowing ? t`Posts from accounts you follow` : t`Live from the Farcaster network`) : t`Channel feed`}</span>
               <Button type="unstyled" iconName="refresh" iconOnly ariaLabel={t`Refresh`} onClick={() => refetch()} />
             </div>
             {isLoading && casts.length === 0 && <LoadingState label={t`Loading Farcaster...`} />}
@@ -274,6 +369,7 @@ export const FarcasterPage: React.FC = () => {
               </div>
             )}
             {casts.map((cast) => <FarcasterCastCard key={cast.hash} cast={cast} {...cardProps} />)}
+            <div ref={sentinelRef} className="farcaster-feed__sentinel" aria-hidden="true" />
             {hasNextPage && (
               <Button type="secondary" disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>
                 {isFetchingNextPage ? t`Loading...` : t`Load more`}
@@ -282,7 +378,7 @@ export const FarcasterPage: React.FC = () => {
           </section>
         )}
       </div>
-      <FarcasterAccountModal visible={showImport} onClose={() => setShowImport(false)} onImported={(next) => { setAccount(next); setView({ kind: 'trending' }); }} />
+      <FarcasterAccountModal visible={showImport} onClose={() => setShowImport(false)} onImported={(next) => { setAccount(next); setFeedTab('following'); setView({ kind: 'feed' }); }} />
     </div>
   );
 };
@@ -308,6 +404,15 @@ const ProfileView: React.FC<{
 }> = ({ fid, profile, cardProps }) => {
   const user = profile.user.data;
   const casts = profile.casts.data?.pages.flatMap((page) => page.casts) ?? [];
+  const profileSentinelRef = React.useRef<HTMLDivElement | null>(null);
+
+  useInfiniteScroll(
+    profileSentinelRef,
+    profile.casts.hasNextPage,
+    profile.casts.isFetchingNextPage,
+    () => void profile.casts.fetchNextPage()
+  );
+
   return (
     <section className="farcaster-profile">
       {profile.user.isLoading && <LoadingState label={t`Loading profile...`} />}
@@ -330,6 +435,7 @@ const ProfileView: React.FC<{
         {profile.casts.isLoading && <LoadingState label={t`Loading casts...`} />}
         {profile.casts.error && <ErrorState onRetry={() => profile.casts.refetch()} />}
         {casts.map((cast) => <FarcasterCastCard key={cast.hash} cast={cast} {...cardProps} />)}
+        <div ref={profileSentinelRef} className="farcaster-feed__sentinel" aria-hidden="true" />
         {profile.casts.hasNextPage && (
           <Button type="secondary" disabled={profile.casts.isFetchingNextPage} onClick={() => profile.casts.fetchNextPage()}>
             {profile.casts.isFetchingNextPage ? t`Loading...` : t`Load more`}

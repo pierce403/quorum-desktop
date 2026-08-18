@@ -606,7 +606,7 @@ msgstr "Otomatik kapat"
 msgid "Away"
 msgstr "Uzak"
 
-#: src/components/farcaster/FarcasterPage.tsx:193
+#: src/components/farcaster/FarcasterPage.tsx:251
 msgid "Back"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgstr "Bu Alandaki yer imleri"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Herkese açık Alanlara göz at ve katılacak bir topluluk bul."
 
-#: src/components/farcaster/FarcasterPage.tsx:225
+#: src/components/farcaster/FarcasterPage.tsx:283
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -748,15 +748,15 @@ msgstr "Varsayılan kanal içeren bir grup silinemez."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Bir seferde {0} dosyadan fazlasını yükleyemezsiniz ({remaining} slot kaldı)"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:176
+#: src/components/farcaster/FarcasterPage.tsx:233
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:255
+#: src/components/farcaster/FarcasterPage.tsx:350
 msgid "Cast thread"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Değişiklikler otomatik olarak yapılır, ancak aktif sayfa güncellenmeyebilir. Yeni dili uygulamak için sayfayı yenileyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Channel feed"
 msgstr ""
 
@@ -1325,7 +1325,7 @@ msgstr "Özel Mesaj"
 msgid "Direct messages"
 msgstr "Doğrudan mesajlar"
 
-#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:279
 msgid "Disconnect"
 msgstr ""
 
@@ -1769,7 +1769,7 @@ msgstr "Katılma önizlemesi güncellenemedi. Lütfen tekrar dene."
 msgid "Failed to update profile"
 msgstr "Profil güncellenemedi"
 
-#: src/components/farcaster/FarcasterPage.tsx:196
+#: src/components/farcaster/FarcasterPage.tsx:254
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1778,7 +1778,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:393
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1878,7 +1878,8 @@ msgstr "Klasör adı gereklidir"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Klasör adı {MAX_NAME_LENGTH} karakter veya daha az olmalıdır"
 
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:297
 msgid "Following"
 msgstr ""
 
@@ -2033,7 +2034,7 @@ msgid "Import a backup instead"
 msgstr "Bir yedekleme içe aktar"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:226
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Hesabı içe aktar"
@@ -2259,13 +2260,13 @@ msgstr "Işık"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Bağlantı kopyalandı. Paylaşmak istediğin yere yapıştır."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Load more"
 msgstr "Daha fazla yükle"
 
@@ -2274,11 +2275,11 @@ msgstr "Daha fazla yükle"
 msgid "Loading bookmarks..."
 msgstr "Yer işaretleri yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:330
+#: src/components/farcaster/FarcasterPage.tsx:435
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:268
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2294,7 +2295,7 @@ msgstr "Bildirimler yükleniyor..."
 msgid "Loading pinned messages..."
 msgstr "Sabit mesajlar yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:418
 msgid "Loading profile..."
 msgstr ""
 
@@ -2302,7 +2303,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Herkese açık Alanlar yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:256
+#: src/components/farcaster/FarcasterPage.tsx:351
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Konu yükleniyor..."
@@ -2312,8 +2313,8 @@ msgid "Loading your profile..."
 msgstr "Profilinizi yüklüyoruz..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
@@ -2571,7 +2572,7 @@ msgstr "Aranan marcörlerle eşleşen sonuç bulunamadı."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Henüz marcör yok. Daha sonra başvurmak için mesajları marcörleyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:368
 msgid "No casts found."
 msgstr ""
 
@@ -2748,7 +2749,7 @@ msgstr "Çevrimiçi"
 msgid "Only space owners can generate public invite links."
 msgstr "Herkese açık davet bağlantılarını yalnızca Alan sahipleri oluşturabilir."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 msgid "Open"
 msgstr ""
 
@@ -2757,7 +2758,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "{0} aç"
 
-#: src/components/farcaster/FarcasterPage.tsx:207
+#: src/components/farcaster/FarcasterPage.tsx:265
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2904,7 +2905,11 @@ msgstr "Sabitleyen: {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Sabitlenmiş Mesajlar"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:312
+msgid "Popular:"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2975,7 +2980,7 @@ msgstr "Herkese açık profil"
 msgid "Public spaces"
 msgstr "Kamu alanları"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Publishing..."
 msgstr ""
 
@@ -2994,11 +2999,11 @@ msgstr "Quorum altyapısı şu anda dağıtılıyor. Lütfen sayfayı yenileyin 
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum, kimliğinize sahip olduğunuz merkezi olmayan bir mesajlaşma platformudur. E-posta veya telefon numarası olmadan - sadece sizin kontrol ettiğiniz güvenli bir anahtarla."
 
-#: src/components/context/RegistrationPersister.tsx:502
+#: src/components/context/RegistrationPersister.tsx:512
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum, tarayıcı odak dışındayken veya bir passkey isteği reddedildiğinde yüklendi. Mesajlarınıza erişmek için lütfen yeniden yetkilendirin."
 
-#: src/components/farcaster/FarcasterPage.tsx:125
+#: src/components/farcaster/FarcasterPage.tsx:175
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3035,7 +3040,7 @@ msgstr "Anahtarın okunuyor..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Gerçekten özel bir sohbete başlamaya hazır mısınız?"
 
-#: src/components/context/RegistrationPersister.tsx:517
+#: src/components/context/RegistrationPersister.tsx:527
 msgid "Reauthorize"
 msgstr "Yeniden Yetkilendir"
 
@@ -3047,7 +3052,7 @@ msgstr "geçersiz imzaya sahip yapılandırma alındı!"
 msgid "Recipient has no devices"
 msgstr "Alıcının cihazı yok"
 
-#: src/components/farcaster/FarcasterPage.tsx:266
+#: src/components/farcaster/FarcasterPage.tsx:361
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3093,12 +3098,12 @@ msgstr "Bu cihazı yeniden adlandır"
 msgid "Reopen"
 msgstr "Yeniden aç"
 
-#: src/components/context/RegistrationPersister.tsx:438
-#: src/components/context/RegistrationPersister.tsx:473
+#: src/components/context/RegistrationPersister.tsx:448
+#: src/components/context/RegistrationPersister.tsx:483
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:472
+#: src/components/context/RegistrationPersister.tsx:482
 msgid "Repairing…"
 msgstr ""
 
@@ -3107,7 +3112,7 @@ msgstr ""
 msgid "Replies"
 msgstr "Yanıtlar"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3214,7 +3219,7 @@ msgid "Restoring..."
 msgstr "Geri Yükleniyor..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:298
+#: src/components/farcaster/FarcasterPage.tsx:394
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Tekrar dene"
@@ -3344,7 +3349,7 @@ msgstr "Kullanıcı Adı veya Adres Ara"
 msgid "Search..."
 msgstr "Ara..."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Aranıyor..."
@@ -3421,7 +3426,7 @@ msgstr "DM ile gönder"
 msgid "Sending..."
 msgstr "Gönderiliyor..."
 
-#: src/components/context/RegistrationPersister.tsx:489
+#: src/components/context/RegistrationPersister.tsx:499
 msgid "Session Encrypted"
 msgstr "Oturum Şifreli"
 
@@ -3680,7 +3685,7 @@ msgstr "passkey kurulumu zaman aşımına uğradı. Tekrar deneyebilir veya pass
 #~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 #~ msgstr "Passkey kurulumu zaman aşımına uğradı. Tekrar deneyebilir veya Passkey olmadan devam edebilirsiniz (yine de güvenli, sadece cihaz donanım koruması olmadan)."
 
-#: src/components/context/RegistrationPersister.tsx:458
+#: src/components/context/RegistrationPersister.tsx:468
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
 
@@ -3922,8 +3927,9 @@ msgstr "Bugün"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Mesajda çok fazla etiket var. Maksimum {MAX_MENTIONS_PER_MESSAGE} izin verilmektedir."
 
-#: src/components/farcaster/FarcasterPage.tsx:130
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:181
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Trending"
 msgstr ""
 
@@ -4246,7 +4252,7 @@ msgstr "Hesap Anahtarı nedir?"
 msgid "What should we call you?"
 msgstr "Sizi nasıl çağırmalıyız?"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "What's happening?"
 msgstr ""
 
@@ -4331,7 +4337,7 @@ msgstr "Bunu neden yapmam gerekiyor?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Bu yedeğe sahip olmadan, cihazınıza erişim kaybettiğinizde hesabınızı da kaybedersiniz - 'şifremi unuttum' seçeneği yok. Bu, gizliliğin bedeli :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "Write a reply..."
 msgstr ""
 
@@ -4489,7 +4495,7 @@ msgstr "Hesap anahtarınız, hesabınızın sahipliğini kanıtlayan özel bir a
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Hesap anahtarınız, Quorum'daki benzersiz kimliktir. Sizin olduğunuzu kanıtlayan bir ana şifre gibidir - ancak otomatik olarak oluşturulur ve güvenli bir şekilde passkey'inizde saklanır."
 
-#: src/components/context/RegistrationPersister.tsx:451
+#: src/components/context/RegistrationPersister.tsx:461
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 

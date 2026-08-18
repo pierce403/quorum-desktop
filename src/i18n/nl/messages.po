@@ -606,7 +606,7 @@ msgstr "Automatisch sluiten na"
 msgid "Away"
 msgstr "Afwezig"
 
-#: src/components/farcaster/FarcasterPage.tsx:193
+#: src/components/farcaster/FarcasterPage.tsx:251
 msgid "Back"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgstr "Bladwijzers in deze Space"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Blader door openbare Spaces en vind een community om lid van te worden."
 
-#: src/components/farcaster/FarcasterPage.tsx:225
+#: src/components/farcaster/FarcasterPage.tsx:283
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -748,15 +748,15 @@ msgstr "Een groep met het standaardkanaal kan niet worden verwijderd."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Kan niet meer dan {0} bestanden tegelijk uploaden ({remaining} slots over)"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:176
+#: src/components/farcaster/FarcasterPage.tsx:233
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:255
+#: src/components/farcaster/FarcasterPage.tsx:350
 msgid "Cast thread"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Wijzigingen worden automatisch aangebracht, maar de actieve pagina is mogelijk niet bijgewerkt. Vernieuw de pagina om de nieuwe taal toe te passen."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Channel feed"
 msgstr ""
 
@@ -1325,7 +1325,7 @@ msgstr "Directe Berichten"
 msgid "Direct messages"
 msgstr "Directe berichten"
 
-#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:279
 msgid "Disconnect"
 msgstr ""
 
@@ -1769,7 +1769,7 @@ msgstr "Voorbeeld van deelname bijwerken mislukt. Probeer het opnieuw."
 msgid "Failed to update profile"
 msgstr "Het is niet gelukt om het profiel bij te werken"
 
-#: src/components/farcaster/FarcasterPage.tsx:196
+#: src/components/farcaster/FarcasterPage.tsx:254
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1778,7 +1778,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:393
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1878,7 +1878,8 @@ msgstr "Mapnaam is verplicht"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Mapnaam moet {MAX_NAME_LENGTH} tekens of minder zijn"
 
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:297
 msgid "Following"
 msgstr ""
 
@@ -2033,7 +2034,7 @@ msgid "Import a backup instead"
 msgstr "Importeer in plaats daarvan een backup"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:226
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Account importeren"
@@ -2259,13 +2260,13 @@ msgstr "Licht"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Link gekopieerd. Plak deze waar je hem wilt delen."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Load more"
 msgstr "Laad meer"
 
@@ -2274,11 +2275,11 @@ msgstr "Laad meer"
 msgid "Loading bookmarks..."
 msgstr "Bladwijzers laden..."
 
-#: src/components/farcaster/FarcasterPage.tsx:330
+#: src/components/farcaster/FarcasterPage.tsx:435
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:268
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2294,7 +2295,7 @@ msgstr "Meldingen laden..."
 msgid "Loading pinned messages..."
 msgstr "Vastgezette berichten laden..."
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:418
 msgid "Loading profile..."
 msgstr ""
 
@@ -2302,7 +2303,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Openbare Spaces laden..."
 
-#: src/components/farcaster/FarcasterPage.tsx:256
+#: src/components/farcaster/FarcasterPage.tsx:351
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Draad laden..."
@@ -2312,8 +2313,8 @@ msgid "Loading your profile..."
 msgstr "Je profiel wordt geladen..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Loading..."
 msgstr "Laden..."
 
@@ -2571,7 +2572,7 @@ msgstr "Geen markeerders die overeenkomen met je zoekopdracht."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Nog geen markeerders. Markeer berichten om ze later als referentie te bewaren."
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:368
 msgid "No casts found."
 msgstr ""
 
@@ -2748,7 +2749,7 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Alleen Space-eigenaren kunnen openbare uitnodigingslinks genereren."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 msgid "Open"
 msgstr ""
 
@@ -2757,7 +2758,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Open {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:207
+#: src/components/farcaster/FarcasterPage.tsx:265
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2904,7 +2905,11 @@ msgstr "Vastgezet door {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Vastgezette Berichten"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:312
+msgid "Popular:"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2975,7 +2980,7 @@ msgstr "Openbaar profiel"
 msgid "Public spaces"
 msgstr "Openbare ruimtes"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Publishing..."
 msgstr ""
 
@@ -2994,11 +2999,11 @@ msgstr "Quorum-infrastructuur wordt momenteel geïmplementeerd. Probeer het opni
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum is een gedecentraliseerd berichtenplatform waar jij je identiteit bezit. Geen e-mail, geen telefoonnummer - alleen een beveiligde sleutel die alleen jij beheert."
 
-#: src/components/context/RegistrationPersister.tsx:502
+#: src/components/context/RegistrationPersister.tsx:512
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum werd geladen terwijl de browser niet in focus was of een passkey-verzoek werd afgewezen. Autoriseer opnieuw om toegang te krijgen tot je berichten."
 
-#: src/components/farcaster/FarcasterPage.tsx:125
+#: src/components/farcaster/FarcasterPage.tsx:175
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3035,7 +3040,7 @@ msgstr "Je sleutel lezen..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Klaar om een echt privégesprek te beginnen?"
 
-#: src/components/context/RegistrationPersister.tsx:517
+#: src/components/context/RegistrationPersister.tsx:527
 msgid "Reauthorize"
 msgstr "Herautoriseer"
 
@@ -3047,7 +3052,7 @@ msgstr "ontvangen configuratie met ongeldige handtekening!"
 msgid "Recipient has no devices"
 msgstr "Ontvanger heeft geen apparaten"
 
-#: src/components/farcaster/FarcasterPage.tsx:266
+#: src/components/farcaster/FarcasterPage.tsx:361
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3093,12 +3098,12 @@ msgstr "Hernoem dit apparaat"
 msgid "Reopen"
 msgstr "Opnieuw openen"
 
-#: src/components/context/RegistrationPersister.tsx:438
-#: src/components/context/RegistrationPersister.tsx:473
+#: src/components/context/RegistrationPersister.tsx:448
+#: src/components/context/RegistrationPersister.tsx:483
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:472
+#: src/components/context/RegistrationPersister.tsx:482
 msgid "Repairing…"
 msgstr ""
 
@@ -3107,7 +3112,7 @@ msgstr ""
 msgid "Replies"
 msgstr "Antwoorden"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3214,7 +3219,7 @@ msgid "Restoring..."
 msgstr "Herstellen..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:298
+#: src/components/farcaster/FarcasterPage.tsx:394
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Opnieuw proberen"
@@ -3344,7 +3349,7 @@ msgstr "Zoek gebruikersnaam of adres"
 msgid "Search..."
 msgstr "Zoeken..."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Zoeken..."
@@ -3421,7 +3426,7 @@ msgstr "Verzenden via DM"
 msgid "Sending..."
 msgstr "Verzenden..."
 
-#: src/components/context/RegistrationPersister.tsx:489
+#: src/components/context/RegistrationPersister.tsx:499
 msgid "Session Encrypted"
 msgstr "Sessie Versleuteld"
 
@@ -3680,7 +3685,7 @@ msgstr "De passkey-instelling is verlopen. Je kunt het opnieuw proberen, of door
 #~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 #~ msgstr "De passkey-instelling is verlopen. Je kunt het opnieuw proberen, of verdergaan zonder Passkey (nog steeds veilig, maar zonder hardwarebescherming)."
 
-#: src/components/context/RegistrationPersister.tsx:458
+#: src/components/context/RegistrationPersister.tsx:468
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
 
@@ -3922,8 +3927,9 @@ msgstr "Vandaag"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Te veel vermeldingen in bericht. Maximaal {MAX_MENTIONS_PER_MESSAGE} toegestaan."
 
-#: src/components/farcaster/FarcasterPage.tsx:130
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:181
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Trending"
 msgstr ""
 
@@ -4246,7 +4252,7 @@ msgstr "Wat is de accountsleutel?"
 msgid "What should we call you?"
 msgstr "Hoe moeten we je noemen?"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "What's happening?"
 msgstr ""
 
@@ -4331,7 +4337,7 @@ msgstr "Waarom moet ik dit doen?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Zonder deze back-up betekent het verliezen van je apparaat het verliezen van je account - er is geen 'vergeten wachtwoord'-optie. Dit is de prijs die je betaalt voor privacy :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "Write a reply..."
 msgstr ""
 
@@ -4489,7 +4495,7 @@ msgstr "Je account key is een privésleutel die het eigendom van je account bewi
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Je accountsleutel is je unieke identiteit in Quorum. Het is als een masterwachtwoord dat bewijst dat je jij bent - maar het wordt automatisch gegenereerd en veilig opgeslagen in je passkey."
 
-#: src/components/context/RegistrationPersister.tsx:451
+#: src/components/context/RegistrationPersister.tsx:461
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 

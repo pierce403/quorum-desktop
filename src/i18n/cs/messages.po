@@ -605,7 +605,7 @@ msgstr "Automaticky zavřít po"
 msgid "Away"
 msgstr "Pracovní"
 
-#: src/components/farcaster/FarcasterPage.tsx:193
+#: src/components/farcaster/FarcasterPage.tsx:251
 msgid "Back"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr "Záložky v tomto Prostoru"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Procházejte veřejné Prostory a najděte komunitu, ke které se připojíte."
 
-#: src/components/farcaster/FarcasterPage.tsx:225
+#: src/components/farcaster/FarcasterPage.tsx:283
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -747,15 +747,15 @@ msgstr "Nelze smazat skupinu obsahující výchozí kanál."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Nelze nahrát více než {0} souborů najednou ({remaining} slotů zbývá)"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:176
+#: src/components/farcaster/FarcasterPage.tsx:233
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:255
+#: src/components/farcaster/FarcasterPage.tsx:350
 msgid "Cast thread"
 msgstr ""
 
@@ -763,7 +763,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Změny se provádějí automaticky, ale aktivní stránka nemusí být aktualizována. Obnov stránku, abys použil nový jazyk."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Channel feed"
 msgstr ""
 
@@ -1324,7 +1324,7 @@ msgstr "Přímá zpráva"
 msgid "Direct messages"
 msgstr "Přímé zprávy"
 
-#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:279
 msgid "Disconnect"
 msgstr ""
 
@@ -1768,7 +1768,7 @@ msgstr "Nepodařilo se aktualizovat náhled připojení. Zkuste to prosím znovu
 msgid "Failed to update profile"
 msgstr "Nepodařilo se aktualizovat profil"
 
-#: src/components/farcaster/FarcasterPage.tsx:196
+#: src/components/farcaster/FarcasterPage.tsx:254
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1777,7 +1777,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:393
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1877,7 +1877,8 @@ msgstr "Název složky je povinný"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Název složky musí mít maximálně {MAX_NAME_LENGTH} znaků"
 
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:297
 msgid "Following"
 msgstr ""
 
@@ -2032,7 +2033,7 @@ msgid "Import a backup instead"
 msgstr "Místo toho importuj zálohu"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:226
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Importovat účet"
@@ -2258,13 +2259,13 @@ msgstr "Světlo"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Odkaz zkopírován. Vložte jej tam, kam jej chcete sdílet."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Load more"
 msgstr "Načíst další"
 
@@ -2273,11 +2274,11 @@ msgstr "Načíst další"
 msgid "Loading bookmarks..."
 msgstr "Načítání záložek..."
 
-#: src/components/farcaster/FarcasterPage.tsx:330
+#: src/components/farcaster/FarcasterPage.tsx:435
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:268
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2293,7 +2294,7 @@ msgstr "Načítání oznámení..."
 msgid "Loading pinned messages..."
 msgstr "Načítání připnutých zpráv..."
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:418
 msgid "Loading profile..."
 msgstr ""
 
@@ -2301,7 +2302,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Načítání veřejných Prostorů..."
 
-#: src/components/farcaster/FarcasterPage.tsx:256
+#: src/components/farcaster/FarcasterPage.tsx:351
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Načítání vlákna..."
@@ -2311,8 +2312,8 @@ msgid "Loading your profile..."
 msgstr "Načítání vašeho profilu..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Loading..."
 msgstr "Načítání..."
 
@@ -2570,7 +2571,7 @@ msgstr "Nenalezeny žádné záložky odpovídající vašemu hledání."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Zatím žádné záložky. Založte si zprávy, abyste je mohli později použít jako odkaz."
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:368
 msgid "No casts found."
 msgstr ""
 
@@ -2747,7 +2748,7 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Veřejné odkazy na pozvánky mohou generovat pouze vlastníci Prostoru."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 msgid "Open"
 msgstr ""
 
@@ -2756,7 +2757,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Otevřít {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:207
+#: src/components/farcaster/FarcasterPage.tsx:265
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2903,7 +2904,11 @@ msgstr "Připnuto uživatelem {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Připnuté zprávy"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:312
+msgid "Popular:"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2974,7 +2979,7 @@ msgstr "Veřejný profil"
 msgid "Public spaces"
 msgstr "Veřejné prostory"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Publishing..."
 msgstr ""
 
@@ -2993,11 +2998,11 @@ msgstr "Infrastruktura Quorumu se právě nasazuje. Zkuste prosím obnovit strá
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum je decentralizovaná zprávovací platforma, kde vlastníte svou identitu. Bez e-mailu, bez telefonního čísla - pouze bezpečný klíč, který ovládáte pouze vy."
 
-#: src/components/context/RegistrationPersister.tsx:502
+#: src/components/context/RegistrationPersister.tsx:512
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum bylo načteno, zatímco prohlížeč nebyl v ohnisku nebo byla odmítnuta passkey request. Prosím, znovu autorizujte přístup k vašim zprávám."
 
-#: src/components/farcaster/FarcasterPage.tsx:125
+#: src/components/farcaster/FarcasterPage.tsx:175
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3034,7 +3039,7 @@ msgstr "Čtu váš klíč..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Připraveni začít skutečně soukromou konverzaci?"
 
-#: src/components/context/RegistrationPersister.tsx:517
+#: src/components/context/RegistrationPersister.tsx:527
 msgid "Reauthorize"
 msgstr "Znovu autorizovat"
 
@@ -3046,7 +3051,7 @@ msgstr "obdržena konfigurace s neplatným podpisem!"
 msgid "Recipient has no devices"
 msgstr "Příjemce nemá žádná zařízení"
 
-#: src/components/farcaster/FarcasterPage.tsx:266
+#: src/components/farcaster/FarcasterPage.tsx:361
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3092,12 +3097,12 @@ msgstr "Přejmenovat toto zařízení"
 msgid "Reopen"
 msgstr "Znovu otevřít"
 
-#: src/components/context/RegistrationPersister.tsx:438
-#: src/components/context/RegistrationPersister.tsx:473
+#: src/components/context/RegistrationPersister.tsx:448
+#: src/components/context/RegistrationPersister.tsx:483
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:472
+#: src/components/context/RegistrationPersister.tsx:482
 msgid "Repairing…"
 msgstr ""
 
@@ -3106,7 +3111,7 @@ msgstr ""
 msgid "Replies"
 msgstr "Odpovědi"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3213,7 +3218,7 @@ msgid "Restoring..."
 msgstr "Obnovuji..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:298
+#: src/components/farcaster/FarcasterPage.tsx:394
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Zkusit znovu"
@@ -3343,7 +3348,7 @@ msgstr "Hledat uživatelské jméno nebo adresu"
 msgid "Search..."
 msgstr "Hledat..."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Hledání..."
@@ -3420,7 +3425,7 @@ msgstr "Odeslat přes DM"
 msgid "Sending..."
 msgstr "Odesílání..."
 
-#: src/components/context/RegistrationPersister.tsx:489
+#: src/components/context/RegistrationPersister.tsx:499
 msgid "Session Encrypted"
 msgstr "Relace zašifrována"
 
@@ -3679,7 +3684,7 @@ msgstr "Nastavení passkey vypršelo. Můžete to zkusit znovu, nebo pokračovat
 #~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 #~ msgstr "Nastavení passkey vypršelo. Můžete to zkusit znovu, nebo pokračovat bez passkey (stále bezpečné, jen bez hardwarové ochrany zařízení)."
 
-#: src/components/context/RegistrationPersister.tsx:458
+#: src/components/context/RegistrationPersister.tsx:468
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
 
@@ -3921,8 +3926,9 @@ msgstr "Dnes"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Příliš mnoho zmínek v zprávě. Maximálně {MAX_MENTIONS_PER_MESSAGE} povoleno."
 
-#: src/components/farcaster/FarcasterPage.tsx:130
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:181
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Trending"
 msgstr ""
 
@@ -4245,7 +4251,7 @@ msgstr "Co je to účtový klíč?"
 msgid "What should we call you?"
 msgstr "Jak vás máme oslovovat?"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "What's happening?"
 msgstr ""
 
@@ -4330,7 +4336,7 @@ msgstr "Proč to musím dělat?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Bez této zálohy ztráta zařízení znamená ztrátu účtu - není žádná možnost \"zapomenuté heslo\". Tohle je cena, kterou platíte za soukromí :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "Write a reply..."
 msgstr ""
 
@@ -4488,7 +4494,7 @@ msgstr "Váš klíč účtu je soukromý klíč, který prokazuje vlastnictví v
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Klíč vašeho účtu je vaše jedinečná identita v Quorum. Je to jako hlavní heslo, které prokazuje, že jste to vy – ale je generováno automaticky a bezpečně uloženo ve vašem passkey."
 
-#: src/components/context/RegistrationPersister.tsx:451
+#: src/components/context/RegistrationPersister.tsx:461
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 

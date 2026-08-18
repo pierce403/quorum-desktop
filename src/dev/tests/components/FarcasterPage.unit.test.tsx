@@ -82,4 +82,17 @@ describe('FarcasterPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Back' }));
     expect(screen.getByText('Trending')).toBeInTheDocument();
   });
+
+  it('navigates to channel when clicking a popular channel chip', async () => {
+    renderFarcasterPage();
+
+    const baseChip = screen.getByRole('button', { name: '/base' });
+    fireEvent.click(baseChip);
+
+    expect(screen.getByText('/base')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Back' })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Back' }));
+    expect(screen.getByText('Trending')).toBeInTheDocument();
+  });
 });

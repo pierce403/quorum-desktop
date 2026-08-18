@@ -605,7 +605,7 @@ msgstr "自動關閉於"
 msgid "Away"
 msgstr "離開"
 
-#: src/components/farcaster/FarcasterPage.tsx:193
+#: src/components/farcaster/FarcasterPage.tsx:251
 msgid "Back"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr "此空間中的書籤"
 msgid "Browse public Spaces and find a community to join."
 msgstr "瀏覽公開空間並找到一個社群加入。"
 
-#: src/components/farcaster/FarcasterPage.tsx:225
+#: src/components/farcaster/FarcasterPage.tsx:283
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -747,15 +747,15 @@ msgstr "無法刪除包含預設頻道的群組。"
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "一次不能上傳超過 {0} 個檔案（剩餘 {remaining} 個名額）"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:176
+#: src/components/farcaster/FarcasterPage.tsx:233
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:255
+#: src/components/farcaster/FarcasterPage.tsx:350
 msgid "Cast thread"
 msgstr ""
 
@@ -763,7 +763,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "變更會自動進行，但當前頁面可能未更新。請刷新頁面以應用新語言。"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Channel feed"
 msgstr ""
 
@@ -1324,7 +1324,7 @@ msgstr "私訊"
 msgid "Direct messages"
 msgstr "私訊"
 
-#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:279
 msgid "Disconnect"
 msgstr ""
 
@@ -1768,7 +1768,7 @@ msgstr "更新加入預覽失敗。請再試一次。"
 msgid "Failed to update profile"
 msgstr "更新個人資料失敗"
 
-#: src/components/farcaster/FarcasterPage.tsx:196
+#: src/components/farcaster/FarcasterPage.tsx:254
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1777,7 +1777,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:393
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1877,7 +1877,8 @@ msgstr "資料夾名稱為必填項"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "資料夾名稱必須少於 {MAX_NAME_LENGTH} 個字元"
 
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:297
 msgid "Following"
 msgstr ""
 
@@ -2032,7 +2033,7 @@ msgid "Import a backup instead"
 msgstr "改為匯入備份"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:226
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "匯入帳戶"
@@ -2258,13 +2259,13 @@ msgstr "光"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "連結已複製。將其貼到您要分享的地方。"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Load more"
 msgstr "載入更多"
 
@@ -2273,11 +2274,11 @@ msgstr "載入更多"
 msgid "Loading bookmarks..."
 msgstr "正在載入書籤..."
 
-#: src/components/farcaster/FarcasterPage.tsx:330
+#: src/components/farcaster/FarcasterPage.tsx:435
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:268
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2293,7 +2294,7 @@ msgstr "正在載入通知..."
 msgid "Loading pinned messages..."
 msgstr "正在載入已固定訊息..."
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:418
 msgid "Loading profile..."
 msgstr ""
 
@@ -2301,7 +2302,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "正在載入公開空間..."
 
-#: src/components/farcaster/FarcasterPage.tsx:256
+#: src/components/farcaster/FarcasterPage.tsx:351
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "載入串聯中..."
@@ -2311,8 +2312,8 @@ msgid "Loading your profile..."
 msgstr "正在載入您的個人資料..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -2570,7 +2571,7 @@ msgstr "沒有書籤符合您的搜尋。"
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "還沒有書籤。將訊息標記為書籤以備後用。"
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:368
 msgid "No casts found."
 msgstr ""
 
@@ -2747,7 +2748,7 @@ msgstr "在線"
 msgid "Only space owners can generate public invite links."
 msgstr "只有空間擁有者才能產生公開邀請連結。"
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 msgid "Open"
 msgstr ""
 
@@ -2756,7 +2757,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "開啟 {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:207
+#: src/components/farcaster/FarcasterPage.tsx:265
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2903,7 +2904,11 @@ msgstr "由 {pinnedByName} 釘選"
 msgid "Pinned Messages"
 msgstr "固定訊息"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:312
+msgid "Popular:"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2974,7 +2979,7 @@ msgstr "公開個人資料"
 msgid "Public spaces"
 msgstr "公開空間"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Publishing..."
 msgstr ""
 
@@ -2993,11 +2998,11 @@ msgstr "Quorum 基礎設施正在部署中。請嘗試刷新，並查看 <0>stat
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum 是一個去中心化的訊息平台，您擁有自己的身份。無需電子郵件或電話號碼，只需一個只有您控制的安全密鑰。"
 
-#: src/components/context/RegistrationPersister.tsx:502
+#: src/components/context/RegistrationPersister.tsx:512
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum 在瀏覽器未聚焦或passkey請求被拒絕時載入。請重新授權以存取您的訊息。"
 
-#: src/components/farcaster/FarcasterPage.tsx:125
+#: src/components/farcaster/FarcasterPage.tsx:175
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3034,7 +3039,7 @@ msgstr "正在讀取您的金鑰..."
 msgid "Ready to start a truly private conversation?"
 msgstr "準備開始一個真正私密的對話了嗎？"
 
-#: src/components/context/RegistrationPersister.tsx:517
+#: src/components/context/RegistrationPersister.tsx:527
 msgid "Reauthorize"
 msgstr "重新授權"
 
@@ -3046,7 +3051,7 @@ msgstr "收到無效簽名的配置！"
 msgid "Recipient has no devices"
 msgstr "收件人沒有設備"
 
-#: src/components/farcaster/FarcasterPage.tsx:266
+#: src/components/farcaster/FarcasterPage.tsx:361
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3092,12 +3097,12 @@ msgstr "重新命名此裝置"
 msgid "Reopen"
 msgstr "重新開啟"
 
-#: src/components/context/RegistrationPersister.tsx:438
-#: src/components/context/RegistrationPersister.tsx:473
+#: src/components/context/RegistrationPersister.tsx:448
+#: src/components/context/RegistrationPersister.tsx:483
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:472
+#: src/components/context/RegistrationPersister.tsx:482
 msgid "Repairing…"
 msgstr ""
 
@@ -3106,7 +3111,7 @@ msgstr ""
 msgid "Replies"
 msgstr "回覆"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3213,7 +3218,7 @@ msgid "Restoring..."
 msgstr "正在恢復..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:298
+#: src/components/farcaster/FarcasterPage.tsx:394
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "重試"
@@ -3343,7 +3348,7 @@ msgstr "搜尋用戶名或地址"
 msgid "Search..."
 msgstr "搜索..."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "搜尋中..."
@@ -3420,7 +3425,7 @@ msgstr "透過私訊發送"
 msgid "Sending..."
 msgstr "發送中..."
 
-#: src/components/context/RegistrationPersister.tsx:489
+#: src/components/context/RegistrationPersister.tsx:499
 msgid "Session Encrypted"
 msgstr "會話加密"
 
@@ -3679,7 +3684,7 @@ msgstr "passkey 設定逾時。您可以再試一次，或不使用 passkey 繼�
 #~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 #~ msgstr "passkey設定逾時。您可以再試一次，或者繼續不使用passkey（仍然安全，只是沒有設備硬件保護）。"
 
-#: src/components/context/RegistrationPersister.tsx:458
+#: src/components/context/RegistrationPersister.tsx:468
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
 
@@ -3921,8 +3926,9 @@ msgstr "今天"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "訊息中提及過多。最多允許 {MAX_MENTIONS_PER_MESSAGE} 個。"
 
-#: src/components/farcaster/FarcasterPage.tsx:130
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:181
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Trending"
 msgstr ""
 
@@ -4245,7 +4251,7 @@ msgstr "什麼是帳戶密鑰？"
 msgid "What should we call you?"
 msgstr "我們應該怎麼稱呼您？"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "What's happening?"
 msgstr ""
 
@@ -4330,7 +4336,7 @@ msgstr "為什麼我需要做這件事？"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "沒有這個備份，丟失設備就意味著丟失帳戶——沒有“忘記密碼”選項。這是隱私的代價:-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "Write a reply..."
 msgstr ""
 
@@ -4488,7 +4494,7 @@ msgstr "您的帳戶金鑰是證明您帳戶所有權的私鑰。您可以將其
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "您的帳戶密鑰是您在 Quorum 中的唯一身份。它就像一個主密碼，證明您就是您——但它是由系統自動生成並安全存儲在您的 passkey 中。"
 
-#: src/components/context/RegistrationPersister.tsx:451
+#: src/components/context/RegistrationPersister.tsx:461
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 

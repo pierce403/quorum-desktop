@@ -606,7 +606,7 @@ msgstr "Lukk automatisk etter"
 msgid "Away"
 msgstr "Borte"
 
-#: src/components/farcaster/FarcasterPage.tsx:193
+#: src/components/farcaster/FarcasterPage.tsx:251
 msgid "Back"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgstr "Bokmerker i denne Spacen"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Bla gjennom offentlige Spaces og finn et fellesskap å bli med i."
 
-#: src/components/farcaster/FarcasterPage.tsx:225
+#: src/components/farcaster/FarcasterPage.tsx:283
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -748,15 +748,15 @@ msgstr "Kan ikke slette en gruppe som inneholder standardkanalen."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Kan ikke laste opp mer enn {0} filer om gangen ({remaining} plasser igjen)"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:176
+#: src/components/farcaster/FarcasterPage.tsx:233
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:255
+#: src/components/farcaster/FarcasterPage.tsx:350
 msgid "Cast thread"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Endringer gjøres automatisk, men den aktive siden kan hende ikke er oppdatert. Oppdater siden for å bruke det nye språket."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Channel feed"
 msgstr ""
 
@@ -1325,7 +1325,7 @@ msgstr "Direkte melding"
 msgid "Direct messages"
 msgstr "Direkte meldinger"
 
-#: src/components/farcaster/FarcasterPage.tsx:221
+#: src/components/farcaster/FarcasterPage.tsx:279
 msgid "Disconnect"
 msgstr ""
 
@@ -1769,7 +1769,7 @@ msgstr "Kunne ikke oppdatere forhåndsvisning av deltakelse. Vennligst prøv igj
 msgid "Failed to update profile"
 msgstr "Feil ved oppdatering av profil"
 
-#: src/components/farcaster/FarcasterPage.tsx:196
+#: src/components/farcaster/FarcasterPage.tsx:254
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1778,7 +1778,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:393
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1878,7 +1878,8 @@ msgstr "Mappenavn er påkrevd"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Mappenavn må være {MAX_NAME_LENGTH} tegn eller færre"
 
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:297
 msgid "Following"
 msgstr ""
 
@@ -2033,7 +2034,7 @@ msgid "Import a backup instead"
 msgstr "Importer en backup i stedet"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:226
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Importer konto"
@@ -2259,13 +2260,13 @@ msgstr "Lys"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Lenke kopiert. Lim den inn der du vil dele den."
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Load more"
 msgstr "Last inn mer"
 
@@ -2274,11 +2275,11 @@ msgstr "Last inn mer"
 msgid "Loading bookmarks..."
 msgstr "Laster bokmerker..."
 
-#: src/components/farcaster/FarcasterPage.tsx:330
+#: src/components/farcaster/FarcasterPage.tsx:435
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:268
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2294,7 +2295,7 @@ msgstr "Laster inn varsler..."
 msgid "Loading pinned messages..."
 msgstr "Laster festede meldinger..."
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:418
 msgid "Loading profile..."
 msgstr ""
 
@@ -2302,7 +2303,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Laster offentlige Spaces..."
 
-#: src/components/farcaster/FarcasterPage.tsx:256
+#: src/components/farcaster/FarcasterPage.tsx:351
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Laster tråd..."
@@ -2312,8 +2313,8 @@ msgid "Loading your profile..."
 msgstr "Laster profilen din..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:279
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:375
+#: src/components/farcaster/FarcasterPage.tsx:441
 msgid "Loading..."
 msgstr "Laster..."
 
@@ -2571,7 +2572,7 @@ msgstr "Ingen marke matcher søket ditt."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Ingen marke ennå. Marke meldinger for å lagre dem for senere referanse."
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:368
 msgid "No casts found."
 msgstr ""
 
@@ -2748,7 +2749,7 @@ msgstr "På nett"
 msgid "Only space owners can generate public invite links."
 msgstr "Bare Space-eiere kan generere offentlige invitasjonslenker."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 msgid "Open"
 msgstr ""
 
@@ -2757,7 +2758,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Åpne {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:207
+#: src/components/farcaster/FarcasterPage.tsx:265
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2904,7 +2905,11 @@ msgstr "Festet av {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Festede meldinger"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:312
+msgid "Popular:"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:360
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2975,7 +2980,7 @@ msgstr "Offentlig profil"
 msgid "Public spaces"
 msgstr "Offentlige rom"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 msgid "Publishing..."
 msgstr ""
 
@@ -2994,11 +2999,11 @@ msgstr "Quorum-infrastrukturen settes opp akkurat nå. Vennligst prøv å oppdat
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum er et desentralisert meldingsplattform hvor du eier identiteten din. Ingen e-post, ingen telefonnummer - bare en sikker nøkkel som bare du kontrollerer."
 
-#: src/components/context/RegistrationPersister.tsx:502
+#: src/components/context/RegistrationPersister.tsx:512
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum ble lastet inn mens nettleseren ikke var i fokus eller en passkey-forespørsel ble avvist. Vennligst reautoriser for å få tilgang til meldingene dine."
 
-#: src/components/farcaster/FarcasterPage.tsx:125
+#: src/components/farcaster/FarcasterPage.tsx:175
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3035,7 +3040,7 @@ msgstr "Leser nøkkelen din..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Klar til å starte en virkelig privat samtale?"
 
-#: src/components/context/RegistrationPersister.tsx:517
+#: src/components/context/RegistrationPersister.tsx:527
 msgid "Reauthorize"
 msgstr "Reautoriser"
 
@@ -3047,7 +3052,7 @@ msgstr "mottatt konfigurasjon med ugyldig signatur!"
 msgid "Recipient has no devices"
 msgstr "Mottaker har ingen enheter"
 
-#: src/components/farcaster/FarcasterPage.tsx:266
+#: src/components/farcaster/FarcasterPage.tsx:361
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3093,12 +3098,12 @@ msgstr "Gi denne enheten et nytt navn"
 msgid "Reopen"
 msgstr "Åpne opp igjen"
 
-#: src/components/context/RegistrationPersister.tsx:438
-#: src/components/context/RegistrationPersister.tsx:473
+#: src/components/context/RegistrationPersister.tsx:448
+#: src/components/context/RegistrationPersister.tsx:483
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:472
+#: src/components/context/RegistrationPersister.tsx:482
 msgid "Repairing…"
 msgstr ""
 
@@ -3107,7 +3112,7 @@ msgstr ""
 msgid "Replies"
 msgstr "Svar"
 
-#: src/components/farcaster/FarcasterPage.tsx:246
+#: src/components/farcaster/FarcasterPage.tsx:341
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3214,7 +3219,7 @@ msgid "Restoring..."
 msgstr "Gjenoppretter..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:298
+#: src/components/farcaster/FarcasterPage.tsx:394
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Prøv igjen"
@@ -3344,7 +3349,7 @@ msgstr "Søk etter brukernavn eller adresse"
 msgid "Search..."
 msgstr "Søk..."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:270
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Søker..."
@@ -3421,7 +3426,7 @@ msgstr "Send via direktemelding"
 msgid "Sending..."
 msgstr "Sender..."
 
-#: src/components/context/RegistrationPersister.tsx:489
+#: src/components/context/RegistrationPersister.tsx:499
 msgid "Session Encrypted"
 msgstr "Økt kryptert"
 
@@ -3680,7 +3685,7 @@ msgstr "passkey-oppsettet ble tidsavbrutt. Du kan prøve igjen, eller fortsette 
 #~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 #~ msgstr "Passkey-oppsettet ble tidsavbrutt. Du kan prøve igjen, eller fortsette uten passkey (fortsatt sikkert, bare uten enhetsbasert maskinvarebeskyttelse)."
 
-#: src/components/context/RegistrationPersister.tsx:458
+#: src/components/context/RegistrationPersister.tsx:468
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
 
@@ -3922,8 +3927,9 @@ msgstr "I dag"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "For mange omtaler i meldingen. Maksimum {MAX_MENTIONS_PER_MESSAGE} tillatt."
 
-#: src/components/farcaster/FarcasterPage.tsx:130
-#: src/components/farcaster/FarcasterPage.tsx:151
+#: src/components/farcaster/FarcasterPage.tsx:181
+#: src/components/farcaster/FarcasterPage.tsx:201
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Trending"
 msgstr ""
 
@@ -4246,7 +4252,7 @@ msgstr "Hva er Kontonøkkelen?"
 msgid "What should we call you?"
 msgstr "Hva skal vi kalle deg?"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "What's happening?"
 msgstr ""
 
@@ -4331,7 +4337,7 @@ msgstr "Hvorfor må jeg gjøre dette?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Uten denne sikkerhetskopien betyr det å miste enheten din at du også mister kontoen din - det finnes ingen 'glemte passord' alternativ. Dette er prisen du betaler for privatliv. :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:237
+#: src/components/farcaster/FarcasterPage.tsx:332
 msgid "Write a reply..."
 msgstr ""
 
@@ -4489,7 +4495,7 @@ msgstr "Din kontonøkkel er en privat nøkkel som beviser eierskap til kontoen d
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Din kontonøkkel er din unike identitet i Quorum. Det er som et hovedpassord som beviser at du er deg - men det genereres automatisk og lagres sikkert i din passkey."
 
-#: src/components/context/RegistrationPersister.tsx:451
+#: src/components/context/RegistrationPersister.tsx:461
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 
