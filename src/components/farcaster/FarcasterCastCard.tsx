@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { t } from '@lingui/core/macro';
+import Hls from 'hls.js';
 import { Button, Icon } from '../primitives';
 import {
   useFarcasterCast,
@@ -37,8 +38,60 @@ function openExternal(url: string) {
 }
 
 function isImageUrl(url: string): boolean {
-  return /\.(?:avif|gif|jpe?g|png|webp)(?:$|[?#])/i.test(url) || /imagedelivery\.net|i\.imgur\.com/i.test(url);
+  return (
+    /\.(?:avif|gif|jpe?g|png|webp)(?:$|[?#])/i.test(url) ||
+    /imagedelivery\.net|i\.imgur\.com/i.test(url)
+  );
 }
+
+function isVideoUrl(url: string): boolean {
+  return (
+    /\.(?:mp4|webm|mov|m4v|m3u8)(?:$|[?#])/i.test(url) ||
+    /stream\.farcaster\.xyz|cloudflarestream\.com|livepeer\.studio/i.test(url)
+  );
+}
+
+const FarcasterVideoPlayer: React.FC<{
+  src: string;
+  poster?: string;
+}> = ({ src, poster }) => {
+  const videoRef = React.useRef<HTMLVideoElement | null>(null);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const isHls = src.includes('.m3u8') || src.includes('stream.farcaster.xyz');
+
+    if (isHls && Hls.isSupported()) {
+      const hls = new Hls({
+        enableWorker: true,
+        lowLatencyMode: true,
+      });
+      hls.loadSource(src);
+      hls.attachMedia(video);
+      return () => {
+        hls.destroy();
+      };
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = src;
+    } else {
+      video.src = src;
+    }
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      className="farcaster-cast__video"
+      controls
+      preload="metadata"
+      poster={poster}
+      playsInline
+      onClick={(e) => e.stopPropagation()}
+    />
+  );
+};
 
 const QuotedCastCard: React.FC<{
   castId?: { fid: number; hash: string };
@@ -108,7 +161,7 @@ const CastEmbed: React.FC<{
   onOpenProfile: (fid: number) => void;
 }> = ({ embed, onOpenThread, onOpenProfile }) => {
   const imageUrl = embed.image?.url ?? (embed.url && isImageUrl(embed.url) ? embed.url : undefined);
-  const videoUrl = embed.video?.url;
+  const videoUrl = embed.video?.url ?? (embed.url && isVideoUrl(embed.url) ? embed.url : undefined);
   const linkUrl = embed.openGraph?.sourceUrl ?? embed.url;
 
   if (imageUrl) {
@@ -119,7 +172,7 @@ const CastEmbed: React.FC<{
     );
   }
   if (videoUrl) {
-    return <video className="farcaster-cast__video" controls preload="metadata" poster={embed.video?.thumbnailUrl} src={videoUrl} />;
+    return <FarcasterVideoPlayer src={videoUrl} poster={embed.video?.thumbnailUrl} />;
   }
   if (embed.castId) {
     return (

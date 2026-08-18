@@ -446,6 +446,9 @@ const ProfileView: React.FC<{
   const activeQuery = tab === 'replies' ? profile.replies : profile.casts;
   const rawCasts = activeQuery.data?.pages.flatMap((page) => page.casts) ?? [];
   const casts = React.useMemo(() => {
+    if (tab === 'casts') {
+      return rawCasts.filter((c) => !c.parentHash && !c.parentAuthor);
+    }
     if (tab === 'media') {
       return rawCasts.filter((c) =>
         c.embeds.some(
@@ -453,7 +456,15 @@ const ProfileView: React.FC<{
             Boolean(
               e.image ||
                 e.video ||
-                (e.url && /\.(?:avif|gif|jpe?g|png|webp)(?:$|[?#])/i.test(e.url))
+                (e.url &&
+                  /\.(?:avif|gif|jpe?g|png|webp|mp4|webm|mov|m4v|m3u8)(?:$|[?#])/i.test(
+                    e.url
+                  )) ||
+                (e.url &&
+                  (e.url.includes('stream.farcaster.xyz') ||
+                    e.url.includes('imagedelivery.net') ||
+                    e.url.includes('cloudflarestream.com') ||
+                    e.url.includes('livepeer.studio')))
             )
         )
       );
