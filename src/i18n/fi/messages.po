@@ -606,12 +606,12 @@ msgstr "Sulje automaattisesti"
 msgid "Away"
 msgstr "Poissa"
 
-#: src/components/farcaster/FarcasterPage.tsx:282
-#: src/components/farcaster/FarcasterPage.tsx:713
+#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:727
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:710
+#: src/components/farcaster/FarcasterPage.tsx:724
 msgid "Back to feed"
 msgstr ""
 
@@ -703,7 +703,7 @@ msgstr "Kirjanmerkit tässä Spacessa"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Selaa julkisia Spaces-tiloja ja löydä yhteisö, johon liittyä."
 
-#: src/components/farcaster/FarcasterPage.tsx:314
+#: src/components/farcaster/FarcasterPage.tsx:317
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -719,7 +719,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "Ei voi synkronoida: tällä laitteella ei ole avainta."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:606
+#: src/components/farcaster/FarcasterPage.tsx:620
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -744,7 +744,7 @@ msgstr "Peruuta"
 msgid "CANCEL"
 msgstr "PERUUTA"
 
-#: src/components/farcaster/FarcasterPage.tsx:578
+#: src/components/farcaster/FarcasterPage.tsx:592
 msgid "Cancel reply"
 msgstr ""
 
@@ -758,23 +758,23 @@ msgstr "Ryhmää, jossa on oletuskanava, ei voi poistaa."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Ei voi ladata yli {0} tiedostoa kerralla ({remaining} paikkaa jäljellä)"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:264
+#: src/components/farcaster/FarcasterPage.tsx:267
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:704
+#: src/components/farcaster/FarcasterPage.tsx:718
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:499
+#: src/components/farcaster/FarcasterPage.tsx:513
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:506
+#: src/components/farcaster/FarcasterPage.tsx:520
 msgid "Casts & Replies"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Muutokset tehdään automaattisesti, mutta aktiivista sivua ei ehkä päivitetä. Päivitä sivu ottaaksesi uuden kielen käyttöön."
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Channel feed"
 msgstr ""
 
@@ -1343,7 +1343,7 @@ msgstr "Suora viesti"
 msgid "Direct messages"
 msgstr "Suorat viestit"
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:313
 msgid "Disconnect"
 msgstr ""
 
@@ -1761,7 +1761,7 @@ msgstr "Spacen asetusten tallentaminen epäonnistui"
 msgid "Failed to send invite. Please try again."
 msgstr "Kutsun lähettäminen epäonnistui. Yritä uudelleen."
 
-#: src/components/farcaster/FarcasterPage.tsx:560
+#: src/components/farcaster/FarcasterPage.tsx:574
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1791,7 +1791,7 @@ msgstr "Liittymisen esikatselun päivittäminen epäonnistui. Yritä uudelleen."
 msgid "Failed to update profile"
 msgstr "Profiilin päivittäminen epäonnistui"
 
-#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:288
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1800,7 +1800,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:428
+#: src/components/farcaster/FarcasterPage.tsx:431
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1904,13 +1904,13 @@ msgstr "Kansion nimen on oltava {MAX_NAME_LENGTH} merkkiä tai vähemmän"
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:488
+#: src/components/farcaster/FarcasterPage.tsx:502
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:328
-#: src/components/farcaster/FarcasterPage.tsx:487
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:331
+#: src/components/farcaster/FarcasterPage.tsx:501
 msgid "Following"
 msgstr ""
 
@@ -2065,7 +2065,7 @@ msgid "Import a backup instead"
 msgstr "Tuo varmuuskopio sen sijaan"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:315
+#: src/components/farcaster/FarcasterPage.tsx:318
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Tuo tili"
@@ -2094,7 +2094,7 @@ msgstr ""
 msgid "Importing..."
 msgstr "Tuodaan..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:340
+#: src/components/farcaster/FarcasterCastCard.tsx:462
 msgid "in"
 msgstr ""
 
@@ -2295,13 +2295,13 @@ msgstr "Vaalea"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Linkki kopioitu. Liitä se sinne, missä haluat jakaa sen."
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Load more"
 msgstr "Lataa lisää"
 
@@ -2310,11 +2310,11 @@ msgstr "Lataa lisää"
 msgid "Loading bookmarks..."
 msgstr "Ladataan kirjanmerkkejä..."
 
-#: src/components/farcaster/FarcasterPage.tsx:517
+#: src/components/farcaster/FarcasterPage.tsx:531
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:401
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2330,7 +2330,7 @@ msgstr "Ladataan ilmoituksia..."
 msgid "Loading pinned messages..."
 msgstr "Ladataan kiinnitettyjä viestejä..."
 
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:487
 msgid "Loading profile..."
 msgstr ""
 
@@ -2338,7 +2338,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Ladataan julkisia Spaces-tiloja..."
 
-#: src/components/farcaster/FarcasterPage.tsx:725
+#: src/components/farcaster/FarcasterPage.tsx:739
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Ladataan ketjua..."
@@ -2348,8 +2348,8 @@ msgid "Loading your profile..."
 msgstr "Ladataan profiiliasi..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Loading..."
 msgstr "Ladataan..."
 
@@ -2421,7 +2421,7 @@ msgstr "Merkitäänkö kaikki luetuiksi?"
 msgid "Mark all read"
 msgstr "Merkitse kaikki luetuiksi"
 
-#: src/components/farcaster/FarcasterPage.tsx:513
+#: src/components/farcaster/FarcasterPage.tsx:527
 msgid "Media"
 msgstr ""
 
@@ -2611,8 +2611,8 @@ msgstr "Ei kirjanmerkkejä vastaa hakusi."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Ei kirjanmerkkejä vielä. Lisää kirjanmerkkejä viesteihin tallentamaan ne myöhemmin."
 
-#: src/components/farcaster/FarcasterPage.tsx:403
-#: src/components/farcaster/FarcasterPage.tsx:522
+#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:536
 msgid "No casts found."
 msgstr ""
 
@@ -2789,7 +2789,7 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Vain Spacen omistajat voivat luoda julkisia kutsulinkkejä."
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Open"
 msgstr ""
 
@@ -2798,7 +2798,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Avaa {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:296
+#: src/components/farcaster/FarcasterPage.tsx:299
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2926,7 +2926,7 @@ msgstr "Kiinnitä viestit"
 msgid "Pin/Unpin without confirmation"
 msgstr "Kiinnitä/poista kiinnitys ilman vahvistusta"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:295
+#: src/components/farcaster/FarcasterCastCard.tsx:417
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -2946,11 +2946,11 @@ msgstr "Kiinnittänyt {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Kiinnitetyt viestit"
 
-#: src/components/farcaster/FarcasterPage.tsx:343
+#: src/components/farcaster/FarcasterPage.tsx:346
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3021,7 +3021,7 @@ msgstr "Julkinen profiili"
 msgid "Public spaces"
 msgstr "Julkinen tilat"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Publishing..."
 msgstr ""
 
@@ -3044,7 +3044,7 @@ msgstr "Quorum on hajautettu viestintäalusta, jossa omaat identiteettisi. Ei s�
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum ladattiin, kun selain ei ollut keskittyneenä tai passkey-pyyntö hylättiin. Ole hyvä ja valtuuta uudelleen päästäksesi viesteihisi."
 
-#: src/components/farcaster/FarcasterPage.tsx:206
+#: src/components/farcaster/FarcasterPage.tsx:208
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3093,13 +3093,13 @@ msgstr "vastaanotettu konfiguraatio, jossa on virheellinen allekirjoitus!"
 msgid "Recipient has no devices"
 msgstr "Vastaanottajalla ei ole laitteita"
 
-#: src/components/farcaster/FarcasterPage.tsx:396
+#: src/components/farcaster/FarcasterPage.tsx:399
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Päivitä"
 
-#: src/components/farcaster/FarcasterPage.tsx:720
+#: src/components/farcaster/FarcasterPage.tsx:734
 msgid "Refresh thread"
 msgstr ""
 
@@ -3157,7 +3157,8 @@ msgstr ""
 msgid "Replies"
 msgstr "Vastaukset"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterCastCard.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:629
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3168,15 +3169,15 @@ msgstr "Vastaa"
 msgid "Reply in thread..."
 msgstr "Vastaa ketjussa..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:300
-#: src/components/farcaster/FarcasterPage.tsx:568
+#: src/components/farcaster/FarcasterCastCard.tsx:422
+#: src/components/farcaster/FarcasterPage.tsx:582
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "Vastaamassa {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterPage.tsx:629
 msgid "Replying..."
 msgstr ""
 
@@ -3273,7 +3274,7 @@ msgid "Restoring..."
 msgstr "Palautetaan..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:429
+#: src/components/farcaster/FarcasterPage.tsx:432
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Yritä uudelleen"
@@ -3403,7 +3404,7 @@ msgstr "Hae käyttäjänimeä tai osoitetta"
 msgid "Search..."
 msgstr "Hae..."
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Etsitään..."
@@ -3926,11 +3927,11 @@ msgstr ""
 "\n"
 "Käytä tätä, jos viestien lähettäminen tai purkaminen epäonnistuu."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:321
+#: src/components/farcaster/FarcasterCastCard.tsx:443
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:715
+#: src/components/farcaster/FarcasterPage.tsx:729
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3986,9 +3987,9 @@ msgstr "Tänään"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Liian monta mainintaa viestissä. Enintään {MAX_MENTIONS_PER_MESSAGE} sallittu."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:215
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:338
 msgid "Trending"
 msgstr ""
 
@@ -4311,7 +4312,7 @@ msgstr "Mikä on tilin avain?"
 msgid "What should we call you?"
 msgstr "Millä nimellä sinua kutsutaan?"
 
-#: src/components/farcaster/FarcasterPage.tsx:363
+#: src/components/farcaster/FarcasterPage.tsx:366
 msgid "What's happening?"
 msgstr ""
 
@@ -4396,7 +4397,7 @@ msgstr "Miksi minun täytyy tehdä tämä?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Ilman tätä varmuuskopiota laitteen menettäminen tarkoittaa tilin menettämisen - ei ole 'unohdin salasanani' -vaihtoehtoa. Tämä on yksityisyyden hinta :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:589
+#: src/components/farcaster/FarcasterPage.tsx:603
 msgid "Write a reply..."
 msgstr ""
 

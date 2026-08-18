@@ -192,18 +192,21 @@ export const FarcasterPage: React.FC = () => {
     onOpenThread: (hash: string) => setView({ kind: 'thread', hash }),
     onOpenChannel: (nextChannel: string) => setView({ kind: 'channel', channel: nextChannel }),
     onOpenUsername: openUsername,
-    onReact: account ? async (cast: NormalizedCast, reaction: 'like' | 'recast') => {
+    onReact: account ? async (targetCast: NormalizedCast, reaction: 'like' | 'recast') => {
       setComposeError(null);
+      const isRemoving = reaction === 'like'
+        ? Boolean(targetCast.reactions.viewerLiked)
+        : Boolean(targetCast.reactions.viewerRecasted);
       try {
         await reactToCast.mutateAsync({
-          castHashHex: cast.hash,
-          castFid: cast.author.fid,
+          castHashHex: targetCast.hash,
+          castFid: targetCast.author.fid,
           reaction,
-          remove: reaction === 'like' ? cast.reactions.viewerLiked : cast.reactions.viewerRecasted,
+          remove: isRemoving,
         });
-        await queryClient.invalidateQueries({ queryKey: ['farcaster'] });
       } catch (cause) {
         setComposeError(cause instanceof Error ? cause.message : t`Reaction could not be published.`);
+        throw cause;
       }
     } : undefined,
   };

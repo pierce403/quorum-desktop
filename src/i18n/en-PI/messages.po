@@ -606,12 +606,12 @@ msgstr "Auto-close after"
 msgid "Away"
 msgstr "Away at sea"
 
-#: src/components/farcaster/FarcasterPage.tsx:282
-#: src/components/farcaster/FarcasterPage.tsx:713
+#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:727
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:710
+#: src/components/farcaster/FarcasterPage.tsx:724
 msgid "Back to feed"
 msgstr ""
 
@@ -703,7 +703,7 @@ msgstr "Bookmarks in this Space, ahoy!"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Browse public Spaces and find a crew to join, arrr."
 
-#: src/components/farcaster/FarcasterPage.tsx:314
+#: src/components/farcaster/FarcasterPage.tsx:317
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -719,7 +719,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "Can't sync, matey: no key be found on this here device."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:606
+#: src/components/farcaster/FarcasterPage.tsx:620
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -744,7 +744,7 @@ msgstr "Belay that"
 msgid "CANCEL"
 msgstr "Avast! CANCEL"
 
-#: src/components/farcaster/FarcasterPage.tsx:578
+#: src/components/farcaster/FarcasterPage.tsx:592
 msgid "Cancel reply"
 msgstr ""
 
@@ -758,23 +758,23 @@ msgstr "Can't scuttle a group with the default channel, landlubber!"
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Can't be uploadin' more than {0} files at once ({remaining} slots remainin')"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:264
+#: src/components/farcaster/FarcasterPage.tsx:267
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:704
+#: src/components/farcaster/FarcasterPage.tsx:718
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:499
+#: src/components/farcaster/FarcasterPage.tsx:513
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:506
+#: src/components/farcaster/FarcasterPage.tsx:520
 msgid "Casts & Replies"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Changes be made automatically, but the active page may not be updated. Refresh the page t' apply the new language."
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Channel feed"
 msgstr ""
 
@@ -1343,7 +1343,7 @@ msgstr "Direct Message"
 msgid "Direct messages"
 msgstr "Direct messages"
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:313
 msgid "Disconnect"
 msgstr ""
 
@@ -1761,7 +1761,7 @@ msgstr "Failed to save Space settings, shiver me timbers!"
 msgid "Failed to send invite. Please try again."
 msgstr "Failed to send invite. Try again, matey."
 
-#: src/components/farcaster/FarcasterPage.tsx:560
+#: src/components/farcaster/FarcasterPage.tsx:574
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1791,7 +1791,7 @@ msgstr "Failed to update join preview. Try again, ye scallywag."
 msgid "Failed to update profile"
 msgstr "Failed t' update yer profile, arrr"
 
-#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:288
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1800,7 +1800,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:428
+#: src/components/farcaster/FarcasterPage.tsx:431
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1904,13 +1904,13 @@ msgstr "Folder name must be {MAX_NAME_LENGTH} characters or less, ye bilge rat!"
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:488
+#: src/components/farcaster/FarcasterPage.tsx:502
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:328
-#: src/components/farcaster/FarcasterPage.tsx:487
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:331
+#: src/components/farcaster/FarcasterPage.tsx:501
 msgid "Following"
 msgstr ""
 
@@ -2065,7 +2065,7 @@ msgid "Import a backup instead"
 msgstr "Import a backup instead, savvy?"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:315
+#: src/components/farcaster/FarcasterPage.tsx:318
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Import account, me hearty!"
@@ -2094,7 +2094,7 @@ msgstr ""
 msgid "Importing..."
 msgstr "Importin’..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:340
+#: src/components/farcaster/FarcasterCastCard.tsx:462
 msgid "in"
 msgstr ""
 
@@ -2295,13 +2295,13 @@ msgstr "Light as the dawn"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Link copied, savvy? Paste it where ye want to share it."
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Load more"
 msgstr "Load more"
 
@@ -2310,11 +2310,11 @@ msgstr "Load more"
 msgid "Loading bookmarks..."
 msgstr "Haulin' up yer treasure marks..."
 
-#: src/components/farcaster/FarcasterPage.tsx:517
+#: src/components/farcaster/FarcasterPage.tsx:531
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:401
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2330,7 +2330,7 @@ msgstr "Fetchin' notifications..."
 msgid "Loading pinned messages..."
 msgstr "Haulin' up the messages from the depths..."
 
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:487
 msgid "Loading profile..."
 msgstr ""
 
@@ -2338,7 +2338,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Loading public Spaces, heave ho!"
 
-#: src/components/farcaster/FarcasterPage.tsx:725
+#: src/components/farcaster/FarcasterPage.tsx:739
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Haulin' up the thread..."
@@ -2348,8 +2348,8 @@ msgid "Loading your profile..."
 msgstr "Loading yer profile..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Loading..."
 msgstr "Hoisting sails..."
 
@@ -2421,7 +2421,7 @@ msgstr "Mark all as read, aye?"
 msgid "Mark all read"
 msgstr "Mark 'em all read, matey"
 
-#: src/components/farcaster/FarcasterPage.tsx:513
+#: src/components/farcaster/FarcasterPage.tsx:527
 msgid "Media"
 msgstr ""
 
@@ -2611,8 +2611,8 @@ msgstr "No mararkers match yer search."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "No mararkers yet. Mararker messages to save 'em for later reference."
 
-#: src/components/farcaster/FarcasterPage.tsx:403
-#: src/components/farcaster/FarcasterPage.tsx:522
+#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:536
 msgid "No casts found."
 msgstr ""
 
@@ -2789,7 +2789,7 @@ msgstr "Online, ready to plunder!"
 msgid "Only space owners can generate public invite links."
 msgstr "Only Space owners can generate public invite links, savvy?"
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Open"
 msgstr ""
 
@@ -2798,7 +2798,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Open {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:296
+#: src/components/farcaster/FarcasterPage.tsx:299
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2926,7 +2926,7 @@ msgstr "Nail Messages to Mast"
 msgid "Pin/Unpin without confirmation"
 msgstr "Pin/Unpin without confirmation, savvy?"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:295
+#: src/components/farcaster/FarcasterCastCard.tsx:417
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -2946,11 +2946,11 @@ msgstr "Nailed by {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Messages Nailed to Mast"
 
-#: src/components/farcaster/FarcasterPage.tsx:343
+#: src/components/farcaster/FarcasterPage.tsx:346
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3021,7 +3021,7 @@ msgstr "Public profile, matey"
 msgid "Public spaces"
 msgstr "Public spaces"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Publishing..."
 msgstr ""
 
@@ -3044,7 +3044,7 @@ msgstr "Quorum be a decentralized messaging platform where ye own yer identity. 
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum be loadin' whilst the browser was not in focus or a passkey request was rejected. Please reauthorize to access yer messages, savvy?"
 
-#: src/components/farcaster/FarcasterPage.tsx:206
+#: src/components/farcaster/FarcasterPage.tsx:208
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3093,13 +3093,13 @@ msgstr "received config with invalid signature, arrr!"
 msgid "Recipient has no devices"
 msgstr "That landlubber has no devices!"
 
-#: src/components/farcaster/FarcasterPage.tsx:396
+#: src/components/farcaster/FarcasterPage.tsx:399
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Refresh, matey!"
 
-#: src/components/farcaster/FarcasterPage.tsx:720
+#: src/components/farcaster/FarcasterPage.tsx:734
 msgid "Refresh thread"
 msgstr ""
 
@@ -3157,7 +3157,8 @@ msgstr ""
 msgid "Replies"
 msgstr "Replies from the crew"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterCastCard.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:629
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3168,15 +3169,15 @@ msgstr "Answer back"
 msgid "Reply in thread..."
 msgstr "Reply in thread..., savvy?"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:300
-#: src/components/farcaster/FarcasterPage.tsx:568
+#: src/components/farcaster/FarcasterCastCard.tsx:422
+#: src/components/farcaster/FarcasterPage.tsx:582
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "Answerin' {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterPage.tsx:629
 msgid "Replying..."
 msgstr ""
 
@@ -3273,7 +3274,7 @@ msgid "Restoring..."
 msgstr "Restorin'..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:429
+#: src/components/farcaster/FarcasterPage.tsx:432
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Try again!"
@@ -3403,7 +3404,7 @@ msgstr "Search Username or Address, aye!"
 msgid "Search..."
 msgstr "Search..."
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Searchin'..."
@@ -3926,11 +3927,11 @@ msgstr ""
 "\n"
 "Use this if messages be failin' to send or break code."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:321
+#: src/components/farcaster/FarcasterCastCard.tsx:443
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:715
+#: src/components/farcaster/FarcasterPage.tsx:729
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3986,9 +3987,9 @@ msgstr "Today, aye"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed, ye landlubber!"
 
-#: src/components/farcaster/FarcasterPage.tsx:212
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:215
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:338
 msgid "Trending"
 msgstr ""
 
@@ -4311,7 +4312,7 @@ msgstr "What be the Account Key?"
 msgid "What should we call you?"
 msgstr "What should we call ye, matey?"
 
-#: src/components/farcaster/FarcasterPage.tsx:363
+#: src/components/farcaster/FarcasterPage.tsx:366
 msgid "What's happening?"
 msgstr ""
 
@@ -4396,7 +4397,7 @@ msgstr "Why do I need t' do this?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Without this backup, losin' yer device means losin' yer account - there be no 'forgot password' option. This be the price ye pay fer privacy, savvy?"
 
-#: src/components/farcaster/FarcasterPage.tsx:589
+#: src/components/farcaster/FarcasterPage.tsx:603
 msgid "Write a reply..."
 msgstr ""
 

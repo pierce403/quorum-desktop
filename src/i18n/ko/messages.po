@@ -606,12 +606,12 @@ msgstr "자동 닫기 시간"
 msgid "Away"
 msgstr "자리 비움"
 
-#: src/components/farcaster/FarcasterPage.tsx:282
-#: src/components/farcaster/FarcasterPage.tsx:713
+#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:727
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:710
+#: src/components/farcaster/FarcasterPage.tsx:724
 msgid "Back to feed"
 msgstr ""
 
@@ -703,7 +703,7 @@ msgstr "이 공간의 북마크"
 msgid "Browse public Spaces and find a community to join."
 msgstr "공개 공간을 탐색하고 참여할 커뮤니티를 찾으십시오."
 
-#: src/components/farcaster/FarcasterPage.tsx:314
+#: src/components/farcaster/FarcasterPage.tsx:317
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -719,7 +719,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "동기화할 수 없습니다: 이 기기에서 사용할 수 있는 키가 없습니다."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:606
+#: src/components/farcaster/FarcasterPage.tsx:620
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -744,7 +744,7 @@ msgstr "취소"
 msgid "CANCEL"
 msgstr "취소"
 
-#: src/components/farcaster/FarcasterPage.tsx:578
+#: src/components/farcaster/FarcasterPage.tsx:592
 msgid "Cancel reply"
 msgstr ""
 
@@ -758,23 +758,23 @@ msgstr "기본 채널이 포함된 그룹은 삭제할 수 없습니다."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "한 번에 {0}개 이상의 파일을 업로드할 수 없습니다 ({remaining} 슬롯 남음)"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:264
+#: src/components/farcaster/FarcasterPage.tsx:267
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:704
+#: src/components/farcaster/FarcasterPage.tsx:718
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:499
+#: src/components/farcaster/FarcasterPage.tsx:513
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:506
+#: src/components/farcaster/FarcasterPage.tsx:520
 msgid "Casts & Replies"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "변경 사항은 자동으로 적용되지만, 활성 페이지가 업데이트되지 않을 수 있습니다. 새 언어를 적용하려면 페이지를 새로 고치세요."
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Channel feed"
 msgstr ""
 
@@ -1343,7 +1343,7 @@ msgstr "다이렉트 메시지"
 msgid "Direct messages"
 msgstr "직접 메시지"
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:313
 msgid "Disconnect"
 msgstr ""
 
@@ -1761,7 +1761,7 @@ msgstr "공간 설정을 저장하지 못했습니다."
 msgid "Failed to send invite. Please try again."
 msgstr "초대 전송에 실패했습니다. 다시 시도하십시오."
 
-#: src/components/farcaster/FarcasterPage.tsx:560
+#: src/components/farcaster/FarcasterPage.tsx:574
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1791,7 +1791,7 @@ msgstr "참여 미리보기 업데이트에 실패했습니다. 다시 시도해
 msgid "Failed to update profile"
 msgstr "프로필 업데이트에 실패했습니다."
 
-#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:288
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1800,7 +1800,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:428
+#: src/components/farcaster/FarcasterPage.tsx:431
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1904,13 +1904,13 @@ msgstr "폴더 이름은 {MAX_NAME_LENGTH}자 이하여야 합니다"
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:488
+#: src/components/farcaster/FarcasterPage.tsx:502
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:328
-#: src/components/farcaster/FarcasterPage.tsx:487
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:331
+#: src/components/farcaster/FarcasterPage.tsx:501
 msgid "Following"
 msgstr ""
 
@@ -2065,7 +2065,7 @@ msgid "Import a backup instead"
 msgstr "대신 백업을 가져오세요"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:315
+#: src/components/farcaster/FarcasterPage.tsx:318
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "계정 가져오기"
@@ -2094,7 +2094,7 @@ msgstr ""
 msgid "Importing..."
 msgstr "가져오는 중..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:340
+#: src/components/farcaster/FarcasterCastCard.tsx:462
 msgid "in"
 msgstr ""
 
@@ -2295,13 +2295,13 @@ msgstr "밝은"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "링크가 복사되었습니다. 공유하고 싶은 곳에 붙여넣으세요."
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Load more"
 msgstr "더 로드하기"
 
@@ -2310,11 +2310,11 @@ msgstr "더 로드하기"
 msgid "Loading bookmarks..."
 msgstr "북마크를 불러오는 중..."
 
-#: src/components/farcaster/FarcasterPage.tsx:517
+#: src/components/farcaster/FarcasterPage.tsx:531
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:401
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2330,7 +2330,7 @@ msgstr "알림 로딩 중..."
 msgid "Loading pinned messages..."
 msgstr "고정된 메시지를 로딩 중..."
 
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:487
 msgid "Loading profile..."
 msgstr ""
 
@@ -2338,7 +2338,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "공개 공간 로드 중..."
 
-#: src/components/farcaster/FarcasterPage.tsx:725
+#: src/components/farcaster/FarcasterPage.tsx:739
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "스레드 로딩 중..."
@@ -2348,8 +2348,8 @@ msgid "Loading your profile..."
 msgstr "프로필을 로딩 중입니다..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -2421,7 +2421,7 @@ msgstr "모두 읽음으로 표시하시겠습니까?"
 msgid "Mark all read"
 msgstr "모두 읽음으로 표시"
 
-#: src/components/farcaster/FarcasterPage.tsx:513
+#: src/components/farcaster/FarcasterPage.tsx:527
 msgid "Media"
 msgstr ""
 
@@ -2611,8 +2611,8 @@ msgstr "검색한 마커와 일치하는 항목이 없습니다."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "아직 마커가 없습니다. 나중에 참조하기 위해 메시지를 마커로 설정하세요."
 
-#: src/components/farcaster/FarcasterPage.tsx:403
-#: src/components/farcaster/FarcasterPage.tsx:522
+#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:536
 msgid "No casts found."
 msgstr ""
 
@@ -2789,7 +2789,7 @@ msgstr "온라인"
 msgid "Only space owners can generate public invite links."
 msgstr "스페이스 소유자만 공개 초대 링크를 생성할 수 있습니다."
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Open"
 msgstr ""
 
@@ -2798,7 +2798,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "열기 {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:296
+#: src/components/farcaster/FarcasterPage.tsx:299
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2926,7 +2926,7 @@ msgstr "메시지 고정"
 msgid "Pin/Unpin without confirmation"
 msgstr "확인 없이 고정/고정 해제"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:295
+#: src/components/farcaster/FarcasterCastCard.tsx:417
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -2946,11 +2946,11 @@ msgstr "{pinnedByName}님이 고정함"
 msgid "Pinned Messages"
 msgstr "고정된 메시지"
 
-#: src/components/farcaster/FarcasterPage.tsx:343
+#: src/components/farcaster/FarcasterPage.tsx:346
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3021,7 +3021,7 @@ msgstr "공개 프로필"
 msgid "Public spaces"
 msgstr "공개 공간"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Publishing..."
 msgstr ""
 
@@ -3044,7 +3044,7 @@ msgstr "Quorum은 이메일이나 전화번호 없이 자신의 아이덴티티�
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "브라우저가 포커스되지 않은 상태에서 Quorum이 로드되었거나, passkey 요청이 거부되었습니다. 메시지에 접근하려면 다시 인증하세요."
 
-#: src/components/farcaster/FarcasterPage.tsx:206
+#: src/components/farcaster/FarcasterPage.tsx:208
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3093,13 +3093,13 @@ msgstr "유효하지 않은 서명으로 구성 수신!"
 msgid "Recipient has no devices"
 msgstr "수신자가 장치가 없습니다"
 
-#: src/components/farcaster/FarcasterPage.tsx:396
+#: src/components/farcaster/FarcasterPage.tsx:399
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: src/components/farcaster/FarcasterPage.tsx:720
+#: src/components/farcaster/FarcasterPage.tsx:734
 msgid "Refresh thread"
 msgstr ""
 
@@ -3157,7 +3157,8 @@ msgstr ""
 msgid "Replies"
 msgstr "답글"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterCastCard.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:629
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3168,15 +3169,15 @@ msgstr "답장"
 msgid "Reply in thread..."
 msgstr "스레드에 대화하기..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:300
-#: src/components/farcaster/FarcasterPage.tsx:568
+#: src/components/farcaster/FarcasterCastCard.tsx:422
+#: src/components/farcaster/FarcasterPage.tsx:582
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "{user}에게 답장 중"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterPage.tsx:629
 msgid "Replying..."
 msgstr ""
 
@@ -3273,7 +3274,7 @@ msgid "Restoring..."
 msgstr "복원 중..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:429
+#: src/components/farcaster/FarcasterPage.tsx:432
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "다시 시도"
@@ -3403,7 +3404,7 @@ msgstr "사용자 이름 또는 주소 검색"
 msgid "Search..."
 msgstr "검색..."
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "검색 중..."
@@ -3926,11 +3927,11 @@ msgstr ""
 "\n"
 "메시지 전송 또는 해독에 실패하는 경우 사용하십시오."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:321
+#: src/components/farcaster/FarcasterCastCard.tsx:443
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:715
+#: src/components/farcaster/FarcasterPage.tsx:729
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3986,9 +3987,9 @@ msgstr "오늘"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "메시지에 언급이 너무 많습니다. 최대 {MAX_MENTIONS_PER_MESSAGE}개가 허용됩니다."
 
-#: src/components/farcaster/FarcasterPage.tsx:212
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:215
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:338
 msgid "Trending"
 msgstr ""
 
@@ -4311,7 +4312,7 @@ msgstr "계정 키란?"
 msgid "What should we call you?"
 msgstr "당신을 어떻게 부르면 좋을까요?"
 
-#: src/components/farcaster/FarcasterPage.tsx:363
+#: src/components/farcaster/FarcasterPage.tsx:366
 msgid "What's happening?"
 msgstr ""
 
@@ -4396,7 +4397,7 @@ msgstr "이 작업을 왜 해야 하나요?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "이 백업 없이 기기를 잃으면 계정도 잃게 됩니다 - '비밀번호를 잊어버렸습니다' 옵션이 없습니다. 이는 개인 정보 보호를 위한 대가입니다 :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:589
+#: src/components/farcaster/FarcasterPage.tsx:603
 msgid "Write a reply..."
 msgstr ""
 

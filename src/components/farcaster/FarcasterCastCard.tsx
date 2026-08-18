@@ -297,12 +297,81 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
   isRoot,
   depth = 0,
 }) => {
+  const [isLiked, setIsLiked] = React.useState(Boolean(cast.reactions.viewerLiked));
+  const [likesCount, setLikesCount] = React.useState(cast.reactions.likesCount);
+  const [isRecasted, setIsRecasted] = React.useState(Boolean(cast.reactions.viewerRecasted));
+  const [recastsCount, setRecastsCount] = React.useState(cast.reactions.recastsCount);
   const [pendingReaction, setPendingReaction] = React.useState<'like' | 'recast' | null>(null);
-  const react = async (reaction: 'like' | 'recast') => {
+
+  React.useEffect(() => {
+    setIsLiked(Boolean(cast.reactions.viewerLiked));
+    setLikesCount(cast.reactions.likesCount);
+    setIsRecasted(Boolean(cast.reactions.viewerRecasted));
+    setRecastsCount(cast.reactions.recastsCount);
+  }, [
+    cast.reactions.viewerLiked,
+    cast.reactions.likesCount,
+    cast.reactions.viewerRecasted,
+    cast.reactions.recastsCount,
+  ]);
+
+  const handleLike = async (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (!onReact || pendingReaction) return;
-    setPendingReaction(reaction);
+    const prevLiked = isLiked;
+    const prevCount = likesCount;
+    const nextLiked = !prevLiked;
+    const nextCount = Math.max(0, prevCount + (nextLiked ? 1 : -1));
+
+    setIsLiked(nextLiked);
+    setLikesCount(nextCount);
+    setPendingReaction('like');
+
     try {
-      await onReact(cast, reaction);
+      await onReact(
+        {
+          ...cast,
+          reactions: {
+            ...cast.reactions,
+            viewerLiked: prevLiked,
+          },
+        },
+        'like'
+      );
+    } catch {
+      setIsLiked(prevLiked);
+      setLikesCount(prevCount);
+    } finally {
+      setPendingReaction(null);
+    }
+  };
+
+  const handleRecast = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!onReact || pendingReaction) return;
+    const prevRecasted = isRecasted;
+    const prevCount = recastsCount;
+    const nextRecasted = !prevRecasted;
+    const nextCount = Math.max(0, prevCount + (nextRecasted ? 1 : -1));
+
+    setIsRecasted(nextRecasted);
+    setRecastsCount(nextCount);
+    setPendingReaction('recast');
+
+    try {
+      await onReact(
+        {
+          ...cast,
+          reactions: {
+            ...cast.reactions,
+            viewerRecasted: prevRecasted,
+          },
+        },
+        'recast'
+      );
+    } catch {
+      setIsRecasted(prevRecasted);
+      setRecastsCount(prevCount);
     } finally {
       setPendingReaction(null);
     }
@@ -437,37 +506,31 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
           >
             <Icon name="message" size="sm" />
             <span>{cast.reactions.repliesCount}</span>
-            <span className="farcaster-cast__stat-label">Reply</span>
+            <span className="farcaster-cast__stat-label">{t`Reply`}</span>
           </Button>
           <Button
             type="unstyled"
-            className="farcaster-cast__stat-btn farcaster-cast__stat-btn--recast"
+            className={`farcaster-cast__stat-btn farcaster-cast__stat-btn--recast ${isRecasted ? 'farcaster-cast__stat-btn--recasted' : ''}`}
             disabled={!onReact || pendingReaction !== null}
-            onClick={(e) => {
-              e.stopPropagation();
-              react('recast');
-            }}
+            onClick={handleRecast}
             ariaLabel="Recast"
           >
             <Icon name="repeat" size="sm" />
-            <span>{cast.reactions.recastsCount}</span>
+            <span>{recastsCount}</span>
           </Button>
           <Button
             type="unstyled"
-            className={`farcaster-cast__stat-btn farcaster-cast__stat-btn--like ${cast.reactions.viewerLiked ? 'farcaster-cast__stat-btn--liked' : ''}`}
+            className={`farcaster-cast__stat-btn farcaster-cast__stat-btn--like ${isLiked ? 'farcaster-cast__stat-btn--liked' : ''}`}
             disabled={!onReact || pendingReaction !== null}
-            onClick={(e) => {
-              e.stopPropagation();
-              react('like');
-            }}
+            onClick={handleLike}
             ariaLabel="Like cast"
           >
             <Icon
               name="heart"
-              variant={cast.reactions.viewerLiked ? 'filled' : 'outline'}
+              variant={isLiked ? 'filled' : 'outline'}
               size="sm"
             />
-            <span>{cast.reactions.likesCount}</span>
+            <span>{likesCount}</span>
           </Button>
         </div>
       </div>

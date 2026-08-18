@@ -605,12 +605,12 @@ msgstr "ปิดอัตโนมัติหลังจาก"
 msgid "Away"
 msgstr "ออกไป"
 
-#: src/components/farcaster/FarcasterPage.tsx:282
-#: src/components/farcaster/FarcasterPage.tsx:713
+#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:727
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:710
+#: src/components/farcaster/FarcasterPage.tsx:724
 msgid "Back to feed"
 msgstr ""
 
@@ -702,7 +702,7 @@ msgstr "บุ๊กมาร์กใน Space นี้"
 msgid "Browse public Spaces and find a community to join."
 msgstr "เรียกดู Spaces สาธารณะและค้นหาชุมชนเพื่อเข้าร่วม"
 
-#: src/components/farcaster/FarcasterPage.tsx:314
+#: src/components/farcaster/FarcasterPage.tsx:317
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -718,7 +718,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "ซิงค์ไม่ได้: ไม่มีคีย์ในอุปกรณ์นี้"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:606
+#: src/components/farcaster/FarcasterPage.tsx:620
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -743,7 +743,7 @@ msgstr "ยกเลิก"
 msgid "CANCEL"
 msgstr "ยกเลิก"
 
-#: src/components/farcaster/FarcasterPage.tsx:578
+#: src/components/farcaster/FarcasterPage.tsx:592
 msgid "Cancel reply"
 msgstr ""
 
@@ -757,23 +757,23 @@ msgstr "ไม่สามารถลบกลุ่มที่มีช่อ
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "ไม่สามารถอัปโหลดไฟล์มากกว่า {0} ไฟล์ในครั้งเดียว ({remaining} ช่องว่างที่เหลือ)"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:264
+#: src/components/farcaster/FarcasterPage.tsx:267
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:704
+#: src/components/farcaster/FarcasterPage.tsx:718
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:499
+#: src/components/farcaster/FarcasterPage.tsx:513
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:506
+#: src/components/farcaster/FarcasterPage.tsx:520
 msgid "Casts & Replies"
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "การเปลี่ยนแปลงจะถูกทำโดยอัตโนมัติ แต่หน้าเว็บที่ใช้งานอยู่อาจไม่ได้รับการอัปเดต รีเฟรชหน้าเว็บเพื่อใช้ภาษาที่ใหม่"
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Channel feed"
 msgstr ""
 
@@ -1342,7 +1342,7 @@ msgstr "ข้อความตรง"
 msgid "Direct messages"
 msgstr "ข้อความส่วนตัว"
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:313
 msgid "Disconnect"
 msgstr ""
 
@@ -1760,7 +1760,7 @@ msgstr "บันทึกการตั้งค่า Space ไม่สำ�
 msgid "Failed to send invite. Please try again."
 msgstr "ส่งคำเชิญล้มเหลว กรุณาลองอีกครั้ง"
 
-#: src/components/farcaster/FarcasterPage.tsx:560
+#: src/components/farcaster/FarcasterPage.tsx:574
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1790,7 +1790,7 @@ msgstr "ไม่สามารถอัปเดตการแสดงตั
 msgid "Failed to update profile"
 msgstr "ไม่สามารถอัปเดตโปรไฟล์ได้"
 
-#: src/components/farcaster/FarcasterPage.tsx:285
+#: src/components/farcaster/FarcasterPage.tsx:288
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1799,7 +1799,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:428
+#: src/components/farcaster/FarcasterPage.tsx:431
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1903,13 +1903,13 @@ msgstr "ชื่อโฟลเดอร์ต้องมีความยา
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:488
+#: src/components/farcaster/FarcasterPage.tsx:502
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:328
-#: src/components/farcaster/FarcasterPage.tsx:487
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:331
+#: src/components/farcaster/FarcasterPage.tsx:501
 msgid "Following"
 msgstr ""
 
@@ -2064,7 +2064,7 @@ msgid "Import a backup instead"
 msgstr "นำเข้าสำเนาสำรองแทน"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:315
+#: src/components/farcaster/FarcasterPage.tsx:318
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "นำเข้าบัญชี"
@@ -2093,7 +2093,7 @@ msgstr ""
 msgid "Importing..."
 msgstr "กำลังนำเข้า..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:340
+#: src/components/farcaster/FarcasterCastCard.tsx:462
 msgid "in"
 msgstr ""
 
@@ -2294,13 +2294,13 @@ msgstr "แสง"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "คัดลอกลิงก์แล้ว วางที่ที่คุณต้องการแชร์"
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Load more"
 msgstr "โหลดเพิ่ม"
 
@@ -2309,11 +2309,11 @@ msgstr "โหลดเพิ่ม"
 msgid "Loading bookmarks..."
 msgstr "กำลังโหลดบุ๊กมาร์ก..."
 
-#: src/components/farcaster/FarcasterPage.tsx:517
+#: src/components/farcaster/FarcasterPage.tsx:531
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:401
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2329,7 +2329,7 @@ msgstr "กำลังโหลดการแจ้งเตือน..."
 msgid "Loading pinned messages..."
 msgstr "กำลังโหลดข้อความที่ถูกปักหมุด..."
 
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:487
 msgid "Loading profile..."
 msgstr ""
 
@@ -2337,7 +2337,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "กำลังโหลด Spaces สาธารณะ..."
 
-#: src/components/farcaster/FarcasterPage.tsx:725
+#: src/components/farcaster/FarcasterPage.tsx:739
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "กำลังโหลดกระทู้..."
@@ -2347,8 +2347,8 @@ msgid "Loading your profile..."
 msgstr "กำลังโหลดโปรไฟล์ของคุณ..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:413
+#: src/components/farcaster/FarcasterPage.tsx:549
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -2420,7 +2420,7 @@ msgstr "ทำเครื่องหมายว่าอ่านแล้ว
 msgid "Mark all read"
 msgstr "ทำเครื่องหมายว่าอ่านแล้วทั้งหมด"
 
-#: src/components/farcaster/FarcasterPage.tsx:513
+#: src/components/farcaster/FarcasterPage.tsx:527
 msgid "Media"
 msgstr ""
 
@@ -2610,8 +2610,8 @@ msgstr "ไม่มีบุ๊กมาร์กที่ตรงกับก
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "ยังไม่มีบุ๊กมาร์ก บุ๊กมาร์กข้อความเพื่อเก็บไว้เป็นอ้างอิงในภายหลัง"
 
-#: src/components/farcaster/FarcasterPage.tsx:403
-#: src/components/farcaster/FarcasterPage.tsx:522
+#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:536
 msgid "No casts found."
 msgstr ""
 
@@ -2788,7 +2788,7 @@ msgstr "ออนไลน์"
 msgid "Only space owners can generate public invite links."
 msgstr "เฉพาะเจ้าของ Space เท่านั้นที่สามารถสร้างลิงก์เชิญสาธารณะได้"
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 msgid "Open"
 msgstr ""
 
@@ -2797,7 +2797,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "เปิด {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:296
+#: src/components/farcaster/FarcasterPage.tsx:299
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2925,7 +2925,7 @@ msgstr "ปักหมุดข้อความ"
 msgid "Pin/Unpin without confirmation"
 msgstr "ปักหมุด/ยกเลิกปักหมุดโดยไม่ต้องยืนยัน"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:295
+#: src/components/farcaster/FarcasterCastCard.tsx:417
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -2945,11 +2945,11 @@ msgstr "ปักหมุดโดย {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "ข้อความที่ถูกปักหมุด"
 
-#: src/components/farcaster/FarcasterPage.tsx:343
+#: src/components/farcaster/FarcasterPage.tsx:346
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3020,7 +3020,7 @@ msgstr "โปรไฟล์สาธารณะ"
 msgid "Public spaces"
 msgstr "พื้นที่สาธารณะ"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:375
 msgid "Publishing..."
 msgstr ""
 
@@ -3043,7 +3043,7 @@ msgstr "Quorum เป็นแพลตฟอร์มการส่งข้�
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum ถูกโหลดในขณะที่เบราว์เซอร์ไม่ได้อยู่ในโฟกัสหรือคำขอ passkey ถูกปฏิเสธ กรุณาอนุญาตใหม่เพื่อเข้าถึงข้อความของคุณ"
 
-#: src/components/farcaster/FarcasterPage.tsx:206
+#: src/components/farcaster/FarcasterPage.tsx:208
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3092,13 +3092,13 @@ msgstr "ได้รับการกำหนดค่าที่มีลา
 msgid "Recipient has no devices"
 msgstr "ผู้รับไม่มีอุปกรณ์"
 
-#: src/components/farcaster/FarcasterPage.tsx:396
+#: src/components/farcaster/FarcasterPage.tsx:399
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "รีเฟรช"
 
-#: src/components/farcaster/FarcasterPage.tsx:720
+#: src/components/farcaster/FarcasterPage.tsx:734
 msgid "Refresh thread"
 msgstr ""
 
@@ -3156,7 +3156,8 @@ msgstr ""
 msgid "Replies"
 msgstr "การตอบกลับ"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterCastCard.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:629
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3167,15 +3168,15 @@ msgstr "ตอบกลับ"
 msgid "Reply in thread..."
 msgstr "ตอบกลับในกระทู้..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:300
-#: src/components/farcaster/FarcasterPage.tsx:568
+#: src/components/farcaster/FarcasterCastCard.tsx:422
+#: src/components/farcaster/FarcasterPage.tsx:582
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "กำลังตอบกลับ {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:615
+#: src/components/farcaster/FarcasterPage.tsx:629
 msgid "Replying..."
 msgstr ""
 
@@ -3272,7 +3273,7 @@ msgid "Restoring..."
 msgstr "กำลังคืนค่า..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:429
+#: src/components/farcaster/FarcasterPage.tsx:432
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "ลองอีกครั้ง"
@@ -3402,7 +3403,7 @@ msgstr "ค้นหาชื่อผู้ใช้หรือที่อย
 msgid "Search..."
 msgstr "ค้นหา..."
 
-#: src/components/farcaster/FarcasterPage.tsx:301
+#: src/components/farcaster/FarcasterPage.tsx:304
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "กำลังค้นหา..."
@@ -3925,11 +3926,11 @@ msgstr ""
 "\n"
 "ใช้สิ่งนี้หากข้อความส่งหรือถอดรหัสไม่ได้"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:321
+#: src/components/farcaster/FarcasterCastCard.tsx:443
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:715
+#: src/components/farcaster/FarcasterPage.tsx:729
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3985,9 +3986,9 @@ msgstr "วันนี้"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "มีการกล่าวถึงมากเกินไปในข้อความ จำนวนสูงสุดที่อนุญาตคือ {MAX_MENTIONS_PER_MESSAGE}"
 
-#: src/components/farcaster/FarcasterPage.tsx:212
-#: src/components/farcaster/FarcasterPage.tsx:232
-#: src/components/farcaster/FarcasterPage.tsx:335
+#: src/components/farcaster/FarcasterPage.tsx:215
+#: src/components/farcaster/FarcasterPage.tsx:235
+#: src/components/farcaster/FarcasterPage.tsx:338
 msgid "Trending"
 msgstr ""
 
@@ -4310,7 +4311,7 @@ msgstr "กุญแจบัญชีคืออะไร?"
 msgid "What should we call you?"
 msgstr "เราจะเรียกคุณว่าอะไร?"
 
-#: src/components/farcaster/FarcasterPage.tsx:363
+#: src/components/farcaster/FarcasterPage.tsx:366
 msgid "What's happening?"
 msgstr ""
 
@@ -4395,7 +4396,7 @@ msgstr "ทำไมฉันต้องทำอย่างนี้?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "โดยไม่มีการสำรองข้อมูลนี้ การสูญเสียอุปกรณ์หมายถึงการสูญเสียบัญชีของคุณด้วย - ไม่มีตัวเลือก 'ลืมรหัสผ่าน' นี่คือราคาที่คุณต้องจ่ายสำหรับความเป็นส่วนตัว :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:589
+#: src/components/farcaster/FarcasterPage.tsx:603
 msgid "Write a reply..."
 msgstr ""
 
