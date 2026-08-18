@@ -7,8 +7,12 @@ const {
   shell,
   protocol,
   clipboard,
+  net,
+  safeStorage,
 } = require('electron');
 const path = require('path');
+const { existsSync, promises: fs } = require('fs');
+const { pathToFileURL } = require('url');
 
 // Simple development mode check
 const isDev =
@@ -16,6 +20,205 @@ const isDev =
 
 // Dev server URL (override with ELECTRON_DEV_URL when Vite picks a non-default port).
 const devUrl = process.env.ELECTRON_DEV_URL || 'http://localhost:5173';
+
+// Production builds use absolute asset URLs so the same bundle continues to
+// work when a browser route is loaded directly. A plain file:// URL cannot
+// resolve those paths: `/assets/app.js` becomes `file:///assets/app.js`, which
+// leaves Electron showing an empty white window. Serve dist/ from a secure,
+// standard custom origin instead. Besides fixing assets, this gives
+// BrowserRouter the expected `/` pathname rather than the path to index.html.
+const APP_SCHEME = 'quorum-app';
+const APP_HOST = 'app';
+const APP_ORIGIN = `${APP_SCHEME}://${APP_HOST}`;
+const DIST_ROOT = path.resolve(__dirname, '../../dist');
+const QUORUM_API_ORIGIN = 'https://api.quorummessenger.com';
+const QUORUM_WEB_ORIGIN = 'https://app.quorummessenger.com';
+const FARCASTER_CLIENT_ORIGIN = 'https://client.farcaster.xyz';
+const FARCASTER_WEB_ORIGIN = 'https://farcaster.xyz';
+const FARCASTER_API_ORIGIN = 'https://api.farcaster.xyz';
+
+protocol.registerSchemesAsPrivileged([
+  {
+    scheme: APP_SCHEME,
+    privileges: {
+      standard: true,
+      secure: true,
+      supportFetchAPI: true,
+      corsEnabled: true,
+    },
+  },
+]);
+
+function resolveProductionAsset(requestUrl) {
+  const url = new URL(requestUrl);
+  if (url.host !== APP_HOST) return null;
+
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    return null;
+  }
+
+  const requestedPath = pathname === '/' ? '/index.html' : pathname;
+  const assetPath = path.resolve(DIST_ROOT, `.${requestedPath}`);
+  const relativePath = path.relative(DIST_ROOT, assetPath);
+
+  // Keep the custom scheme strictly rooted in dist/. An encoded traversal or
+  // an absolute path must never turn this into a general filesystem reader.
+  if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+    return null;
+  }
+
+  if (existsSync(assetPath)) return assetPath;
+
+  // BrowserRouter owns extensionless application routes. Returning the shell
+  // lets refreshes and deep links behave like the web server's SPA fallback.
+  if (!path.extname(pathname)) {
+    return path.join(DIST_ROOT, 'index.html');
+  }
+
+  return null;
+}
+
+function registerProductionProtocol() {
+  protocol.handle(APP_SCHEME, (request) => {
+    const assetPath = resolveProductionAsset(request.url);
+    if (!assetPath) {
+      return new Response('Not found', { status: 404 });
+    }
+    return net.fetch(pathToFileURL(assetPath).toString());
+  });
+}
+
+function replaceHeader(headers, name, value) {
+  const updatedHeaders = { ...headers };
+  for (const headerName of Object.keys(updatedHeaders)) {
+    if (headerName.toLowerCase() === name.toLowerCase()) {
+      delete updatedHeaders[headerName];
+    }
+  }
+  updatedHeaders[name] = value;
+  return updatedHeaders;
+}
+
+function configureProductionApiAccess() {
+  const apiFilter = {
+    urls: [`${QUORUM_API_ORIGIN}/*`, 'wss://api.quorummessenger.com/*'],
+  };
+
+  // The API intentionally allows the hosted web app's origin, but does not
+  // know about Electron's private custom scheme. Present the official origin
+  // upstream, then translate that one response header back to the renderer's
+  // actual origin. This is deliberately limited to Quorum's API and keeps
+  // Chromium's web security enabled for every other destination.
+  session.defaultSession.webRequest.onBeforeSendHeaders(
+    apiFilter,
+    (details, callback) => {
+      callback({
+        requestHeaders: replaceHeader(
+          details.requestHeaders,
+          'Origin',
+          QUORUM_WEB_ORIGIN
+        ),
+      });
+    }
+  );
+
+  session.defaultSession.webRequest.onHeadersReceived(
+    { urls: [`${QUORUM_API_ORIGIN}/*`] },
+    (details, callback) => {
+      callback({
+        responseHeaders: replaceHeader(
+          details.responseHeaders,
+          'Access-Control-Allow-Origin',
+          [APP_ORIGIN]
+        ),
+      });
+    }
+  );
+}
+
+function configureFarcasterApiAccess() {
+  const urls = [`${FARCASTER_CLIENT_ORIGIN}/*`, `${FARCASTER_API_ORIGIN}/*`];
+  session.defaultSession.webRequest.onBeforeSendHeaders(
+    { urls },
+    (details, callback) => {
+      callback({
+        requestHeaders: replaceHeader(details.requestHeaders, 'Origin', FARCASTER_WEB_ORIGIN),
+      });
+    }
+  );
+  session.defaultSession.webRequest.onHeadersReceived(
+    { urls },
+    (details, callback) => {
+      callback({
+        responseHeaders: replaceHeader(
+          details.responseHeaders,
+          'Access-Control-Allow-Origin',
+          [APP_ORIGIN]
+        ),
+      });
+    }
+  );
+}
+
+const ALLOWED_SECRET_KEYS = new Set(['farcaster-account', 'farcaster-signer']);
+
+function secureStorageUsable() {
+  return safeStorage.isEncryptionAvailable() && safeStorage.getSelectedStorageBackend() !== 'basic_text';
+}
+
+function secretsPath() {
+  return path.join(app.getPath('userData'), 'secure-secrets.json');
+}
+
+async function readSecretFile() {
+  try {
+    return JSON.parse(await fs.readFile(secretsPath(), 'utf8'));
+  } catch (error) {
+    if (error && error.code === 'ENOENT') return {};
+    throw error;
+  }
+}
+
+function assertSecretKey(key) {
+  if (!ALLOWED_SECRET_KEYS.has(key)) throw new Error('Unsupported secret key');
+}
+
+ipcMain.handle('secure-storage:status', () => ({
+  available: secureStorageUsable(),
+  backend: safeStorage.getSelectedStorageBackend(),
+}));
+
+ipcMain.handle('secure-storage:get', async (_event, key) => {
+  assertSecretKey(key);
+  if (!secureStorageUsable()) return null;
+  const values = await readSecretFile();
+  const encrypted = values[key];
+  if (typeof encrypted !== 'string') return null;
+  return safeStorage.decryptString(Buffer.from(encrypted, 'base64'));
+});
+
+ipcMain.handle('secure-storage:set', async (_event, key, value) => {
+  assertSecretKey(key);
+  if (typeof value !== 'string' || value.length > 32_768) throw new Error('Invalid secret value');
+  if (!secureStorageUsable()) throw new Error('OS credential encryption is unavailable');
+  const values = await readSecretFile();
+  values[key] = safeStorage.encryptString(value).toString('base64');
+  const target = secretsPath();
+  const temporary = `${target}.tmp`;
+  await fs.mkdir(path.dirname(target), { recursive: true });
+  await fs.writeFile(temporary, JSON.stringify(values), { mode: 0o600 });
+  await fs.rename(temporary, target);
+});
+
+ipcMain.handle('secure-storage:delete', async (_event, key) => {
+  assertSecretKey(key);
+  const values = await readSecretFile();
+  delete values[key];
+  await fs.writeFile(secretsPath(), JSON.stringify(values), { mode: 0o600 });
+});
 
 // Add these IPC handlers
 ipcMain.on('minimize-window', () => {
@@ -111,12 +314,7 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadURL(
-    isDev
-      ? devUrl
-      : `file://${path.join(__dirname, '../../dist/index.html')}`,
-    {}
-  );
+  mainWindow.loadURL(isDev ? devUrl : `${APP_ORIGIN}/`, {});
 
   if (isDev) {
     mainWindow.webContents.openDevTools();
@@ -152,7 +350,14 @@ if (process.platform === 'win32') {
   app.setAppUserModelId('com.quilibrium.quorum');
 }
 
-app.whenReady().then(createWindow);
+app.whenReady().then(() => {
+  if (!isDev) {
+    registerProductionProtocol();
+    configureProductionApiAccess();
+    configureFarcasterApiAccess();
+  }
+  createWindow();
+});
 if (process.defaultApp) {
   if (process.argv.length >= 2) {
     app.setAsDefaultProtocolClient('quorum', process.execPath, [

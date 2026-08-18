@@ -15,5 +15,11 @@ contextBridge.exposeInMainWorld('electron', {
     // (no read/clear primitives). Resolves with the auto-clear delay in ms.
     copySecret: (text) => ipcRenderer.invoke('clipboard:copy-secret', text),
   },
+  secureStorage: {
+    status: () => ipcRenderer.invoke('secure-storage:status'),
+    get: (key) => ipcRenderer.invoke('secure-storage:get', key),
+    set: (key, value) => ipcRenderer.invoke('secure-storage:set', key, value),
+    delete: (key) => ipcRenderer.invoke('secure-storage:delete', key),
+  },
 });
 console.log('Preload script done...');
