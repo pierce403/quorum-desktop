@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeAll } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { I18nProvider } from '@lingui/react';
 import { i18n } from '@lingui/core';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { messages } from '@/i18n/en/messages';
 import { FarcasterCastCard } from '@/components/farcaster/FarcasterCastCard';
 import type { NormalizedCast } from '@quilibrium/quorum-shared';
@@ -11,6 +12,17 @@ beforeAll(() => {
   i18n.load('en', messages);
   i18n.activate('en');
 });
+
+const renderCard = (ui: React.ReactElement) => {
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  });
+  return render(
+    <I18nProvider i18n={i18n}>
+      <QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>
+    </I18nProvider>
+  );
+};
 
 const mockCast: NormalizedCast = {
   hash: '0x1234567890abcdef',
@@ -49,16 +61,14 @@ describe('FarcasterCastCard', () => {
     const onOpenChannel = vi.fn();
     const onOpenUsername = vi.fn();
 
-    render(
-      <I18nProvider i18n={i18n}>
-        <FarcasterCastCard
-          cast={mockCast}
-          onOpenProfile={onOpenProfile}
-          onOpenThread={onOpenThread}
-          onOpenChannel={onOpenChannel}
-          onOpenUsername={onOpenUsername}
-        />
-      </I18nProvider>
+    renderCard(
+      <FarcasterCastCard
+        cast={mockCast}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
     );
 
     expect(screen.getByText('Alice In Chains')).toBeInTheDocument();
@@ -75,16 +85,14 @@ describe('FarcasterCastCard', () => {
     const onOpenChannel = vi.fn();
     const onOpenUsername = vi.fn();
 
-    render(
-      <I18nProvider i18n={i18n}>
-        <FarcasterCastCard
-          cast={mockCast}
-          onOpenProfile={onOpenProfile}
-          onOpenThread={onOpenThread}
-          onOpenChannel={onOpenChannel}
-          onOpenUsername={onOpenUsername}
-        />
-      </I18nProvider>
+    renderCard(
+      <FarcasterCastCard
+        cast={mockCast}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
     );
 
     fireEvent.click(screen.getByText('Alice In Chains'));
@@ -97,16 +105,14 @@ describe('FarcasterCastCard', () => {
     const onOpenChannel = vi.fn();
     const onOpenUsername = vi.fn();
 
-    render(
-      <I18nProvider i18n={i18n}>
-        <FarcasterCastCard
-          cast={mockCast}
-          onOpenProfile={onOpenProfile}
-          onOpenThread={onOpenThread}
-          onOpenChannel={onOpenChannel}
-          onOpenUsername={onOpenUsername}
-        />
-      </I18nProvider>
+    renderCard(
+      <FarcasterCastCard
+        cast={mockCast}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
     );
 
     fireEvent.click(screen.getByText('@bob'));
@@ -122,19 +128,69 @@ describe('FarcasterCastCard', () => {
     const onOpenChannel = vi.fn();
     const onOpenUsername = vi.fn();
 
-    render(
-      <I18nProvider i18n={i18n}>
-        <FarcasterCastCard
-          cast={mockCast}
-          onOpenProfile={onOpenProfile}
-          onOpenThread={onOpenThread}
-          onOpenChannel={onOpenChannel}
-          onOpenUsername={onOpenUsername}
-        />
-      </I18nProvider>
+    renderCard(
+      <FarcasterCastCard
+        cast={mockCast}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
     );
 
     fireEvent.click(screen.getByRole('button', { name: 'Open cast thread' }));
     expect(onOpenThread).toHaveBeenCalledWith('0x1234567890abcdef');
+  });
+
+  it('triggers onOpenThread when clicking an in-app farcaster cast link', () => {
+    const onOpenProfile = vi.fn();
+    const onOpenThread = vi.fn();
+    const onOpenChannel = vi.fn();
+    const onOpenUsername = vi.fn();
+
+    const castWithLink: NormalizedCast = {
+      ...mockCast,
+      text: 'Check this out https://farcaster.xyz/sayangel/0x71edd392',
+    };
+
+    renderCard(
+      <FarcasterCastCard
+        cast={castWithLink}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
+    );
+
+    fireEvent.click(
+      screen.getByText('https://farcaster.xyz/sayangel/0x71edd392')
+    );
+    expect(onOpenThread).toHaveBeenCalledWith('0x71edd392');
+  });
+
+  it('triggers onOpenThread when clicking a quoted cast card', () => {
+    const onOpenProfile = vi.fn();
+    const onOpenThread = vi.fn();
+    const onOpenChannel = vi.fn();
+    const onOpenUsername = vi.fn();
+
+    const castWithQuote: NormalizedCast = {
+      ...mockCast,
+      embeds: [{ castId: { fid: 456, hash: '0x9999999999' } }],
+    };
+
+    renderCard(
+      <FarcasterCastCard
+        cast={castWithQuote}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: /Quoted cast/i }));
+    expect(onOpenThread).toHaveBeenCalledWith('0x9999999999');
   });
 });

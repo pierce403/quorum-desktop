@@ -1,13 +1,16 @@
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import {
   HypersnapClient,
+  LegacyFarcasterClient,
   fromHypersnapCast,
   fromHypersnapUser,
+  fromLegacyFeedItem,
   type HypersnapConversationCast,
   type NormalizedCast,
 } from '@quilibrium/quorum-shared';
 
 const client = new HypersnapClient({ timeoutMs: 60_000 });
+const legacyClient = new LegacyFarcasterClient({ timeoutMs: 60_000 });
 const PAGE_SIZE = 25;
 const SCAM_DOMAIN_RE = /(?:^|[^a-z0-9])hyrpia\.xyz(?:[/?#]|$|[^a-z0-9.])/i;
 
@@ -50,22 +53,119 @@ export function useTrendingFeed(enabled = true) {
   });
 }
 
-export function useDesktopChannelFeed(channel: string | null) {
+export interface ChannelInfo {
+  key: string;
+  name: string;
+  description?: string;
+  imageUrl?: string;
+  headerImageUrl?: string;
+  followerCount?: number;
+}
+
+export function useDesktopChannelInfo(channel: string | null) {
+  return useQuery({
+    queryKey: ['farcaster', 'desktop', 'channel-info', channel],
+    enabled: Boolean(channel),
+    queryFn: async (): Promise<ChannelInfo | null> => {
+      if (!channel) return null;
+      try {
+        const res = await fetch(
+          `https://farcaster.xyz/~api/v2/channel?key=${encodeURIComponent(channel)}`,
+          {
+            headers: {
+              accept: 'application/json',
+              origin: 'https://farcaster.xyz',
+              referer: 'https://farcaster.xyz/',
+            },
+          }
+        );
+        if (!res.ok) return null;
+        const data = (await res.json()) as {
+          result?: {
+            channel?: {
+              key: string;
+              name: string;
+              description?: string;
+              imageUrl?: string;
+              headerImageUrl?: string;
+              followerCount?: number;
+            };
+          };
+        };
+        const ch = data.result?.channel;
+        if (!ch) return null;
+        return {
+          key: ch.key,
+          name: ch.name,
+          description: ch.description,
+          imageUrl: ch.imageUrl,
+          headerImageUrl: ch.headerImageUrl,
+          followerCount: ch.followerCount,
+        };
+      } catch {
+        return null;
+      }
+    },
+    staleTime: 10 * 60_000,
+  });
+}
+
+interface ChannelFeedCursor {
+  olderThan?: number;
+  latestMainCastTimestamp?: number;
+  excludeItemIdPrefixes?: string[];
+  hypersnapCursor?: string | null;
+}
+
+export function useDesktopChannelFeed(channel: string | null, token?: string) {
   return useInfiniteQuery({
-    queryKey: ['farcaster', 'desktop', 'channel', channel],
-    enabled: channel !== null,
-    initialPageParam: undefined as string | undefined,
+    queryKey: ['farcaster', 'desktop', 'channel', channel, token],
+    enabled: Boolean(channel),
+    initialPageParam: undefined as ChannelFeedCursor | undefined,
     queryFn: async ({ pageParam }) => {
-      const response = await client.getChannelFeed([channel as string], {
-        cursor: pageParam,
+      if (!channel) return { casts: [], nextCursor: undefined };
+      if (token) {
+        try {
+          const res = await legacyClient.getFeedItems(
+            {
+              feedKey: channel,
+              feedType: 'default',
+              olderThan: pageParam?.olderThan,
+              latestMainCastTimestamp: pageParam?.latestMainCastTimestamp,
+              excludeItemIdPrefixes: pageParam?.excludeItemIdPrefixes,
+            },
+            token
+          );
+          const casts = safeCasts(res.items.map(fromLegacyFeedItem));
+          const lastItem = res.items[res.items.length - 1];
+          const nextTimestamp =
+            res.latestMainCastTimestamp ?? (lastItem ? lastItem.timestamp : null);
+          const nextCursor: ChannelFeedCursor | undefined =
+            nextTimestamp && res.items.length > 0
+              ? {
+                  olderThan: nextTimestamp,
+                  latestMainCastTimestamp: res.latestMainCastTimestamp,
+                  excludeItemIdPrefixes: res.items.map((it) => it.id.slice(2, 10)),
+                }
+              : undefined;
+          return { casts, nextCursor };
+        } catch {
+          // Fall through to hypersnap
+        }
+      }
+
+      const response = await client.getChannelFeed([channel], {
+        cursor: pageParam?.hypersnapCursor ?? undefined,
         limit: PAGE_SIZE,
       });
-      return {
-        casts: safeCasts(response.casts.map(fromHypersnapCast)),
-        cursor: response.next.cursor,
-      };
+      const casts = safeCasts(response.casts.map(fromHypersnapCast));
+      const nextCursor: ChannelFeedCursor | undefined =
+        response.next.cursor && casts.length > 0
+          ? { hypersnapCursor: response.next.cursor }
+          : undefined;
+      return { casts, nextCursor };
     },
-    getNextPageParam: (page) => page.cursor ?? undefined,
+    getNextPageParam: (page) => page.nextCursor,
     staleTime: 2 * 60_000,
   });
 }

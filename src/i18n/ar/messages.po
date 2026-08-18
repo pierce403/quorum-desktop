@@ -606,7 +606,7 @@ msgstr "إغلاق تلقائي بعد"
 msgid "Away"
 msgstr "بعيد"
 
-#: src/components/farcaster/FarcasterPage.tsx:251
+#: src/components/farcaster/FarcasterPage.tsx:281
 msgid "Back"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgstr "الإشارات المرجعية في هذا الفضاء"
 msgid "Browse public Spaces and find a community to join."
 msgstr "تصفح الفضاءات العامة وابحث عن مجتمع للانضمام إليه."
 
-#: src/components/farcaster/FarcasterPage.tsx:283
+#: src/components/farcaster/FarcasterPage.tsx:313
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -748,15 +748,15 @@ msgstr "لا يمكن حذف المجموعة التي تحتوي على الق�
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "لا يمكن تحميل أكثر من {0} ملف في وقت واحد ({remaining} فتحة متبقية)"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:233
+#: src/components/farcaster/FarcasterPage.tsx:263
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:350
+#: src/components/farcaster/FarcasterPage.tsx:380
 msgid "Cast thread"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "تُجرى التغييرات تلقائيًا، لكن قد لا يتم تحديث الصفحة النشطة. قم بتحديث الصفحة لتطبيق اللغة الجديدة."
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Channel feed"
 msgstr ""
 
@@ -1325,7 +1325,7 @@ msgstr "رسالة مباشرة"
 msgid "Direct messages"
 msgstr "رسائل مباشرة"
 
-#: src/components/farcaster/FarcasterPage.tsx:279
+#: src/components/farcaster/FarcasterPage.tsx:309
 msgid "Disconnect"
 msgstr ""
 
@@ -1769,7 +1769,7 @@ msgstr "فشل تحديث معاينة الانضمام. يرجى المحاول
 msgid "Failed to update profile"
 msgstr "فشل في تحديث الملف الشخصي"
 
-#: src/components/farcaster/FarcasterPage.tsx:254
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1778,7 +1778,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:393
+#: src/components/farcaster/FarcasterPage.tsx:425
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1878,8 +1878,12 @@ msgstr "اسم المجلد مطلوب"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "يجب أن يتكون اسم المجلد من {MAX_NAME_LENGTH} حرفًا أو أقل"
 
-#: src/components/farcaster/FarcasterPage.tsx:201
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:60
+msgid "followers"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:231
+#: src/components/farcaster/FarcasterPage.tsx:327
 msgid "Following"
 msgstr ""
 
@@ -2034,7 +2038,7 @@ msgid "Import a backup instead"
 msgstr "استورد نسخة احتياطية بدلًا من ذلك"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:284
+#: src/components/farcaster/FarcasterPage.tsx:314
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "استيراد حساب"
@@ -2260,13 +2264,13 @@ msgstr "ضوء"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "تم نسخ الرابط. الصقه حيث تريد مشاركته."
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:375
-#: src/components/farcaster/FarcasterPage.tsx:441
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:473
 msgid "Load more"
 msgstr "تحميل المزيد"
 
@@ -2275,11 +2279,11 @@ msgstr "تحميل المزيد"
 msgid "Loading bookmarks..."
 msgstr "جارٍ تحميل الإشارات المرجعية..."
 
-#: src/components/farcaster/FarcasterPage.tsx:435
+#: src/components/farcaster/FarcasterPage.tsx:467
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:363
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2295,7 +2299,7 @@ msgstr "جارٍ تحميل الإشعارات..."
 msgid "Loading pinned messages..."
 msgstr "جارٍ تحميل الرسائل المثبتة..."
 
-#: src/components/farcaster/FarcasterPage.tsx:418
+#: src/components/farcaster/FarcasterPage.tsx:450
 msgid "Loading profile..."
 msgstr ""
 
@@ -2303,7 +2307,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "جارٍ تحميل الفضاءات العامة..."
 
-#: src/components/farcaster/FarcasterPage.tsx:351
+#: src/components/farcaster/FarcasterPage.tsx:381
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "جاري تحميل المحادثة..."
@@ -2313,8 +2317,8 @@ msgid "Loading your profile..."
 msgstr "جارٍ تحميل ملف التعريف الخاص بك..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:375
-#: src/components/farcaster/FarcasterPage.tsx:441
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:473
 msgid "Loading..."
 msgstr "جارٍ التحميل..."
 
@@ -2572,7 +2576,7 @@ msgstr "لا توجد ماركرات تطابق بحثك."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "لا توجد ماركرات بعد. قم بحفظ الرسائل لاحقًا للرجوع إليها."
 
-#: src/components/farcaster/FarcasterPage.tsx:368
+#: src/components/farcaster/FarcasterPage.tsx:400
 msgid "No casts found."
 msgstr ""
 
@@ -2749,7 +2753,7 @@ msgstr "متصل"
 msgid "Only space owners can generate public invite links."
 msgstr "يمكن لمالكي الفضاء فقط إنشاء روابط دعوة عامة."
 
-#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:300
 msgid "Open"
 msgstr ""
 
@@ -2758,7 +2762,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "فتح {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:295
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2766,7 +2770,7 @@ msgstr ""
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:36
+#: src/components/farcaster/FarcasterPage.tsx:37
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2905,11 +2909,11 @@ msgstr "مثبت بواسطة {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "الرسائل المثبتة"
 
-#: src/components/farcaster/FarcasterPage.tsx:312
+#: src/components/farcaster/FarcasterPage.tsx:342
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2980,7 +2984,7 @@ msgstr "ملف شخصي عام"
 msgid "Public spaces"
 msgstr "الفضاءات العامة"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 msgid "Publishing..."
 msgstr ""
 
@@ -3003,7 +3007,7 @@ msgstr "Quorum هو منصة رسائل موزعة حيث تمتلك هويتك.
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "تم تحميل Quorum بينما لم يكن المتصفح في التركيز أو تم رفض طلب passkey. يرجى إعادة التفويض للوصول إلى رسائلك."
 
-#: src/components/farcaster/FarcasterPage.tsx:175
+#: src/components/farcaster/FarcasterPage.tsx:205
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3052,7 +3056,7 @@ msgstr "تم استلام تكوين بتوقيع غير صالح!"
 msgid "Recipient has no devices"
 msgstr "المستلم ليس لديه أجهزة"
 
-#: src/components/farcaster/FarcasterPage.tsx:361
+#: src/components/farcaster/FarcasterPage.tsx:393
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3112,7 +3116,7 @@ msgstr ""
 msgid "Replies"
 msgstr "ردود"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3219,7 +3223,7 @@ msgid "Restoring..."
 msgstr "جارٍ الاستعادة..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:394
+#: src/components/farcaster/FarcasterPage.tsx:426
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "إعادة المحاولة"
@@ -3349,7 +3353,7 @@ msgstr "ابحث عن اسم المستخدم أو العنوان"
 msgid "Search..."
 msgstr "بحث..."
 
-#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:300
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "جارٍ البحث..."
@@ -3927,9 +3931,9 @@ msgstr "اليوم"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "عدد الإشارات في الرسالة كثير جدًا. الحد الأقصى المسموح به هو {MAX_MENTIONS_PER_MESSAGE}."
 
-#: src/components/farcaster/FarcasterPage.tsx:181
-#: src/components/farcaster/FarcasterPage.tsx:201
-#: src/components/farcaster/FarcasterPage.tsx:304
+#: src/components/farcaster/FarcasterPage.tsx:211
+#: src/components/farcaster/FarcasterPage.tsx:231
+#: src/components/farcaster/FarcasterPage.tsx:334
 msgid "Trending"
 msgstr ""
 
@@ -4252,7 +4256,7 @@ msgstr "ما هو مفتاح الحساب؟"
 msgid "What should we call you?"
 msgstr "ما الذي يجب أن نناديك به؟"
 
-#: src/components/farcaster/FarcasterPage.tsx:332
+#: src/components/farcaster/FarcasterPage.tsx:362
 msgid "What's happening?"
 msgstr ""
 
@@ -4337,7 +4341,7 @@ msgstr "لماذا يجب علي القيام بذلك؟"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "بدون هذا النسخ الاحتياطي، فقدان جهازك يعني فقدان حسابك - لا يوجد خيار \"نسيت كلمة المرور\". هذا هو الثمن الذي تدفعه للخصوصية :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:332
+#: src/components/farcaster/FarcasterPage.tsx:362
 msgid "Write a reply..."
 msgstr ""
 

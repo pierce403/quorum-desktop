@@ -10,6 +10,7 @@ import {
   resolveChannelParentUrl,
   isSafeFarcasterCast,
   useDesktopChannelFeed,
+  useDesktopChannelInfo,
   useFarcasterProfile,
   useFarcasterThread,
   useTrendingFeed,
@@ -34,6 +35,32 @@ const PhoneHeader: React.FC = () => {
   return (
     <div className="chat-header text-main">
       <Button type="unstyled" onClick={shell.openDrawer} className="header-icon-button" iconName="menu" iconSize="lg" iconOnly ariaLabel={t`Open navigation`} />
+    </div>
+  );
+};
+
+const ChannelHeader: React.FC<{ channelKey: string }> = ({ channelKey }) => {
+  const channelInfo = useDesktopChannelInfo(channelKey);
+  const info = channelInfo.data;
+  if (!info) return null;
+  return (
+    <div className="farcaster-channel-header">
+      {info.imageUrl ? (
+        <img className="farcaster-channel-header__image" src={info.imageUrl} alt="" />
+      ) : (
+        <div className="farcaster-channel-header__image farcaster-channel-header__image--fallback">
+          /{channelKey.slice(0, 1).toUpperCase()}
+        </div>
+      )}
+      <div className="farcaster-channel-header__details">
+        <h2>{info.name || `/${channelKey}`}</h2>
+        {info.description && <p>{info.description}</p>}
+        {info.followerCount !== undefined && (
+          <span className="farcaster-channel-header__followers">
+            <strong>{info.followerCount.toLocaleString()}</strong> {t`followers`}
+          </span>
+        )}
+      </div>
     </div>
   );
 };
@@ -112,7 +139,10 @@ export const FarcasterPage: React.FC = () => {
     enabled: showFollowing,
     filterCast: isSafeFarcasterCast,
   });
-  const channel = useDesktopChannelFeed(view.kind === 'channel' ? view.channel : null);
+  const channel = useDesktopChannelFeed(
+    view.kind === 'channel' ? view.channel : null,
+    account?.authToken
+  );
   const profile = useFarcasterProfile(view.kind === 'profile' ? view.fid : null);
   const thread = useFarcasterThread(view.kind === 'thread' ? view.hash : null);
   const submitCast = useSubmitCast({
@@ -354,23 +384,25 @@ export const FarcasterPage: React.FC = () => {
           </section>
         )}
 
+        {view.kind === 'channel' && <ChannelHeader channelKey={view.channel} />}
+
         {(view.kind === 'feed' || view.kind === 'channel') && (
           <section className="farcaster-feed" aria-label={title}>
             <div className="farcaster-feed__toolbar">
               <span>{view.kind === 'feed' ? (showFollowing ? t`Posts from accounts you follow` : t`Live from the Farcaster network`) : t`Channel feed`}</span>
               <Button type="unstyled" iconName="refresh" iconOnly ariaLabel={t`Refresh`} onClick={() => refetch()} />
             </div>
-            {isLoading && casts.length === 0 && <LoadingState label={t`Loading Farcaster...`} />}
+            {(isLoading || (isFetchingNextPage && casts.length === 0)) && <LoadingState label={t`Loading Farcaster...`} />}
             {error && casts.length === 0 && <ErrorState onRetry={() => refetch()} />}
-            {!isLoading && !error && casts.length === 0 && (
+            {!isLoading && !isFetchingNextPage && !error && casts.length === 0 && (
               <div className="empty-state empty-state--fill">
                 <Icon name="farcaster" size="5xl" className="empty-state__icon" />
                 <p className="empty-state__title">{t`No casts found.`}</p>
               </div>
             )}
             {casts.map((cast) => <FarcasterCastCard key={cast.hash} cast={cast} {...cardProps} />)}
-            <div ref={sentinelRef} className="farcaster-feed__sentinel" aria-hidden="true" />
-            {hasNextPage && (
+            {casts.length > 0 && <div ref={sentinelRef} className="farcaster-feed__sentinel" aria-hidden="true" />}
+            {casts.length > 0 && hasNextPage && (
               <Button type="secondary" disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>
                 {isFetchingNextPage ? t`Loading...` : t`Load more`}
               </Button>

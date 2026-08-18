@@ -605,7 +605,7 @@ msgstr "Automaticky zavřít po"
 msgid "Away"
 msgstr "Pracovní"
 
-#: src/components/farcaster/FarcasterPage.tsx:251
+#: src/components/farcaster/FarcasterPage.tsx:281
 msgid "Back"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr "Záložky v tomto Prostoru"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Procházejte veřejné Prostory a najděte komunitu, ke které se připojíte."
 
-#: src/components/farcaster/FarcasterPage.tsx:283
+#: src/components/farcaster/FarcasterPage.tsx:313
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -747,15 +747,15 @@ msgstr "Nelze smazat skupinu obsahující výchozí kanál."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Nelze nahrát více než {0} souborů najednou ({remaining} slotů zbývá)"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:233
+#: src/components/farcaster/FarcasterPage.tsx:263
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:350
+#: src/components/farcaster/FarcasterPage.tsx:380
 msgid "Cast thread"
 msgstr ""
 
@@ -763,7 +763,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Změny se provádějí automaticky, ale aktivní stránka nemusí být aktualizována. Obnov stránku, abys použil nový jazyk."
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Channel feed"
 msgstr ""
 
@@ -1324,7 +1324,7 @@ msgstr "Přímá zpráva"
 msgid "Direct messages"
 msgstr "Přímé zprávy"
 
-#: src/components/farcaster/FarcasterPage.tsx:279
+#: src/components/farcaster/FarcasterPage.tsx:309
 msgid "Disconnect"
 msgstr ""
 
@@ -1768,7 +1768,7 @@ msgstr "Nepodařilo se aktualizovat náhled připojení. Zkuste to prosím znovu
 msgid "Failed to update profile"
 msgstr "Nepodařilo se aktualizovat profil"
 
-#: src/components/farcaster/FarcasterPage.tsx:254
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1777,7 +1777,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:393
+#: src/components/farcaster/FarcasterPage.tsx:425
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1877,8 +1877,12 @@ msgstr "Název složky je povinný"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Název složky musí mít maximálně {MAX_NAME_LENGTH} znaků"
 
-#: src/components/farcaster/FarcasterPage.tsx:201
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:60
+msgid "followers"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:231
+#: src/components/farcaster/FarcasterPage.tsx:327
 msgid "Following"
 msgstr ""
 
@@ -2033,7 +2037,7 @@ msgid "Import a backup instead"
 msgstr "Místo toho importuj zálohu"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:284
+#: src/components/farcaster/FarcasterPage.tsx:314
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Importovat účet"
@@ -2259,13 +2263,13 @@ msgstr "Světlo"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Odkaz zkopírován. Vložte jej tam, kam jej chcete sdílet."
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:375
-#: src/components/farcaster/FarcasterPage.tsx:441
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:473
 msgid "Load more"
 msgstr "Načíst další"
 
@@ -2274,11 +2278,11 @@ msgstr "Načíst další"
 msgid "Loading bookmarks..."
 msgstr "Načítání záložek..."
 
-#: src/components/farcaster/FarcasterPage.tsx:435
+#: src/components/farcaster/FarcasterPage.tsx:467
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:363
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2294,7 +2298,7 @@ msgstr "Načítání oznámení..."
 msgid "Loading pinned messages..."
 msgstr "Načítání připnutých zpráv..."
 
-#: src/components/farcaster/FarcasterPage.tsx:418
+#: src/components/farcaster/FarcasterPage.tsx:450
 msgid "Loading profile..."
 msgstr ""
 
@@ -2302,7 +2306,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Načítání veřejných Prostorů..."
 
-#: src/components/farcaster/FarcasterPage.tsx:351
+#: src/components/farcaster/FarcasterPage.tsx:381
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Načítání vlákna..."
@@ -2312,8 +2316,8 @@ msgid "Loading your profile..."
 msgstr "Načítání vašeho profilu..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:375
-#: src/components/farcaster/FarcasterPage.tsx:441
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:473
 msgid "Loading..."
 msgstr "Načítání..."
 
@@ -2571,7 +2575,7 @@ msgstr "Nenalezeny žádné záložky odpovídající vašemu hledání."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Zatím žádné záložky. Založte si zprávy, abyste je mohli později použít jako odkaz."
 
-#: src/components/farcaster/FarcasterPage.tsx:368
+#: src/components/farcaster/FarcasterPage.tsx:400
 msgid "No casts found."
 msgstr ""
 
@@ -2748,7 +2752,7 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Veřejné odkazy na pozvánky mohou generovat pouze vlastníci Prostoru."
 
-#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:300
 msgid "Open"
 msgstr ""
 
@@ -2757,7 +2761,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Otevřít {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:295
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2765,7 +2769,7 @@ msgstr ""
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:36
+#: src/components/farcaster/FarcasterPage.tsx:37
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2904,11 +2908,11 @@ msgstr "Připnuto uživatelem {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Připnuté zprávy"
 
-#: src/components/farcaster/FarcasterPage.tsx:312
+#: src/components/farcaster/FarcasterPage.tsx:342
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2979,7 +2983,7 @@ msgstr "Veřejný profil"
 msgid "Public spaces"
 msgstr "Veřejné prostory"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 msgid "Publishing..."
 msgstr ""
 
@@ -3002,7 +3006,7 @@ msgstr "Quorum je decentralizovaná zprávovací platforma, kde vlastníte svou 
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum bylo načteno, zatímco prohlížeč nebyl v ohnisku nebo byla odmítnuta passkey request. Prosím, znovu autorizujte přístup k vašim zprávám."
 
-#: src/components/farcaster/FarcasterPage.tsx:175
+#: src/components/farcaster/FarcasterPage.tsx:205
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3051,7 +3055,7 @@ msgstr "obdržena konfigurace s neplatným podpisem!"
 msgid "Recipient has no devices"
 msgstr "Příjemce nemá žádná zařízení"
 
-#: src/components/farcaster/FarcasterPage.tsx:361
+#: src/components/farcaster/FarcasterPage.tsx:393
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3111,7 +3115,7 @@ msgstr ""
 msgid "Replies"
 msgstr "Odpovědi"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3218,7 +3222,7 @@ msgid "Restoring..."
 msgstr "Obnovuji..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:394
+#: src/components/farcaster/FarcasterPage.tsx:426
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Zkusit znovu"
@@ -3348,7 +3352,7 @@ msgstr "Hledat uživatelské jméno nebo adresu"
 msgid "Search..."
 msgstr "Hledat..."
 
-#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:300
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Hledání..."
@@ -3926,9 +3930,9 @@ msgstr "Dnes"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Příliš mnoho zmínek v zprávě. Maximálně {MAX_MENTIONS_PER_MESSAGE} povoleno."
 
-#: src/components/farcaster/FarcasterPage.tsx:181
-#: src/components/farcaster/FarcasterPage.tsx:201
-#: src/components/farcaster/FarcasterPage.tsx:304
+#: src/components/farcaster/FarcasterPage.tsx:211
+#: src/components/farcaster/FarcasterPage.tsx:231
+#: src/components/farcaster/FarcasterPage.tsx:334
 msgid "Trending"
 msgstr ""
 
@@ -4251,7 +4255,7 @@ msgstr "Co je to účtový klíč?"
 msgid "What should we call you?"
 msgstr "Jak vás máme oslovovat?"
 
-#: src/components/farcaster/FarcasterPage.tsx:332
+#: src/components/farcaster/FarcasterPage.tsx:362
 msgid "What's happening?"
 msgstr ""
 
@@ -4336,7 +4340,7 @@ msgstr "Proč to musím dělat?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Bez této zálohy ztráta zařízení znamená ztrátu účtu - není žádná možnost \"zapomenuté heslo\". Tohle je cena, kterou platíte za soukromí :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:332
+#: src/components/farcaster/FarcasterPage.tsx:362
 msgid "Write a reply..."
 msgstr ""
 

@@ -605,7 +605,7 @@ msgstr "Tự động đóng sau"
 msgid "Away"
 msgstr "Đi vắng"
 
-#: src/components/farcaster/FarcasterPage.tsx:251
+#: src/components/farcaster/FarcasterPage.tsx:281
 msgid "Back"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr "Dấu trang trong Space này"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Duyệt các Space công khai và tìm một cộng đồng để tham gia."
 
-#: src/components/farcaster/FarcasterPage.tsx:283
+#: src/components/farcaster/FarcasterPage.tsx:313
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -747,15 +747,15 @@ msgstr "Không thể xóa nhóm chứa kênh mặc định."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Không thể tải lên hơn {0} tệp cùng một lúc ({remaining} chỗ còn lại)"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:233
+#: src/components/farcaster/FarcasterPage.tsx:263
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:350
+#: src/components/farcaster/FarcasterPage.tsx:380
 msgid "Cast thread"
 msgstr ""
 
@@ -763,7 +763,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Các thay đổi được thực hiện tự động, nhưng trang đang hoạt động có thể không được cập nhật. Làm mới trang để áp dụng ngôn ngữ mới."
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Channel feed"
 msgstr ""
 
@@ -1324,7 +1324,7 @@ msgstr "Tin nhắn trực tiếp"
 msgid "Direct messages"
 msgstr "Tin nhắn trực tiếp"
 
-#: src/components/farcaster/FarcasterPage.tsx:279
+#: src/components/farcaster/FarcasterPage.tsx:309
 msgid "Disconnect"
 msgstr ""
 
@@ -1768,7 +1768,7 @@ msgstr "Không thể cập nhật bản xem trước tham gia. Vui lòng thử l
 msgid "Failed to update profile"
 msgstr "Cập nhật hồ sơ không thành công"
 
-#: src/components/farcaster/FarcasterPage.tsx:254
+#: src/components/farcaster/FarcasterPage.tsx:284
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1777,7 +1777,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:393
+#: src/components/farcaster/FarcasterPage.tsx:425
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1877,8 +1877,12 @@ msgstr "Tên Thư mục là bắt buộc"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Tên Thư mục phải có {MAX_NAME_LENGTH} ký tự trở xuống"
 
-#: src/components/farcaster/FarcasterPage.tsx:201
-#: src/components/farcaster/FarcasterPage.tsx:297
+#: src/components/farcaster/FarcasterPage.tsx:60
+msgid "followers"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:231
+#: src/components/farcaster/FarcasterPage.tsx:327
 msgid "Following"
 msgstr ""
 
@@ -2033,7 +2037,7 @@ msgid "Import a backup instead"
 msgstr "Nhập sao lưu thay vào đó"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:284
+#: src/components/farcaster/FarcasterPage.tsx:314
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Nhập tài khoản"
@@ -2259,13 +2263,13 @@ msgstr "Ánh sáng"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Đã sao chép liên kết. Dán nó vào nơi bạn muốn chia sẻ."
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:375
-#: src/components/farcaster/FarcasterPage.tsx:441
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:473
 msgid "Load more"
 msgstr "Tải thêm"
 
@@ -2274,11 +2278,11 @@ msgstr "Tải thêm"
 msgid "Loading bookmarks..."
 msgstr "Đang tải dấu trang..."
 
-#: src/components/farcaster/FarcasterPage.tsx:435
+#: src/components/farcaster/FarcasterPage.tsx:467
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:363
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2294,7 +2298,7 @@ msgstr "Đang tải thông báo..."
 msgid "Loading pinned messages..."
 msgstr "Đang tải tin nhắn đã ghim..."
 
-#: src/components/farcaster/FarcasterPage.tsx:418
+#: src/components/farcaster/FarcasterPage.tsx:450
 msgid "Loading profile..."
 msgstr ""
 
@@ -2302,7 +2306,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Đang tải các Space công khai..."
 
-#: src/components/farcaster/FarcasterPage.tsx:351
+#: src/components/farcaster/FarcasterPage.tsx:381
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Đang tải chủ đề..."
@@ -2312,8 +2316,8 @@ msgid "Loading your profile..."
 msgstr "Đang tải hồ sơ của bạn..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:375
-#: src/components/farcaster/FarcasterPage.tsx:441
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:473
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -2571,7 +2575,7 @@ msgstr "Không có marcadores nào phù hợp với tìm kiếm của bạn."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Chưa có marcadores. Đánh dấu tin nhắn để lưu lại tham khảo sau."
 
-#: src/components/farcaster/FarcasterPage.tsx:368
+#: src/components/farcaster/FarcasterPage.tsx:400
 msgid "No casts found."
 msgstr ""
 
@@ -2748,7 +2752,7 @@ msgstr "Trực tuyến"
 msgid "Only space owners can generate public invite links."
 msgstr "Chỉ chủ sở hữu Space mới có thể tạo liên kết mời công khai."
 
-#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:300
 msgid "Open"
 msgstr ""
 
@@ -2757,7 +2761,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Mở {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:265
+#: src/components/farcaster/FarcasterPage.tsx:295
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2765,7 +2769,7 @@ msgstr ""
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:36
+#: src/components/farcaster/FarcasterPage.tsx:37
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2904,11 +2908,11 @@ msgstr "Được ghim bởi {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Tin nhắn đã ghim"
 
-#: src/components/farcaster/FarcasterPage.tsx:312
+#: src/components/farcaster/FarcasterPage.tsx:342
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:360
+#: src/components/farcaster/FarcasterPage.tsx:392
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2979,7 +2983,7 @@ msgstr "Hồ sơ công khai"
 msgid "Public spaces"
 msgstr "Các không gian công cộng"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 msgid "Publishing..."
 msgstr ""
 
@@ -3002,7 +3006,7 @@ msgstr "Quorum là một nền tảng nhắn tin phi tập trung nơi bạn sở
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum đã được tải khi trình duyệt không được tập trung hoặc yêu cầu passkey đã bị từ chối. Vui lòng xác thực lại để truy cập tin nhắn của bạn."
 
-#: src/components/farcaster/FarcasterPage.tsx:175
+#: src/components/farcaster/FarcasterPage.tsx:205
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3051,7 +3055,7 @@ msgstr "nhận cấu hình với chữ ký không hợp lệ!"
 msgid "Recipient has no devices"
 msgstr "Người nhận không có thiết bị"
 
-#: src/components/farcaster/FarcasterPage.tsx:361
+#: src/components/farcaster/FarcasterPage.tsx:393
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3111,7 +3115,7 @@ msgstr ""
 msgid "Replies"
 msgstr "Phản hồi"
 
-#: src/components/farcaster/FarcasterPage.tsx:341
+#: src/components/farcaster/FarcasterPage.tsx:371
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3218,7 +3222,7 @@ msgid "Restoring..."
 msgstr "Đang khôi phục..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:394
+#: src/components/farcaster/FarcasterPage.tsx:426
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Thử lại"
@@ -3348,7 +3352,7 @@ msgstr "Tìm kiếm Tên người dùng hoặc Địa chỉ"
 msgid "Search..."
 msgstr "Tìm kiếm..."
 
-#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:300
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Đang tìm kiếm..."
@@ -3926,9 +3930,9 @@ msgstr "Hôm nay"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Quá nhiều đề cập trong tin nhắn. Tối đa {MAX_MENTIONS_PER_MESSAGE} được phép."
 
-#: src/components/farcaster/FarcasterPage.tsx:181
-#: src/components/farcaster/FarcasterPage.tsx:201
-#: src/components/farcaster/FarcasterPage.tsx:304
+#: src/components/farcaster/FarcasterPage.tsx:211
+#: src/components/farcaster/FarcasterPage.tsx:231
+#: src/components/farcaster/FarcasterPage.tsx:334
 msgid "Trending"
 msgstr ""
 
@@ -4251,7 +4255,7 @@ msgstr "Khóa Tài Khoản là gì?"
 msgid "What should we call you?"
 msgstr "Chúng tôi nên gọi bạn là gì?"
 
-#: src/components/farcaster/FarcasterPage.tsx:332
+#: src/components/farcaster/FarcasterPage.tsx:362
 msgid "What's happening?"
 msgstr ""
 
@@ -4336,7 +4340,7 @@ msgstr "Tại sao tôi cần làm điều này?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Không có bản sao lưu này, mất thiết bị có nghĩa là mất tài khoản - không có tùy chọn 'quên mật khẩu'. Đây là giá phải trả cho quyền riêng tư :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:332
+#: src/components/farcaster/FarcasterPage.tsx:362
 msgid "Write a reply..."
 msgstr ""
 
