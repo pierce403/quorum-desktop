@@ -11,12 +11,33 @@ const {
   safeStorage,
 } = require('electron');
 const path = require('path');
-const { existsSync, promises: fs } = require('fs');
+const { existsSync } = require('fs');
 const { pathToFileURL } = require('url');
+const {
+  configureNetworkAccess,
+  resolveDevProxyUrl,
+} = require('./network-access.cjs');
+const { createDevDiagnostics } = require('./dev-diagnostics.cjs');
+const { createSecretFileStore } = require('./secure-secret-store.cjs');
+const {
+  classifyNavigationTarget,
+  isTrustedRenderer: isTrustedRendererEvent,
+  navigationUrlFromEvent,
+} = require('./renderer-security.cjs');
 
-// Simple development mode check
-const isDev =
-  process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
+// Keep packaged and unpackaged Electron on the same Chromium profile. Without
+// this, `electron web/electron/main.cjs` defaults to ~/.config/Electron while
+// the packaged app uses ~/.config/quorum-desktop, making the same machine look
+// signed out depending on how the binary was launched. Respect explicit test or
+// operator profiles supplied with --user-data-dir.
+if (!app.commandLine.hasSwitch('user-data-dir')) {
+  app.setPath('userData', path.join(app.getPath('appData'), 'quorum-desktop'));
+}
+
+// Content source and diagnostics are intentionally separate. DEBUG_PROD used
+// to switch a packaged app to localhost, which also switched its storage origin
+// and made an existing account disappear.
+const usesDevServer = process.env.NODE_ENV === 'development';
 
 // Dev server URL (override with ELECTRON_DEV_URL when Vite picks a non-default port).
 const devUrl = process.env.ELECTRON_DEV_URL || 'http://localhost:5173';
@@ -31,11 +52,28 @@ const APP_SCHEME = 'quorum-app';
 const APP_HOST = 'app';
 const APP_ORIGIN = `${APP_SCHEME}://${APP_HOST}`;
 const DIST_ROOT = path.resolve(__dirname, '../../dist');
-const QUORUM_API_ORIGIN = 'https://api.quorummessenger.com';
-const QUORUM_WEB_ORIGIN = 'https://app.quorummessenger.com';
-const FARCASTER_CLIENT_ORIGIN = 'https://client.farcaster.xyz';
-const FARCASTER_WEB_ORIGIN = 'https://farcaster.xyz';
-const FARCASTER_API_ORIGIN = 'https://api.farcaster.xyz';
+const DEV_BUILD_MARKER = path.join(DIST_ROOT, 'quorum-dev-build.json');
+// Retain the BrowserWindow wrapper for the lifetime of the native window.
+let mainWindow = null;
+const diagnosticsEnabled =
+  usesDevServer ||
+  process.env.DEBUG_PROD === 'true' ||
+  process.env.QUORUM_DEV_LOGS === 'true' ||
+  existsSync(DEV_BUILD_MARKER);
+const diagnostics = createDevDiagnostics({
+  enabled: diagnosticsEnabled,
+  logPath: path.join(app.getPath('userData'), 'logs', 'quorum-dev.ndjson'),
+});
+
+diagnostics.log('app.start', {
+  version: app.getVersion(),
+  platform: process.platform,
+  arch: process.arch,
+  packaged: app.isPackaged,
+  sourceMode: usesDevServer ? 'vite' : 'bundle',
+  diagnosticsMode: diagnosticsEnabled ? 'enabled' : 'disabled',
+  userDataBasename: path.basename(app.getPath('userData')),
+});
 
 protocol.registerSchemesAsPrivileged([
   {
@@ -81,8 +119,27 @@ function resolveProductionAsset(requestUrl) {
   return null;
 }
 
-function registerProductionProtocol() {
+async function proxyDevRequest(request) {
+  const targetUrl = resolveDevProxyUrl(request.url, devUrl, APP_ORIGIN);
+  if (!targetUrl) {
+    return new Response('Not found', { status: 404 });
+  }
+
+  const requestInit = {
+    method: request.method,
+    headers: request.headers,
+    bypassCustomProtocolHandlers: true,
+  };
+  if (request.method !== 'GET' && request.method !== 'HEAD') {
+    requestInit.body = request.body;
+  }
+  return net.fetch(targetUrl, requestInit);
+}
+
+function registerAppProtocol() {
   protocol.handle(APP_SCHEME, (request) => {
+    if (usesDevServer) return proxyDevRequest(request);
+
     const assetPath = resolveProductionAsset(request.url);
     if (!assetPath) {
       return new Response('Not found', { status: 404 });
@@ -91,159 +148,207 @@ function registerProductionProtocol() {
   });
 }
 
-function replaceHeader(headers, name, value) {
-  const updatedHeaders = { ...headers };
-  for (const headerName of Object.keys(updatedHeaders)) {
-    if (headerName.toLowerCase() === name.toLowerCase()) {
-      delete updatedHeaders[headerName];
-    }
-  }
-  updatedHeaders[name] = value;
-  return updatedHeaders;
-}
-
-function configureProductionApiAccess() {
-  const apiFilter = {
-    urls: [`${QUORUM_API_ORIGIN}/*`, 'wss://api.quorummessenger.com/*'],
-  };
-
-  // The API intentionally allows the hosted web app's origin, but does not
-  // know about Electron's private custom scheme. Present the official origin
-  // upstream, then translate that one response header back to the renderer's
-  // actual origin. This is deliberately limited to Quorum's API and keeps
-  // Chromium's web security enabled for every other destination.
-  session.defaultSession.webRequest.onBeforeSendHeaders(
-    apiFilter,
-    (details, callback) => {
-      callback({
-        requestHeaders: replaceHeader(
-          details.requestHeaders,
-          'Origin',
-          QUORUM_WEB_ORIGIN
-        ),
-      });
-    }
-  );
-
-  session.defaultSession.webRequest.onHeadersReceived(
-    { urls: [`${QUORUM_API_ORIGIN}/*`] },
-    (details, callback) => {
-      callback({
-        responseHeaders: replaceHeader(
-          details.responseHeaders,
-          'Access-Control-Allow-Origin',
-          [APP_ORIGIN]
-        ),
-      });
-    }
-  );
-}
-
-function configureFarcasterApiAccess() {
-  const urls = [`${FARCASTER_CLIENT_ORIGIN}/*`, `${FARCASTER_API_ORIGIN}/*`];
-  session.defaultSession.webRequest.onBeforeSendHeaders(
-    { urls },
-    (details, callback) => {
-      callback({
-        requestHeaders: replaceHeader(details.requestHeaders, 'Origin', FARCASTER_WEB_ORIGIN),
-      });
-    }
-  );
-  session.defaultSession.webRequest.onHeadersReceived(
-    { urls },
-    (details, callback) => {
-      callback({
-        responseHeaders: replaceHeader(
-          details.responseHeaders,
-          'Access-Control-Allow-Origin',
-          [APP_ORIGIN]
-        ),
-      });
-    }
-  );
-}
-
 const ALLOWED_SECRET_KEYS = new Set(['farcaster-account', 'farcaster-signer']);
 
 function secureStorageUsable() {
-  return safeStorage.isEncryptionAvailable() && safeStorage.getSelectedStorageBackend() !== 'basic_text';
+  return (
+    safeStorage.isEncryptionAvailable() &&
+    safeStorage.getSelectedStorageBackend() !== 'basic_text'
+  );
 }
 
 function secretsPath() {
   return path.join(app.getPath('userData'), 'secure-secrets.json');
 }
 
-async function readSecretFile() {
-  try {
-    return JSON.parse(await fs.readFile(secretsPath(), 'utf8'));
-  } catch (error) {
-    if (error && error.code === 'ENOENT') return {};
-    throw error;
-  }
-}
+const secretStore = createSecretFileStore({
+  filePath: secretsPath(),
+  encrypt: (value) => safeStorage.encryptString(value).toString('base64'),
+  decrypt: (value) => safeStorage.decryptString(Buffer.from(value, 'base64')),
+});
 
 function assertSecretKey(key) {
   if (!ALLOWED_SECRET_KEYS.has(key)) throw new Error('Unsupported secret key');
 }
 
-ipcMain.handle('secure-storage:status', () => ({
-  available: secureStorageUsable(),
-  backend: safeStorage.getSelectedStorageBackend(),
-}));
+function isTrustedRenderer(event) {
+  return isTrustedRendererEvent(event, mainWindow?.webContents, APP_ORIGIN);
+}
 
-ipcMain.handle('secure-storage:get', async (_event, key) => {
+function assertTrustedRenderer(event) {
+  if (!isTrustedRenderer(event)) throw new Error('Untrusted renderer');
+}
+
+ipcMain.handle('secure-storage:status', (event) => {
+  assertTrustedRenderer(event);
+  const result = {
+    available: secureStorageUsable(),
+    backend: safeStorage.getSelectedStorageBackend(),
+  };
+  diagnostics.log('secure-storage', {
+    operation: 'status',
+    outcome: 'success',
+    available: result.available,
+    backend: result.backend,
+  });
+  return result;
+});
+
+ipcMain.handle('secure-storage:get', async (event, key) => {
+  assertTrustedRenderer(event);
   assertSecretKey(key);
-  if (!secureStorageUsable()) return null;
-  const values = await readSecretFile();
-  const encrypted = values[key];
-  if (typeof encrypted !== 'string') return null;
-  return safeStorage.decryptString(Buffer.from(encrypted, 'base64'));
+  const available = secureStorageUsable();
+  if (!available) {
+    diagnostics.log('secure-storage', {
+      operation: 'get',
+      slot: key,
+      outcome: 'unavailable',
+      available,
+      present: false,
+      backend: safeStorage.getSelectedStorageBackend(),
+    });
+    return null;
+  }
+  try {
+    const value = await secretStore.get(key);
+    const present = value !== null;
+    diagnostics.log('secure-storage', {
+      operation: 'get',
+      slot: key,
+      outcome: 'success',
+      available,
+      present,
+      backend: safeStorage.getSelectedStorageBackend(),
+    });
+    return value;
+  } catch (error) {
+    diagnostics.log('secure-storage', {
+      operation: 'get',
+      slot: key,
+      outcome: 'failed',
+      available,
+      backend: safeStorage.getSelectedStorageBackend(),
+    });
+    throw error;
+  }
 });
 
-ipcMain.handle('secure-storage:set', async (_event, key, value) => {
+ipcMain.handle('secure-storage:set', async (event, key, value) => {
+  assertTrustedRenderer(event);
   assertSecretKey(key);
-  if (typeof value !== 'string' || value.length > 32_768) throw new Error('Invalid secret value');
-  if (!secureStorageUsable()) throw new Error('OS credential encryption is unavailable');
-  const values = await readSecretFile();
-  values[key] = safeStorage.encryptString(value).toString('base64');
-  const target = secretsPath();
-  const temporary = `${target}.tmp`;
-  await fs.mkdir(path.dirname(target), { recursive: true });
-  await fs.writeFile(temporary, JSON.stringify(values), { mode: 0o600 });
-  await fs.rename(temporary, target);
+  if (typeof value !== 'string' || value.length > 32_768)
+    throw new Error('Invalid secret value');
+  const available = secureStorageUsable();
+  if (!available) throw new Error('OS credential encryption is unavailable');
+  try {
+    await secretStore.set(key, value);
+    diagnostics.log('secure-storage', {
+      operation: 'set',
+      slot: key,
+      outcome: 'success',
+      available,
+      present: true,
+      backend: safeStorage.getSelectedStorageBackend(),
+    });
+  } catch (error) {
+    diagnostics.log('secure-storage', {
+      operation: 'set',
+      slot: key,
+      outcome: 'failed',
+      available,
+      backend: safeStorage.getSelectedStorageBackend(),
+    });
+    throw error;
+  }
 });
 
-ipcMain.handle('secure-storage:delete', async (_event, key) => {
+ipcMain.handle('secure-storage:delete', async (event, key) => {
+  assertTrustedRenderer(event);
   assertSecretKey(key);
-  const values = await readSecretFile();
-  delete values[key];
-  await fs.writeFile(secretsPath(), JSON.stringify(values), { mode: 0o600 });
+  const available = secureStorageUsable();
+  try {
+    const present = await secretStore.delete(key);
+    diagnostics.log('secure-storage', {
+      operation: 'delete',
+      slot: key,
+      outcome: 'success',
+      available,
+      present,
+      backend: safeStorage.getSelectedStorageBackend(),
+    });
+  } catch (error) {
+    diagnostics.log('secure-storage', {
+      operation: 'delete',
+      slot: key,
+      outcome: 'failed',
+      available,
+      backend: safeStorage.getSelectedStorageBackend(),
+    });
+    throw error;
+  }
 });
 
-// Add these IPC handlers
-ipcMain.on('minimize-window', () => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) window.minimize();
+// Native window controls are accepted only from the app's top-level renderer.
+ipcMain.on('minimize-window', (event) => {
+  if (!isTrustedRenderer(event)) return;
+  const window = mainWindow;
+  if (window) {
+    diagnostics.log('renderer.window-control', { action: 'minimize' });
+    window.minimize();
+  }
 });
 
-ipcMain.on('maximize-window', () => {
-  const window = BrowserWindow.getFocusedWindow();
+ipcMain.on('maximize-window', (event) => {
+  if (!isTrustedRenderer(event)) return;
+  const window = mainWindow;
   if (window) {
     if (window.isMaximized()) {
+      diagnostics.log('renderer.window-control', { action: 'unmaximize' });
       window.unmaximize();
     } else {
+      diagnostics.log('renderer.window-control', { action: 'maximize' });
       window.maximize();
     }
   }
 });
 
-ipcMain.on('close-window', () => {
-  const window = BrowserWindow.getFocusedWindow();
-  if (window) window.close();
+ipcMain.on('close-window', (event) => {
+  if (!isTrustedRenderer(event)) return;
+  const window = mainWindow;
+  if (window) {
+    diagnostics.log('renderer.window-control', { action: 'close' });
+    window.close();
+  }
 });
 
-ipcMain.handle('openLogin', () => {
-  shell.openExternal('http://localhost:5173');
+ipcMain.handle('openLogin', (event) => {
+  assertTrustedRenderer(event);
+  const target = classifyNavigationTarget(
+    usesDevServer ? devUrl : 'https://app.quorummessenger.com',
+    APP_ORIGIN
+  );
+  if (target.kind !== 'external') throw new Error('Invalid login URL');
+  return shell.openExternal(target.url);
+});
+
+// These channels deliberately expose fixed event shapes rather than a generic
+// log(message) primitive. The diagnostics sink independently allow-lists every
+// field, so renderer content, account identifiers, and key material cannot be
+// written to disk through this bridge.
+ipcMain.on('dev-diagnostics:onboarding', (event, details) => {
+  if (isTrustedRenderer(event)) diagnostics.log('onboarding.event', details);
+});
+
+ipcMain.on('dev-diagnostics:registration', (event, details) => {
+  if (isTrustedRenderer(event)) diagnostics.log('registration.event', details);
+});
+
+ipcMain.on('dev-diagnostics:storage-snapshot', (event, details) => {
+  if (isTrustedRenderer(event)) diagnostics.log('storage.snapshot', details);
+});
+
+ipcMain.on('dev-diagnostics:renderer-error', (event, details) => {
+  if (isTrustedRenderer(event)) diagnostics.log('renderer.error', details);
 });
 
 // --- Sensitive clipboard copy with reliable auto-clear ---
@@ -274,7 +379,8 @@ function clearSensitiveClipboardIfUnchanged() {
   }
 }
 
-ipcMain.handle('clipboard:copy-secret', (_event, text) => {
+ipcMain.handle('clipboard:copy-secret', (event, text) => {
+  assertTrustedRenderer(event);
   if (typeof text !== 'string' || text.length === 0 || text.length > 4096) {
     throw new Error('Invalid clipboard payload');
   }
@@ -296,11 +402,108 @@ app.on('before-quit', clearSensitiveClipboardIfUnchanged);
 // (packaged installer/exe icons come from electron-builder's build.icon).
 const windowIcon = path.join(
   __dirname,
-  isDev ? '../../public/icon-512.png' : '../../dist/icon-512.png'
+  usesDevServer ? '../../public/icon-512.png' : '../../dist/icon-512.png'
 );
 
+function loadErrorKind(errorCode) {
+  if (errorCode === -3) return 'aborted';
+  if (errorCode <= -100 && errorCode > -200) return 'connection';
+  if (errorCode <= -200 && errorCode > -300) return 'certificate';
+  return 'load';
+}
+
+function rendererConsoleLevel(details) {
+  return { debug: 0, info: 1, warning: 2, error: 3 }[details?.level] ?? 1;
+}
+
+function attachWindowDiagnostics(mainWindow) {
+  const { webContents } = mainWindow;
+  webContents.on('did-start-loading', () => {
+    diagnostics.log('renderer.loading-started');
+  });
+  webContents.on('dom-ready', () => {
+    diagnostics.log('renderer.dom-ready');
+  });
+  webContents.on('did-finish-load', () => {
+    diagnostics.log('renderer.loading-finished', {
+      origin: webContents.getURL(),
+    });
+  });
+  webContents.on(
+    'did-fail-load',
+    (_event, errorCode, _errorDescription, validatedURL, isMainFrame) => {
+      if (!isMainFrame) return;
+      diagnostics.log('renderer.loading-failed', {
+        errorCode,
+        errorKind: loadErrorKind(errorCode),
+        origin: validatedURL,
+      });
+    }
+  );
+  webContents.on('preload-error', () => {
+    diagnostics.log('process.failure', { kind: 'preload' });
+  });
+  webContents.on('console-message', (details) => {
+    // Never persist details.message. Existing development logs may include
+    // decrypted content, so only console severity and source location are safe.
+    diagnostics.log('renderer.console', {
+      level: rendererConsoleLevel(details),
+      source: details.sourceId,
+      line: details.lineNumber,
+    });
+  });
+  webContents.on('render-process-gone', (_event, details) => {
+    diagnostics.log('renderer.gone', {
+      reason: details.reason,
+      exitCode: details.exitCode,
+    });
+  });
+  mainWindow.on('unresponsive', () => diagnostics.log('renderer.unresponsive'));
+  mainWindow.on('responsive', () => diagnostics.log('renderer.responsive'));
+}
+
+function attachNavigationPolicy(window) {
+  const openExternal = (target) => {
+    if (target.kind === 'external') {
+      void shell.openExternal(target.url).catch(() => {});
+    }
+  };
+  const handleNavigation = (event, legacyUrl) => {
+    // Electron 41 puts the destination on event.url; retain the deprecated
+    // positional URL as a compatibility fallback for older supported builds.
+    const url = navigationUrlFromEvent(event, legacyUrl);
+    const target = classifyNavigationTarget(url, APP_ORIGIN);
+    // Preserve all quorum-app routes and SPA deep links in the primary window.
+    if (target.kind === 'app') return;
+    event.preventDefault();
+    openExternal(target);
+  };
+
+  window.webContents.on('will-navigate', handleNavigation);
+  window.webContents.on('will-redirect', handleNavigation);
+  window.webContents.setWindowOpenHandler(({ url }) => {
+    const target = classifyNavigationTarget(url, APP_ORIGIN);
+    if (target.kind === 'app') {
+      void window.loadURL(target.url).catch(() => {});
+    } else {
+      openExternal(target);
+    }
+    // Never give external content a BrowserWindow carrying Quorum's preload.
+    return { action: 'deny' };
+  });
+}
+
 function createWindow() {
-  const mainWindow = new BrowserWindow({
+  const additionalArguments = [];
+  if (diagnosticsEnabled)
+    additionalArguments.push('--quorum-dev-diagnostics=1');
+  if (usesDevServer) {
+    additionalArguments.push(
+      `--quorum-dev-server-url=${encodeURIComponent(devUrl)}`
+    );
+  }
+
+  mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
     frame: false,
@@ -310,36 +513,28 @@ function createWindow() {
       contextIsolation: true,
       webAuthnEnabled: true,
       preload: path.join(__dirname, 'preload.cjs'),
-      webSecurity: isDev ? false : true, // Disable web security in dev mode
+      webSecurity: true,
+      additionalArguments,
     },
   });
 
-  mainWindow.loadURL(isDev ? devUrl : `${APP_ORIGIN}/`, {});
+  diagnostics.log('app.window-created', { width: 1200, height: 800 });
+  attachWindowDiagnostics(mainWindow);
+  attachNavigationPolicy(mainWindow);
+  mainWindow.on('close', () => {
+    diagnostics.log('renderer.window-close-requested');
+  });
+  mainWindow.on('closed', () => {
+    diagnostics.log('renderer.window-closed');
+    mainWindow = null;
+  });
+  void mainWindow.loadURL(`${APP_ORIGIN}/`).catch(() => {
+    // did-fail-load records a structural error without persisting the URL path
+    // or Chromium's potentially data-bearing error description.
+  });
 
-  if (isDev) {
+  if (usesDevServer || process.env.DEBUG_PROD === 'true') {
     mainWindow.webContents.openDevTools();
-
-    // Bypass CORS in development
-    mainWindow.webContents.session.webRequest.onBeforeSendHeaders(
-      (details, callback) => {
-        callback({
-          requestHeaders: { ...details.requestHeaders, Origin: '*' },
-        });
-      }
-    );
-
-    mainWindow.webContents.session.webRequest.onHeadersReceived(
-      (details, callback) => {
-        callback({
-          responseHeaders: {
-            ...details.responseHeaders,
-            'Access-Control-Allow-Origin': ['*'],
-            'Access-Control-Allow-Methods': ['GET, POST, PUT, DELETE, OPTIONS'],
-            'Access-Control-Allow-Headers': ['*'],
-          },
-        });
-      }
-    );
   }
 }
 
@@ -350,11 +545,31 @@ if (process.platform === 'win32') {
   app.setAppUserModelId('com.quilibrium.quorum');
 }
 
+app.on('child-process-gone', (_event, details) => {
+  diagnostics.log('process.child-gone', {
+    kind: details.type,
+    reason: details.reason,
+    exitCode: details.exitCode,
+  });
+});
+
+process.on('uncaughtExceptionMonitor', (_error, origin) => {
+  diagnostics.log('process.failure', {
+    kind:
+      origin === 'unhandledRejection'
+        ? 'unhandled-rejection'
+        : 'uncaught-exception',
+  });
+});
+
 app.whenReady().then(() => {
-  if (!isDev) {
-    registerProductionProtocol();
-    configureProductionApiAccess();
-    configureFarcasterApiAccess();
+  registerAppProtocol();
+  configureNetworkAccess(session.defaultSession, APP_ORIGIN);
+  diagnostics.log('app.ready', {
+    persistentSession: session.defaultSession.isPersistent(),
+  });
+  if (diagnosticsEnabled) {
+    console.info(`[Quorum diagnostics] ${diagnostics.logPath}`);
   }
   createWindow();
 });
@@ -372,6 +587,12 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+});
+
+app.on('before-quit', () => diagnostics.log('app.before-quit'));
+app.on('will-quit', () => diagnostics.log('app.will-quit'));
+app.on('quit', (_event, exitCode) => {
+  diagnostics.log('app.quit', { exitCode });
 });
 
 app.on('activate', () => {

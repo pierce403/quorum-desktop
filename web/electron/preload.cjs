@@ -1,8 +1,22 @@
 // electron/preload.cjs
 const { contextBridge, ipcRenderer } = require('electron');
-console.log('Preload script starting...');
-contextBridge.exposeInMainWorld('electron', {
+
+const diagnosticsEnabled = process.argv.includes('--quorum-dev-diagnostics=1');
+const encodedDevServerUrl = process.argv
+  .find((argument) => argument.startsWith('--quorum-dev-server-url='))
+  ?.slice('--quorum-dev-server-url='.length);
+let devServerUrl;
+try {
+  devServerUrl = encodedDevServerUrl
+    ? decodeURIComponent(encodedDevServerUrl)
+    : undefined;
+} catch {
+  devServerUrl = undefined;
+}
+
+const electronBridge = {
   platform: process.platform,
+  devServerUrl,
   windowControls: {
     minimize: () => ipcRenderer.send('minimize-window'),
     maximize: () => ipcRenderer.send('maximize-window'),
@@ -21,5 +35,19 @@ contextBridge.exposeInMainWorld('electron', {
     set: (key, value) => ipcRenderer.invoke('secure-storage:set', key, value),
     delete: (key) => ipcRenderer.invoke('secure-storage:delete', key),
   },
-});
-console.log('Preload script done...');
+};
+
+if (diagnosticsEnabled) {
+  electronBridge.devDiagnostics = {
+    onboarding: (details) =>
+      ipcRenderer.send('dev-diagnostics:onboarding', details),
+    registration: (details) =>
+      ipcRenderer.send('dev-diagnostics:registration', details),
+    storageSnapshot: (details) =>
+      ipcRenderer.send('dev-diagnostics:storage-snapshot', details),
+    rendererError: (details) =>
+      ipcRenderer.send('dev-diagnostics:renderer-error', details),
+  };
+}
+
+contextBridge.exposeInMainWorld('electron', electronBridge);

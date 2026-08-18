@@ -17,6 +17,7 @@ package-lock.json
 # production
 /build
 /dist
+/release-dev
 
 # misc
 .DS_Store
@@ -64,6 +65,5 @@ src/dev/tests/harness/logs/
 .agents/**/*-log.txt
 .agents/**/logs/
 .agents/**/captures/
-
 
 

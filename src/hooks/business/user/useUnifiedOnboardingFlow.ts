@@ -16,6 +16,7 @@ import { DefaultImages } from '../../../utils';
 import { decryptUserConfig } from '../../../utils/crypto';
 import { t } from '@lingui/core/macro';
 import { showWarning } from '../../../utils/toast';
+import { logOnboardingEvent } from '../../../utils/devDiagnostics';
 
 // --- Types ---
 
@@ -111,6 +112,17 @@ function getDotIndex(step: OnboardingStep): number | null {
   }
 }
 
+function getIncompleteAccountResumeStep(info: {
+  displayName?: string;
+  pfpUrl?: string;
+}): OnboardingStep {
+  if (!info.displayName || validateDisplayName(info.displayName)) {
+    return 'backup-key';
+  }
+  if (!info.pfpUrl) return 'profile-photo';
+  return 'complete';
+}
+
 export function useUnifiedOnboardingFlow(
   options: UseUnifiedOnboardingFlowOptions
 ): UseUnifiedOnboardingFlowReturn {
@@ -127,12 +139,43 @@ export function useUnifiedOnboardingFlow(
   const [importMode, setImportMode] = useState(false);
   const [importError, setImportError] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState('');
-  const [profileImagePreview, setProfileImagePreview] = useState<string | null>(null);
+  const [profileImagePreview, setProfileImagePreview] = useState<string | null>(
+    null
+  );
   const [isFetchingUser, setIsFetchingUser] = useState(false);
 
   // Ref to track current step inside callbacks (avoids stale closures)
   const stepRef = useRef<OnboardingStep>(step);
+  const isRegisteringNewAccountRef = useRef(false);
+  const isImportProfileSyncInFlightRef = useRef(false);
   stepRef.current = step;
+
+  const displayNameIsValid = !validateDisplayName(displayName);
+  const recordOnboardingEvent = useCallback(
+    (
+      action: Parameters<typeof logOnboardingEvent>[0]['action'],
+      outcome: NonNullable<Parameters<typeof logOnboardingEvent>[0]['outcome']>,
+      diagnosticStep: OnboardingStep = stepRef.current,
+      overrides: Partial<
+        Pick<
+          Parameters<typeof logOnboardingEvent>[0],
+          'hasAccount' | 'valid' | 'completed'
+        >
+      > = {}
+    ) => {
+      const account = adapter.currentPasskeyInfo;
+      logOnboardingEvent({
+        action,
+        step: diagnosticStep,
+        outcome,
+        hasAccount: Boolean(account),
+        valid: displayNameIsValid,
+        completed: account?.completedOnboarding === true,
+        ...overrides,
+      });
+    },
+    [adapter.currentPasskeyInfo, displayNameIsValid]
+  );
 
   // --- API callbacks for usePasskeyFlow ---
   const getUserRegistration = useCallback(
@@ -150,28 +193,71 @@ export function useUnifiedOnboardingFlow(
     uploadRegistration,
     onStepChange: (sdkStep: PasskeyFlowStep) => {
       if (sdkStep === 'awaiting_completion') {
+        recordOnboardingEvent('flow-state', 'advanced', 'save-key-to-passkey');
         setStep('save-key-to-passkey');
       }
       if (sdkStep === 'success') {
+        isRegisteringNewAccountRef.current = false;
         // If in import mode, hold on 'loading' while we attempt remote profile sync.
         // The syncImportedProfile effect will advance to 'backup-key' if no profile found,
         // or call setUser() directly if a profile is found.
         if (!importMode) {
+          recordOnboardingEvent('flow-state', 'advanced', 'backup-key', {
+            hasAccount: true,
+          });
           setStep('backup-key');
         } else {
+          recordOnboardingEvent('flow-state', 'advanced', 'loading', {
+            hasAccount: true,
+          });
           setStep('loading');
         }
       }
       if (sdkStep === 'ready_with_keypair') {
+        recordOnboardingEvent('flow-state', 'advanced', 'create-passkey-1a');
         setStep('create-passkey-1a');
       }
     },
     onError: (_error: PasskeyFlowError) => {
-      // If we were completing (step 1b), auto-fallback to backup
-      if (stepRef.current === 'save-key-to-passkey') {
-        setStep('backup-key');
+      const wasRegisteringNewAccount = isRegisteringNewAccountRef.current;
+      isRegisteringNewAccountRef.current = false;
+      recordOnboardingEvent('flow-state', 'failed');
+
+      // The SDK reports import failures through onError after resolving
+      // importKeyFile(), so the action-level catch below cannot surface them.
+      // Keep the raw SDK error out of UI/logs and show a retryable generic error.
+      if (stepRef.current === 'import-key') {
+        setImportError(
+          t`Could not import that account key. Check the file or key and try again.`
+        );
+        return;
       }
-      // If registering (step 1a), stay on same step — inline error shows
+
+      // If we were completing (step 1b), retain the existing backup fallback
+      // only when the SDK context can actually export/update that account.
+      // A local credential write can precede a later registration failure, but
+      // the provider does not hydrate currentPasskeyInfo on that error path.
+      // In that case the create step exposes the safe fallback retry instead of
+      // sending the user to unusable backup/name screens.
+      if (stepRef.current === 'save-key-to-passkey') {
+        setStep(
+          adapter.currentPasskeyInfo ? 'backup-key' : 'create-passkey-1a'
+        );
+        return;
+      }
+
+      // Electron starts its no-passkey registration directly from Welcome.
+      // The SDK reports failures through onError but resolves the action promise,
+      // so without an explicit transition the outer flow can otherwise move on
+      // with no account in context. Put the user on the existing error/retry UI.
+      if (
+        wasRegisteringNewAccount ||
+        stepRef.current === 'welcome' ||
+        stepRef.current === 'loading'
+      ) {
+        setStep('create-passkey-1a');
+      }
+      // If already registering (step 1a), stay on the same step — inline error shows.
     },
     onComplete: () => {
       // Handled by onStepChange 'success' → setStep('backup-key')
@@ -183,12 +269,15 @@ export function useUnifiedOnboardingFlow(
   // We set step back to 'loading' to show a spinner while we check for a remote profile.
   // This effect watches step + importMode so it fires when we re-enter 'loading' in import mode.
   useEffect(() => {
-    if (step !== 'loading' || !importMode || passkeyFlow.step !== 'success') return;
+    if (step !== 'loading' || !importMode || passkeyFlow.step !== 'success')
+      return;
 
     const syncImportedProfile = async () => {
       const info = adapter.currentPasskeyInfo;
       if (!info?.address || !adapter.exportKey) return;
+      if (isImportProfileSyncInFlightRef.current) return;
 
+      isImportProfileSyncInFlightRef.current = true;
       setIsFetchingUser(true);
       try {
         const userKeyHex = await adapter.exportKey(info.address);
@@ -196,13 +285,17 @@ export function useUnifiedOnboardingFlow(
 
         const passkeyData = await passkey.loadKeyDecryptData(2);
         const envelope = JSON.parse(Buffer.from(passkeyData).toString('utf-8'));
-        const key = await passkey.createKeyFromBuffer(userKey as unknown as ArrayBuffer);
+        const key = await passkey.createKeyFromBuffer(
+          userKey as unknown as ArrayBuffer
+        );
         const decryptedKeyset = await passkey.decrypt(
           new Uint8Array(envelope.ciphertext),
           new Uint8Array(envelope.iv),
           key
         );
-        const inner = JSON.parse(Buffer.from(decryptedKeyset).toString('utf-8'));
+        const inner = JSON.parse(
+          Buffer.from(decryptedKeyset).toString('utf-8')
+        );
 
         let savedConfig;
         try {
@@ -228,7 +321,8 @@ export function useUnifiedOnboardingFlow(
         const validatedName = nameError ? undefined : rawName;
 
         if (validatedName) {
-          const finalProfileImage = decryptedConfig?.profile_image ?? DefaultImages.UNKNOWN_USER;
+          const finalProfileImage =
+            decryptedConfig?.profile_image ?? DefaultImages.UNKNOWN_USER;
           adapter.updateStoredPasskey(info.credentialId, {
             credentialId: info.credentialId,
             address: info.address,
@@ -251,30 +345,58 @@ export function useUnifiedOnboardingFlow(
       } catch {
         setStep('backup-key');
       } finally {
+        isImportProfileSyncInFlightRef.current = false;
         setIsFetchingUser(false);
       }
     };
 
     syncImportedProfile();
-  }, [step, importMode, passkeyFlow.step]);
+  }, [step, importMode, passkeyFlow.step, adapter.currentPasskeyInfo?.address]);
 
   // --- Returning user detection (initial mount only, not post-import) ---
   useEffect(() => {
     // Skip if we're in post-import profile sync (handled by the effect above)
-    if (step !== 'loading' || (importMode && passkeyFlow.step === 'success')) return;
+    if (
+      step !== 'loading' ||
+      isRegisteringNewAccountRef.current ||
+      (importMode && passkeyFlow.step === 'success')
+    ) {
+      return;
+    }
 
     const checkReturningUser = async () => {
       const info = adapter.currentPasskeyInfo;
 
       // No stored credentials — new user
       if (!info || !info.address) {
+        recordOnboardingEvent('returning-user-check', 'observed', 'welcome', {
+          hasAccount: false,
+          completed: false,
+        });
         setStep('welcome');
         return;
       }
 
+      const resumeIncompleteAccount = () => {
+        const resumeStep = getIncompleteAccountResumeStep(info);
+        setDisplayName(info.displayName ?? '');
+        recordOnboardingEvent('returning-user-check', 'restored', resumeStep, {
+          hasAccount: true,
+          valid: Boolean(
+            info.displayName && !validateDisplayName(info.displayName)
+          ),
+          completed: false,
+        });
+        setStep(resumeStep);
+      };
+
       // Has credentials with completedOnboarding — App.tsx useEffect handles this case
       // before the orchestrator mounts. But as a safety net:
       if (info.completedOnboarding) {
+        recordOnboardingEvent('returning-user-check', 'restored', 'complete', {
+          hasAccount: true,
+          completed: true,
+        });
         setUser({
           displayName: info.displayName ?? info.address,
           state: 'online',
@@ -287,7 +409,7 @@ export function useUnifiedOnboardingFlow(
 
       // Has credentials but onboarding not complete — try to fetch remote profile
       if (!adapter.exportKey) {
-        setStep('welcome');
+        resumeIncompleteAccount();
         return;
       }
 
@@ -298,25 +420,32 @@ export function useUnifiedOnboardingFlow(
 
         const passkeyData = await passkey.loadKeyDecryptData(2);
         const envelope = JSON.parse(Buffer.from(passkeyData).toString('utf-8'));
-        const key = await passkey.createKeyFromBuffer(userKey as unknown as ArrayBuffer);
+        const key = await passkey.createKeyFromBuffer(
+          userKey as unknown as ArrayBuffer
+        );
         const decryptedKeyset = await passkey.decrypt(
           new Uint8Array(envelope.ciphertext),
           new Uint8Array(envelope.iv),
           key
         );
-        const inner = JSON.parse(Buffer.from(decryptedKeyset).toString('utf-8'));
+        const inner = JSON.parse(
+          Buffer.from(decryptedKeyset).toString('utf-8')
+        );
 
         // Fetch encrypted config
         let savedConfig;
         try {
           savedConfig = (await apiClient.getUserSettings(info.address)).data;
         } catch {
-          setStep('welcome');
+          recordOnboardingEvent('returning-user-check', 'failed', 'loading', {
+            hasAccount: true,
+          });
+          resumeIncompleteAccount();
           return;
         }
 
         if (!savedConfig?.user_config) {
-          setStep('welcome');
+          resumeIncompleteAccount();
           return;
         }
 
@@ -332,7 +461,8 @@ export function useUnifiedOnboardingFlow(
         const validatedName = nameError ? undefined : rawName;
 
         if (validatedName) {
-          const finalProfileImage = decryptedConfig?.profile_image ?? DefaultImages.UNKNOWN_USER;
+          const finalProfileImage =
+            decryptedConfig?.profile_image ?? DefaultImages.UNKNOWN_USER;
 
           adapter.updateStoredPasskey(info.credentialId, {
             credentialId: info.credentialId,
@@ -350,16 +480,29 @@ export function useUnifiedOnboardingFlow(
             userIcon: finalProfileImage,
             address: info.address,
           });
+          recordOnboardingEvent(
+            'returning-user-check',
+            'restored',
+            'complete',
+            {
+              hasAccount: true,
+              valid: true,
+              completed: true,
+            }
+          );
           return;
         }
 
         // Has credentials but no valid remote profile — continue onboarding
-        setStep('welcome');
+        resumeIncompleteAccount();
       } catch {
         showWarning(
           t`Couldn't load your saved profile. Please re-enter your name and profile image.`
         );
-        setStep('welcome');
+        recordOnboardingEvent('returning-user-check', 'failed', 'loading', {
+          hasAccount: true,
+        });
+        resumeIncompleteAccount();
       } finally {
         setIsFetchingUser(false);
       }
@@ -370,22 +513,39 @@ export function useUnifiedOnboardingFlow(
 
   // Computed values
   const dotIndex = getDotIndex(step);
-  const canProceedWithName = !validateDisplayName(displayName);
+  const canProceedWithName =
+    Boolean(adapter.currentPasskeyInfo) && displayNameIsValid;
 
   // --- Actions: Welcome ---
 
   const startNewAccount = useCallback(async () => {
     setImportMode(false);
     setImportError(null);
+    recordOnboardingEvent('flow-state', 'started', 'welcome');
 
     if (!passkeyFlow.isPasskeySupported) {
       // Electron / unsupported browser: skip passkey steps entirely
-      await passkeyFlow.proceedWithoutPasskey();
-      setStep('backup-key');
+      isRegisteringNewAccountRef.current = true;
+      recordOnboardingEvent('flow-state', 'advanced', 'loading');
+      setStep('loading');
+      try {
+        await passkeyFlow.proceedWithoutPasskey();
+        // Success is the SDK's `onStepChange('success')` callback above. Do not
+        // advance here: the SDK also resolves after internally handled errors.
+      } catch {
+        isRegisteringNewAccountRef.current = false;
+        recordOnboardingEvent('flow-state', 'failed', 'welcome');
+        setStep('create-passkey-1a');
+      }
     } else {
+      recordOnboardingEvent('flow-state', 'advanced', 'create-passkey-1a');
       setStep('create-passkey-1a');
     }
-  }, [passkeyFlow.isPasskeySupported, passkeyFlow.proceedWithoutPasskey]);
+  }, [
+    passkeyFlow.isPasskeySupported,
+    passkeyFlow.proceedWithoutPasskey,
+    recordOnboardingEvent,
+  ]);
 
   const startImportAccount = useCallback(() => {
     setImportMode(true);
@@ -404,22 +564,37 @@ export function useUnifiedOnboardingFlow(
   }, [passkeyFlow.completeRegistration]);
 
   const continueWithoutPasskey = useCallback(async () => {
-    await passkeyFlow.proceedWithoutPasskey();
-    setStep('backup-key');
-  }, [passkeyFlow.proceedWithoutPasskey]);
+    recordOnboardingEvent('flow-state', 'started', 'create-passkey-1a');
+    isRegisteringNewAccountRef.current = true;
+    recordOnboardingEvent('flow-state', 'advanced', 'loading');
+    setStep('loading');
+    try {
+      await passkeyFlow.proceedWithoutPasskey();
+      // See startNewAccount: only the SDK success callback may advance.
+    } catch {
+      isRegisteringNewAccountRef.current = false;
+      recordOnboardingEvent('flow-state', 'failed', 'create-passkey-1a');
+      setStep('create-passkey-1a');
+    }
+  }, [passkeyFlow.proceedWithoutPasskey, recordOnboardingEvent]);
 
   const retryPasskey = useCallback(() => {
     passkeyFlow.retry();
   }, [passkeyFlow.retry]);
 
-  const handleImportKeyFile = useCallback(async (file: File) => {
-    setImportError(null);
-    try {
-      await passkeyFlow.importKeyFile(file);
-    } catch (err) {
-      setImportError(err instanceof Error ? err.message : String(err));
-    }
-  }, [passkeyFlow.importKeyFile]);
+  const handleImportKeyFile = useCallback(
+    async (file: File) => {
+      setImportError(null);
+      try {
+        await passkeyFlow.importKeyFile(file);
+      } catch {
+        setImportError(
+          t`Could not import that account key. Check the file or key and try again.`
+        );
+      }
+    },
+    [passkeyFlow.importKeyFile]
+  );
 
   // --- Actions: Onboarding ---
 
@@ -442,7 +617,32 @@ export function useUnifiedOnboardingFlow(
   }, []);
 
   const saveDisplayNameAction = useCallback(() => {
-    if (!adapter.currentPasskeyInfo || !canProceedWithName) return;
+    if (!adapter.currentPasskeyInfo) {
+      showWarning(
+        t`Account setup isn't ready yet. Please retry creating your account.`
+      );
+      recordOnboardingEvent(
+        'display-name-submit',
+        'blocked-no-account',
+        'display-name',
+        {
+          hasAccount: false,
+        }
+      );
+      return;
+    }
+    if (!displayNameIsValid) {
+      recordOnboardingEvent(
+        'display-name-submit',
+        'blocked-invalid',
+        'display-name',
+        {
+          hasAccount: true,
+          valid: false,
+        }
+      );
+      return;
+    }
 
     adapter.updateStoredPasskey(adapter.currentPasskeyInfo.credentialId, {
       credentialId: adapter.currentPasskeyInfo.credentialId,
@@ -452,12 +652,29 @@ export function useUnifiedOnboardingFlow(
       completedOnboarding: false,
       pfpUrl: adapter.currentPasskeyInfo.pfpUrl,
     });
+    recordOnboardingEvent('display-name-submit', 'advanced', 'profile-photo', {
+      hasAccount: true,
+      valid: true,
+    });
     setStep('profile-photo');
-  }, [adapter, displayName, canProceedWithName]);
+  }, [adapter, displayName, displayNameIsValid, recordOnboardingEvent]);
 
   const saveProfilePhoto = useCallback(
     (url?: string) => {
-      if (!adapter.currentPasskeyInfo) return;
+      if (!adapter.currentPasskeyInfo) {
+        showWarning(
+          t`Account setup isn't ready yet. Please retry creating your account.`
+        );
+        recordOnboardingEvent(
+          'profile-photo-submit',
+          'blocked-no-account',
+          'profile-photo',
+          {
+            hasAccount: false,
+          }
+        );
+        return;
+      }
 
       const finalPfpUrl = url ?? DefaultImages.UNKNOWN_USER;
       adapter.updateStoredPasskey(adapter.currentPasskeyInfo.credentialId, {
@@ -468,15 +685,34 @@ export function useUnifiedOnboardingFlow(
         pfpUrl: finalPfpUrl,
         completedOnboarding: false,
       });
+      recordOnboardingEvent('profile-photo-submit', 'advanced', 'complete', {
+        hasAccount: true,
+      });
       setStep('complete');
     },
-    [adapter, displayName]
+    [adapter, displayName, recordOnboardingEvent]
   );
 
   const handleCompleteOnboarding = useCallback(() => {
-    if (!adapter.currentPasskeyInfo) return;
+    if (!adapter.currentPasskeyInfo) {
+      showWarning(
+        t`Account setup isn't ready yet. Please retry creating your account.`
+      );
+      recordOnboardingEvent(
+        'complete-submit',
+        'blocked-no-account',
+        'complete',
+        {
+          hasAccount: false,
+        }
+      );
+      return;
+    }
 
-    const finalPfpUrl = profileImagePreview ?? adapter.currentPasskeyInfo.pfpUrl ?? DefaultImages.UNKNOWN_USER;
+    const finalPfpUrl =
+      profileImagePreview ??
+      adapter.currentPasskeyInfo.pfpUrl ??
+      DefaultImages.UNKNOWN_USER;
 
     adapter.updateStoredPasskey(adapter.currentPasskeyInfo.credentialId, {
       credentialId: adapter.currentPasskeyInfo.credentialId,
@@ -486,6 +722,10 @@ export function useUnifiedOnboardingFlow(
       pfpUrl: finalPfpUrl,
       completedOnboarding: true,
     });
+    recordOnboardingEvent('complete-submit', 'advanced', 'complete', {
+      hasAccount: true,
+      completed: true,
+    });
 
     setUser({
       displayName,
@@ -494,7 +734,13 @@ export function useUnifiedOnboardingFlow(
       userIcon: finalPfpUrl,
       address: adapter.currentPasskeyInfo.address,
     });
-  }, [adapter, displayName, profileImagePreview, setUser]);
+  }, [
+    adapter,
+    displayName,
+    profileImagePreview,
+    recordOnboardingEvent,
+    setUser,
+  ]);
 
   // --- Return ---
 

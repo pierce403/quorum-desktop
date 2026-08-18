@@ -165,6 +165,13 @@ To run the web app in development:
 yarn dev
 ```
 
+On Linux, if the host has exhausted its inotify watcher pool (`ENOSPC`), use
+the polling fallback:
+
+```bash
+CHOKIDAR_USEPOLLING=true yarn dev
+```
+
 To run in Electron desktop app:
 
 ```bash
@@ -173,6 +180,39 @@ yarn dev
 # In another terminal
 yarn electron:dev
 ```
+
+That hot-reload command enables privacy-safe Electron diagnostics. To exercise
+the built renderer and the same `quorum-app://app` storage origin as a release,
+without creating an installer:
+
+```bash
+yarn electron:dev:bundle
+```
+
+To create an explicitly marked diagnostic package, use:
+
+```bash
+yarn electron:build:dev
+```
+
+The diagnostic artifacts are named **Quorum Dev** and written to
+`release-dev/`. The embedded `dist/quorum-dev-build.json` marker keeps
+diagnostics enabled when that package is launched without shell environment
+variables. A normal `yarn electron:build` starts with a clean Vite output and
+does not include the marker.
+
+Development Electron logs live at `logs/quorum-dev.ndjson` under Electron's
+`quorum-desktop` user-data directory. They contain fixed-schema status metadata
+only: renderer console text, message content, private keys, keysets, and ratchet
+material are deliberately excluded. At startup, a log that has reached 5 MiB
+is rotated to `quorum-dev.ndjson.1`, and both files are owner-readable only.
+
+All current Electron run modes use that same `quorum-desktop` profile and the
+stable `quorum-app://app` renderer origin. Accounts created by older development
+builds under the generic `Electron` profile or a localhost/file origin are not
+copied automatically; Chromium keeps origin-scoped key stores isolated. That
+legacy data is left untouched, and those accounts should be recovered through
+the app's account-import flow.
 
 To build for production and preview:
 

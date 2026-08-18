@@ -18,6 +18,90 @@ import { useMessageDB } from './useMessageDB';
 import { useQuorumApiClient } from './QuorumApiContext';
 import { t } from '@lingui/core/macro';
 import { getDefaultUserConfig } from '../../utils';
+import { logRegistrationEvent } from '../../utils/devDiagnostics';
+import { loadKeyDecryptDataSafely } from '../../utils/keyDB';
+
+type LocalKeyset = {
+  userKeyset: secureChannel.UserKeyset;
+  deviceKeyset: secureChannel.DeviceKeyset;
+};
+
+type DeviceRepairState = 'idle' | 'required' | 'repairing' | 'failed';
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+async function loadLocalKeyset(userKey: Uint8Array): Promise<LocalKeyset> {
+  const data = await loadKeyDecryptDataSafely(2);
+  const envelope: unknown = JSON.parse(Buffer.from(data).toString('utf-8'));
+  if (
+    !isRecord(envelope) ||
+    !Array.isArray(envelope.ciphertext) ||
+    !Array.isArray(envelope.iv)
+  ) {
+    throw new DOMException('Invalid device keyset envelope', 'DataError');
+  }
+
+  const key = await passkey.createKeyFromBuffer(
+    userKey as unknown as ArrayBuffer
+  );
+  const decrypted = await passkey.decrypt(
+    new Uint8Array(envelope.ciphertext),
+    new Uint8Array(envelope.iv),
+    key
+  );
+  const inner: unknown = JSON.parse(Buffer.from(decrypted).toString('utf-8'));
+  if (!isRecord(inner) || !inner.identity || !inner.device) {
+    throw new DOMException('Invalid device keyset', 'DataError');
+  }
+
+  return {
+    userKeyset: inner.identity as secureChannel.UserKeyset,
+    deviceKeyset: inner.device as secureChannel.DeviceKeyset,
+  };
+}
+
+async function persistLocalKeyset(
+  userKey: Uint8Array,
+  localKeyset: LocalKeyset
+): Promise<void> {
+  const key = await passkey.createKeyFromBuffer(
+    userKey as unknown as ArrayBuffer
+  );
+  const inner = await passkey.encrypt(
+    Buffer.from(
+      JSON.stringify({
+        identity: localKeyset.userKeyset,
+        device: localKeyset.deviceKeyset,
+      }),
+      'utf-8'
+    ),
+    key
+  );
+  const envelope = Buffer.from(
+    JSON.stringify({
+      iv: [...inner.iv],
+      ciphertext: [...new Uint8Array(inner.ciphertext)],
+    }),
+    'utf-8'
+  );
+  await passkey.encryptDataSaveKey(2, envelope);
+}
+
+async function createReplacementLocalKeyset(
+  userKey: Uint8Array,
+  publicKeyHex: string
+): Promise<LocalKeyset> {
+  return {
+    userKeyset: secureChannel.NewUserKeyset({
+      type: 'ed448',
+      private_key: [...userKey],
+      public_key: [...new Uint8Array(Buffer.from(publicKeyHex, 'hex'))],
+    }),
+    deviceKeyset: await secureChannel.NewDeviceKeyset(),
+  };
+}
 
 type RegistrationContextValue = {
   keyset: {
@@ -33,6 +117,8 @@ type RegistrationContextProps = {
 const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
   const { currentPasskeyInfo, exportKey } = usePasskeysContext();
   const [clickRestore, setClickRestore] = useState(false);
+  const [deviceRepairState, setDeviceRepairState] =
+    useState<DeviceRepairState>('idle');
   const [init, setInit] = useState(false);
   const { keyset, setKeyset, setSelfAddress, getConfig, saveConfig } =
     useMessageDB();
@@ -41,6 +127,86 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
   });
   const { apiClient } = useQuorumApiClient();
   const uploadRegistration = useUploadRegistration();
+
+  const repairDevice = async () => {
+    if (deviceRepairState === 'repairing') return;
+
+    setDeviceRepairState('repairing');
+    logRegistrationEvent({
+      stage: 'decrypt-device-keyset',
+      outcome: 'recovering',
+      registered: true,
+    });
+
+    try {
+      const userKey = new Uint8Array(
+        Buffer.from(await exportKey(currentPasskeyInfo!.address), 'hex')
+      );
+      const replacement = await createReplacementLocalKeyset(
+        userKey,
+        currentPasskeyInfo!.publicKey
+      );
+      const existing =
+        registration.registration ??
+        (await apiClient.getUser(currentPasskeyInfo!.address))?.data;
+      if (!existing) {
+        throw new DOMException('Registration is unavailable', 'NotFoundError');
+      }
+
+      const senderRegistration = await secureChannel.ConstructUserRegistration(
+        replacement.userKeyset,
+        existing.device_registrations ?? [],
+        [replacement.deviceKeyset]
+      );
+
+      // Persist first. If the network upload fails, the normal startup sync
+      // will retry this exact local device rather than rotating it again.
+      await persistLocalKeyset(userKey, replacement);
+      await uploadRegistration({
+        address: currentPasskeyInfo!.address,
+        registration: senderRegistration,
+      });
+
+      setSelfAddress(currentPasskeyInfo!.address);
+      setKeyset(replacement);
+      setDeviceRepairState('idle');
+      logRegistrationEvent({
+        stage: 'decrypt-device-keyset',
+        outcome: 'succeeded',
+        registered: true,
+      });
+
+      // Config initialization is useful but must not undo a completed device
+      // repair if a separate config read happens to be offline.
+      void (async () => {
+        try {
+          const userConfig = await getConfig({
+            address: currentPasskeyInfo!.address,
+            userKey: replacement.userKeyset,
+          });
+          if (userConfig === undefined) {
+            await saveConfig({
+              config: getDefaultUserConfig(currentPasskeyInfo!.address),
+              keyset: replacement,
+            });
+          }
+        } catch {
+          logRegistrationEvent({
+            stage: 'initialize-config',
+            outcome: 'failed',
+            registered: true,
+          });
+        }
+      })();
+    } catch {
+      setDeviceRepairState('failed');
+      logRegistrationEvent({
+        stage: 'decrypt-device-keyset',
+        outcome: 'failed',
+        registered: true,
+      });
+    }
+  };
 
   useEffect(() => {
     if (!init) {
@@ -52,13 +218,28 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
             (async () => {
               let user_key: Uint8Array;
               try {
+                logRegistrationEvent({
+                  stage: 'export-account-key',
+                  outcome: 'started',
+                  registered: false,
+                });
                 user_key = new Uint8Array(
                   Buffer.from(
                     await exportKey(currentPasskeyInfo!.address),
                     'hex'
                   )
                 );
+                logRegistrationEvent({
+                  stage: 'export-account-key',
+                  outcome: 'succeeded',
+                  registered: false,
+                });
               } catch (e: any) {
+                logRegistrationEvent({
+                  stage: 'export-account-key',
+                  outcome: 'failed',
+                  registered: false,
+                });
                 if (e.name === 'NotAllowedError') {
                   setClickRestore(true);
                   return;
@@ -67,30 +248,27 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
                 }
               }
               try {
-                const data = await passkey.loadKeyDecryptData(2);
-                const envelope = JSON.parse(
-                  Buffer.from(data).toString('utf-8')
-                );
-                const key = await passkey.createKeyFromBuffer(
-                  user_key as unknown as ArrayBuffer
-                );
-                const inner = JSON.parse(
-                  Buffer.from(
-                    await passkey.decrypt(
-                      new Uint8Array(envelope.ciphertext),
-                      new Uint8Array(envelope.iv),
-                      key
-                    )
-                  ).toString('utf-8')
-                );
-                const senderIdent = inner.identity;
-                const senderDevice = inner.device;
+                logRegistrationEvent({
+                  stage: 'load-device-keyset',
+                  outcome: 'started',
+                  registered: false,
+                });
+                const localKeyset = await loadLocalKeyset(user_key);
+                logRegistrationEvent({
+                  stage: 'load-device-keyset',
+                  outcome: 'succeeded',
+                  registered: false,
+                });
+                const senderIdent = localKeyset.userKeyset;
+                const senderDevice = localKeyset.deviceKeyset;
                 let existing: secureChannel.UserRegistration | undefined;
                 try {
                   existing = (
                     await apiClient.getUser(currentPasskeyInfo!.address)
                   )?.data;
-                } catch { /* ignore */ }
+                } catch {
+                  /* ignore */
+                }
 
                 const senderRegistration =
                   await secureChannel.ConstructUserRegistration(
@@ -118,7 +296,9 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
                   existing = (
                     await apiClient.getUser(currentPasskeyInfo!.address)
                   )?.data;
-                } catch { /* ignore */ }
+                } catch {
+                  /* ignore */
+                }
 
                 const senderRegistration =
                   await secureChannel.ConstructUserRegistration(
@@ -126,27 +306,10 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
                     existing?.device_registrations ?? [],
                     [senderDevice]
                   );
-                const key = await passkey.createKeyFromBuffer(
-                  user_key as unknown as ArrayBuffer
-                );
-                const inner = await passkey.encrypt(
-                  Buffer.from(
-                    JSON.stringify({
-                      identity: senderIdent,
-                      device: senderDevice,
-                    }),
-                    'utf-8'
-                  ),
-                  key
-                );
-                const envelope = Buffer.from(
-                  JSON.stringify({
-                    iv: [...inner.iv],
-                    ciphertext: [...new Uint8Array(inner.ciphertext)],
-                  }),
-                  'utf-8'
-                );
-                await passkey.encryptDataSaveKey(2, envelope);
+                await persistLocalKeyset(user_key, {
+                  userKeyset: senderIdent,
+                  deviceKeyset: senderDevice,
+                });
                 uploadRegistration({
                   address: currentPasskeyInfo!.address,
                   registration: senderRegistration,
@@ -160,30 +323,46 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
           () =>
             (async () => {
               try {
+                logRegistrationEvent({
+                  stage: 'export-account-key',
+                  outcome: 'started',
+                  registered: true,
+                });
                 const user_key = new Uint8Array(
                   Buffer.from(
                     await exportKey(currentPasskeyInfo!.address),
                     'hex'
                   )
                 );
-                const data = await passkey.loadKeyDecryptData(2);
-                const envelope = JSON.parse(
-                  Buffer.from(data).toString('utf-8')
-                );
-                const key = await passkey.createKeyFromBuffer(
-                  user_key as unknown as ArrayBuffer
-                );
-                const inner = JSON.parse(
-                  Buffer.from(
-                    await passkey.decrypt(
-                      new Uint8Array(envelope.ciphertext),
-                      new Uint8Array(envelope.iv),
-                      key
-                    )
-                  ).toString('utf-8')
-                );
-                const senderIdent = inner.identity;
-                const senderDevice = inner.device;
+                logRegistrationEvent({
+                  stage: 'export-account-key',
+                  outcome: 'succeeded',
+                  registered: true,
+                });
+                logRegistrationEvent({
+                  stage: 'load-device-keyset',
+                  outcome: 'started',
+                  registered: true,
+                });
+                let localKeyset: LocalKeyset;
+                try {
+                  localKeyset = await loadLocalKeyset(user_key);
+                } catch {
+                  logRegistrationEvent({
+                    stage: 'decrypt-device-keyset',
+                    outcome: 'failed',
+                    registered: true,
+                  });
+                  setDeviceRepairState('required');
+                  return;
+                }
+                logRegistrationEvent({
+                  stage: 'load-device-keyset',
+                  outcome: 'succeeded',
+                  registered: true,
+                });
+                const senderIdent = localKeyset.userKeyset;
+                const senderDevice = localKeyset.deviceKeyset;
                 if (
                   !registration.registration?.device_registrations.find(
                     (d: secureChannel.DeviceRegistration) =>
@@ -196,7 +375,9 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
                     existing = (
                       await apiClient.getUser(currentPasskeyInfo!.address)
                     )?.data;
-                  } catch { /* ignore */ }
+                  } catch {
+                    /* ignore */
+                  }
                   const senderRegistration =
                     await secureChannel.ConstructUserRegistration(
                       senderIdent,
@@ -223,7 +404,7 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
                   );
                   saveConfig({
                     config: defaultConfig,
-                    keyset,
+                    keyset: localKeyset,
                   });
                 }
               } catch (e: any) {
@@ -246,7 +427,58 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
         keyset,
       }}
     >
-      {!clickRestore && children}
+      {!clickRestore && deviceRepairState === 'idle' && children}
+      {!clickRestore && deviceRepairState !== 'idle' && (
+        <>
+          <div className="flex flex-col grow"></div>
+          <div className="flex flex-col select-none">
+            <div className="flex flex-row grow"></div>
+            <div className="flex flex-row grow font-semibold text-2xl">
+              <div className="flex flex-col grow"></div>
+              <div className="flex flex-col">{t`Repair this device`}</div>
+              <div className="flex flex-col grow"></div>
+            </div>
+            <div className="flex flex-row justify-center">
+              <div className="grow"></div>
+              <div className="w-[460px] py-4 text-center">
+                <Icon name="warning" size="4xl" />
+              </div>
+              <div className="grow"></div>
+            </div>
+            <div className="flex flex-row justify-center">
+              <div className="grow"></div>
+              <div className="w-[460px] py-4 text-justify">
+                {t`Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key.`}
+              </div>
+              <div className="grow"></div>
+            </div>
+            {deviceRepairState === 'failed' && (
+              <div className="flex flex-row justify-center">
+                <div className="w-[460px] py-2 text-center text-danger">
+                  {t`The repair could not be completed. Check your connection and try again.`}
+                </div>
+              </div>
+            )}
+            <div className="flex flex-row justify-center">
+              <div className="grow"></div>
+              <div className="w-[460px] pt-4 text-center">
+                <Button
+                  type="primary"
+                  className="px-8"
+                  disabled={deviceRepairState === 'repairing'}
+                  onClick={() => void repairDevice()}
+                >
+                  {deviceRepairState === 'repairing'
+                    ? t`Repairing…`
+                    : t`Repair this device`}
+                </Button>
+              </div>
+              <div className="grow"></div>
+            </div>
+          </div>
+          <div className="flex flex-col grow"></div>
+        </>
+      )}
       {clickRestore && (
         <>
           <div className="flex flex-col grow"></div>

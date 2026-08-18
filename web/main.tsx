@@ -12,7 +12,14 @@ import { ThemeProvider } from '../src/components/primitives';
 import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
 import { dynamicActivate, getUserLocale } from '../src/i18n/i18n';
+import { installRendererDevDiagnostics } from '../src/utils/devDiagnostics';
 import { installLogControl } from '../src/utils/productionLogControl';
+
+// Install the privacy-safe Electron bridge before providers begin reading
+// persisted state. The helper internally gates itself to explicit dev builds.
+if (typeof window !== 'undefined') {
+  installRendererDevDiagnostics();
+}
 
 // DM Doctor's warning counters must start counting at t=0, not whenever the
 // /dev/dm-doctor page happens to be opened — so they install here, at the

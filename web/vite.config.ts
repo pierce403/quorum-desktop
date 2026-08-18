@@ -1,4 +1,9 @@
-import { defineConfig, Plugin, UserConfig } from 'vite';
+import {
+  defaultAllowedOrigins,
+  defineConfig,
+  Plugin,
+  UserConfig,
+} from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import react from '@vitejs/plugin-react';
@@ -167,6 +172,22 @@ export default defineConfig(({ command }): UserConfig => ({
       : []),
   ],
   server: {
+    cors: {
+      // Preserve Vite's loopback-origin policy while allowing Electron's
+      // private renderer origin to consume proxied development modules.
+      origin: [defaultAllowedOrigins, 'quorum-app://app'],
+    },
+    watch: {
+      usePolling: process.env.CHOKIDAR_USEPOLLING === 'true',
+      // These trees are build outputs or documentation, not hot-reload source.
+      // Watching them can exhaust Linux's inotify budget before Vite starts.
+      ignored: [
+        '**/.agents/**',
+        '**/dist/**',
+        '**/release-dev/**',
+        '**/.worktrees/**',
+      ],
+    },
     allowedHosts: [
       '.serveo.net',
       '.loca.lt',
@@ -239,13 +260,20 @@ export default defineConfig(({ command }): UserConfig => ({
       // chunk hash; in-flight requests for old chunks then 404 ("Pre-transform
       // error", stale bundle). Listing them here pre-bundles them in the initial
       // pass so that disruptive reload never happens.
-      // - @noble/hashes is hoisted to the root, so resolves directly.
+      // - Desktop uses root @noble/hashes v2 while the linked quorum-shared
+      //   source resolves its own v1 copy. Include both contexts so the latter
+      //   is not discovered late and does not invalidate in-flight chunks.
       // - @noble/curves lives under quorum-shared's node_modules (not hoisted),
-      //   so it needs the documented 'parent > child' chain syntax to resolve in
-      //   that package's context. See Vite optimizeDeps.include docs.
-      '@noble/hashes/sha2',
+      //   so it also needs the documented 'parent > child' chain syntax. See
+      //   Vite optimizeDeps.include docs.
+      // Root @noble/hashes v2 exports require explicit .js subpaths; the
+      // linked v1 package continues to expose its extensionless sha2 path.
+      '@noble/hashes/sha2.js',
       '@noble/hashes/blake3.js',
       '@noble/hashes/sha3.js',
+      '@quilibrium/quorum-shared > @noble/hashes/sha2',
+      '@quilibrium/quorum-shared > @noble/hashes/blake3.js',
+      '@quilibrium/quorum-shared > @noble/hashes/sha3.js',
       '@quilibrium/quorum-shared > @noble/curves/ed25519.js',
       '@quilibrium/quorum-shared > @noble/curves/secp256k1.js',
       '@quilibrium/quorum-shared > @tabler/icons-react',
