@@ -605,8 +605,13 @@ msgstr "自動で閉じる"
 msgid "Away"
 msgstr "離席"
 
-#: src/components/farcaster/FarcasterPage.tsx:281
+#: src/components/farcaster/FarcasterPage.tsx:282
+#: src/components/farcaster/FarcasterPage.tsx:654
 msgid "Back"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:651
+msgid "Back to feed"
 msgstr ""
 
 #: src/components/modals/AddSpaceModal.tsx:215
@@ -697,7 +702,7 @@ msgstr "このスペースのブックマーク"
 msgid "Browse public Spaces and find a community to join."
 msgstr "公開スペースを閲覧し、参加するコミュニティを見つけてください。"
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:314
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -713,6 +718,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "同期できません: このデバイスでキーが利用できません。"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
+#: src/components/farcaster/FarcasterPage.tsx:547
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -737,6 +743,10 @@ msgstr "キャンセル"
 msgid "CANCEL"
 msgstr "キャンセル"
 
+#: src/components/farcaster/FarcasterPage.tsx:519
+msgid "Cancel reply"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Channels.tsx:244
 msgid "Cannot delete a group containing the default channel."
 msgstr "デフォルトのチャンネルを含むグループは削除できません。"
@@ -747,15 +757,15 @@ msgstr "デフォルトのチャンネルを含むグループは削除できま
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "一度に {0} ファイル以上をアップロードすることはできません（{remaining} スロットが残っています）"
 
-#: src/components/farcaster/FarcasterPage.tsx:371
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:263
+#: src/components/farcaster/FarcasterPage.tsx:264
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:380
+#: src/components/farcaster/FarcasterPage.tsx:645
 msgid "Cast thread"
 msgstr ""
 
@@ -763,7 +773,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "変更は自動的に行われますが、アクティブなページが更新されない場合があります。新しい言語を適用するにはページを更新してください。"
 
-#: src/components/farcaster/FarcasterPage.tsx:392
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Channel feed"
 msgstr ""
 
@@ -1324,7 +1334,7 @@ msgstr "ダイレクトメッセージ"
 msgid "Direct messages"
 msgstr "ダイレクトメッセージ"
 
-#: src/components/farcaster/FarcasterPage.tsx:309
+#: src/components/farcaster/FarcasterPage.tsx:310
 msgid "Disconnect"
 msgstr ""
 
@@ -1742,6 +1752,10 @@ msgstr "スペース設定の保存に失敗しました"
 msgid "Failed to send invite. Please try again."
 msgstr "招待の送信に失敗しました。もう一度お試しください。"
 
+#: src/components/farcaster/FarcasterPage.tsx:501
+msgid "Failed to send reply."
+msgstr ""
+
 #: src/components/message/Message.tsx:1629
 msgid "Failed to send."
 msgstr "送信に失敗しました。"
@@ -1768,7 +1782,7 @@ msgstr "参加プレビューの更新に失敗しました。もう一度お試
 msgid "Failed to update profile"
 msgstr "プロフィールの更新に失敗しました"
 
-#: src/components/farcaster/FarcasterPage.tsx:284
+#: src/components/farcaster/FarcasterPage.tsx:285
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1777,7 +1791,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:425
+#: src/components/farcaster/FarcasterPage.tsx:428
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1877,12 +1891,12 @@ msgstr "フォルダー名は必須です"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "フォルダー名は{MAX_NAME_LENGTH}文字以下でなければなりません"
 
-#: src/components/farcaster/FarcasterPage.tsx:60
+#: src/components/farcaster/FarcasterPage.tsx:61
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:231
-#: src/components/farcaster/FarcasterPage.tsx:327
+#: src/components/farcaster/FarcasterPage.tsx:232
+#: src/components/farcaster/FarcasterPage.tsx:328
 msgid "Following"
 msgstr ""
 
@@ -2037,7 +2051,7 @@ msgid "Import a backup instead"
 msgstr "代わりにバックアップをインポート"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:314
+#: src/components/farcaster/FarcasterPage.tsx:315
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "アカウントをインポート"
@@ -2263,13 +2277,13 @@ msgstr "ライト"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "リンクがコピーされました。共有したい場所に貼り付けてください。"
 
-#: src/components/farcaster/FarcasterPage.tsx:392
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:407
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:410
+#: src/components/farcaster/FarcasterPage.tsx:476
 msgid "Load more"
 msgstr "さらに読み込む"
 
@@ -2278,11 +2292,11 @@ msgstr "さらに読み込む"
 msgid "Loading bookmarks..."
 msgstr "ブックマークを読み込んでいます..."
 
-#: src/components/farcaster/FarcasterPage.tsx:467
+#: src/components/farcaster/FarcasterPage.tsx:470
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2298,7 +2312,7 @@ msgstr "通知を読み込んでいます..."
 msgid "Loading pinned messages..."
 msgstr "ピン留めされたメッセージを読み込み中..."
 
-#: src/components/farcaster/FarcasterPage.tsx:450
+#: src/components/farcaster/FarcasterPage.tsx:453
 msgid "Loading profile..."
 msgstr ""
 
@@ -2306,7 +2320,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "公開スペースを読み込み中..."
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:666
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "スレッドを読み込み中…"
@@ -2316,8 +2330,8 @@ msgid "Loading your profile..."
 msgstr "プロフィールを読み込んでいます..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:407
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:410
+#: src/components/farcaster/FarcasterPage.tsx:476
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -2575,7 +2589,7 @@ msgstr "検索条件に一致するマーカーがありません。"
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "まだマーカーがありません。後で参照できるようにメッセージをマーキングしましょう。"
 
-#: src/components/farcaster/FarcasterPage.tsx:400
+#: src/components/farcaster/FarcasterPage.tsx:403
 msgid "No casts found."
 msgstr ""
 
@@ -2752,7 +2766,7 @@ msgstr "オンライン"
 msgid "Only space owners can generate public invite links."
 msgstr "スペースの所有者のみが公開招待リンクを生成できます。"
 
-#: src/components/farcaster/FarcasterPage.tsx:300
+#: src/components/farcaster/FarcasterPage.tsx:301
 msgid "Open"
 msgstr ""
 
@@ -2761,7 +2775,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "{0} を開く"
 
-#: src/components/farcaster/FarcasterPage.tsx:295
+#: src/components/farcaster/FarcasterPage.tsx:296
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2769,7 +2783,7 @@ msgstr ""
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:37
+#: src/components/farcaster/FarcasterPage.tsx:38
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2908,11 +2922,11 @@ msgstr "{pinnedByName}によってピン留めされました"
 msgid "Pinned Messages"
 msgstr "ピン留めされたメッセージ"
 
-#: src/components/farcaster/FarcasterPage.tsx:342
+#: src/components/farcaster/FarcasterPage.tsx:343
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:392
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2983,7 +2997,7 @@ msgstr "公開プロフィール"
 msgid "Public spaces"
 msgstr "公開スペース"
 
-#: src/components/farcaster/FarcasterPage.tsx:371
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Publishing..."
 msgstr ""
 
@@ -3006,7 +3020,7 @@ msgstr "Quorumは、あなたが自分のアイデンティティを所有する
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "ブラウザがフォーカスされていない間にQuorumが読み込まれたか、passkeyリクエストが拒否されました。メッセージにアクセスするには再認証してください。"
 
-#: src/components/farcaster/FarcasterPage.tsx:205
+#: src/components/farcaster/FarcasterPage.tsx:206
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3055,11 +3069,15 @@ msgstr "無効な署名の設定を受信しました！"
 msgid "Recipient has no devices"
 msgstr "受信者にデバイスがありません"
 
-#: src/components/farcaster/FarcasterPage.tsx:393
+#: src/components/farcaster/FarcasterPage.tsx:396
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "リフレッシュ"
+
+#: src/components/farcaster/FarcasterPage.tsx:661
+msgid "Refresh thread"
+msgstr ""
 
 #: src/components/RouteErrorFallback.tsx:64
 msgid "Reload app"
@@ -3115,7 +3133,7 @@ msgstr ""
 msgid "Replies"
 msgstr "返信"
 
-#: src/components/farcaster/FarcasterPage.tsx:371
+#: src/components/farcaster/FarcasterPage.tsx:556
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3126,8 +3144,16 @@ msgstr "返信"
 msgid "Reply in thread..."
 msgstr "スレッドに返信…"
 
+#: src/components/farcaster/FarcasterPage.tsx:509
+msgid "Replying to"
+msgstr ""
+
 #~ msgid "Replying to {user}"
 #~ msgstr "{user} に返信中"
+
+#: src/components/farcaster/FarcasterPage.tsx:556
+msgid "Replying..."
+msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:831
 msgid "Republish"
@@ -3222,7 +3248,7 @@ msgid "Restoring..."
 msgstr "復元中..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:426
+#: src/components/farcaster/FarcasterPage.tsx:429
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "再試行"
@@ -3352,7 +3378,7 @@ msgstr "ユーザー名またはアドレスを検索"
 msgid "Search..."
 msgstr "検索..."
 
-#: src/components/farcaster/FarcasterPage.tsx:300
+#: src/components/farcaster/FarcasterPage.tsx:301
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "検索中..."
@@ -3875,6 +3901,7 @@ msgstr ""
 "\n"
 "メッセージの送信または復号に失敗している場合に使用してください。"
 
+#: src/components/farcaster/FarcasterPage.tsx:656
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3930,9 +3957,9 @@ msgstr "今日"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "メッセージ内の言及が多すぎます。最大{MAX_MENTIONS_PER_MESSAGE}件まで許可されています。"
 
-#: src/components/farcaster/FarcasterPage.tsx:211
-#: src/components/farcaster/FarcasterPage.tsx:231
-#: src/components/farcaster/FarcasterPage.tsx:334
+#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:232
+#: src/components/farcaster/FarcasterPage.tsx:335
 msgid "Trending"
 msgstr ""
 
@@ -4255,7 +4282,7 @@ msgstr "アカウントキーとは何ですか？"
 msgid "What should we call you?"
 msgstr "あなたを何と呼びましょうか？"
 
-#: src/components/farcaster/FarcasterPage.tsx:362
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "What's happening?"
 msgstr ""
 
@@ -4340,7 +4367,7 @@ msgstr "なぜこれをしなければならないのですか？"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "このバックアップがないと、デバイスを失うことはアカウントを失うことを意味します - パスワードを忘れた場合のオプションはありません。これはプライバシーのための代償です :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:362
+#: src/components/farcaster/FarcasterPage.tsx:530
 msgid "Write a reply..."
 msgstr ""
 

@@ -14,6 +14,7 @@ import {
   useFarcasterProfile,
   useFarcasterThread,
   useTrendingFeed,
+  type ThreadNode,
 } from './useFarcasterDesktop';
 import {
   useHomeFeed,
@@ -353,13 +354,13 @@ export const FarcasterPage: React.FC = () => {
           </div>
         )}
 
-        {account && (
+        {account && view.kind !== 'thread' && (
           <div className="farcaster-compose">
             {composeError && <Callout variant="error" size="sm">{composeError}</Callout>}
             <TextArea
               value={composeText}
               onChange={setComposeText}
-              placeholder={view.kind === 'thread' ? t`Write a reply...` : t`What's happening?`}
+              placeholder={t`What's happening?`}
               rows={3}
               autoResize
               maxRows={8}
@@ -368,7 +369,7 @@ export const FarcasterPage: React.FC = () => {
             <div className="farcaster-compose__footer">
               <span>{new TextEncoder().encode(composeText).length} / 320 bytes</span>
               <Button type="primary" size="small" disabled={!composeText.trim() || new TextEncoder().encode(composeText).length > 320 || submitCast.isPending} onClick={publish}>
-                {submitCast.isPending ? t`Publishing...` : view.kind === 'thread' ? t`Reply` : t`Cast`}
+                {submitCast.isPending ? t`Publishing...` : t`Cast`}
               </Button>
             </div>
           </div>
@@ -377,11 +378,13 @@ export const FarcasterPage: React.FC = () => {
         {view.kind === 'profile' && <ProfileView fid={view.fid} profile={profile} cardProps={cardProps} />}
 
         {view.kind === 'thread' && (
-          <section className="farcaster-feed" aria-label={t`Cast thread`}>
-            {thread.isLoading && <LoadingState label={t`Loading thread...`} />}
-            {thread.error && <ErrorState onRetry={() => thread.refetch()} />}
-            {thread.data?.map((cast) => <FarcasterCastCard key={cast.hash} cast={cast} {...cardProps} />)}
-          </section>
+          <ThreadView
+            rootHash={view.hash}
+            account={account}
+            onBack={() => setView({ kind: 'feed' })}
+            cardProps={cardProps}
+            submitCast={submitCast}
+          />
         )}
 
         {view.kind === 'channel' && <ChannelHeader channelKey={view.channel} />}
@@ -474,6 +477,216 @@ const ProfileView: React.FC<{
           </Button>
         )}
       </div>
+    </section>
+  );
+};
+
+const InlineReplyComposer: React.FC<{
+  targetCast: NormalizedCast;
+  onCancel?: () => void;
+  onSubmit: (text: string, targetCast: NormalizedCast) => Promise<void>;
+  isSubmitting: boolean;
+}> = ({ targetCast, onCancel, onSubmit, isSubmitting }) => {
+  const [text, setText] = React.useState('');
+  const [error, setError] = React.useState<string | null>(null);
+  const byteLength = new TextEncoder().encode(text).length;
+
+  const handleSubmit = async () => {
+    if (!text.trim() || byteLength > 320 || isSubmitting) return;
+    setError(null);
+    try {
+      await onSubmit(text, targetCast);
+      setText('');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : t`Failed to send reply.`);
+    }
+  };
+
+  return (
+    <div className="farcaster-inline-reply">
+      <div className="farcaster-inline-reply__header">
+        <span>
+          {t`Replying to`}{' '}
+          <strong className="farcaster-inline-reply__target">
+            @{targetCast.author.username}
+          </strong>
+        </span>
+        {onCancel && (
+          <Button
+            type="unstyled"
+            className="farcaster-inline-reply__cancel-icon"
+            onClick={onCancel}
+            ariaLabel={t`Cancel reply`}
+          >
+            <Icon name="close" size="sm" />
+          </Button>
+        )}
+      </div>
+      {error && <Callout variant="error" size="sm">{error}</Callout>}
+      <TextArea
+        className="farcaster-inline-reply__textarea"
+        value={text}
+        onChange={setText}
+        placeholder={t`Write a reply...`}
+        rows={2}
+        autoResize
+        maxRows={6}
+        disabled={isSubmitting}
+        autoFocus
+      />
+      <div className="farcaster-inline-reply__footer">
+        <span className="farcaster-inline-reply__bytes">{byteLength} / 320 bytes</span>
+        <div className="farcaster-inline-reply__actions">
+          {onCancel && (
+            <Button
+              type="secondary"
+              size="small"
+              onClick={onCancel}
+              disabled={isSubmitting}
+            >
+              {t`Cancel`}
+            </Button>
+          )}
+          <Button
+            type="primary"
+            size="small"
+            disabled={!text.trim() || byteLength > 320 || isSubmitting}
+            onClick={handleSubmit}
+          >
+            {isSubmitting ? t`Replying...` : t`Reply`}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ThreadNodeItem: React.FC<{
+  node: ThreadNode;
+  activeReplyCast: NormalizedCast | null;
+  onSelectReply: (cast: NormalizedCast | null) => void;
+  onSubmitReply: (text: string, targetCast: NormalizedCast) => Promise<void>;
+  isSubmitting: boolean;
+  cardProps: Omit<React.ComponentProps<typeof FarcasterCastCard>, 'cast' | 'isRoot' | 'depth' | 'onReply'>;
+}> = ({
+  node,
+  activeReplyCast,
+  onSelectReply,
+  onSubmitReply,
+  isSubmitting,
+  cardProps,
+}) => {
+  const isTargetForReply = activeReplyCast?.hash === node.cast.hash;
+
+  return (
+    <div
+      className={`farcaster-thread-branch farcaster-thread-branch--depth-${Math.min(node.depth, 6)} ${node.depth === 0 ? 'farcaster-thread-branch--root' : ''}`}
+    >
+      <FarcasterCastCard
+        cast={node.cast}
+        isRoot={node.depth === 0}
+        depth={node.depth}
+        onReply={(cast) => onSelectReply(cast)}
+        {...cardProps}
+      />
+      {isTargetForReply && (
+        <InlineReplyComposer
+          targetCast={node.cast}
+          onCancel={() => onSelectReply(null)}
+          onSubmit={onSubmitReply}
+          isSubmitting={isSubmitting}
+        />
+      )}
+      {node.replies.length > 0 && (
+        <div className="farcaster-thread-branch__children">
+          {node.replies.map((child) => (
+            <ThreadNodeItem
+              key={child.cast.hash}
+              node={child}
+              activeReplyCast={activeReplyCast}
+              onSelectReply={onSelectReply}
+              onSubmitReply={onSubmitReply}
+              isSubmitting={isSubmitting}
+              cardProps={cardProps}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ThreadView: React.FC<{
+  rootHash: string;
+  account: DesktopFarcasterAccount | null;
+  onBack: () => void;
+  cardProps: Omit<React.ComponentProps<typeof FarcasterCastCard>, 'cast' | 'isRoot' | 'depth' | 'onReply'>;
+  submitCast: ReturnType<typeof useSubmitCast>;
+}> = ({ rootHash, account, onBack, cardProps, submitCast }) => {
+  const queryClient = useQueryClient();
+  const thread = useFarcasterThread(rootHash);
+  const [activeReplyCast, setActiveReplyCast] = React.useState<NormalizedCast | null>(null);
+
+  const handleSubmitReply = async (text: string, targetCast: NormalizedCast) => {
+    await submitCast.mutateAsync({
+      text,
+      parent: {
+        castHashHex: targetCast.hash,
+        fid: targetCast.author.fid,
+      },
+    });
+    setActiveReplyCast(null);
+    await queryClient.invalidateQueries({
+      queryKey: ['farcaster', 'desktop', 'thread-tree', rootHash],
+    });
+  };
+
+  return (
+    <section className="farcaster-thread-view" aria-label={t`Cast thread`}>
+      <div className="farcaster-thread-view__toolbar">
+        <Button
+          type="unstyled"
+          className="farcaster-thread-view__back-btn"
+          onClick={onBack}
+          ariaLabel={t`Back to feed`}
+        >
+          <Icon name="arrow-left" size="sm" />
+          <span>{t`Back`}</span>
+        </Button>
+        <span className="farcaster-thread-view__title">{t`Thread`}</span>
+        <Button
+          type="unstyled"
+          iconName="refresh"
+          iconOnly
+          ariaLabel={t`Refresh thread`}
+          onClick={() => thread.refetch()}
+        />
+      </div>
+
+      {thread.isLoading && <LoadingState label={t`Loading thread...`} />}
+      {thread.error && <ErrorState onRetry={() => thread.refetch()} />}
+
+      {thread.data && (
+        <div className="farcaster-thread-tree">
+          <ThreadNodeItem
+            node={thread.data}
+            activeReplyCast={activeReplyCast}
+            onSelectReply={setActiveReplyCast}
+            onSubmitReply={handleSubmitReply}
+            isSubmitting={submitCast.isPending}
+            cardProps={cardProps}
+          />
+          {!activeReplyCast && account && (
+            <div className="farcaster-thread-tree__bottom-reply">
+              <InlineReplyComposer
+                targetCast={thread.data.cast}
+                onSubmit={handleSubmitReply}
+                isSubmitting={submitCast.isPending}
+              />
+            </div>
+          )}
+        </div>
+      )}
     </section>
   );
 };

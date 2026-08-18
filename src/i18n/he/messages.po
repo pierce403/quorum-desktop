@@ -606,8 +606,13 @@ msgstr "סגור אוטומטי לאחר"
 msgid "Away"
 msgstr "רחוק"
 
-#: src/components/farcaster/FarcasterPage.tsx:281
+#: src/components/farcaster/FarcasterPage.tsx:282
+#: src/components/farcaster/FarcasterPage.tsx:654
 msgid "Back"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:651
+msgid "Back to feed"
 msgstr ""
 
 #: src/components/modals/AddSpaceModal.tsx:215
@@ -698,7 +703,7 @@ msgstr "סימניות במרחב זה"
 msgid "Browse public Spaces and find a community to join."
 msgstr "עיין במרחבים ציבוריים ומצא קהילה להצטרף אליה."
 
-#: src/components/farcaster/FarcasterPage.tsx:313
+#: src/components/farcaster/FarcasterPage.tsx:314
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -714,6 +719,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "לא ניתן לסנכרן: אין מפתח זמין במכשיר הזה."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
+#: src/components/farcaster/FarcasterPage.tsx:547
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -738,6 +744,10 @@ msgstr "ביטול"
 msgid "CANCEL"
 msgstr "ביטול"
 
+#: src/components/farcaster/FarcasterPage.tsx:519
+msgid "Cancel reply"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Channels.tsx:244
 msgid "Cannot delete a group containing the default channel."
 msgstr "לא ניתן למחוק קבוצה שמכילה את הערוץ המוגדר כברירת מחדל."
@@ -748,15 +758,15 @@ msgstr "לא ניתן למחוק קבוצה שמכילה את הערוץ המו�
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "לא ניתן להעלות יותר מ-{0} קבצים בבת אחת ({remaining} מקומות פנויים)"
 
-#: src/components/farcaster/FarcasterPage.tsx:371
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:263
+#: src/components/farcaster/FarcasterPage.tsx:264
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:380
+#: src/components/farcaster/FarcasterPage.tsx:645
 msgid "Cast thread"
 msgstr ""
 
@@ -764,7 +774,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "שינויים מתבצעים אוטומטית, אך הדף הפעיל עשוי לא להתעדכן. רענן את הדף כדי להחיל את השפה החדשה."
 
-#: src/components/farcaster/FarcasterPage.tsx:392
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Channel feed"
 msgstr ""
 
@@ -1325,7 +1335,7 @@ msgstr "הודעה ישירה"
 msgid "Direct messages"
 msgstr "הודעות ישירות"
 
-#: src/components/farcaster/FarcasterPage.tsx:309
+#: src/components/farcaster/FarcasterPage.tsx:310
 msgid "Disconnect"
 msgstr ""
 
@@ -1743,6 +1753,10 @@ msgstr "שמירת הגדרות המרחב נכשלה"
 msgid "Failed to send invite. Please try again."
 msgstr "שליחה של הזמנה נכשלה. אנא נסה שוב."
 
+#: src/components/farcaster/FarcasterPage.tsx:501
+msgid "Failed to send reply."
+msgstr ""
+
 #: src/components/message/Message.tsx:1629
 msgid "Failed to send."
 msgstr "שליחה נכשלה."
@@ -1769,7 +1783,7 @@ msgstr "הפעולה לעדכון תצוגה מקדימה של הצטרפות נ
 msgid "Failed to update profile"
 msgstr "נכשל בעדכון הפרופיל"
 
-#: src/components/farcaster/FarcasterPage.tsx:284
+#: src/components/farcaster/FarcasterPage.tsx:285
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1778,7 +1792,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:425
+#: src/components/farcaster/FarcasterPage.tsx:428
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1878,12 +1892,12 @@ msgstr "שם תיקייה נדרש"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "שם תיקייה חייב להיות {MAX_NAME_LENGTH} תווים או פחות"
 
-#: src/components/farcaster/FarcasterPage.tsx:60
+#: src/components/farcaster/FarcasterPage.tsx:61
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:231
-#: src/components/farcaster/FarcasterPage.tsx:327
+#: src/components/farcaster/FarcasterPage.tsx:232
+#: src/components/farcaster/FarcasterPage.tsx:328
 msgid "Following"
 msgstr ""
 
@@ -2038,7 +2052,7 @@ msgid "Import a backup instead"
 msgstr "ייבא גיבוי במקום זאת"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:314
+#: src/components/farcaster/FarcasterPage.tsx:315
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "ייבא חשבון"
@@ -2264,13 +2278,13 @@ msgstr "אור"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "הקישור הועתק. הדבק אותו היכן שתרצה לשתף אותו."
 
-#: src/components/farcaster/FarcasterPage.tsx:392
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:407
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:410
+#: src/components/farcaster/FarcasterPage.tsx:476
 msgid "Load more"
 msgstr "טען עוד"
 
@@ -2279,11 +2293,11 @@ msgstr "טען עוד"
 msgid "Loading bookmarks..."
 msgstr "טוען סימנים..."
 
-#: src/components/farcaster/FarcasterPage.tsx:467
+#: src/components/farcaster/FarcasterPage.tsx:470
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:395
+#: src/components/farcaster/FarcasterPage.tsx:398
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2299,7 +2313,7 @@ msgstr "טוען הודעות..."
 msgid "Loading pinned messages..."
 msgstr "טוען הודעות מוצמדות..."
 
-#: src/components/farcaster/FarcasterPage.tsx:450
+#: src/components/farcaster/FarcasterPage.tsx:453
 msgid "Loading profile..."
 msgstr ""
 
@@ -2307,7 +2321,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "טוען מרחבים ציבוריים..."
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:666
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "טוען שרשור..."
@@ -2317,8 +2331,8 @@ msgid "Loading your profile..."
 msgstr "טוען את הפרופיל שלך..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:407
-#: src/components/farcaster/FarcasterPage.tsx:473
+#: src/components/farcaster/FarcasterPage.tsx:410
+#: src/components/farcaster/FarcasterPage.tsx:476
 msgid "Loading..."
 msgstr "טוען..."
 
@@ -2576,7 +2590,7 @@ msgstr "אין מרקזים מתאימים לחיפוש שלך."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "אין מרקזים עדיין. ציינו מרקזים כדי לשמור עליהם לחזרה מאוחרת."
 
-#: src/components/farcaster/FarcasterPage.tsx:400
+#: src/components/farcaster/FarcasterPage.tsx:403
 msgid "No casts found."
 msgstr ""
 
@@ -2753,7 +2767,7 @@ msgstr "באינטרנט"
 msgid "Only space owners can generate public invite links."
 msgstr "רק בעלי Space יכולים ליצור קישורי הזמנה ציבוריים."
 
-#: src/components/farcaster/FarcasterPage.tsx:300
+#: src/components/farcaster/FarcasterPage.tsx:301
 msgid "Open"
 msgstr ""
 
@@ -2762,7 +2776,7 @@ msgstr ""
 msgid "Open {0}"
 msgstr "פתח {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:295
+#: src/components/farcaster/FarcasterPage.tsx:296
 msgid "Open @username or /channel"
 msgstr ""
 
@@ -2770,7 +2784,7 @@ msgstr ""
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:37
+#: src/components/farcaster/FarcasterPage.tsx:38
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2909,11 +2923,11 @@ msgstr "הוצמד על ידי {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "הודעות מוצמדות"
 
-#: src/components/farcaster/FarcasterPage.tsx:342
+#: src/components/farcaster/FarcasterPage.tsx:343
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:392
+#: src/components/farcaster/FarcasterPage.tsx:395
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2984,7 +2998,7 @@ msgstr "פרופיל ציבורי"
 msgid "Public spaces"
 msgstr "מרחבים ציבוריים"
 
-#: src/components/farcaster/FarcasterPage.tsx:371
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Publishing..."
 msgstr ""
 
@@ -3007,7 +3021,7 @@ msgstr "Quorum היא פלטפורמת הודעות מבוזרת שבה אתה �
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum נטען בזמן שהדפדפן לא היה במוקד או שבקשת ה-passkey נדחתה. אנא אשר מחדש כדי לגשת להודעות שלך."
 
-#: src/components/farcaster/FarcasterPage.tsx:205
+#: src/components/farcaster/FarcasterPage.tsx:206
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3056,11 +3070,15 @@ msgstr "קיבל קונפיגורציה עם חתימה לא תקפה!"
 msgid "Recipient has no devices"
 msgstr "לנמען אין מכשירים"
 
-#: src/components/farcaster/FarcasterPage.tsx:393
+#: src/components/farcaster/FarcasterPage.tsx:396
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "רענן"
+
+#: src/components/farcaster/FarcasterPage.tsx:661
+msgid "Refresh thread"
+msgstr ""
 
 #: src/components/RouteErrorFallback.tsx:64
 msgid "Reload app"
@@ -3116,7 +3134,7 @@ msgstr ""
 msgid "Replies"
 msgstr "תגובות"
 
-#: src/components/farcaster/FarcasterPage.tsx:371
+#: src/components/farcaster/FarcasterPage.tsx:556
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3127,8 +3145,16 @@ msgstr "ענה"
 msgid "Reply in thread..."
 msgstr "תגובה בשרשור..."
 
+#: src/components/farcaster/FarcasterPage.tsx:509
+msgid "Replying to"
+msgstr ""
+
 #~ msgid "Replying to {user}"
 #~ msgstr "עונה ל-{user}"
+
+#: src/components/farcaster/FarcasterPage.tsx:556
+msgid "Replying..."
+msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:831
 msgid "Republish"
@@ -3223,7 +3249,7 @@ msgid "Restoring..."
 msgstr "שחזור..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:426
+#: src/components/farcaster/FarcasterPage.tsx:429
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "נסה שוב"
@@ -3353,7 +3379,7 @@ msgstr "חפש שם משתמש או כתובת"
 msgid "Search..."
 msgstr "חפש..."
 
-#: src/components/farcaster/FarcasterPage.tsx:300
+#: src/components/farcaster/FarcasterPage.tsx:301
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "מחפש..."
@@ -3876,6 +3902,7 @@ msgstr ""
 "\n"
 "השתמש בזה אם הודעות לא נשלחות או לא מפוענחות."
 
+#: src/components/farcaster/FarcasterPage.tsx:656
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3931,9 +3958,9 @@ msgstr "היום"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "יותר מדי אזכורים בהודעה. מקסימום {MAX_MENTIONS_PER_MESSAGE} מותר."
 
-#: src/components/farcaster/FarcasterPage.tsx:211
-#: src/components/farcaster/FarcasterPage.tsx:231
-#: src/components/farcaster/FarcasterPage.tsx:334
+#: src/components/farcaster/FarcasterPage.tsx:212
+#: src/components/farcaster/FarcasterPage.tsx:232
+#: src/components/farcaster/FarcasterPage.tsx:335
 msgid "Trending"
 msgstr ""
 
@@ -4256,7 +4283,7 @@ msgstr "מהו מפתח החשבון?"
 msgid "What should we call you?"
 msgstr "מה נקרא לך?"
 
-#: src/components/farcaster/FarcasterPage.tsx:362
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "What's happening?"
 msgstr ""
 
@@ -4341,7 +4368,7 @@ msgstr "למה אני צריך לעשות את זה?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "ללא גיבוי זה, איבוד המכשיר שלך יגרום לאיבוד החשבון שלך - אין אפשרות של 'שכחתי סיסמה'. זה המחיר שאתה משלם על פרטיות :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:362
+#: src/components/farcaster/FarcasterPage.tsx:530
 msgid "Write a reply..."
 msgstr ""
 

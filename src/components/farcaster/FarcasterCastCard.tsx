@@ -13,7 +13,10 @@ interface FarcasterCastCardProps {
   onOpenThread: (hash: string) => void;
   onOpenChannel: (channel: string) => void;
   onOpenUsername: (username: string) => void;
+  onReply?: (cast: NormalizedCast) => void;
   onReact?: (cast: NormalizedCast, reaction: 'like' | 'recast') => Promise<void>;
+  isRoot?: boolean;
+  depth?: number;
 }
 
 function formatTimestamp(timestamp: number): string {
@@ -164,7 +167,10 @@ function renderText(
             key={index}
             type="button"
             className="farcaster-cast__text-link"
-            onClick={() => onThread(castMatch[2])}
+            onClick={(e) => {
+              e.stopPropagation();
+              onThread(castMatch[2]);
+            }}
           >
             {part}
           </button>
@@ -177,14 +183,17 @@ function renderText(
             key={index}
             type="button"
             className="farcaster-cast__text-link"
-            onClick={() => onChannel(channelMatch[1])}
+            onClick={(e) => {
+              e.stopPropagation();
+              onChannel(channelMatch[1]);
+            }}
           >
             /{channelMatch[1]}
           </button>
         );
       }
       return (
-        <a key={index} href={part} target="_blank" rel="noreferrer">
+        <a key={index} href={part} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
           {part}
         </a>
       );
@@ -195,7 +204,10 @@ function renderText(
           key={index}
           type="button"
           className="farcaster-cast__text-link"
-          onClick={() => onUsername(part.slice(1))}
+          onClick={(e) => {
+            e.stopPropagation();
+            onUsername(part.slice(1));
+          }}
         >
           {part}
         </button>
@@ -207,7 +219,10 @@ function renderText(
           key={index}
           type="button"
           className="farcaster-cast__text-link"
-          onClick={() => onChannel(part.slice(1))}
+          onClick={(e) => {
+            e.stopPropagation();
+            onChannel(part.slice(1));
+          }}
         >
           {part}
         </button>
@@ -223,7 +238,10 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
   onOpenThread,
   onOpenChannel,
   onOpenUsername,
+  onReply,
   onReact,
+  isRoot,
+  depth = 0,
 }) => {
   const [pendingReaction, setPendingReaction] = React.useState<'like' | 'recast' | null>(null);
   const react = async (reaction: 'like' | 'recast') => {
@@ -235,12 +253,31 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
       setPendingReaction(null);
     }
   };
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (
+      target.closest(
+        'button, a, input, textarea, video, .farcaster-cast__quote, .farcaster-cast__link-card, .farcaster-cast__media-button'
+      )
+    ) {
+      return;
+    }
+    onOpenThread(cast.threadHash || cast.hash);
+  };
+
   return (
-    <article className="farcaster-cast">
+    <article
+      className={`farcaster-cast ${isRoot ? 'farcaster-cast--root' : ''} ${depth > 0 ? 'farcaster-cast--reply' : ''}`}
+      onClick={handleCardClick}
+    >
       <Button
         type="unstyled"
         className="farcaster-cast__avatar-button"
-        onClick={() => onOpenProfile(cast.author.fid)}
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenProfile(cast.author.fid);
+        }}
       >
         {cast.author.pfpUrl ? (
           <img className="farcaster-cast__avatar" src={cast.author.pfpUrl} alt="" loading="lazy" />
@@ -255,7 +292,10 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
           <Button
             type="unstyled"
             className="farcaster-cast__author"
-            onClick={() => onOpenProfile(cast.author.fid)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenProfile(cast.author.fid);
+            }}
           >
             <strong>{cast.author.displayName || cast.author.username}</strong>
             <span>@{cast.author.username}</span>
@@ -267,7 +307,10 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
           <Button
             type="unstyled"
             className="farcaster-cast__channel"
-            onClick={() => onOpenChannel(cast.channel!.key)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenChannel(cast.channel!.key);
+            }}
           >
             /{cast.channel.name || cast.channel.key}
           </Button>
@@ -290,31 +333,50 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
         <div className="farcaster-cast__stats">
           <Button
             type="unstyled"
-            onClick={() => onOpenThread(cast.hash)}
-            ariaLabel="Open cast thread"
+            className="farcaster-cast__stat-btn farcaster-cast__stat-btn--reply"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onReply) {
+                onReply(cast);
+              } else {
+                onOpenThread(cast.threadHash || cast.hash);
+              }
+            }}
+            ariaLabel="Reply to cast"
           >
-            <Icon name="message" size="sm" /> {cast.reactions.repliesCount}
+            <Icon name="message" size="sm" />
+            <span>{cast.reactions.repliesCount}</span>
+            <span className="farcaster-cast__stat-label">Reply</span>
           </Button>
           <Button
             type="unstyled"
+            className="farcaster-cast__stat-btn farcaster-cast__stat-btn--recast"
             disabled={!onReact || pendingReaction !== null}
-            onClick={() => react('recast')}
+            onClick={(e) => {
+              e.stopPropagation();
+              react('recast');
+            }}
             ariaLabel="Recast"
           >
-            <Icon name="repeat" size="sm" /> {cast.reactions.recastsCount}
+            <Icon name="repeat" size="sm" />
+            <span>{cast.reactions.recastsCount}</span>
           </Button>
           <Button
             type="unstyled"
+            className={`farcaster-cast__stat-btn farcaster-cast__stat-btn--like ${cast.reactions.viewerLiked ? 'farcaster-cast__stat-btn--liked' : ''}`}
             disabled={!onReact || pendingReaction !== null}
-            onClick={() => react('like')}
+            onClick={(e) => {
+              e.stopPropagation();
+              react('like');
+            }}
             ariaLabel="Like cast"
           >
             <Icon
               name="heart"
               variant={cast.reactions.viewerLiked ? 'filled' : 'outline'}
               size="sm"
-            />{' '}
-            {cast.reactions.likesCount}
+            />
+            <span>{cast.reactions.likesCount}</span>
           </Button>
         </div>
       </div>

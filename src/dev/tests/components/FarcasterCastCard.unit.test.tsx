@@ -122,7 +122,7 @@ describe('FarcasterCastCard', () => {
     expect(onOpenChannel).toHaveBeenCalledWith('farcaster');
   });
 
-  it('triggers onOpenThread when clicking replies button', () => {
+  it('triggers onOpenThread when clicking the cast card body', () => {
     const onOpenProfile = vi.fn();
     const onOpenThread = vi.fn();
     const onOpenChannel = vi.fn();
@@ -138,8 +138,30 @@ describe('FarcasterCastCard', () => {
       />
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Open cast thread' }));
+    fireEvent.click(screen.getByText(/Hello world/));
     expect(onOpenThread).toHaveBeenCalledWith('0x1234567890abcdef');
+  });
+
+  it('triggers onReply when clicking the reply button', () => {
+    const onOpenProfile = vi.fn();
+    const onOpenThread = vi.fn();
+    const onOpenChannel = vi.fn();
+    const onOpenUsername = vi.fn();
+    const onReply = vi.fn();
+
+    renderCard(
+      <FarcasterCastCard
+        cast={mockCast}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+        onReply={onReply}
+      />
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Reply to cast' }));
+    expect(onReply).toHaveBeenCalledWith(mockCast);
   });
 
   it('triggers onOpenThread when clicking an in-app farcaster cast link', () => {

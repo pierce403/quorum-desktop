@@ -199,23 +199,35 @@ export function useFarcasterProfile(fid: number | null) {
   return { user, casts };
 }
 
-function flattenConversation(root: HypersnapConversationCast): NormalizedCast[] {
-  const result: NormalizedCast[] = [];
-  const visit = (cast: HypersnapConversationCast) => {
-    result.push(fromHypersnapCast(cast));
-    for (const reply of cast.direct_replies ?? []) visit(reply);
+export interface ThreadNode {
+  cast: NormalizedCast;
+  depth: number;
+  replies: ThreadNode[];
+}
+
+export function buildThreadTree(node: HypersnapConversationCast, depth = 0): ThreadNode | null {
+  const norm = fromHypersnapCast(node);
+  if (!isSafeFarcasterCast(norm)) return null;
+  const replies: ThreadNode[] = [];
+  for (const reply of node.direct_replies ?? []) {
+    const child = buildThreadTree(reply, depth + 1);
+    if (child) replies.push(child);
+  }
+  return {
+    cast: norm,
+    depth,
+    replies,
   };
-  visit(root);
-  return result;
 }
 
 export function useFarcasterThread(hash: string | null) {
   return useQuery({
-    queryKey: ['farcaster', 'desktop', 'thread', hash],
-    enabled: hash !== null,
-    queryFn: async () => {
-      const response = await client.getCastConversation(hash as string, { replyDepth: 5 });
-      return safeCasts(flattenConversation(response.conversation.cast));
+    queryKey: ['farcaster', 'desktop', 'thread-tree', hash],
+    enabled: Boolean(hash),
+    queryFn: async (): Promise<ThreadNode | null> => {
+      if (!hash) return null;
+      const response = await client.getCastConversation(hash, { replyDepth: 5 });
+      return buildThreadTree(response.conversation.cast, 0);
     },
     staleTime: 60_000,
   });
