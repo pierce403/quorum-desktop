@@ -385,6 +385,7 @@ export const FarcasterPage: React.FC = () => {
             rootHash={view.hash}
             account={account}
             onBack={() => setView({ kind: 'feed' })}
+            onOpenThread={(hash: string) => setView({ kind: 'thread', hash })}
             cardProps={cardProps}
             submitCast={submitCast}
           />
@@ -693,9 +694,10 @@ const ThreadView: React.FC<{
   rootHash: string;
   account: DesktopFarcasterAccount | null;
   onBack: () => void;
+  onOpenThread: (hash: string) => void;
   cardProps: Omit<React.ComponentProps<typeof FarcasterCastCard>, 'cast' | 'isRoot' | 'depth' | 'onReply'>;
   submitCast: ReturnType<typeof useSubmitCast>;
-}> = ({ rootHash, account, onBack, cardProps, submitCast }) => {
+}> = ({ rootHash, account, onBack, onOpenThread, cardProps, submitCast }) => {
   const queryClient = useQueryClient();
   const thread = useFarcasterThread(rootHash);
   const [activeReplyCast, setActiveReplyCast] = React.useState<NormalizedCast | null>(null);
@@ -713,6 +715,13 @@ const ThreadView: React.FC<{
       queryKey: ['farcaster', 'desktop', 'thread-tree', rootHash],
     });
   };
+
+  const rootCast = thread.data?.cast;
+  const isSubthread = Boolean(
+    rootCast &&
+      ((rootCast.threadHash && rootCast.threadHash !== rootCast.hash) || rootCast.parentHash)
+  );
+  const fullThreadRootHash = rootCast?.threadHash || rootCast?.parentHash;
 
   return (
     <section className="farcaster-thread-view" aria-label={t`Cast thread`}>
@@ -735,6 +744,19 @@ const ThreadView: React.FC<{
           onClick={() => thread.refetch()}
         />
       </div>
+
+      {isSubthread && fullThreadRootHash && (
+        <div className="farcaster-thread-view__full-thread-banner">
+          <Button
+            type="secondary"
+            className="farcaster-thread-view__full-thread-btn"
+            onClick={() => onOpenThread(fullThreadRootHash)}
+          >
+            <Icon name="arrow-up" size="sm" />
+            <span>{t`View full thread`}</span>
+          </Button>
+        </div>
+      )}
 
       {thread.isLoading && <LoadingState label={t`Loading thread...`} />}
       {thread.error && <ErrorState onRetry={() => thread.refetch()} />}

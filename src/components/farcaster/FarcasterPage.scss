@@ -549,6 +549,21 @@
     font-weight: $font-bold;
     color: var(--color-text-heading);
   }
+
+  &__full-thread-banner {
+    display: flex;
+    justify-content: center;
+    padding: $s-2 0;
+  }
+
+  &__full-thread-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: $s-1-5;
+    font-size: $text-xs;
+    font-weight: $font-bold;
+    border-radius: $rounded-full;
+  }
 }
 
 .farcaster-thread-tree {

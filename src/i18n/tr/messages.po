@@ -607,11 +607,11 @@ msgid "Away"
 msgstr "Uzak"
 
 #: src/components/farcaster/FarcasterPage.tsx:285
-#: src/components/farcaster/FarcasterPage.tsx:727
+#: src/components/farcaster/FarcasterPage.tsx:736
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:724
+#: src/components/farcaster/FarcasterPage.tsx:733
 msgid "Back to feed"
 msgstr ""
 
@@ -719,7 +719,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "Senkronize edilemiyor: bu cihazda anahtar yok."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:620
+#: src/components/farcaster/FarcasterPage.tsx:621
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -744,7 +744,7 @@ msgstr "İptal"
 msgid "CANCEL"
 msgstr "İPTAL"
 
-#: src/components/farcaster/FarcasterPage.tsx:592
+#: src/components/farcaster/FarcasterPage.tsx:593
 msgid "Cancel reply"
 msgstr ""
 
@@ -766,15 +766,15 @@ msgstr ""
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:718
+#: src/components/farcaster/FarcasterPage.tsx:727
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:513
+#: src/components/farcaster/FarcasterPage.tsx:514
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:520
+#: src/components/farcaster/FarcasterPage.tsx:521
 msgid "Casts & Replies"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Değişiklikler otomatik olarak yapılır, ancak aktif sayfa güncellenmeyebilir. Yeni dili uygulamak için sayfayı yenileyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Channel feed"
 msgstr ""
 
@@ -1761,7 +1761,7 @@ msgstr "Alan ayarları kaydedilemedi"
 msgid "Failed to send invite. Please try again."
 msgstr "Davet göndermede başarısız oldu. Lütfen tekrar deneyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:574
+#: src/components/farcaster/FarcasterPage.tsx:575
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1800,7 +1800,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:431
+#: src/components/farcaster/FarcasterPage.tsx:432
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1904,13 +1904,13 @@ msgstr "Klasör adı {MAX_NAME_LENGTH} karakter veya daha az olmalıdır"
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:502
+#: src/components/farcaster/FarcasterPage.tsx:503
 msgid "Followers"
 msgstr ""
 
 #: src/components/farcaster/FarcasterPage.tsx:235
 #: src/components/farcaster/FarcasterPage.tsx:331
-#: src/components/farcaster/FarcasterPage.tsx:501
+#: src/components/farcaster/FarcasterPage.tsx:502
 msgid "Following"
 msgstr ""
 
@@ -2094,7 +2094,7 @@ msgstr ""
 msgid "Importing..."
 msgstr "İçe aktarılıyor..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:462
+#: src/components/farcaster/FarcasterCastCard.tsx:472
 msgid "in"
 msgstr ""
 
@@ -2295,13 +2295,13 @@ msgstr "Işık"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Bağlantı kopyalandı. Paylaşmak istediğin yere yapıştır."
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:413
-#: src/components/farcaster/FarcasterPage.tsx:549
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:550
 msgid "Load more"
 msgstr "Daha fazla yükle"
 
@@ -2310,11 +2310,11 @@ msgstr "Daha fazla yükle"
 msgid "Loading bookmarks..."
 msgstr "Yer işaretleri yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:531
+#: src/components/farcaster/FarcasterPage.tsx:532
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:401
+#: src/components/farcaster/FarcasterPage.tsx:402
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2330,7 +2330,7 @@ msgstr "Bildirimler yükleniyor..."
 msgid "Loading pinned messages..."
 msgstr "Sabit mesajlar yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:487
+#: src/components/farcaster/FarcasterPage.tsx:488
 msgid "Loading profile..."
 msgstr ""
 
@@ -2338,7 +2338,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Herkese açık Alanlar yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:739
+#: src/components/farcaster/FarcasterPage.tsx:761
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Konu yükleniyor..."
@@ -2348,8 +2348,8 @@ msgid "Loading your profile..."
 msgstr "Profilinizi yüklüyoruz..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:413
-#: src/components/farcaster/FarcasterPage.tsx:549
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:550
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
@@ -2421,7 +2421,7 @@ msgstr "Tümünü okundu olarak işaretle?"
 msgid "Mark all read"
 msgstr "Tümünü okundu olarak işaretle"
 
-#: src/components/farcaster/FarcasterPage.tsx:527
+#: src/components/farcaster/FarcasterPage.tsx:528
 msgid "Media"
 msgstr ""
 
@@ -2611,8 +2611,8 @@ msgstr "Aranan marcörlerle eşleşen sonuç bulunamadı."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Henüz marcör yok. Daha sonra başvurmak için mesajları marcörleyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
-#: src/components/farcaster/FarcasterPage.tsx:536
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:537
 msgid "No casts found."
 msgstr ""
 
@@ -2926,7 +2926,7 @@ msgstr "Mesajları Sabitle"
 msgid "Pin/Unpin without confirmation"
 msgstr "Onay olmadan Sabitle/Sabitliği Kaldır"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:417
+#: src/components/farcaster/FarcasterCastCard.tsx:427
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -2950,7 +2950,7 @@ msgstr "Sabitlenmiş Mesajlar"
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3093,13 +3093,13 @@ msgstr "geçersiz imzaya sahip yapılandırma alındı!"
 msgid "Recipient has no devices"
 msgstr "Alıcının cihazı yok"
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:400
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Yenile"
 
-#: src/components/farcaster/FarcasterPage.tsx:734
+#: src/components/farcaster/FarcasterPage.tsx:743
 msgid "Refresh thread"
 msgstr ""
 
@@ -3157,8 +3157,8 @@ msgstr ""
 msgid "Replies"
 msgstr "Yanıtlar"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:509
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterCastCard.tsx:519
+#: src/components/farcaster/FarcasterPage.tsx:630
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3169,15 +3169,15 @@ msgstr "Cevapla"
 msgid "Reply in thread..."
 msgstr "Konuya yanıt ver..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:422
-#: src/components/farcaster/FarcasterPage.tsx:582
+#: src/components/farcaster/FarcasterCastCard.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "{user} ile yanıt veriliyor"
 
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterPage.tsx:630
 msgid "Replying..."
 msgstr ""
 
@@ -3274,7 +3274,7 @@ msgid "Restoring..."
 msgstr "Geri Yükleniyor..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:433
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Tekrar dene"
@@ -3927,11 +3927,11 @@ msgstr ""
 "\n"
 "Mesajlar gönderilemez veya şifresi çözülemezse bunu kullan."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:443
+#: src/components/farcaster/FarcasterCastCard.tsx:453
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:729
+#: src/components/farcaster/FarcasterPage.tsx:738
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -4271,6 +4271,10 @@ msgstr "Davet doğrulanıyor..."
 msgid "View edit history"
 msgstr "Düzenleme geçmişini görüntüle"
 
+#: src/components/farcaster/FarcasterPage.tsx:756
+msgid "View full thread"
+msgstr ""
+
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:74
 msgid "View technical details"
 msgstr "Teknik detayları göster"
@@ -4397,7 +4401,7 @@ msgstr "Bunu neden yapmam gerekiyor?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Bu yedeğe sahip olmadan, cihazınıza erişim kaybettiğinizde hesabınızı da kaybedersiniz - 'şifremi unuttum' seçeneği yok. Bu, gizliliğin bedeli :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:603
+#: src/components/farcaster/FarcasterPage.tsx:604
 msgid "Write a reply..."
 msgstr ""
 

@@ -607,11 +607,11 @@ msgid "Away"
 msgstr "Borta"
 
 #: src/components/farcaster/FarcasterPage.tsx:285
-#: src/components/farcaster/FarcasterPage.tsx:727
+#: src/components/farcaster/FarcasterPage.tsx:736
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:724
+#: src/components/farcaster/FarcasterPage.tsx:733
 msgid "Back to feed"
 msgstr ""
 
@@ -719,7 +719,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "Kan inte synkronisera: ingen nyckel är tillgänglig på den här enheten."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:620
+#: src/components/farcaster/FarcasterPage.tsx:621
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -744,7 +744,7 @@ msgstr "Avbryt"
 msgid "CANCEL"
 msgstr "AVBRYT"
 
-#: src/components/farcaster/FarcasterPage.tsx:592
+#: src/components/farcaster/FarcasterPage.tsx:593
 msgid "Cancel reply"
 msgstr ""
 
@@ -766,15 +766,15 @@ msgstr ""
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:718
+#: src/components/farcaster/FarcasterPage.tsx:727
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:513
+#: src/components/farcaster/FarcasterPage.tsx:514
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:520
+#: src/components/farcaster/FarcasterPage.tsx:521
 msgid "Casts & Replies"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Ändringar görs automatiskt, men den aktiva sidan kanske inte uppdateras. Uppdatera sidan för att tillämpa det nya språket."
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Channel feed"
 msgstr ""
 
@@ -1761,7 +1761,7 @@ msgstr "Misslyckades med att spara Space-inställningar"
 msgid "Failed to send invite. Please try again."
 msgstr "Misslyckades med att skicka inbjudan. Vänligen försök igen."
 
-#: src/components/farcaster/FarcasterPage.tsx:574
+#: src/components/farcaster/FarcasterPage.tsx:575
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1800,7 +1800,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:431
+#: src/components/farcaster/FarcasterPage.tsx:432
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1904,13 +1904,13 @@ msgstr "Mappnamn måste vara {MAX_NAME_LENGTH} tecken eller färre"
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:502
+#: src/components/farcaster/FarcasterPage.tsx:503
 msgid "Followers"
 msgstr ""
 
 #: src/components/farcaster/FarcasterPage.tsx:235
 #: src/components/farcaster/FarcasterPage.tsx:331
-#: src/components/farcaster/FarcasterPage.tsx:501
+#: src/components/farcaster/FarcasterPage.tsx:502
 msgid "Following"
 msgstr ""
 
@@ -2094,7 +2094,7 @@ msgstr ""
 msgid "Importing..."
 msgstr "Importerar..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:462
+#: src/components/farcaster/FarcasterCastCard.tsx:472
 msgid "in"
 msgstr ""
 
@@ -2295,13 +2295,13 @@ msgstr "Ljus"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Länk kopierad. Klistra in den där du vill dela den."
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:413
-#: src/components/farcaster/FarcasterPage.tsx:549
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:550
 msgid "Load more"
 msgstr "Läs in mer"
 
@@ -2310,11 +2310,11 @@ msgstr "Läs in mer"
 msgid "Loading bookmarks..."
 msgstr "Laddar bokmärken..."
 
-#: src/components/farcaster/FarcasterPage.tsx:531
+#: src/components/farcaster/FarcasterPage.tsx:532
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:401
+#: src/components/farcaster/FarcasterPage.tsx:402
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2330,7 +2330,7 @@ msgstr "Laddar aviseringar..."
 msgid "Loading pinned messages..."
 msgstr "Laddar fastsatta meddelanden..."
 
-#: src/components/farcaster/FarcasterPage.tsx:487
+#: src/components/farcaster/FarcasterPage.tsx:488
 msgid "Loading profile..."
 msgstr ""
 
@@ -2338,7 +2338,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Laddar offentliga Spaces..."
 
-#: src/components/farcaster/FarcasterPage.tsx:739
+#: src/components/farcaster/FarcasterPage.tsx:761
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Laddar tråd..."
@@ -2348,8 +2348,8 @@ msgid "Loading your profile..."
 msgstr "Laddar din profil..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:413
-#: src/components/farcaster/FarcasterPage.tsx:549
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:550
 msgid "Loading..."
 msgstr "Laddar..."
 
@@ -2421,7 +2421,7 @@ msgstr "Markera alla som lästa?"
 msgid "Mark all read"
 msgstr "Markera alla som lästa"
 
-#: src/components/farcaster/FarcasterPage.tsx:527
+#: src/components/farcaster/FarcasterPage.tsx:528
 msgid "Media"
 msgstr ""
 
@@ -2611,8 +2611,8 @@ msgstr "Inga marke matchar din sökning."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Inga marke än. Marke meddelanden för att spara dem för senare referens."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
-#: src/components/farcaster/FarcasterPage.tsx:536
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:537
 msgid "No casts found."
 msgstr ""
 
@@ -2926,7 +2926,7 @@ msgstr "Fäst meddelanden"
 msgid "Pin/Unpin without confirmation"
 msgstr "Fäst/Avfäst utan bekräftelse"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:417
+#: src/components/farcaster/FarcasterCastCard.tsx:427
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -2950,7 +2950,7 @@ msgstr "Fastsatta meddelanden"
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3093,13 +3093,13 @@ msgstr "mottagen konfiguration med ogiltig signatur!"
 msgid "Recipient has no devices"
 msgstr "Mottagaren har inga enheter"
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:400
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: src/components/farcaster/FarcasterPage.tsx:734
+#: src/components/farcaster/FarcasterPage.tsx:743
 msgid "Refresh thread"
 msgstr ""
 
@@ -3157,8 +3157,8 @@ msgstr ""
 msgid "Replies"
 msgstr "Svar"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:509
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterCastCard.tsx:519
+#: src/components/farcaster/FarcasterPage.tsx:630
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3169,15 +3169,15 @@ msgstr "Svara"
 msgid "Reply in thread..."
 msgstr "Svara i tråd..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:422
-#: src/components/farcaster/FarcasterPage.tsx:582
+#: src/components/farcaster/FarcasterCastCard.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "Svarar {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterPage.tsx:630
 msgid "Replying..."
 msgstr ""
 
@@ -3274,7 +3274,7 @@ msgid "Restoring..."
 msgstr "Återställer..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:433
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Försök igen"
@@ -3927,11 +3927,11 @@ msgstr ""
 "\n"
 "Använd detta om meddelanden inte skickas eller dekrypteras."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:443
+#: src/components/farcaster/FarcasterCastCard.tsx:453
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:729
+#: src/components/farcaster/FarcasterPage.tsx:738
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -4271,6 +4271,10 @@ msgstr "Validerar inbjudan..."
 msgid "View edit history"
 msgstr "Visa redigeringshistorik"
 
+#: src/components/farcaster/FarcasterPage.tsx:756
+msgid "View full thread"
+msgstr ""
+
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:74
 msgid "View technical details"
 msgstr "Visa tekniska detaljer"
@@ -4397,7 +4401,7 @@ msgstr "Varför måste jag göra detta?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Utan denna säkerhetskopia innebär att du förlorar din enhet att du också förlorar ditt konto - det finns inget 'glömt lösenord' alternativ. Detta är priset du betalar för integritet :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:603
+#: src/components/farcaster/FarcasterPage.tsx:604
 msgid "Write a reply..."
 msgstr ""
 

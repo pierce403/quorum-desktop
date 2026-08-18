@@ -606,11 +606,11 @@ msgid "Away"
 msgstr "Відсутній"
 
 #: src/components/farcaster/FarcasterPage.tsx:285
-#: src/components/farcaster/FarcasterPage.tsx:727
+#: src/components/farcaster/FarcasterPage.tsx:736
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:724
+#: src/components/farcaster/FarcasterPage.tsx:733
 msgid "Back to feed"
 msgstr ""
 
@@ -718,7 +718,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "Не вдається синхронізувати: на цьому пристрої немає доступного ключа."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:620
+#: src/components/farcaster/FarcasterPage.tsx:621
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -743,7 +743,7 @@ msgstr "Скасувати"
 msgid "CANCEL"
 msgstr "Скасувати"
 
-#: src/components/farcaster/FarcasterPage.tsx:592
+#: src/components/farcaster/FarcasterPage.tsx:593
 msgid "Cancel reply"
 msgstr ""
 
@@ -765,15 +765,15 @@ msgstr ""
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:718
+#: src/components/farcaster/FarcasterPage.tsx:727
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:513
+#: src/components/farcaster/FarcasterPage.tsx:514
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:520
+#: src/components/farcaster/FarcasterPage.tsx:521
 msgid "Casts & Replies"
 msgstr ""
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Зміни вносяться автоматично, але активна сторінка може не оновитися. Оновіть сторінку, щоб застосувати нову мову."
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Channel feed"
 msgstr ""
 
@@ -1760,7 +1760,7 @@ msgstr "Не вдалося зберегти налаштування Прост
 msgid "Failed to send invite. Please try again."
 msgstr "Не вдалося надіслати запрошення. Будь ласка, спробуйте ще раз."
 
-#: src/components/farcaster/FarcasterPage.tsx:574
+#: src/components/farcaster/FarcasterPage.tsx:575
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1799,7 +1799,7 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:431
+#: src/components/farcaster/FarcasterPage.tsx:432
 msgid "Farcaster could not be reached."
 msgstr ""
 
@@ -1903,13 +1903,13 @@ msgstr "Назва папки повинна містити не більше {M
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:502
+#: src/components/farcaster/FarcasterPage.tsx:503
 msgid "Followers"
 msgstr ""
 
 #: src/components/farcaster/FarcasterPage.tsx:235
 #: src/components/farcaster/FarcasterPage.tsx:331
-#: src/components/farcaster/FarcasterPage.tsx:501
+#: src/components/farcaster/FarcasterPage.tsx:502
 msgid "Following"
 msgstr ""
 
@@ -2093,7 +2093,7 @@ msgstr ""
 msgid "Importing..."
 msgstr "Імпорт..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:462
+#: src/components/farcaster/FarcasterCastCard.tsx:472
 msgid "in"
 msgstr ""
 
@@ -2294,13 +2294,13 @@ msgstr "Світло"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Посилання скопійовано. Вставте його туди, куди хочете поділитися."
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:413
-#: src/components/farcaster/FarcasterPage.tsx:549
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:550
 msgid "Load more"
 msgstr "Завантажити ще"
 
@@ -2309,11 +2309,11 @@ msgstr "Завантажити ще"
 msgid "Loading bookmarks..."
 msgstr "Завантаження закладок..."
 
-#: src/components/farcaster/FarcasterPage.tsx:531
+#: src/components/farcaster/FarcasterPage.tsx:532
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:401
+#: src/components/farcaster/FarcasterPage.tsx:402
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2329,7 +2329,7 @@ msgstr "Завантаження сповіщень..."
 msgid "Loading pinned messages..."
 msgstr "Завантаження закріплених повідомлень..."
 
-#: src/components/farcaster/FarcasterPage.tsx:487
+#: src/components/farcaster/FarcasterPage.tsx:488
 msgid "Loading profile..."
 msgstr ""
 
@@ -2337,7 +2337,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Завантаження публічних Просторів..."
 
-#: src/components/farcaster/FarcasterPage.tsx:739
+#: src/components/farcaster/FarcasterPage.tsx:761
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Завантаження теми..."
@@ -2347,8 +2347,8 @@ msgid "Loading your profile..."
 msgstr "Завантаження вашого профілю..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:413
-#: src/components/farcaster/FarcasterPage.tsx:549
+#: src/components/farcaster/FarcasterPage.tsx:414
+#: src/components/farcaster/FarcasterPage.tsx:550
 msgid "Loading..."
 msgstr "Завантаження..."
 
@@ -2420,7 +2420,7 @@ msgstr "Позначити всі як прочитані?"
 msgid "Mark all read"
 msgstr "Позначити всі прочитаними"
 
-#: src/components/farcaster/FarcasterPage.tsx:527
+#: src/components/farcaster/FarcasterPage.tsx:528
 msgid "Media"
 msgstr ""
 
@@ -2610,8 +2610,8 @@ msgstr "Маркерів, що відповідають вашому пошук�
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Маркерів ще немає. Додайте маркери до повідомлень, щоб зберегти їх для подальшого перегляду."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
-#: src/components/farcaster/FarcasterPage.tsx:536
+#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:537
 msgid "No casts found."
 msgstr ""
 
@@ -2925,7 +2925,7 @@ msgstr "Закріпити повідомлення"
 msgid "Pin/Unpin without confirmation"
 msgstr "Закріпити/зняти закріплення без підтвердження"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:417
+#: src/components/farcaster/FarcasterCastCard.tsx:427
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -2949,7 +2949,7 @@ msgstr "Закріплені повідомлення"
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:398
+#: src/components/farcaster/FarcasterPage.tsx:399
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -3092,13 +3092,13 @@ msgstr "отримано конфігурацію з недійсним підп
 msgid "Recipient has no devices"
 msgstr "У отримувача немає пристроїв"
 
-#: src/components/farcaster/FarcasterPage.tsx:399
+#: src/components/farcaster/FarcasterPage.tsx:400
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Оновити"
 
-#: src/components/farcaster/FarcasterPage.tsx:734
+#: src/components/farcaster/FarcasterPage.tsx:743
 msgid "Refresh thread"
 msgstr ""
 
@@ -3156,8 +3156,8 @@ msgstr ""
 msgid "Replies"
 msgstr "Відповіді"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:509
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterCastCard.tsx:519
+#: src/components/farcaster/FarcasterPage.tsx:630
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3168,15 +3168,15 @@ msgstr "Відповісти"
 msgid "Reply in thread..."
 msgstr "Відповісти в темі..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:422
-#: src/components/farcaster/FarcasterPage.tsx:582
+#: src/components/farcaster/FarcasterCastCard.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "Відповідаю {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterPage.tsx:630
 msgid "Replying..."
 msgstr ""
 
@@ -3273,7 +3273,7 @@ msgid "Restoring..."
 msgstr "Відновлення..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:432
+#: src/components/farcaster/FarcasterPage.tsx:433
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Спробувати ще раз"
@@ -3926,11 +3926,11 @@ msgstr ""
 "\n"
 "Використовуйте це, якщо повідомлення не надсилаються або не розшифровуються."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:443
+#: src/components/farcaster/FarcasterCastCard.tsx:453
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:729
+#: src/components/farcaster/FarcasterPage.tsx:738
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -4270,6 +4270,10 @@ msgstr "Перевірка запрошення..."
 msgid "View edit history"
 msgstr "Переглянути історію редагувань"
 
+#: src/components/farcaster/FarcasterPage.tsx:756
+msgid "View full thread"
+msgstr ""
+
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:74
 msgid "View technical details"
 msgstr "Переглянути технічні деталі"
@@ -4396,7 +4400,7 @@ msgstr "Чому мені потрібно це робити?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Без цієї резервної копії, втрата пристрою означає втрату облікового запису - немає опції \"забув пароль\". Це ціна, яку ви платите за приватність :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:603
+#: src/components/farcaster/FarcasterPage.tsx:604
 msgid "Write a reply..."
 msgstr ""
 

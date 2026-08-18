@@ -386,7 +386,17 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
     ) {
       return;
     }
-    onOpenThread(cast.threadHash || cast.hash);
+
+    const isThreadReply = Boolean(
+      cast.parentHash || (cast.threadHash && cast.threadHash !== cast.hash)
+    );
+    const hasNoReplies = (cast.reactions.repliesCount ?? 0) === 0;
+
+    if (isThreadReply && hasNoReplies) {
+      onOpenThread(cast.threadHash || cast.parentHash || cast.hash);
+    } else {
+      onOpenThread(cast.hash);
+    }
   };
 
   return (
