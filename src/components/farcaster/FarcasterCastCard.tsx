@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { t } from '@lingui/core/macro';
 import { Button, Icon } from '../primitives';
 import {
   useFarcasterCast,
@@ -288,6 +289,40 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
         )}
       </Button>
       <div className="farcaster-cast__body">
+        {cast.isPinned && (
+          <div className="farcaster-cast__pinned-badge">
+            <Icon name="pin" size="xs" />
+            <span>{t`Pinned`}</span>
+          </div>
+        )}
+        {!isRoot && cast.parentHash && (
+          <div className="farcaster-cast__reply-context">
+            <span>{t`Replying to`}</span>
+            {cast.parentAuthor?.username ? (
+              <button
+                type="button"
+                className="farcaster-cast__text-link"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenUsername(cast.parentAuthor!.username!);
+                }}
+              >
+                @{cast.parentAuthor.username}
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="farcaster-cast__text-link"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenThread(cast.parentHash!);
+                }}
+              >
+                {t`thread`}
+              </button>
+            )}
+          </div>
+        )}
         <div className="farcaster-cast__byline">
           <Button
             type="unstyled"
@@ -300,21 +335,24 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
             <strong>{cast.author.displayName || cast.author.username}</strong>
             <span>@{cast.author.username}</span>
           </Button>
+          {cast.channel && !cast.parentHash && (
+            <span className="farcaster-cast__in-channel">
+              {t`in`}{' '}
+              <button
+                type="button"
+                className="farcaster-cast__text-link"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenChannel(cast.channel!.key);
+                }}
+              >
+                /{cast.channel.name || cast.channel.key}
+              </button>
+            </span>
+          )}
           <span aria-hidden="true">·</span>
           <time dateTime={new Date(cast.timestamp).toISOString()}>{formatTimestamp(cast.timestamp)}</time>
         </div>
-        {cast.channel && (
-          <Button
-            type="unstyled"
-            className="farcaster-cast__channel"
-            onClick={(e) => {
-              e.stopPropagation();
-              onOpenChannel(cast.channel!.key);
-            }}
-          >
-            /{cast.channel.name || cast.channel.key}
-          </Button>
-        )}
         <div className="farcaster-cast__text">
           {renderText(cast.text, onOpenUsername, onOpenChannel, onOpenThread)}
         </div>

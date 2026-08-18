@@ -607,11 +607,11 @@ msgid "Away"
 msgstr "离开"
 
 #: src/components/farcaster/FarcasterPage.tsx:282
-#: src/components/farcaster/FarcasterPage.tsx:654
+#: src/components/farcaster/FarcasterPage.tsx:713
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:651
+#: src/components/farcaster/FarcasterPage.tsx:710
 msgid "Back to feed"
 msgstr ""
 
@@ -719,7 +719,7 @@ msgid "Can't sync: no key is available on this device."
 msgstr "无法同步：此设备上没有可用的密钥。"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:547
+#: src/components/farcaster/FarcasterPage.tsx:606
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -744,7 +744,7 @@ msgstr "取消"
 msgid "CANCEL"
 msgstr "取消"
 
-#: src/components/farcaster/FarcasterPage.tsx:519
+#: src/components/farcaster/FarcasterPage.tsx:578
 msgid "Cancel reply"
 msgstr ""
 
@@ -766,8 +766,16 @@ msgstr ""
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:645
+#: src/components/farcaster/FarcasterPage.tsx:704
 msgid "Cast thread"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:499
+msgid "Casts"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:506
+msgid "Casts & Replies"
 msgstr ""
 
 #: src/components/modals/UserSettingsModal/Appearance.tsx:82
@@ -1753,7 +1761,7 @@ msgstr "保存空间设置失败"
 msgid "Failed to send invite. Please try again."
 msgstr "发送邀请失败。请再试一次。"
 
-#: src/components/farcaster/FarcasterPage.tsx:501
+#: src/components/farcaster/FarcasterPage.tsx:560
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1896,8 +1904,13 @@ msgstr "文件夹名称必须少于{MAX_NAME_LENGTH}个字符"
 msgid "followers"
 msgstr ""
 
+#: src/components/farcaster/FarcasterPage.tsx:488
+msgid "Followers"
+msgstr ""
+
 #: src/components/farcaster/FarcasterPage.tsx:232
 #: src/components/farcaster/FarcasterPage.tsx:328
+#: src/components/farcaster/FarcasterPage.tsx:487
 msgid "Following"
 msgstr ""
 
@@ -2080,6 +2093,10 @@ msgstr ""
 #: src/components/modals/UserSettingsModal/Security.tsx:695
 msgid "Importing..."
 msgstr "正在导入..."
+
+#: src/components/farcaster/FarcasterCastCard.tsx:340
+msgid "in"
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/Help.tsx:100
 msgid "Inline Code"
@@ -2284,7 +2301,7 @@ msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
 #: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:476
+#: src/components/farcaster/FarcasterPage.tsx:535
 msgid "Load more"
 msgstr "加载更多"
 
@@ -2293,7 +2310,7 @@ msgstr "加载更多"
 msgid "Loading bookmarks..."
 msgstr "正在加载书签..."
 
-#: src/components/farcaster/FarcasterPage.tsx:470
+#: src/components/farcaster/FarcasterPage.tsx:517
 msgid "Loading casts..."
 msgstr ""
 
@@ -2313,7 +2330,7 @@ msgstr "正在加载通知..."
 msgid "Loading pinned messages..."
 msgstr "正在加载置顶消息..."
 
-#: src/components/farcaster/FarcasterPage.tsx:453
+#: src/components/farcaster/FarcasterPage.tsx:473
 msgid "Loading profile..."
 msgstr ""
 
@@ -2321,7 +2338,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "正在加载公共空间..."
 
-#: src/components/farcaster/FarcasterPage.tsx:666
+#: src/components/farcaster/FarcasterPage.tsx:725
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "正在加载话题..."
@@ -2332,7 +2349,7 @@ msgstr "正在加载您的个人资料..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
 #: src/components/farcaster/FarcasterPage.tsx:410
-#: src/components/farcaster/FarcasterPage.tsx:476
+#: src/components/farcaster/FarcasterPage.tsx:535
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -2403,6 +2420,10 @@ msgstr "全部标记为已读？"
 #: src/components/notifications/NotificationPanel.tsx:204
 msgid "Mark all read"
 msgstr "全部标记为已读"
+
+#: src/components/farcaster/FarcasterPage.tsx:513
+msgid "Media"
+msgstr ""
 
 #: src/components/space/RolePreview.tsx:26
 msgid "member"
@@ -2591,6 +2612,7 @@ msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "还没有书签。保存消息以备后用。"
 
 #: src/components/farcaster/FarcasterPage.tsx:403
+#: src/components/farcaster/FarcasterPage.tsx:522
 msgid "No casts found."
 msgstr ""
 
@@ -2904,6 +2926,7 @@ msgstr "置顶消息"
 msgid "Pin/Unpin without confirmation"
 msgstr "在没有确认的情况下固定/取消固定"
 
+#: src/components/farcaster/FarcasterCastCard.tsx:295
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
@@ -3076,7 +3099,7 @@ msgstr "收件人没有设备"
 msgid "Refresh"
 msgstr "刷新"
 
-#: src/components/farcaster/FarcasterPage.tsx:661
+#: src/components/farcaster/FarcasterPage.tsx:720
 msgid "Refresh thread"
 msgstr ""
 
@@ -3134,7 +3157,7 @@ msgstr ""
 msgid "Replies"
 msgstr "回复"
 
-#: src/components/farcaster/FarcasterPage.tsx:556
+#: src/components/farcaster/FarcasterPage.tsx:615
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3145,14 +3168,15 @@ msgstr "答复"
 msgid "Reply in thread..."
 msgstr "在话题中回复..."
 
-#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/farcaster/FarcasterCastCard.tsx:300
+#: src/components/farcaster/FarcasterPage.tsx:568
 msgid "Replying to"
 msgstr ""
 
 #~ msgid "Replying to {user}"
 #~ msgstr "回复 {user}"
 
-#: src/components/farcaster/FarcasterPage.tsx:556
+#: src/components/farcaster/FarcasterPage.tsx:615
 msgid "Replying..."
 msgstr ""
 
@@ -3902,7 +3926,11 @@ msgstr ""
 "\n"
 "如果消息发送或解密失败，请使用此选项。"
 
-#: src/components/farcaster/FarcasterPage.tsx:656
+#: src/components/farcaster/FarcasterCastCard.tsx:321
+msgid "thread"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:715
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -4368,7 +4396,7 @@ msgstr "我为什么需要这样做？"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "没有这个备份，丢失设备就意味着丢失账户——没有“忘记密码”选项。这是您为隐私付出的代价:-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:530
+#: src/components/farcaster/FarcasterPage.tsx:589
 msgid "Write a reply..."
 msgstr ""
 

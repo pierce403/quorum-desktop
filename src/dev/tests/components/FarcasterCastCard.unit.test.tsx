@@ -215,4 +215,55 @@ describe('FarcasterCastCard', () => {
     fireEvent.click(screen.getByRole('button', { name: /Quoted cast/i }));
     expect(onOpenThread).toHaveBeenCalledWith('0x9999999999');
   });
+
+  it('renders pinned badge when cast is pinned', () => {
+    const onOpenProfile = vi.fn();
+    const onOpenThread = vi.fn();
+    const onOpenChannel = vi.fn();
+    const onOpenUsername = vi.fn();
+
+    const pinnedCast: NormalizedCast = {
+      ...mockCast,
+      isPinned: true,
+    };
+
+    renderCard(
+      <FarcasterCastCard
+        cast={pinnedCast}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
+    );
+
+    expect(screen.getByText('Pinned')).toBeInTheDocument();
+  });
+
+  it('renders reply context when cast is a reply to another user', () => {
+    const onOpenProfile = vi.fn();
+    const onOpenThread = vi.fn();
+    const onOpenChannel = vi.fn();
+    const onOpenUsername = vi.fn();
+
+    const replyCast: NormalizedCast = {
+      ...mockCast,
+      parentHash: '0xparent123',
+      parentAuthor: { fid: 789, username: 'charlie' },
+    };
+
+    renderCard(
+      <FarcasterCastCard
+        cast={replyCast}
+        onOpenProfile={onOpenProfile}
+        onOpenThread={onOpenThread}
+        onOpenChannel={onOpenChannel}
+        onOpenUsername={onOpenUsername}
+      />
+    );
+
+    expect(screen.getByText(/Replying to/)).toBeInTheDocument();
+    fireEvent.click(screen.getByText('@charlie'));
+    expect(onOpenUsername).toHaveBeenCalledWith('charlie');
+  });
 });

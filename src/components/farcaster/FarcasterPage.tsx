@@ -432,20 +432,40 @@ const ErrorState: React.FC<{ onRetry: () => void }> = ({ onRetry }) => (
 
 type ProfileHook = ReturnType<typeof useFarcasterProfile>;
 
+type ProfileTab = 'casts' | 'replies' | 'media';
+
 const ProfileView: React.FC<{
   fid: number;
   profile: ProfileHook;
   cardProps: Omit<React.ComponentProps<typeof FarcasterCastCard>, 'cast'>;
 }> = ({ fid, profile, cardProps }) => {
+  const [tab, setTab] = React.useState<ProfileTab>('casts');
   const user = profile.user.data;
-  const casts = profile.casts.data?.pages.flatMap((page) => page.casts) ?? [];
   const profileSentinelRef = React.useRef<HTMLDivElement | null>(null);
+
+  const activeQuery = tab === 'replies' ? profile.replies : profile.casts;
+  const rawCasts = activeQuery.data?.pages.flatMap((page) => page.casts) ?? [];
+  const casts = React.useMemo(() => {
+    if (tab === 'media') {
+      return rawCasts.filter((c) =>
+        c.embeds.some(
+          (e) =>
+            Boolean(
+              e.image ||
+                e.video ||
+                (e.url && /\.(?:avif|gif|jpe?g|png|webp)(?:$|[?#])/i.test(e.url))
+            )
+        )
+      );
+    }
+    return rawCasts;
+  }, [rawCasts, tab]);
 
   useInfiniteScroll(
     profileSentinelRef,
-    profile.casts.hasNextPage,
-    profile.casts.isFetchingNextPage,
-    () => void profile.casts.fetchNextPage()
+    activeQuery.hasNextPage,
+    activeQuery.isFetchingNextPage,
+    () => void activeQuery.fetchNextPage()
   );
 
   return (
@@ -454,26 +474,65 @@ const ProfileView: React.FC<{
       {profile.user.error && <ErrorState onRetry={() => profile.user.refetch()} />}
       {user && (
         <header className="farcaster-profile__header">
-          {user.pfpUrl ? <img src={user.pfpUrl} alt="" /> : <span>{(user.displayName || user.username || '?').slice(0, 1).toUpperCase()}</span>}
+          {user.pfpUrl ? (
+            <img src={user.pfpUrl} alt="" />
+          ) : (
+            <span>{(user.displayName || user.username || '?').slice(0, 1).toUpperCase()}</span>
+          )}
           <div>
             <h2>{user.displayName || user.username}</h2>
             <p>@{user.username} · FID {fid}</p>
             {user.bio && <div className="farcaster-profile__bio">{user.bio}</div>}
             <div className="farcaster-profile__stats">
-              <span><strong>{user.followingCount?.toLocaleString() ?? '—'}</strong> Following</span>
-              <span><strong>{user.followerCount?.toLocaleString() ?? '—'}</strong> Followers</span>
+              <span><strong>{user.followingCount?.toLocaleString() ?? '—'}</strong> {t`Following`}</span>
+              <span><strong>{user.followerCount?.toLocaleString() ?? '—'}</strong> {t`Followers`}</span>
             </div>
           </div>
         </header>
       )}
+      <div className="farcaster-profile__tabs">
+        <button
+          type="button"
+          className={`farcaster-profile__tab ${tab === 'casts' ? 'farcaster-profile__tab--active' : ''}`}
+          onClick={() => setTab('casts')}
+        >
+          {t`Casts`}
+        </button>
+        <button
+          type="button"
+          className={`farcaster-profile__tab ${tab === 'replies' ? 'farcaster-profile__tab--active' : ''}`}
+          onClick={() => setTab('replies')}
+        >
+          {t`Casts & Replies`}
+        </button>
+        <button
+          type="button"
+          className={`farcaster-profile__tab ${tab === 'media' ? 'farcaster-profile__tab--active' : ''}`}
+          onClick={() => setTab('media')}
+        >
+          {t`Media`}
+        </button>
+      </div>
       <div className="farcaster-feed">
-        {profile.casts.isLoading && <LoadingState label={t`Loading casts...`} />}
-        {profile.casts.error && <ErrorState onRetry={() => profile.casts.refetch()} />}
-        {casts.map((cast) => <FarcasterCastCard key={cast.hash} cast={cast} {...cardProps} />)}
-        <div ref={profileSentinelRef} className="farcaster-feed__sentinel" aria-hidden="true" />
-        {profile.casts.hasNextPage && (
-          <Button type="secondary" disabled={profile.casts.isFetchingNextPage} onClick={() => profile.casts.fetchNextPage()}>
-            {profile.casts.isFetchingNextPage ? t`Loading...` : t`Load more`}
+        {activeQuery.isLoading && casts.length === 0 && <LoadingState label={t`Loading casts...`} />}
+        {activeQuery.error && casts.length === 0 && <ErrorState onRetry={() => activeQuery.refetch()} />}
+        {!activeQuery.isLoading && casts.length === 0 && (
+          <div className="empty-state empty-state--fill">
+            <Icon name="farcaster" size="5xl" className="empty-state__icon" />
+            <p className="empty-state__title">{t`No casts found.`}</p>
+          </div>
+        )}
+        {casts.map((cast) => (
+          <FarcasterCastCard key={cast.hash} cast={cast} {...cardProps} />
+        ))}
+        {casts.length > 0 && <div ref={profileSentinelRef} className="farcaster-feed__sentinel" aria-hidden="true" />}
+        {casts.length > 0 && activeQuery.hasNextPage && (
+          <Button
+            type="secondary"
+            disabled={activeQuery.isFetchingNextPage}
+            onClick={() => activeQuery.fetchNextPage()}
+          >
+            {activeQuery.isFetchingNextPage ? t`Loading...` : t`Load more`}
           </Button>
         )}
       </div>

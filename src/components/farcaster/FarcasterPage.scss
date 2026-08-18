@@ -240,6 +240,64 @@
 
   &__avatar-button { align-self: start; padding: 0 !important; }
 
+  &__pinned-badge {
+    display: flex;
+    align-items: center;
+    gap: $s-1;
+    font-size: $text-xs;
+    font-weight: $font-bold;
+    color: var(--color-text-subtle);
+    margin-bottom: $s-1;
+
+    svg {
+      color: var(--color-text-subtle);
+    }
+  }
+
+  &__reply-context {
+    display: flex;
+    align-items: center;
+    gap: $s-1;
+    font-size: $text-xs;
+    color: var(--color-text-subtle);
+    margin-bottom: $s-1;
+
+    button {
+      color: var(--color-link) !important;
+      font-size: inherit !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer !important;
+      display: inline !important;
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  &__in-channel {
+    display: inline-flex;
+    align-items: center;
+    gap: $s-1;
+    color: var(--color-text-subtle);
+    font-size: $text-sm;
+    margin-left: $s-1;
+
+    button {
+      color: var(--color-text-main) !important;
+      font-weight: $font-bold;
+      font-size: inherit !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer !important;
+      display: inline !important;
+      &:hover {
+        color: var(--color-link) !important;
+        text-decoration: underline;
+      }
+    }
+  }
+
   &__avatar {
     display: flex;
     align-items: center;
@@ -702,6 +760,12 @@
 }
 
 .farcaster-profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+
   &__header {
     display: grid;
     grid-template-columns: 96px minmax(0, 1fr);
@@ -727,6 +791,37 @@
 
     h2 { margin: 0; color: var(--color-text-heading); font-size: $text-2xl; }
     p { margin: $s-1 0; color: var(--color-text-subtle); }
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border-default);
+    border-top: 0;
+    background: var(--color-bg-chat);
+    padding: 0 $s-4;
+  }
+
+  &__tab {
+    appearance: none;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--color-text-subtle);
+    font-size: $text-sm;
+    font-weight: $font-bold;
+    padding: $s-3 $s-4;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      color: var(--color-text-main);
+    }
+
+    &--active {
+      color: var(--color-text-main);
+      border-bottom-color: var(--color-link);
+    }
   }
 
   &__bio { margin-top: $s-3; white-space: pre-wrap; }

@@ -196,7 +196,25 @@ export function useFarcasterProfile(fid: number | null) {
     staleTime: 2 * 60_000,
   });
 
-  return { user, casts };
+  const replies = useInfiniteQuery({
+    queryKey: ['farcaster', 'desktop', 'profile-replies', fid],
+    enabled: fid !== null,
+    initialPageParam: undefined as string | undefined,
+    queryFn: async ({ pageParam }) => {
+      const response = await client.getUserReplies(fid as number, {
+        cursor: pageParam,
+        limit: PAGE_SIZE,
+      });
+      return {
+        casts: safeCasts(response.casts.map(fromHypersnapCast)),
+        cursor: response.next.cursor,
+      };
+    },
+    getNextPageParam: (page) => page.cursor ?? undefined,
+    staleTime: 2 * 60_000,
+  });
+
+  return { user, casts, replies };
 }
 
 export interface ThreadNode {
