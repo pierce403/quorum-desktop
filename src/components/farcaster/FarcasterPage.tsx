@@ -314,9 +314,9 @@ const ProfileView: React.FC<{
       {profile.user.error && <ErrorState onRetry={() => profile.user.refetch()} />}
       {user && (
         <header className="farcaster-profile__header">
-          {user.pfpUrl ? <img src={user.pfpUrl} alt="" /> : <span>{user.displayName.slice(0, 1).toUpperCase()}</span>}
+          {user.pfpUrl ? <img src={user.pfpUrl} alt="" /> : <span>{(user.displayName || user.username || '?').slice(0, 1).toUpperCase()}</span>}
           <div>
-            <h2>{user.displayName}</h2>
+            <h2>{user.displayName || user.username}</h2>
             <p>@{user.username} · FID {fid}</p>
             {user.bio && <div className="farcaster-profile__bio">{user.bio}</div>}
             <div className="farcaster-profile__stats">

@@ -109,13 +109,13 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
       {cast.author.pfpUrl ? (
         <img className="farcaster-cast__avatar" src={cast.author.pfpUrl} alt="" loading="lazy" />
       ) : (
-        <span className="farcaster-cast__avatar farcaster-cast__avatar--fallback">{cast.author.displayName.slice(0, 1).toUpperCase()}</span>
+        <span className="farcaster-cast__avatar farcaster-cast__avatar--fallback">{(cast.author.displayName || cast.author.username || '?').slice(0, 1).toUpperCase()}</span>
       )}
     </Button>
     <div className="farcaster-cast__body">
       <div className="farcaster-cast__byline">
         <Button type="unstyled" className="farcaster-cast__author" onClick={() => onOpenProfile(cast.author.fid)}>
-          <strong>{cast.author.displayName}</strong>
+          <strong>{cast.author.displayName || cast.author.username}</strong>
           <span>@{cast.author.username}</span>
         </Button>
         <span aria-hidden="true">·</span>

@@ -48,14 +48,8 @@ export default defineConfig({
       deps: {
         inline: [
           '@quilibrium/quilibrium-js-sdk-channels',
-          // react-tooltip is installed under quorum-shared/node_modules, so when
-          // it is left external Node resolves its bare `react` import to the copy
-          // beside it — a SECOND React instance, whose hooks throw
-          // "Cannot read properties of null (reading 'useState')" the moment any
-          // component renders a Tooltip. Inlining routes it through Vite, where
-          // the `react`/`react-dom` aliases below collapse it back to one
-          // instance. `web/vite.config.ts` solves the same problem for the app
-          // with the same aliases plus `dedupe`.
+          '@quilibrium/quorum-shared',
+          '@tanstack/react-query',
           'react-tooltip',
         ],
       },
@@ -69,8 +63,9 @@ export default defineConfig({
       'react-dom': resolve(__dirname, 'node_modules/react-dom'),
       'react/jsx-runtime': resolve(__dirname, 'node_modules/react/jsx-runtime'),
       'react/jsx-dev-runtime': resolve(__dirname, 'node_modules/react/jsx-dev-runtime'),
+      '@tanstack/react-query': resolve(__dirname, 'node_modules/@tanstack/react-query'),
     },
     extensions: ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.tsx', '.ts', '.jsx', '.js'],
-    dedupe: ['react', 'react-dom'],
+    dedupe: ['react', 'react-dom', '@tanstack/react-query'],
   },
 });

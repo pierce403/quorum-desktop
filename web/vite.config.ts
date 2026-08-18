@@ -237,6 +237,10 @@ export default defineConfig(({ command }): UserConfig => ({
       'react-dom': resolve(__dirname, '../node_modules/react-dom'),
       'react/jsx-runtime': resolve(__dirname, '../node_modules/react/jsx-runtime'),
       'react/jsx-dev-runtime': resolve(__dirname, '../node_modules/react/jsx-dev-runtime'),
+      '@tanstack/react-query': resolve(
+        __dirname,
+        '../node_modules/@tanstack/react-query'
+      ),
       '@quilibrium/quilibrium-js-sdk-channels': resolve(
         __dirname,
         '../node_modules/@quilibrium/quilibrium-js-sdk-channels/dist/index.esm.js'
@@ -245,13 +249,14 @@ export default defineConfig(({ command }): UserConfig => ({
       // on-demand transforms). The build phase uses resolvePolyfillShims() instead.
       ...polyfillShimAliases,
     },
-    dedupe: ['react', 'react-dom'],
+    dedupe: ['react', 'react-dom', '@tanstack/react-query'],
   },
   optimizeDeps: {
     // Pre-include deps the optimizer discovers late during page load.
     // Without this, the optimizer re-bundles mid-request, producing stale chunk hashes
     // (e.g. core.esm-B-qWGNUm.js) that cause Pre-transform errors and blank pages.
     include: [
+      '@tanstack/react-query',
       '@dnd-kit/core',
       '@dnd-kit/sortable',
       // The SDK's crypto deps (@noble/*) are imported lazily at runtime, so the

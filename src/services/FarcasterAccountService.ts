@@ -43,26 +43,32 @@ export async function getFarcasterStorageStatus() {
 
 export const desktopFarcasterSignerStore: SignerStore = {
   async get() {
-    const raw = await storage().get(SIGNER_KEY);
-    return raw ? JSON.parse(raw) as SignerRecord : null;
+    if (!window.electron?.secureStorage) return null;
+    const raw = await window.electron.secureStorage.get(SIGNER_KEY);
+    return raw ? (JSON.parse(raw) as SignerRecord) : null;
   },
   async save(record) {
-    await storage().set(SIGNER_KEY, JSON.stringify(record));
+    if (!window.electron?.secureStorage) return;
+    await window.electron.secureStorage.set(SIGNER_KEY, JSON.stringify(record));
   },
   async clear() {
-    await storage().delete(SIGNER_KEY);
+    if (!window.electron?.secureStorage) return;
+    await window.electron.secureStorage.delete(SIGNER_KEY);
   },
 };
 
 export async function loadDesktopFarcasterAccount(): Promise<DesktopFarcasterAccount | null> {
   if (!window.electron?.secureStorage) return null;
   const raw = await window.electron.secureStorage.get(ACCOUNT_KEY);
-  return raw ? JSON.parse(raw) as DesktopFarcasterAccount : null;
+  return raw ? (JSON.parse(raw) as DesktopFarcasterAccount) : null;
 }
 
 export async function disconnectDesktopFarcasterAccount(): Promise<void> {
-  const secureStorage = storage();
-  await Promise.all([secureStorage.delete(ACCOUNT_KEY), secureStorage.delete(SIGNER_KEY)]);
+  if (!window.electron?.secureStorage) return;
+  await Promise.all([
+    window.electron.secureStorage.delete(ACCOUNT_KEY),
+    window.electron.secureStorage.delete(SIGNER_KEY),
+  ]);
 }
 
 function concatBytes(...arrays: Uint8Array[]): Uint8Array {
