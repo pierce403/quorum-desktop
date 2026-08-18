@@ -33,6 +33,7 @@
   }
 
   &__header {
+    flex-shrink: 0;
     justify-content: space-between;
     gap: $s-4;
     width: 100%;
@@ -59,6 +60,7 @@
   }
 
   &__inner > [class*='callout'] {
+    flex-shrink: 0;
     width: 100%;
     max-width: 760px;
     margin: 0 auto;
@@ -77,6 +79,7 @@
 }
 
 .farcaster-tabs {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: $s-2;
@@ -85,10 +88,14 @@
   margin: 0 auto;
 
   &__button {
-    padding: $s-1-5 $s-3 !important;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 14px !important;
     border-radius: $rounded-full !important;
     font-size: $text-sm !important;
     font-weight: $font-medium !important;
+    line-height: 1.2 !important;
     color: var(--color-text-subtle) !important;
     background: transparent !important;
     transition: all 0.15s ease;
@@ -107,6 +114,7 @@
 }
 
 .farcaster-channels-strip {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: $s-1-5;
@@ -114,27 +122,37 @@
   max-width: 760px;
   margin: 0 auto;
   overflow-x: auto;
-  padding-bottom: $s-1;
+  padding: $s-1 0 $s-1-5 0;
   scrollbar-width: none;
 
   &::-webkit-scrollbar { display: none; }
 
   &__label {
+    flex-shrink: 0;
     font-size: $text-xs;
     font-weight: $font-bold;
     color: var(--color-text-subtle);
     white-space: nowrap;
     margin-right: $s-1;
+    line-height: 1;
   }
 
   &__chip {
-    padding: $s-1 $s-2-5 !important;
+    flex-shrink: 0;
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 4px 10px !important;
     border-radius: $rounded-full !important;
     font-size: $text-xs !important;
+    line-height: 1.2 !important;
     color: var(--color-text-subtle) !important;
     background: var(--color-bg-chat-hover) !important;
     white-space: nowrap;
     border: 1px solid var(--color-border-default) !important;
+    transition: all 0.15s ease;
 
     &:hover {
       color: var(--color-text-main) !important;
@@ -308,6 +326,7 @@
 
 .farcaster-account-bar,
 .farcaster-compose {
+  flex-shrink: 0;
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
