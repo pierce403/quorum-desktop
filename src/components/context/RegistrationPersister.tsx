@@ -128,9 +128,9 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
   const { apiClient } = useQuorumApiClient();
   const uploadRegistration = useUploadRegistration();
 
-  const repairDevice = async () => {
-    if (deviceRepairState === 'repairing') return;
-
+  const repairDevice = async (
+    passedUserKey?: Uint8Array
+  ): Promise<LocalKeyset> => {
     setDeviceRepairState('repairing');
     logRegistrationEvent({
       stage: 'decrypt-device-keyset',
@@ -139,33 +139,41 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
     });
 
     try {
-      const userKey = new Uint8Array(
-        Buffer.from(await exportKey(currentPasskeyInfo!.address), 'hex')
-      );
+      const userKey =
+        passedUserKey ??
+        new Uint8Array(
+          Buffer.from(await exportKey(currentPasskeyInfo!.address), 'hex')
+        );
       const replacement = await createReplacementLocalKeyset(
         userKey,
         currentPasskeyInfo!.publicKey
       );
-      const existing =
-        registration.registration ??
-        (await apiClient.getUser(currentPasskeyInfo!.address))?.data;
-      if (!existing) {
-        throw new DOMException('Registration is unavailable', 'NotFoundError');
+      let existing: secureChannel.UserRegistration | undefined;
+      try {
+        existing =
+          registration.registration ??
+          (await apiClient.getUser(currentPasskeyInfo!.address))?.data;
+      } catch {
+        /* ignore network failure */
       }
 
       const senderRegistration = await secureChannel.ConstructUserRegistration(
         replacement.userKeyset,
-        existing.device_registrations ?? [],
+        existing?.device_registrations ?? [],
         [replacement.deviceKeyset]
       );
 
       // Persist first. If the network upload fails, the normal startup sync
       // will retry this exact local device rather than rotating it again.
       await persistLocalKeyset(userKey, replacement);
-      await uploadRegistration({
-        address: currentPasskeyInfo!.address,
-        registration: senderRegistration,
-      });
+      try {
+        await uploadRegistration({
+          address: currentPasskeyInfo!.address,
+          registration: senderRegistration,
+        });
+      } catch {
+        /* ignore upload failure */
+      }
 
       setSelfAddress(currentPasskeyInfo!.address);
       setKeyset(replacement);
@@ -198,13 +206,16 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
           });
         }
       })();
-    } catch {
+
+      return replacement;
+    } catch (e) {
       setDeviceRepairState('failed');
       logRegistrationEvent({
         stage: 'decrypt-device-keyset',
         outcome: 'failed',
         registered: true,
       });
+      throw e;
     }
   };
 
@@ -353,8 +364,7 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
                     outcome: 'failed',
                     registered: true,
                   });
-                  setDeviceRepairState('required');
-                  return;
+                  localKeyset = await repairDevice(user_key);
                 }
                 logRegistrationEvent({
                   stage: 'load-device-keyset',

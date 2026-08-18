@@ -30,14 +30,14 @@ msgid "No Role - {count}"
 msgstr "No Role - {count}"
 
 #. js-lingui-explicit-id
-#: src/components/space/Channel.tsx:1883
-msgid "Send a message to #{channel_name}"
-msgstr "Send a message to #{channel_name}"
-
-#. js-lingui-explicit-id
 #: src/components/onboarding/steps/CompleteStep.tsx:19
 msgid "Welcome to Quorum, {name}! Your account is ready to go."
 msgstr "Welcome to Quorum, {name}! Your account is ready to go."
+
+#. js-lingui-explicit-id
+#: src/components/space/Channel.tsx:1883
+msgid "Send a message to #{channel_name}"
+msgstr "Send a message to #{channel_name}"
 
 #. js-lingui-explicit-id
 #: src/components/message/ReactionsList.tsx:149
@@ -355,6 +355,12 @@ msgstr "Account Key"
 msgid "Account Settings"
 msgstr "Account Settings"
 
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:622
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:666
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:699
+msgid "Account setup isn't ready yet. Please retry creating your account."
+msgstr "Account setup isn't ready yet. Please retry creating your account."
+
 #: src/components/ui/OfflineBanner.tsx:57
 msgid "actions queued"
 msgstr "actions queued"
@@ -620,6 +626,10 @@ msgstr "Auto-close after"
 msgid "Away"
 msgstr "Away"
 
+#: src/components/farcaster/FarcasterPage.tsx:193
+msgid "Back"
+msgstr "Back"
+
 #: src/components/modals/AddSpaceModal.tsx:215
 msgid "Back to invite link"
 msgstr "Back to invite link"
@@ -709,6 +719,10 @@ msgstr "Bookmarks in this Space"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Browse public Spaces and find a community to join."
 
+#: src/components/farcaster/FarcasterPage.tsx:225
+msgid "Browse the public network or import your Farcaster account to post and react."
+msgstr "Browse the public network or import your Farcaster account to post and react."
+
 #: src/components/user/UserOnlineStateIndicator.tsx:30
 msgid "Busy"
 msgstr "Busy"
@@ -721,6 +735,7 @@ msgstr "Busy"
 msgid "Can't sync: no key is available on this device."
 msgstr "Can't sync: no key is available on this device."
 
+#: src/components/farcaster/FarcasterAccountModal.tsx:77
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -755,9 +770,25 @@ msgstr "Cannot delete a group containing the default channel."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 
+#: src/components/farcaster/FarcasterPage.tsx:246
+msgid "Cast"
+msgstr "Cast"
+
+#: src/components/farcaster/FarcasterPage.tsx:176
+msgid "Cast could not be published."
+msgstr "Cast could not be published."
+
+#: src/components/farcaster/FarcasterPage.tsx:255
+msgid "Cast thread"
+msgstr "Cast thread"
+
 #: src/components/modals/UserSettingsModal/Appearance.tsx:82
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
+
+#: src/components/farcaster/FarcasterPage.tsx:265
+msgid "Channel feed"
+msgstr "Channel feed"
 
 #: src/components/modals/ChannelEditorModal.tsx:138
 msgid "Channel Icon"
@@ -872,7 +903,6 @@ msgstr "Collapse group"
 msgid "Collapse sidebar"
 msgstr "Collapse sidebar"
 
-#: src/components/farcaster/FarcasterPage.tsx:33
 #: src/components/modals/UserSettingsModal/Help.tsx:70
 #: src/components/wallet/WalletPage.tsx:33
 msgid "Coming soon"
@@ -1012,6 +1042,11 @@ msgstr "Could not fetch the Space details. Please try again."
 msgid "Could not import key"
 msgstr "Could not import key"
 
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:231
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:592
+msgid "Could not import that account key. Check the file or key and try again."
+msgstr "Could not import that account key. Check the file or key and try again."
+
 #: src/services/ConfigService.ts:379
 msgid "Could not obtain manifest for Space"
 msgstr "Could not obtain manifest for Space"
@@ -1026,7 +1061,7 @@ msgid "Couldn't decrypt your saved profile. Please re-enter your name and profil
 msgstr "Couldn't decrypt your saved profile. Please re-enter your name and profile image."
 
 #: src/hooks/business/user/useOnboardingFlowLogic.ts:252
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:360
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:500
 msgid "Couldn't load your saved profile. Please re-enter your name and profile image."
 msgstr "Couldn't load your saved profile. Please re-enter your name and profile image."
 
@@ -1314,6 +1349,10 @@ msgstr "Direct Message"
 msgid "Direct messages"
 msgstr "Direct messages"
 
+#: src/components/farcaster/FarcasterPage.tsx:221
+msgid "Disconnect"
+msgstr "Disconnect"
+
 #: src/components/discover-page/DiscoverPage.tsx:76
 msgid "Discover Spaces"
 msgstr "Discover Spaces"
@@ -1497,6 +1536,10 @@ msgstr "Enter a name for your Space"
 msgid "Enter a user's address or @username to start messaging them."
 msgstr "Enter a user's address or @username to start messaging them."
 
+#: src/components/farcaster/FarcasterAccountModal.tsx:36
+msgid "Enter a valid 12 or 24 word Farcaster recovery phrase."
+msgstr "Enter a valid 12 or 24 word Farcaster recovery phrase."
+
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:277
 msgid "Enter Address Manually"
 msgstr "Enter Address Manually"
@@ -1516,6 +1559,10 @@ msgstr "Enter Quorum"
 #: src/components/message/MessageEditTextarea.tsx:809
 msgid "Enter to"
 msgstr "Enter to"
+
+#: src/components/farcaster/FarcasterAccountModal.tsx:70
+msgid "Enter your 12 or 24 word recovery phrase"
+msgstr "Enter your 12 or 24 word recovery phrase"
 
 #: src/components/onboarding/steps/DisplayNameStep.tsx:30
 msgid "Enter your name"
@@ -1745,10 +1792,22 @@ msgstr "Failed to update join preview. Please try again."
 msgid "Failed to update profile"
 msgstr "Failed to update profile"
 
-#: src/components/farcaster/FarcasterPage.tsx:30
+#: src/components/farcaster/FarcasterPage.tsx:196
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
+
+#: src/components/farcaster/FarcasterAccountModal.tsx:47
+msgid "Farcaster account import failed."
+msgstr "Farcaster account import failed."
+
+#: src/components/farcaster/FarcasterPage.tsx:297
+msgid "Farcaster could not be reached."
+msgstr "Farcaster could not be reached."
+
+#: src/components/farcaster/FarcasterAccountModal.tsx:74
+msgid "Farcaster recovery phrase"
+msgstr "Farcaster recovery phrase"
 
 #: src/components/direct/DirectMessageContactsList.tsx:489
 msgid "Favorites"
@@ -1841,6 +1900,10 @@ msgstr "Folder name is required"
 #: src/hooks/business/folders/useFolderManagement.ts:80
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Folder name must be {MAX_NAME_LENGTH} characters or less"
+
+#: src/components/farcaster/FarcasterPage.tsx:151
+msgid "Following"
+msgstr "Following"
 
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:60
 msgid "For privacy, your ownership is hidden from other clients. This means: Delete permission holders can delete your messages permanently, Mute permission holders can mute you (reversible). Only grant these to trusted users. Also note: if you're the only one with a role, your actions may reveal you as the owner—consider sharing roles with other trusted users."
@@ -1995,9 +2058,15 @@ msgstr "If users report that this invite link isn't working, click to republish 
 msgid "Import a backup instead"
 msgstr "Import a backup instead"
 
+#: src/components/farcaster/FarcasterAccountModal.tsx:79
+#: src/components/farcaster/FarcasterPage.tsx:226
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Import account"
+
+#: src/components/farcaster/FarcasterAccountModal.tsx:54
+msgid "Import Farcaster account"
+msgstr "Import Farcaster account"
 
 #: src/components/onboarding/steps/ImportKeyStep.tsx:91
 msgid "Import method"
@@ -2010,6 +2079,10 @@ msgstr "Import your account key"
 #: src/components/message/PinnedMessagesPanel.tsx:199
 msgid "Important messages will be pinned here"
 msgstr "Important messages will be pinned here"
+
+#: src/components/farcaster/FarcasterAccountModal.tsx:79
+msgid "Importing and provisioning signer..."
+msgstr "Importing and provisioning signer..."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:695
 msgid "Importing..."
@@ -2214,7 +2287,13 @@ msgstr "Light"
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Link copied. Paste it where you want to share it."
 
+#: src/components/farcaster/FarcasterPage.tsx:265
+msgid "Live from the Farcaster network"
+msgstr "Live from the Farcaster network"
+
 #: src/components/discover-page/DiscoverTab.tsx:132
+#: src/components/farcaster/FarcasterPage.tsx:279
+#: src/components/farcaster/FarcasterPage.tsx:335
 msgid "Load more"
 msgstr "Load more"
 
@@ -2222,6 +2301,14 @@ msgstr "Load more"
 #: src/components/bookmarks/BookmarksPanel.tsx:101
 msgid "Loading bookmarks..."
 msgstr "Loading bookmarks..."
+
+#: src/components/farcaster/FarcasterPage.tsx:330
+msgid "Loading casts..."
+msgstr "Loading casts..."
+
+#: src/components/farcaster/FarcasterPage.tsx:268
+msgid "Loading Farcaster..."
+msgstr "Loading Farcaster..."
 
 #: src/components/message/MessageList.tsx:720
 msgid "Loading message..."
@@ -2235,10 +2322,15 @@ msgstr "Loading notifications..."
 msgid "Loading pinned messages..."
 msgstr "Loading pinned messages..."
 
+#: src/components/farcaster/FarcasterPage.tsx:313
+msgid "Loading profile..."
+msgstr "Loading profile..."
+
 #: src/components/discover-page/DiscoverTab.tsx:98
 msgid "Loading public Spaces..."
 msgstr "Loading public Spaces..."
 
+#: src/components/farcaster/FarcasterPage.tsx:256
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Loading thread..."
@@ -2248,6 +2340,8 @@ msgid "Loading your profile..."
 msgstr "Loading your profile..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
+#: src/components/farcaster/FarcasterPage.tsx:279
+#: src/components/farcaster/FarcasterPage.tsx:335
 msgid "Loading..."
 msgstr "Loading..."
 
@@ -2505,6 +2599,10 @@ msgstr "No bookmarks match your search."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "No bookmarks yet. Bookmark messages to save them for later reference."
 
+#: src/components/farcaster/FarcasterPage.tsx:273
+msgid "No casts found."
+msgstr "No casts found."
+
 #: src/components/modals/SpaceSettingsModal/Channels.tsx:609
 msgid "No channels - drag channels here or delete group."
 msgstr "No channels - drag channels here or delete group."
@@ -2681,20 +2779,32 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Only space owners can generate public invite links."
 
+#: src/components/farcaster/FarcasterPage.tsx:212
+msgid "Open"
+msgstr "Open"
+
 #. placeholder {0}: props.spaceName
 #: src/components/discover-page/SpaceCard.tsx:61
 msgid "Open {0}"
 msgstr "Open {0}"
 
+#: src/components/farcaster/FarcasterPage.tsx:207
+msgid "Open @username or /channel"
+msgstr "Open @username or /channel"
+
 #: src/components/bookmarks/BookmarksPage.tsx:32
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:19
+#: src/components/farcaster/FarcasterPage.tsx:36
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
 msgstr "Open navigation"
+
+#: src/components/farcaster/FarcasterAccountModal.tsx:62
+msgid "Open Quorum in the Electron desktop app to import an account securely."
+msgstr "Open Quorum in the Electron desktop app to import an account securely."
 
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:133
 msgid "Open Quorum in your browser and import that file."
@@ -2831,6 +2941,10 @@ msgstr "Pinned by {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Pinned Messages"
 
+#: src/components/farcaster/FarcasterPage.tsx:265
+msgid "Posts from accounts you follow"
+msgstr "Posts from accounts you follow"
+
 #: src/components/modals/UserSettingsModal/Security.tsx:789
 msgid "Preparing download..."
 msgstr "Preparing download..."
@@ -2901,6 +3015,10 @@ msgstr "Public profile"
 msgid "Public spaces"
 msgstr "Public spaces"
 
+#: src/components/farcaster/FarcasterPage.tsx:246
+msgid "Publishing..."
+msgstr "Publishing..."
+
 #: src/components/modals/UserSettingsModal/Security.tsx:607
 #~ msgid "QR code will auto-hide in 60 seconds"
 #~ msgstr "QR code will auto-hide in 60 seconds"
@@ -2917,9 +3035,13 @@ msgstr "Quorum infrastructure is being deployed at this time. Please try refresh
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 
-#: src/components/context/RegistrationPersister.tsx:270
+#: src/components/context/RegistrationPersister.tsx:502
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
+
+#: src/components/farcaster/FarcasterPage.tsx:125
+msgid "Reaction could not be published."
+msgstr "Reaction could not be published."
 
 #: src/components/modals/ReactionsModal.tsx:162
 msgid "Reactions"
@@ -2954,7 +3076,7 @@ msgstr "Reading your key..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Ready to start a truly private conversation?"
 
-#: src/components/context/RegistrationPersister.tsx:285
+#: src/components/context/RegistrationPersister.tsx:517
 msgid "Reauthorize"
 msgstr "Reauthorize"
 
@@ -2966,6 +3088,7 @@ msgstr "received config with invalid signature!"
 msgid "Recipient has no devices"
 msgstr "Recipient has no devices"
 
+#: src/components/farcaster/FarcasterPage.tsx:266
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
@@ -3011,11 +3134,21 @@ msgstr "Rename this device"
 msgid "Reopen"
 msgstr "Reopen"
 
+#: src/components/context/RegistrationPersister.tsx:438
+#: src/components/context/RegistrationPersister.tsx:473
+msgid "Repair this device"
+msgstr "Repair this device"
+
+#: src/components/context/RegistrationPersister.tsx:472
+msgid "Repairing…"
+msgstr "Repairing…"
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
 #: src/components/notifications/NotificationPanel.tsx:124
 msgid "Replies"
 msgstr "Replies"
 
+#: src/components/farcaster/FarcasterPage.tsx:246
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3122,6 +3255,7 @@ msgid "Restoring..."
 msgstr "Restoring..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
+#: src/components/farcaster/FarcasterPage.tsx:298
 #: src/components/message/Message.tsx:1637
 msgid "Retry"
 msgstr "Retry"
@@ -3252,6 +3386,7 @@ msgstr "Search Username or Address"
 msgid "Search..."
 msgstr "Search..."
 
+#: src/components/farcaster/FarcasterPage.tsx:212
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Searching..."
@@ -3329,7 +3464,7 @@ msgstr "Send via DM"
 msgid "Sending..."
 msgstr "Sending..."
 
-#: src/components/context/RegistrationPersister.tsx:257
+#: src/components/context/RegistrationPersister.tsx:489
 msgid "Session Encrypted"
 msgstr "Session Encrypted"
 
@@ -3591,6 +3726,10 @@ msgstr "The passkey setup timed out. You can try again, or continue without one.
 #~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 #~ msgstr "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
 
+#: src/components/context/RegistrationPersister.tsx:458
+msgid "The repair could not be completed. Check your connection and try again."
+msgstr "The repair could not be completed. Check your connection and try again."
+
 #: src/components/modals/SpaceSettingsModal/Danger.tsx:44
 #~ msgid "This action cannot be undone and will permanently delete this Space and all of its channels and messages."
 #~ msgstr "This action cannot be undone and will permanently delete this Space and all of its channels and messages."
@@ -3832,6 +3971,11 @@ msgstr "Today"
 #: src/hooks/business/messages/useMessageComposer.ts:145
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
+
+#: src/components/farcaster/FarcasterPage.tsx:130
+#: src/components/farcaster/FarcasterPage.tsx:151
+msgid "Trending"
+msgstr "Trending"
 
 #: src/components/RouteErrorFallback.tsx:57
 msgid "Try again"
@@ -4153,6 +4297,10 @@ msgstr "What is the Account Key?"
 msgid "What should we call you?"
 msgstr "What should we call you?"
 
+#: src/components/farcaster/FarcasterPage.tsx:237
+msgid "What's happening?"
+msgstr "What's happening?"
+
 #: src/components/direct/EmptyDirectMessage.tsx:39
 msgid "What's on your mind today?"
 msgstr "What's on your mind today?"
@@ -4233,6 +4381,10 @@ msgstr "Why do I need to do this?"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:40
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
+
+#: src/components/farcaster/FarcasterPage.tsx:237
+msgid "Write a reply..."
+msgstr "Write a reply..."
 
 #: src/utils/dateFormatting.ts:32
 msgid "Yesterday"
@@ -4394,6 +4546,10 @@ msgstr "Your account key is a private key that proves ownership of your account.
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 
+#: src/components/context/RegistrationPersister.tsx:451
+msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
+msgstr "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
+
 #: src/components/onboarding/steps/WelcomeStep.tsx:18
 msgid "Your communities, your rules - no platform can ban you."
 msgstr "Your communities, your rules - no platform can ban you."
@@ -4418,6 +4574,10 @@ msgstr "Your next message to each contact will establish a fresh secure connecti
 msgid "Your next message will establish a fresh secure connection."
 msgstr "Your next message will establish a fresh secure connection."
 
+#: src/components/farcaster/FarcasterAccountModal.tsx:63
+msgid "Your operating system credential store is unavailable."
+msgstr "Your operating system credential store is unavailable."
+
 #: src/components/modals/UserSettingsModal/Security.tsx:758
 msgid "Your private key"
 msgstr "Your private key"
@@ -4433,6 +4593,10 @@ msgstr "Your profile image size must be {maxSize} or less and must be a PNG, JPG
 #: src/components/modals/UserSettingsModal/General.tsx:146
 msgid "Your QNS name <0>{primaryUsername}.q</0> is shown as your name."
 msgstr "Your QNS name <0>{primaryUsername}.q</0> is shown as your name."
+
+#: src/components/farcaster/FarcasterAccountModal.tsx:57
+msgid "Your recovery phrase controls your Farcaster account. Quorum never sends or stores the phrase. It derives the custody key in this window, then encrypts that key with your operating system's credential store."
+msgstr "Your recovery phrase controls your Farcaster account. Quorum never sends or stores the phrase. It derives the custody key in this window, then encrypts that key with your operating system's credential store."
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:305
 msgid "Your Roles"
