@@ -12,12 +12,14 @@ import { ThemeProvider } from '../src/components/primitives';
 import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
 import { dynamicActivate, getUserLocale } from '../src/i18n/i18n';
+import { initTauriBridge } from '../src/adapters/tauri/tauriBridge';
 import { installRendererDevDiagnostics } from '../src/utils/devDiagnostics';
 import { installLogControl } from '../src/utils/productionLogControl';
 
-// Install the privacy-safe Electron bridge before providers begin reading
+// Install the Tauri/Electron bridge before providers begin reading
 // persisted state. The helper internally gates itself to explicit dev builds.
 if (typeof window !== 'undefined') {
+  initTauriBridge();
   installRendererDevDiagnostics();
 }
 

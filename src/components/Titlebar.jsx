@@ -4,23 +4,23 @@ import { useEffect } from 'react';
 const CustomTitlebar = () => {
   const { resolvedTheme } = useTheme();
 
-  // Add electron class to body for CSS targeting
+  // Add desktop classes to body for CSS targeting
   useEffect(() => {
-    document.body.classList.add('electron');
+    document.body.classList.add('electron', 'desktop', 'tauri');
     return () => {
-      document.body.classList.remove('electron');
+      document.body.classList.remove('electron', 'desktop', 'tauri');
     };
   }, []);
   const handleMinimize = () => {
-    window.electron.windowControls.minimize();
+    window.electron?.windowControls.minimize();
   };
 
   const handleMaximize = () => {
-    window.electron.windowControls.maximize();
+    window.electron?.windowControls.maximize();
   };
 
   const handleClose = () => {
-    window.electron.windowControls.close();
+    window.electron?.windowControls.close();
   };
 
   const macControls = () => {

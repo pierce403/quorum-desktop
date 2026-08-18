@@ -224,8 +224,8 @@ export const FarcasterPage: React.FC = () => {
   let isFetchingNextPage = primaryFeed.isFetchingNextPage;
   let hasNextPage = primaryFeed.hasNextPage;
   let error = primaryFeed.error;
-  let fetchNextPage = primaryFeed.fetchNextPage;
-  let refetch = primaryFeed.refetch;
+  let fetchNextPage = () => { void primaryFeed.fetchNextPage(); };
+  let refetch = () => { void primaryFeed.refetch(); };
 
   if (view.kind === 'channel') {
     title = `/${view.channel}`;
@@ -234,8 +234,8 @@ export const FarcasterPage: React.FC = () => {
     isFetchingNextPage = channel.isFetchingNextPage;
     hasNextPage = channel.hasNextPage;
     error = channel.error;
-    fetchNextPage = channel.fetchNextPage;
-    refetch = channel.refetch;
+    fetchNextPage = () => { void channel.fetchNextPage(); };
+    refetch = () => { void channel.refetch(); };
   } else if (view.kind === 'feed') {
     casts = primaryFeed.data?.pages.flatMap((page) => page.casts) ?? [];
     title = showFollowing ? t`Following` : t`Trending`;
@@ -245,7 +245,7 @@ export const FarcasterPage: React.FC = () => {
     sentinelRef,
     hasNextPage,
     isFetchingNextPage,
-    () => void fetchNextPage()
+    () => fetchNextPage()
   );
 
   const isDetail = view.kind !== 'feed';
@@ -255,7 +255,7 @@ export const FarcasterPage: React.FC = () => {
     if (!text || !account) return;
     setComposeError(null);
     try {
-      const root = view.kind === 'thread' ? thread.data?.[0] : undefined;
+      const root = view.kind === 'thread' ? thread.data?.cast : undefined;
       const channelParentUrl = view.kind === 'channel'
         ? await resolveChannelParentUrl(view.channel)
         : undefined;

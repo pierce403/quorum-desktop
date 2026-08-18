@@ -110,6 +110,8 @@ export default [
       '.claude/**',
       '.agents/**',
       'src/i18n/**', // Auto-generated translation files
+      'target/**',
+      'src-tauri/**',
     ],
   },
   // JavaScript/JSX files

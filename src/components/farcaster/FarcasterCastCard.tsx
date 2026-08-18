@@ -407,7 +407,7 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
       <Button
         type="unstyled"
         className="farcaster-cast__avatar-button"
-        onClick={(e) => {
+        onClick={(e: React.MouseEvent) => {
           e.stopPropagation();
           onOpenProfile(cast.author.fid);
         }}
@@ -459,7 +459,7 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
           <Button
             type="unstyled"
             className="farcaster-cast__author"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent) => {
               e.stopPropagation();
               onOpenProfile(cast.author.fid);
             }}
@@ -504,7 +504,7 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
           <Button
             type="unstyled"
             className="farcaster-cast__stat-btn farcaster-cast__stat-btn--reply"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent) => {
               e.stopPropagation();
               if (onReply) {
                 onReply(cast);

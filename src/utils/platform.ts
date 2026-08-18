@@ -19,9 +19,30 @@ export function isWeb(): boolean {
 }
 
 /**
- * Check if running in Electron desktop environment
+ * Check if running in Tauri desktop environment
+ */
+export function isTauri(): boolean {
+  return (
+    typeof window !== 'undefined' &&
+    ('__TAURI_INTERNALS__' in window || '__TAURI__' in window)
+  );
+}
+
+/**
+ * Check if running in a desktop environment (Tauri or Electron)
+ */
+export function isDesktop(): boolean {
+  return isTauri() || isElectron();
+}
+
+/**
+ * Check if running in Electron/Tauri desktop environment
  */
 export function isElectron(): boolean {
+  if (isTauri()) {
+    return true;
+  }
+
   // Check for Electron user agent
   if (
     typeof navigator !== 'undefined' &&

@@ -18,6 +18,9 @@ package-lock.json
 /build
 /dist
 /release-dev
+/target
+/src-tauri/target
+/src-tauri/gen
 
 # misc
 .DS_Store

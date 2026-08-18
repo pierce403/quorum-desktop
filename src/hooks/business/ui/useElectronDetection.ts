@@ -1,20 +1,18 @@
 import { useMemo } from 'react';
+import { isDesktop } from '../../../utils/platform';
 
 interface UseElectronDetectionReturn {
   isElectron: boolean;
+  isDesktop: boolean;
 }
 
 export const useElectronDetection = (): UseElectronDetectionReturn => {
-  const isElectron = useMemo(() => {
-    if (typeof window === 'undefined') return false;
-
-    return (
-      typeof window.process === 'object' &&
-      Object.keys(window.process).includes('type')
-    );
+  const isDesktopEnv = useMemo(() => {
+    return isDesktop();
   }, []);
 
   return {
-    isElectron,
+    isElectron: isDesktopEnv,
+    isDesktop: isDesktopEnv,
   };
 };
