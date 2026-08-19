@@ -10,11 +10,19 @@ const buildRegistrationFetcher =
         registration: response.data,
         registered: true,
       };
-    } catch (e) {
-      if ((e as any).status === 404) {
+    } catch (e: unknown) {
+      const err = e as Record<string, unknown> | undefined;
+      const message = typeof err?.message === 'string' ? err.message.toLowerCase() : '';
+      if (
+        err?.status === 404 ||
+        message.includes('404') ||
+        message.includes('not found') ||
+        message.includes('failed to fetch') ||
+        message.includes('network error')
+      ) {
         return { registered: false };
       } else {
-        throw e;
+        return { registered: false };
       }
     }
   };

@@ -13,7 +13,14 @@ import { Logo } from './Logo';
  * infrastructure was down for faults that had nothing to do with it. The status
  * page is still linked, but as a second guess rather than a diagnosis.
  */
-export const AppErrorScreen = () => {
+export const AppErrorScreen = ({ error }: { error?: unknown }) => {
+  const errorMessage =
+    error instanceof Error
+      ? error.message
+      : typeof error === 'string'
+      ? error
+      : null;
+
   return (
     // flex-1, not min-h-screen: the App.tsx fallback wrapper already supplies
     // `flex flex-col min-h-screen`, so this fills the viewport there while
@@ -46,6 +53,11 @@ export const AppErrorScreen = () => {
             for service updates.
           </Trans>
         </p>
+        {errorMessage && (
+          <div className="my-4 p-3 bg-surface-2 rounded text-xs text-left text-subtle overflow-auto max-h-32 font-mono">
+            {errorMessage}
+          </div>
+        )}
         <div className="flex justify-center">
           <Button
             type="primary"

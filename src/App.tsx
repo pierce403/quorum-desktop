@@ -24,19 +24,19 @@ import { useRootIdentityScope } from './hooks/business/identity';
 window.Buffer = Buffer;
 
 class ErrorBoundary extends React.Component<
-  { fallback: React.ReactNode; children: React.ReactNode },
-  { hasError: boolean }
+  { fallback: React.ReactNode | ((error: unknown) => React.ReactNode); children: React.ReactNode },
+  { hasError: boolean; error: unknown }
 > {
-  constructor(props: { fallback: React.ReactNode; children: React.ReactNode }) {
+  constructor(props: { fallback: React.ReactNode | ((error: unknown) => React.ReactNode); children: React.ReactNode }) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, error: null };
   }
 
-  static getDerivedStateFromError(_error: any) {
-    return { hasError: true };
+  static getDerivedStateFromError(error: unknown) {
+    return { hasError: true, error };
   }
 
-  componentDidCatch(error: any, info: any) {
+  componentDidCatch(error: unknown, info: unknown) {
     // console, not logger: `logger.log` is a no-op in production builds, so a
     // crash that reached the app root left no trace anywhere at all.
     console.error('App error boundary caught:', error, info);
@@ -44,7 +44,9 @@ class ErrorBoundary extends React.Component<
 
   render() {
     if (this.state.hasError) {
-      return this.props.fallback;
+      return typeof this.props.fallback === 'function'
+        ? this.props.fallback(this.state.error)
+        : this.props.fallback;
     }
 
     return this.props.children;
@@ -111,12 +113,12 @@ const App = () => {
     <>
       <I18nProvider i18n={i18n}>
         <ErrorBoundary
-          fallback={
+          fallback={(err) => (
             <div className="bg-surface-1 flex flex-col min-h-screen text-main">
               {isWeb() && isElectron() && <CustomTitlebar />}
-              <AppErrorScreen />
+              <AppErrorScreen error={err} />
             </div>
-          }
+          )}
         >
           {/* Root-level identity scope: mounted ABOVE the Router (so every
               route's ModalProvider/AppShell/NavRail is inside it) and above

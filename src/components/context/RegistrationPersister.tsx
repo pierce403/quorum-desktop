@@ -151,7 +151,7 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
       let existing: secureChannel.UserRegistration | undefined;
       try {
         existing =
-          registration.registration ??
+          registration?.registration ??
           (await apiClient.getUser(currentPasskeyInfo!.address))?.data;
       } catch {
         /* ignore network failure */
@@ -223,7 +223,7 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
     if (!init) {
       setInit(true);
 
-      if (!registration.registered) {
+      if (!registration?.registered) {
         setTimeout(
           () =>
             (async () => {
@@ -374,7 +374,7 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
                 const senderIdent = localKeyset.userKeyset;
                 const senderDevice = localKeyset.deviceKeyset;
                 if (
-                  !registration.registration?.device_registrations.find(
+                  !registration?.registration?.device_registrations.find(
                     (d: secureChannel.DeviceRegistration) =>
                       d.inbox_registration.inbox_address ==
                       senderDevice.inbox_keyset.inbox_address
