@@ -7,12 +7,8 @@ const buildGlobalFetcher =
       const response = await apiClient.getUserSettings(address);
 
       return response.data;
-    } catch (e) {
-      if ((e as any).status === 404) {
-        return {};
-      } else {
-        throw e;
-      }
+    } catch (_e) {
+      return {};
     }
   };
 

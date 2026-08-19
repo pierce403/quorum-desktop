@@ -6,16 +6,16 @@ const buildUserInfoFetcher =
   async () => {
     try {
       const response = await messageDB.getUser({ address });
+      if (!response?.userProfile) {
+        return { address, display_name: t`Unknown User` };
+      }
 
       return {
+        address,
         ...response.userProfile,
       };
-    } catch (e) {
-      if (e instanceof Error && 'status' in e && e.status === 404) {
-        return { address, display_name: t`Unknown User` };
-      } else {
-        throw e;
-      }
+    } catch (_e) {
+      return { address, display_name: t`Unknown User` };
     }
   };
 

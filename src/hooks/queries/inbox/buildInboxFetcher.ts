@@ -17,14 +17,10 @@ const buildInboxFetcher =
       ).flatMap((r) => r.data);
 
       return response;
-    } catch (e) {
-      if ((e as any).status === 404) {
-        return [] as (SealedMessage & {
-          timestamp: number;
-        })[];
-      } else {
-        throw e;
-      }
+    } catch (_e) {
+      return [] as (SealedMessage & {
+        timestamp: number;
+      })[];
     }
   };
 
