@@ -43,8 +43,16 @@ fn main() {
             run_command("yarn", &["tauri", "dev"]);
         }
         "build" => {
-            println!("Building Quorum Desktop...");
-            run_command("yarn", &["tauri", "build"]);
+            println!("Building frontend...");
+            run_command("yarn", &["build"]);
+            println!("Compiling desktop binary (release)...");
+            run_command("yarn", &["tauri", "build", "--no-bundle"]);
+        }
+        "build-dev" => {
+            println!("Building frontend...");
+            run_command("yarn", &["build"]);
+            println!("Compiling desktop binary (debug)...");
+            run_command("yarn", &["tauri", "build", "--debug", "--no-bundle"]);
         }
         "test" => {
             println!("Running Quorum Desktop test suite...");
@@ -54,9 +62,10 @@ fn main() {
             println!("Quorum Desktop build orchestrator\n");
             println!("Usage: cargo xtask <command>\n");
             println!("Commands:");
-            println!("  dev     Run the app in development mode (Vite + Tauri)");
-            println!("  build   Build the release desktop binary and packages");
-            println!("  test    Run Vitest test suite");
+            println!("  dev        Run the app in development mode (Vite + Tauri dev server)");
+            println!("  build      Build frontend and compile release desktop binary");
+            println!("  build-dev  Build frontend and compile debug desktop binary");
+            println!("  test       Run Vitest test suite");
         }
     }
 }
