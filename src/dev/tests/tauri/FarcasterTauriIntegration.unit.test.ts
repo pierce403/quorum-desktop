@@ -99,4 +99,51 @@ describe('Farcaster Tauri Integration', () => {
     await disconnectDesktopFarcasterAccount();
     expect(inMemoryStore.size).toBe(0);
   });
+
+  it('imports account correctly when API returns user at root of result', async () => {
+    const testPhrase = 'test test test test test test test test test test test junk';
+
+    vi.mocked(invoke).mockImplementation(async (cmd, args) => {
+      if (cmd === 'secure_storage_status') {
+        return { available: true, backend: 'secret-service' };
+      }
+      if (cmd === 'secure_storage_get') {
+        const key = (args as { key: string }).key;
+        return inMemoryStore.get(key) || null;
+      }
+      if (cmd === 'secure_storage_set') {
+        const { key, value } = args as { key: string; value: string };
+        inMemoryStore.set(key, value);
+        return undefined;
+      }
+      if (cmd === 'http_fetch') {
+        const url = (args as { url: string }).url;
+        if (url.includes('/v2/onboarding-state')) {
+          return {
+            status: 200,
+            ok: true,
+            body: JSON.stringify({
+              result: {
+                user: {
+                  fid: 98765,
+                  username: 'alice',
+                  displayName: 'Alice Wonderland',
+                  pfp: { url: 'https://example.com/alice.png' },
+                },
+                token: { secret: 'farcaster-secret-token' },
+              },
+            }),
+          };
+        }
+      }
+      return undefined;
+    });
+
+    const { importDesktopFarcasterAccount } = await import('../../../services/FarcasterAccountService');
+    const account = await importDesktopFarcasterAccount(testPhrase);
+
+    expect(account.fid).toBe(98765);
+    expect(account.username).toBe('alice');
+    expect(account.authToken).toBe('farcaster-secret-token');
+  });
 });

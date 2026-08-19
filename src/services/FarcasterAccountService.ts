@@ -173,19 +173,83 @@ async function lookupAccount(address: string, privateKey: string) {
   });
   if (response.status === 401 || response.status === 404) return null;
   if (!response.ok) throw new Error(`Farcaster account lookup failed (${response.status}).`);
-  const data = await response.json() as {
-    result?: {
-      state?: { user?: { fid: number; username: string; displayName?: string; pfp?: { url?: string } } };
-      token?: { secret?: string; expiresAt?: number };
-    };
-  };
-  const user = data.result?.state?.user;
-  if (!user) return null;
+  
+  const data = (await response.json()) as Record<string, any>;
+  const res = data?.result;
+
+  // Extract user and fid from all possible response locations
+  let user = res?.user ?? res?.state?.user;
+  let fid: number | undefined =
+    (typeof user?.fid === 'number' && user.fid > 0 ? user.fid : undefined) ??
+    (typeof res?.fid === 'number' && res.fid > 0 ? res.fid : undefined) ??
+    (typeof res?.state?.fid === 'number' && res.state.fid > 0 ? res.state.fid : undefined);
+
+  const authToken: string | undefined = res?.token?.secret ?? res?.authToken;
+  const authTokenExpiresAt: number | null = res?.token?.expiresAt ?? res?.authTokenExpiresAt ?? null;
+
+  // If fid or user profile is missing, fallback to /v2/me using the auth token
+  if ((!fid || !user?.username) && authToken) {
+    try {
+      const meRes = await nativeFetch(`${FARCASTER_API_BASE_URL}/v2/me`, {
+        headers: {
+          accept: 'application/json',
+          authorization: `Bearer ${authToken}`,
+        },
+      });
+      if (meRes.ok) {
+        const meData = (await meRes.json()) as Record<string, any>;
+        const meUser = meData?.result?.user ?? meData?.result;
+        if (meUser) {
+          user = { ...user, ...meUser };
+          if (typeof meUser.fid === 'number' && meUser.fid > 0) {
+            fid = meUser.fid;
+          }
+        }
+      }
+    } catch {
+      // Ignore fallback failure
+    }
+  }
+
+  // If fid is still missing, lookup by custody address
+  if (!fid) {
+    try {
+      const custRes = await nativeFetch(
+        `${FARCASTER_API_BASE_URL}/v2/user-by-custody-address?custodyAddress=${encodeURIComponent(address)}`,
+        {
+          headers: {
+            accept: 'application/json',
+            ...(authToken ? { authorization: `Bearer ${authToken}` } : {}),
+          },
+        }
+      );
+      if (custRes.ok) {
+        const custData = (await custRes.json()) as Record<string, any>;
+        const custUser = custData?.result?.user ?? custData?.result;
+        if (custUser) {
+          user = { ...user, ...custUser };
+          if (typeof custUser.fid === 'number' && custUser.fid > 0) {
+            fid = custUser.fid;
+          }
+        }
+      }
+    } catch {
+      // Ignore fallback failure
+    }
+  }
+
+  if (!fid || fid <= 0) {
+    console.error('Failed to resolve valid Farcaster FID from response:', data);
+    return null;
+  }
+
   return {
-    ...user,
-    pfpUrl: user.pfp?.url,
-    authToken: data.result?.token?.secret,
-    authTokenExpiresAt: data.result?.token?.expiresAt ?? null,
+    fid,
+    username: (user?.username as string) || `user_${fid}`,
+    displayName: (user?.displayName as string) || (user?.username as string) || `User ${fid}`,
+    pfpUrl: (user?.pfpUrl as string) || (user?.pfp?.url as string) || undefined,
+    authToken,
+    authTokenExpiresAt,
     address,
   };
 }
