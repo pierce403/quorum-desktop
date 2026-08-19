@@ -197,6 +197,7 @@ pub mod commands {
         method: Option<String>,
         headers: Option<std::collections::HashMap<String, String>>,
         body: Option<String>,
+        body_base64: Option<String>,
     ) -> Result<HttpResponse, String> {
         let client = reqwest::Client::builder()
             .timeout(Duration::from_secs(60))
@@ -227,7 +228,14 @@ pub mod commands {
             }
         }
 
-        if let Some(b) = body {
+        if let Some(b64) = body_base64 {
+            use base64::Engine;
+            let bytes = base64::engine::general_purpose::STANDARD
+                .decode(b64)
+                .map_err(|e| format!("Invalid base64 body: {}", e))?;
+            append_to_debug_log(&format!("[HTTP] Sending binary body: {} bytes", bytes.len()));
+            req = req.body(bytes);
+        } else if let Some(b) = body {
             req = req.body(b);
         }
 

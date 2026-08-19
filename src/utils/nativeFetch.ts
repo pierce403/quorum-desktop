@@ -20,12 +20,38 @@ export async function nativeFetch(url: string, init?: RequestInit): Promise<Resp
       }
     }
 
+    let bodyStr: string | undefined;
+    let bodyBase64: string | undefined;
+
+    if (init?.body) {
+      if (typeof init.body === 'string') {
+        bodyStr = init.body;
+      } else if (init.body instanceof Uint8Array || init.body instanceof ArrayBuffer) {
+        const u8 = init.body instanceof Uint8Array ? init.body : new Uint8Array(init.body);
+        let binary = '';
+        const len = u8.byteLength;
+        for (let i = 0; i < len; i++) {
+          binary += String.fromCharCode(u8[i]);
+        }
+        bodyBase64 = btoa(binary);
+      } else if (typeof Blob !== 'undefined' && init.body instanceof Blob) {
+        const arrayBuf = await init.body.arrayBuffer();
+        const u8 = new Uint8Array(arrayBuf);
+        let binary = '';
+        for (let i = 0; i < u8.length; i++) {
+          binary += String.fromCharCode(u8[i]);
+        }
+        bodyBase64 = btoa(binary);
+      }
+    }
+
     try {
       const res = await window.electron.httpFetch({
         url,
         method: init?.method,
         headers,
-        body: typeof init?.body === 'string' ? init.body : undefined,
+        body: bodyStr,
+        bodyBase64,
       });
 
       return new Response(res.body, {

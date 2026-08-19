@@ -146,4 +146,32 @@ describe('Farcaster Tauri Integration', () => {
     expect(account.username).toBe('alice');
     expect(account.authToken).toBe('farcaster-secret-token');
   });
+
+  it('correctly passes binary Uint8Array payloads via bodyBase64 in nativeFetch', async () => {
+    let capturedArgs: any = null;
+    vi.mocked(invoke).mockImplementation(async (cmd, args) => {
+      if (cmd === 'http_fetch') {
+        capturedArgs = args;
+        return {
+          status: 200,
+          ok: true,
+          body: JSON.stringify({ success: true }),
+        };
+      }
+      return undefined;
+    });
+
+    const { nativeFetch } = await import('../../../utils/nativeFetch');
+    const binaryData = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8]);
+    const response = await nativeFetch('https://example.com/binary', {
+      method: 'POST',
+      headers: { 'content-type': 'application/octet-stream' },
+      body: binaryData as unknown as BodyInit,
+    });
+
+    expect(response.ok).toBe(true);
+    expect(capturedArgs?.url).toBe('https://example.com/binary');
+    expect(capturedArgs?.method).toBe('POST');
+    expect(capturedArgs?.bodyBase64).toBe(btoa(String.fromCharCode(1, 2, 3, 4, 5, 6, 7, 8)));
+  });
 });

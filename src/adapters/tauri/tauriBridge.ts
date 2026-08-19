@@ -23,6 +23,7 @@ export interface DesktopBridge {
     method?: string;
     headers?: Record<string, string>;
     body?: string;
+    bodyBase64?: string;
   }) => Promise<{ status: number; body: string; ok: boolean }>;
   devDiagnostics?: {
     onboarding: (details: unknown) => void;
@@ -107,6 +108,7 @@ export function initTauriBridge(): boolean {
           method: options.method,
           headers: options.headers,
           body: options.body,
+          bodyBase64: options.bodyBase64,
         });
       },
       devDiagnostics: {

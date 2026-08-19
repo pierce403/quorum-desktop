@@ -2932,6 +2932,7 @@ name = "quorum-desktop"
 version = "2.1.0-2"
 dependencies = [
  "arboard",
+ "base64 0.22.1",
  "keyring",
  "log",
  "reqwest 0.12.28",
