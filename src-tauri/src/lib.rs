@@ -150,6 +150,11 @@ pub mod commands {
     }
 
     #[tauri::command]
+    pub fn window_start_dragging(window: Window) -> Result<(), String> {
+        window.start_dragging().map_err(|e| e.to_string())
+    }
+
+    #[tauri::command]
     pub fn get_platform() -> &'static str {
         match std::env::consts::OS {
             "macos" => "darwin",
@@ -270,6 +275,7 @@ pub fn run() {
             commands::window_minimize,
             commands::window_maximize,
             commands::window_close,
+            commands::window_start_dragging,
             commands::get_platform,
             commands::open_login,
             commands::http_fetch,

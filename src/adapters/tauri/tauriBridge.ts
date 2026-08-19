@@ -7,6 +7,7 @@ export interface DesktopBridge {
     minimize: () => void | Promise<void>;
     maximize: () => void | Promise<void>;
     close: () => void | Promise<void>;
+    startDragging?: () => void | Promise<void>;
   };
   openLogin: () => Promise<void>;
   clipboard: {
@@ -78,6 +79,9 @@ export function initTauriBridge(): boolean {
         },
         close: () => {
           void invoke('window_close');
+        },
+        startDragging: () => {
+          void invoke('window_start_dragging');
         },
       },
       openLogin: async () => {
