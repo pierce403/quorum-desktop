@@ -162,19 +162,35 @@ async function lookupAccount(address: string, privateKey: string) {
     method: 'generateToken',
     params: { timestamp, expiresAt: timestamp + TOKEN_LIFETIME_MS },
   };
-  const response = await nativeFetch(`${FARCASTER_API_BASE_URL}/v2/onboarding-state`, {
-    method: 'PUT',
-    headers: {
-      accept: 'application/json',
-      'content-type': 'application/json',
-      authorization: `Bearer ${custodyBearer(authRequest, privateKey)}`,
-    },
-    body: JSON.stringify({ authRequest }),
-  });
-  if (response.status === 401 || response.status === 404) return null;
-  if (!response.ok) throw new Error(`Farcaster account lookup failed (${response.status}).`);
-  
-  const data = (await response.json()) as Record<string, any>;
+
+  console.log(`[Farcaster Import] Looking up account for custody address: ${address}`);
+
+  let data: Record<string, any> | null = null;
+  let authToken: string | undefined;
+  let authTokenExpiresAt: number | null = null;
+
+  try {
+    const response = await nativeFetch(`${FARCASTER_API_BASE_URL}/v2/onboarding-state`, {
+      method: 'PUT',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        authorization: `Bearer ${custodyBearer(authRequest, privateKey)}`,
+      },
+      body: JSON.stringify({ authRequest }),
+    });
+
+    console.log(`[Farcaster Import] /v2/onboarding-state HTTP status: ${response.status}`);
+    if (response.ok) {
+      data = (await response.json()) as Record<string, any>;
+      console.log('[Farcaster Import] /v2/onboarding-state response body:', data);
+      authToken = data?.result?.token?.secret ?? data?.result?.authToken;
+      authTokenExpiresAt = data?.result?.token?.expiresAt ?? data?.result?.authTokenExpiresAt ?? null;
+    }
+  } catch (e) {
+    console.warn('[Farcaster Import] /v2/onboarding-state request error:', e);
+  }
+
   const res = data?.result;
 
   // Extract user and fid from all possible response locations
@@ -184,20 +200,20 @@ async function lookupAccount(address: string, privateKey: string) {
     (typeof res?.fid === 'number' && res.fid > 0 ? res.fid : undefined) ??
     (typeof res?.state?.fid === 'number' && res.state.fid > 0 ? res.state.fid : undefined);
 
-  const authToken: string | undefined = res?.token?.secret ?? res?.authToken;
-  const authTokenExpiresAt: number | null = res?.token?.expiresAt ?? res?.authTokenExpiresAt ?? null;
-
   // If fid or user profile is missing, fallback to /v2/me using the auth token
   if ((!fid || !user?.username) && authToken) {
     try {
+      console.log('[Farcaster Import] Querying /v2/me with auth token...');
       const meRes = await nativeFetch(`${FARCASTER_API_BASE_URL}/v2/me`, {
         headers: {
           accept: 'application/json',
           authorization: `Bearer ${authToken}`,
         },
       });
+      console.log(`[Farcaster Import] /v2/me HTTP status: ${meRes.status}`);
       if (meRes.ok) {
         const meData = (await meRes.json()) as Record<string, any>;
+        console.log('[Farcaster Import] /v2/me response:', meData);
         const meUser = meData?.result?.user ?? meData?.result;
         if (meUser) {
           user = { ...user, ...meUser };
@@ -206,42 +222,55 @@ async function lookupAccount(address: string, privateKey: string) {
           }
         }
       }
-    } catch {
-      // Ignore fallback failure
+    } catch (e) {
+      console.warn('[Farcaster Import] /v2/me lookup failed:', e);
     }
   }
 
-  // If fid is still missing, lookup by custody address
+  // If fid is still missing, attempt known custody lookup endpoints
   if (!fid) {
-    try {
-      const custRes = await nativeFetch(
-        `${FARCASTER_API_BASE_URL}/v2/user-by-custody-address?custodyAddress=${encodeURIComponent(address)}`,
-        {
+    const custodyEndpoints = [
+      `https://farcaster.xyz/~api/v2/user-by-custody-address?custodyAddress=${encodeURIComponent(address)}`,
+      `https://client.warpcast.com/v2/user-by-custody-address?custodyAddress=${encodeURIComponent(address)}`,
+      `https://client.farcaster.xyz/v2/user-by-custody-address?custodyAddress=${encodeURIComponent(address)}`,
+    ];
+
+    for (const ep of custodyEndpoints) {
+      try {
+        console.log(`[Farcaster Import] Trying endpoint: ${ep}`);
+        const custRes = await nativeFetch(ep, {
           headers: {
             accept: 'application/json',
+            origin: 'https://farcaster.xyz',
+            referer: 'https://farcaster.xyz/',
             ...(authToken ? { authorization: `Bearer ${authToken}` } : {}),
           },
-        }
-      );
-      if (custRes.ok) {
-        const custData = (await custRes.json()) as Record<string, any>;
-        const custUser = custData?.result?.user ?? custData?.result;
-        if (custUser) {
-          user = { ...user, ...custUser };
-          if (typeof custUser.fid === 'number' && custUser.fid > 0) {
-            fid = custUser.fid;
+        });
+        console.log(`[Farcaster Import] ${ep} status: ${custRes.status}`);
+        if (custRes.ok) {
+          const custData = (await custRes.json()) as Record<string, any>;
+          console.log(`[Farcaster Import] ${ep} payload:`, custData);
+          const custUser = custData?.result?.user ?? custData?.result;
+          if (custUser) {
+            user = { ...user, ...custUser };
+            if (typeof custUser.fid === 'number' && custUser.fid > 0) {
+              fid = custUser.fid;
+              break;
+            }
           }
         }
+      } catch (e) {
+        console.warn(`[Farcaster Import] Endpoint error on ${ep}:`, e);
       }
-    } catch {
-      // Ignore fallback failure
     }
   }
 
   if (!fid || fid <= 0) {
-    console.error('Failed to resolve valid Farcaster FID from response:', data);
+    console.error('[Farcaster Import] Failed to resolve valid Farcaster FID for custody address:', address);
     return null;
   }
+
+  console.log(`[Farcaster Import] Successfully resolved account: fid=${fid}, username=${user?.username || user?.displayName}`);
 
   return {
     fid,
@@ -258,6 +287,8 @@ export async function importDesktopFarcasterAccount(phrase: string): Promise<Des
   const status = await getFarcasterStorageStatus();
   if (!status.available) throw new Error('Your OS credential store is unavailable.');
   const custody = deriveFarcasterCustodyKey(phrase);
+  console.log('[Farcaster Import] Starting import for custody address:', custody.address);
+
   const found = await lookupAccount(custody.address, custody.privateKey);
   if (!found) throw new Error('No Farcaster account was found for that recovery phrase.');
 
@@ -265,11 +296,13 @@ export async function importDesktopFarcasterAccount(phrase: string): Promise<Des
   const storedSigner = await desktopFarcasterSignerStore.get();
   const nonce = Math.max(previous?.lastSignerNonce ?? 0, Math.floor(Date.now() / 1_000)) + 1;
   if (!storedSigner || storedSigner.fid !== found.fid || storedSigner.custodyAddress.toLowerCase() !== custody.address) {
+    console.log(`[Farcaster Import] Provisioning Hypersnap signer for FID=${found.fid}, nonce=${nonce}...`);
     const { record } = await provisionSigner({
       fid: found.fid,
       custodyPrivateKey: hexToBytes(custody.privateKey),
       nonce,
     });
+    console.log('[Farcaster Import] Hypersnap signer provisioned successfully:', record.publicKeyHex);
     await desktopFarcasterSignerStore.save(record);
   }
 
@@ -285,5 +318,6 @@ export async function importDesktopFarcasterAccount(phrase: string): Promise<Des
     lastSignerNonce: nonce,
   };
   await storage().set(ACCOUNT_KEY, JSON.stringify(account));
+  console.log('[Farcaster Import] Farcaster account saved successfully in secure storage.');
   return account;
 }

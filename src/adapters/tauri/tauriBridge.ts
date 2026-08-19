@@ -119,6 +119,41 @@ export function initTauriBridge(): boolean {
 
     window.electron = tauriBridge;
 
+    // Forward console output to native stdout/stderr
+    const origLog = console.log;
+    const origWarn = console.warn;
+    const origError = console.error;
+    const origInfo = console.info;
+
+    const formatArgs = (...args: unknown[]) =>
+      args
+        .map((a) => {
+          if (typeof a === 'string') return a;
+          try {
+            return JSON.stringify(a);
+          } catch {
+            return String(a);
+          }
+        })
+        .join(' ');
+
+    console.log = (...args: unknown[]) => {
+      origLog(...args);
+      void invoke('log_message', { level: 'INFO', message: formatArgs(...args) }).catch(() => {});
+    };
+    console.info = (...args: unknown[]) => {
+      origInfo(...args);
+      void invoke('log_message', { level: 'INFO', message: formatArgs(...args) }).catch(() => {});
+    };
+    console.warn = (...args: unknown[]) => {
+      origWarn(...args);
+      void invoke('log_message', { level: 'WARN', message: formatArgs(...args) }).catch(() => {});
+    };
+    console.error = (...args: unknown[]) => {
+      origError(...args);
+      void invoke('log_message', { level: 'ERROR', message: formatArgs(...args) }).catch(() => {});
+    };
+
     // Async update platform accurately from Rust
     void invoke<string>('get_platform')
       .then((plat) => {

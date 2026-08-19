@@ -164,6 +164,26 @@ pub mod commands {
         tauri_plugin_opener::open_url(url, None::<&str>).map_err(|e| e.to_string())
     }
 
+    fn append_to_debug_log(line: &str) {
+        eprintln!("{}", line);
+        if let Some(home) = std::env::var_os("HOME") {
+            let log_path = std::path::Path::new(&home).join(".local/share/quorum-desktop/quorum-debug.log");
+            if let Some(parent) = log_path.parent() {
+                let _ = std::fs::create_dir_all(parent);
+            }
+            if let Ok(mut file) = std::fs::OpenOptions::new().create(true).append(true).open(log_path) {
+                use std::io::Write;
+                let _ = writeln!(file, "{}", line);
+            }
+        }
+    }
+
+    #[tauri::command]
+    pub fn log_message(level: String, message: String) {
+        let tag = level.to_uppercase();
+        append_to_debug_log(&format!("[{}] {}", tag, message));
+    }
+
     #[derive(Debug, Serialize, Deserialize)]
     pub struct HttpResponse {
         pub status: u16,
@@ -184,6 +204,8 @@ pub mod commands {
             .map_err(|e| e.to_string())?;
 
         let method_str = method.unwrap_or_else(|| "GET".to_string()).to_uppercase();
+        append_to_debug_log(&format!("[HTTP] {} {}", method_str, url));
+
         let req_method = match method_str.as_str() {
             "POST" => reqwest::Method::POST,
             "PUT" => reqwest::Method::PUT,
@@ -209,10 +231,14 @@ pub mod commands {
             req = req.body(b);
         }
 
-        let resp = req.send().await.map_err(|e| e.to_string())?;
+        let resp = req.send().await.map_err(|e| {
+            append_to_debug_log(&format!("[HTTP ERROR] {} {} -> {}", method_str, url, e));
+            e.to_string()
+        })?;
         let status = resp.status().as_u16();
         let ok = resp.status().is_success();
         let body_text = resp.text().await.map_err(|e| e.to_string())?;
+        append_to_debug_log(&format!("[HTTP] {} {} -> {}", method_str, url, status));
 
         Ok(HttpResponse {
             status,
@@ -239,6 +265,7 @@ pub fn run() {
             commands::get_platform,
             commands::open_login,
             commands::http_fetch,
+            commands::log_message,
         ])
         .setup(|_app| {
             Ok(())
