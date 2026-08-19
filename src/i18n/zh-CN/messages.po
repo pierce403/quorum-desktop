@@ -147,26 +147,6 @@ msgstr "{0} 在 {spaceName} 中提到了你"
 msgid "{0} messages were not restored because you deleted them after this backup was made."
 msgstr "{0}条消息未恢复，因为您在此备份创建后将其删除。"
 
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:256
-msgid "{0} notification"
-msgstr "{0} 通知"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:259
-msgid "{0} Notification in this Space"
-msgstr "{0} 此空间中的通知"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:257
-msgid "{0} notifications"
-msgstr "{0} 通知"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:260
-msgid "{0} Notifications in this Space"
-msgstr "{0} 此空间中的通知"
-
 #. placeholder {0}: pinnedMessages.length
 #: src/components/message/PinnedMessagesPanel.tsx:215
 msgid "{0} pinned message in this Channel"
@@ -244,17 +224,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} 条回复"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:125
+#: src/components/notifications/NotificationPanel.tsx:126
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:129
+#: src/components/notifications/NotificationPanel.tsx:130
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:121
+#: src/components/notifications/NotificationPanel.tsx:122
 msgid "@you"
 msgstr "@you"
 
@@ -434,7 +414,7 @@ msgstr "高级设置"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
 #: src/components/notifications/FarcasterNotificationsView.tsx:203
-#: src/components/notifications/NotificationPanel.tsx:305
+#: src/components/notifications/NotificationPanel.tsx:318
 msgid "All"
 msgstr "全部"
 
@@ -670,7 +650,7 @@ msgid "Bookmarked sticker"
 msgstr "已书签的贴纸"
 
 #: src/components/bookmarks/BookmarksPage.tsx:221
-#: src/components/shell/NavRail.tsx:42
+#: src/components/shell/NavRail.tsx:44
 msgid "Bookmarks"
 msgstr "书签"
 
@@ -712,7 +692,7 @@ msgstr "无法同步：此设备上没有可用的密钥。"
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:215
+#: src/components/notifications/NotificationPanel.tsx:216
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -828,7 +808,7 @@ msgstr "选择您在 Quorum 中的首选主题。"
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:306
+#: src/components/notifications/NotificationPanel.tsx:319
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "清除"
@@ -867,7 +847,7 @@ msgstr "点击复制"
 msgid "Close thread"
 msgstr "关闭话题"
 
-#: src/components/shell/NavRail.tsx:260
+#: src/components/shell/NavRail.tsx:276
 msgid "Collapse"
 msgstr "折叠"
 
@@ -875,7 +855,7 @@ msgstr "折叠"
 msgid "Collapse group"
 msgstr "折叠组"
 
-#: src/components/shell/NavRail.tsx:257
+#: src/components/shell/NavRail.tsx:273
 msgid "Collapse sidebar"
 msgstr "折叠侧边栏"
 
@@ -1586,8 +1566,8 @@ msgstr "按Esc键"
 msgid "Expand group"
 msgstr "展开组"
 
-#: src/components/shell/NavRail.tsx:239
-#: src/components/shell/NavRail.tsx:247
+#: src/components/shell/NavRail.tsx:255
+#: src/components/shell/NavRail.tsx:263
 msgid "Expand sidebar"
 msgstr "展开侧边栏"
 
@@ -1781,8 +1761,8 @@ msgid "Failed to update profile"
 msgstr "更新个人资料失败"
 
 #: src/components/farcaster/FarcasterPage.tsx:347
-#: src/components/notifications/NotificationPanel.tsx:283
-#: src/components/shell/NavRail.tsx:54
+#: src/components/notifications/NotificationPanel.tsx:293
+#: src/components/shell/NavRail.tsx:56
 msgid "Farcaster"
 msgstr "Farcaster"
 
@@ -1793,10 +1773,6 @@ msgstr ""
 #: src/components/farcaster/FarcasterPage.tsx:509
 #: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
-msgstr ""
-
-#: src/components/notifications/NotificationPanel.tsx:254
-msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -2344,7 +2320,7 @@ msgid "Loading Mini App..."
 msgstr ""
 
 #: src/components/notifications/FarcasterNotificationsView.tsx:241
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:235
 msgid "Loading notifications..."
 msgstr "正在加载通知..."
 
@@ -2428,7 +2404,7 @@ msgstr "管理角色"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "管理<0>{spaceName}</0>的设置"
 
-#: src/components/notifications/NotificationPanel.tsx:313
+#: src/components/notifications/NotificationPanel.tsx:326
 msgid "Mark all as read"
 msgstr "全部标记为已读"
 
@@ -2436,11 +2412,11 @@ msgstr "全部标记为已读"
 msgid "Mark All as Read"
 msgstr "标记全部为已读"
 
-#: src/components/notifications/NotificationPanel.tsx:212
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "Mark all as read?"
 msgstr "全部标记为已读？"
 
-#: src/components/notifications/NotificationPanel.tsx:214
+#: src/components/notifications/NotificationPanel.tsx:215
 msgid "Mark all read"
 msgstr "全部标记为已读"
 
@@ -2491,7 +2467,7 @@ msgid "Message..."
 msgstr "消息..."
 
 #: src/components/direct/DirectMessageContactsList.tsx:548
-#: src/components/shell/NavRail.tsx:30
+#: src/components/shell/NavRail.tsx:32
 msgid "Messages"
 msgstr "消息"
 
@@ -2736,7 +2712,7 @@ msgstr "暂无话题"
 msgid "No unknown contacts"
 msgstr "没有未知联系人"
 
-#: src/components/notifications/NotificationPanel.tsx:242
+#: src/components/notifications/NotificationPanel.tsx:243
 msgid "No unread notifications"
 msgstr "没有未读通知"
 
@@ -2768,14 +2744,26 @@ msgstr "备注内容无效"
 msgid "Note must be {0} characters or less"
 msgstr "备注必须少于或等于 {0} 个字符"
 
+#: src/components/notifications/NotificationPanel.tsx:266
+msgid "notification"
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:269
+msgid "Notification in this Space"
+msgstr ""
+
 #: src/services/NotificationService.ts:193
 msgid "Notification permission not granted"
 msgstr "未授予通知权限"
 
+#: src/components/notifications/NotificationPanel.tsx:267
+msgid "notifications"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:328
 #: src/components/modals/UserSettingsModal/Navigation.tsx:21
 #: src/components/modals/UserSettingsModal/Notifications.tsx:26
-#: src/components/shell/NavRail.tsx:66
+#: src/components/shell/NavRail.tsx:68
 #: src/components/space/Channel.tsx:1681
 msgid "Notifications"
 msgstr "通知"
@@ -2797,6 +2785,10 @@ msgstr "{0} 的通知"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:335
 msgid "Notifications for this Space"
 msgstr "此空间的通知"
+
+#: src/components/notifications/NotificationPanel.tsx:270
+msgid "Notifications in this Space"
+msgstr ""
 
 #: src/components/message/MentionDropdown.tsx:230
 msgid "Notify all members"
@@ -2865,8 +2857,8 @@ msgstr ""
 msgid "Open Quorum in your browser and import that file."
 msgstr "在您的浏览器中打开 Quorum 并导入该文件。"
 
-#: src/components/shell/NavRail.tsx:278
-#: src/components/shell/NavRail.tsx:293
+#: src/components/shell/NavRail.tsx:294
+#: src/components/shell/NavRail.tsx:309
 msgid "Open user settings"
 msgstr "打开用户设置"
 
@@ -2999,7 +2991,7 @@ msgstr "预览"
 msgid "Preview:"
 msgstr "预览："
 
-#: src/components/shell/NavRail.tsx:190
+#: src/components/shell/NavRail.tsx:206
 msgid "Primary navigation"
 msgstr "主要导航"
 
@@ -3041,7 +3033,7 @@ msgstr "公共链接"
 msgid "Public profile"
 msgstr "公开个人资料"
 
-#: src/components/shell/NavRail.tsx:48
+#: src/components/shell/NavRail.tsx:50
 msgid "Public spaces"
 msgstr "公共空间"
 
@@ -3190,7 +3182,7 @@ msgid "replied to your cast"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:134
+#: src/components/notifications/NotificationPanel.tsx:135
 msgid "Replies"
 msgstr "回复"
 
@@ -3522,7 +3514,7 @@ msgstr "设为默认频道"
 msgid "Set up again, import your key file, and create the passkey when asked."
 msgstr "重新设置，导入您的密钥文件，并在出现提示时创建 passkey。"
 
-#: src/components/shell/NavRail.tsx:304
+#: src/components/shell/NavRail.tsx:320
 msgid "Settings"
 msgstr "设置"
 
@@ -3582,7 +3574,7 @@ msgstr "显示 {total} 个空间中的 {0} 个"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "显示前 500 条结果。请优化您的搜索以获得更具体的结果。"
 
-#: src/components/notifications/NotificationPanel.tsx:395
+#: src/components/notifications/NotificationPanel.tsx:408
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "显示最近 {GLOBAL_DISPLAY_CAP} 条通知"
 
@@ -3667,8 +3659,8 @@ msgid "Space Tag"
 msgstr "Space 标签"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
-#: src/components/notifications/NotificationPanel.tsx:272
-#: src/components/shell/NavRail.tsx:36
+#: src/components/notifications/NotificationPanel.tsx:282
+#: src/components/shell/NavRail.tsx:38
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
 msgstr "空间"
@@ -3836,7 +3828,7 @@ msgstr "此链接永不过期。任何拥有此链接的人都可以加入您的
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "此链接由空间所有者生成。它永不过期。"
 
-#: src/components/notifications/NotificationPanel.tsx:213
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "这会将您所有空间中的提及和回复标记为已读。此操作无法撤消。"
 
@@ -4279,7 +4271,7 @@ msgstr "查看话题"
 msgid "Waiting for Spaces to finish syncing before this device publishes again."
 msgstr "正在等待空间完成同步，然后此设备将再次发布。"
 
-#: src/components/shell/NavRail.tsx:60
+#: src/components/shell/NavRail.tsx:62
 #: src/components/wallet/WalletPage.tsx:30
 msgid "Wallet"
 msgstr "钱包"
@@ -4484,7 +4476,7 @@ msgstr "您将再次在此空间中看到{resolvedNameText}的消息。"
 msgid "You're all caught up on Farcaster!"
 msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:245
 msgid "You're all caught up!"
 msgstr "您已全部跟进！"
 

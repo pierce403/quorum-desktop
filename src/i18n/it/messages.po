@@ -147,26 +147,6 @@ msgstr "{0} ti ha menzionato in {spaceName}"
 msgid "{0} messages were not restored because you deleted them after this backup was made."
 msgstr "{0} messaggi non sono stati ripristinati perché li hai eliminati dopo la creazione di questo backup."
 
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:256
-msgid "{0} notification"
-msgstr "{0} notifica"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:259
-msgid "{0} Notification in this Space"
-msgstr "{0} Notifica in questo Spazio"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:257
-msgid "{0} notifications"
-msgstr "{0} notifiche"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:260
-msgid "{0} Notifications in this Space"
-msgstr "{0} Notifiche in questo Spazio"
-
 #. placeholder {0}: pinnedMessages.length
 #: src/components/message/PinnedMessagesPanel.tsx:215
 msgid "{0} pinned message in this Channel"
@@ -244,17 +224,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} risposte"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:125
+#: src/components/notifications/NotificationPanel.tsx:126
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:129
+#: src/components/notifications/NotificationPanel.tsx:130
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:121
+#: src/components/notifications/NotificationPanel.tsx:122
 msgid "@you"
 msgstr "@you"
 
@@ -434,7 +414,7 @@ msgstr "Impostazioni avanzate"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
 #: src/components/notifications/FarcasterNotificationsView.tsx:203
-#: src/components/notifications/NotificationPanel.tsx:305
+#: src/components/notifications/NotificationPanel.tsx:318
 msgid "All"
 msgstr "Tutti"
 
@@ -669,7 +649,7 @@ msgid "Bookmarked sticker"
 msgstr "Adesivo nei segnalibri"
 
 #: src/components/bookmarks/BookmarksPage.tsx:221
-#: src/components/shell/NavRail.tsx:42
+#: src/components/shell/NavRail.tsx:44
 msgid "Bookmarks"
 msgstr "Segnalibri"
 
@@ -711,7 +691,7 @@ msgstr "Impossibile sincronizzare: nessuna chiave è disponibile su questo dispo
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:215
+#: src/components/notifications/NotificationPanel.tsx:216
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -827,7 +807,7 @@ msgstr "Scegli il tuo tema preferito per Quorum."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:306
+#: src/components/notifications/NotificationPanel.tsx:319
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Cancella"
@@ -866,7 +846,7 @@ msgstr "Clicca per copiare"
 msgid "Close thread"
 msgstr "Chiudi discussione"
 
-#: src/components/shell/NavRail.tsx:260
+#: src/components/shell/NavRail.tsx:276
 msgid "Collapse"
 msgstr "Comprimi"
 
@@ -874,7 +854,7 @@ msgstr "Comprimi"
 msgid "Collapse group"
 msgstr "Comprimi gruppo"
 
-#: src/components/shell/NavRail.tsx:257
+#: src/components/shell/NavRail.tsx:273
 msgid "Collapse sidebar"
 msgstr "Comprimi barra laterale"
 
@@ -1585,8 +1565,8 @@ msgstr "Esc per"
 msgid "Expand group"
 msgstr "Espandi gruppo"
 
-#: src/components/shell/NavRail.tsx:239
-#: src/components/shell/NavRail.tsx:247
+#: src/components/shell/NavRail.tsx:255
+#: src/components/shell/NavRail.tsx:263
 msgid "Expand sidebar"
 msgstr "Espandi barra laterale"
 
@@ -1780,8 +1760,8 @@ msgid "Failed to update profile"
 msgstr "Impossibile aggiornare il profilo"
 
 #: src/components/farcaster/FarcasterPage.tsx:347
-#: src/components/notifications/NotificationPanel.tsx:283
-#: src/components/shell/NavRail.tsx:54
+#: src/components/notifications/NotificationPanel.tsx:293
+#: src/components/shell/NavRail.tsx:56
 msgid "Farcaster"
 msgstr "Farcaster"
 
@@ -1792,10 +1772,6 @@ msgstr ""
 #: src/components/farcaster/FarcasterPage.tsx:509
 #: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
-msgstr ""
-
-#: src/components/notifications/NotificationPanel.tsx:254
-msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -2343,7 +2319,7 @@ msgid "Loading Mini App..."
 msgstr ""
 
 #: src/components/notifications/FarcasterNotificationsView.tsx:241
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:235
 msgid "Loading notifications..."
 msgstr "Caricamento notifiche..."
 
@@ -2427,7 +2403,7 @@ msgstr "Gestisci Ruoli"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "Gestisci le tue impostazioni per <0>{spaceName}</0>."
 
-#: src/components/notifications/NotificationPanel.tsx:313
+#: src/components/notifications/NotificationPanel.tsx:326
 msgid "Mark all as read"
 msgstr "Segna tutto come letto"
 
@@ -2435,11 +2411,11 @@ msgstr "Segna tutto come letto"
 msgid "Mark All as Read"
 msgstr "Segna tutto come letto"
 
-#: src/components/notifications/NotificationPanel.tsx:212
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "Mark all as read?"
 msgstr "Contrassegnare tutto come letto?"
 
-#: src/components/notifications/NotificationPanel.tsx:214
+#: src/components/notifications/NotificationPanel.tsx:215
 msgid "Mark all read"
 msgstr "Contrassegna tutto come letto"
 
@@ -2490,7 +2466,7 @@ msgid "Message..."
 msgstr "Messaggio..."
 
 #: src/components/direct/DirectMessageContactsList.tsx:548
-#: src/components/shell/NavRail.tsx:30
+#: src/components/shell/NavRail.tsx:32
 msgid "Messages"
 msgstr "Messaggi"
 
@@ -2735,7 +2711,7 @@ msgstr "Nessuna discussione ancora"
 msgid "No unknown contacts"
 msgstr "Nessun contatto sconosciuto"
 
-#: src/components/notifications/NotificationPanel.tsx:242
+#: src/components/notifications/NotificationPanel.tsx:243
 msgid "No unread notifications"
 msgstr "Nessuna notifica non letta"
 
@@ -2767,14 +2743,26 @@ msgstr "La nota contiene contenuto non valido"
 msgid "Note must be {0} characters or less"
 msgstr "La nota deve essere di {0} caratteri o meno"
 
+#: src/components/notifications/NotificationPanel.tsx:266
+msgid "notification"
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:269
+msgid "Notification in this Space"
+msgstr ""
+
 #: src/services/NotificationService.ts:193
 msgid "Notification permission not granted"
 msgstr "Autorizzazione per le notifiche non concessa"
 
+#: src/components/notifications/NotificationPanel.tsx:267
+msgid "notifications"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:328
 #: src/components/modals/UserSettingsModal/Navigation.tsx:21
 #: src/components/modals/UserSettingsModal/Notifications.tsx:26
-#: src/components/shell/NavRail.tsx:66
+#: src/components/shell/NavRail.tsx:68
 #: src/components/space/Channel.tsx:1681
 msgid "Notifications"
 msgstr "Notifiche"
@@ -2796,6 +2784,10 @@ msgstr "Notifiche per {0}"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:335
 msgid "Notifications for this Space"
 msgstr "Notifiche per questo Spazio"
+
+#: src/components/notifications/NotificationPanel.tsx:270
+msgid "Notifications in this Space"
+msgstr ""
 
 #: src/components/message/MentionDropdown.tsx:230
 msgid "Notify all members"
@@ -2864,8 +2856,8 @@ msgstr ""
 msgid "Open Quorum in your browser and import that file."
 msgstr "Apri Quorum nel tuo browser e importa quel file."
 
-#: src/components/shell/NavRail.tsx:278
-#: src/components/shell/NavRail.tsx:293
+#: src/components/shell/NavRail.tsx:294
+#: src/components/shell/NavRail.tsx:309
 msgid "Open user settings"
 msgstr "Apri impostazioni utente"
 
@@ -2998,7 +2990,7 @@ msgstr "Anteprima"
 msgid "Preview:"
 msgstr "Anteprima:"
 
-#: src/components/shell/NavRail.tsx:190
+#: src/components/shell/NavRail.tsx:206
 msgid "Primary navigation"
 msgstr "Navigazione principale"
 
@@ -3040,7 +3032,7 @@ msgstr "Link pubblico"
 msgid "Public profile"
 msgstr "Profilo pubblico"
 
-#: src/components/shell/NavRail.tsx:48
+#: src/components/shell/NavRail.tsx:50
 msgid "Public spaces"
 msgstr "Spazi pubblici"
 
@@ -3189,7 +3181,7 @@ msgid "replied to your cast"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:134
+#: src/components/notifications/NotificationPanel.tsx:135
 msgid "Replies"
 msgstr "Risposte"
 
@@ -3521,7 +3513,7 @@ msgstr "Imposta come canale predefinito"
 msgid "Set up again, import your key file, and create the passkey when asked."
 msgstr "Configura di nuovo, importa il tuo file chiave e crea la passkey quando richiesto."
 
-#: src/components/shell/NavRail.tsx:304
+#: src/components/shell/NavRail.tsx:320
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -3581,7 +3573,7 @@ msgstr "Mostrando {0} di {total} Spazi"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "Mostrando i primi 500 risultati. Affina la tua ricerca per risultati più specifici."
 
-#: src/components/notifications/NotificationPanel.tsx:395
+#: src/components/notifications/NotificationPanel.tsx:408
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "Mostrando le {GLOBAL_DISPLAY_CAP} notifiche più recenti"
 
@@ -3666,8 +3658,8 @@ msgid "Space Tag"
 msgstr "Space Tag"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
-#: src/components/notifications/NotificationPanel.tsx:272
-#: src/components/shell/NavRail.tsx:36
+#: src/components/notifications/NotificationPanel.tsx:282
+#: src/components/shell/NavRail.tsx:38
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
 msgstr "Spazi"
@@ -3835,7 +3827,7 @@ msgstr "Questo link non scade. Chiunque lo abbia può unirsi al tuo Spazio."
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Questo link è stato generato da un proprietario dello Spazio. Non scade."
 
-#: src/components/notifications/NotificationPanel.tsx:213
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Questo contrassegna le menzioni e le risposte come lette in tutti i tuoi Spazi. Questa azione non può essere annullata."
 
@@ -4278,7 +4270,7 @@ msgstr "Visualizza discussione"
 msgid "Waiting for Spaces to finish syncing before this device publishes again."
 msgstr "In attesa che gli Spazi finiscano di sincronizzarsi prima che questo dispositivo pubblichi di nuovo."
 
-#: src/components/shell/NavRail.tsx:60
+#: src/components/shell/NavRail.tsx:62
 #: src/components/wallet/WalletPage.tsx:30
 msgid "Wallet"
 msgstr "Wallet"
@@ -4483,7 +4475,7 @@ msgstr "Vedrai di nuovo i messaggi di {resolvedNameText} in questo Spazio."
 msgid "You're all caught up on Farcaster!"
 msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:245
 msgid "You're all caught up!"
 msgstr "Sei a posto!"
 

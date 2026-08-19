@@ -147,26 +147,6 @@ msgstr "{0}가 {spaceName}에서 당신을 언급했습니다"
 msgid "{0} messages were not restored because you deleted them after this backup was made."
 msgstr "이 백업이 생성된 후 삭제했기 때문에 {0}개의 메시지가 복원되지 않았습니다."
 
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:256
-msgid "{0} notification"
-msgstr "{0} 알림"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:259
-msgid "{0} Notification in this Space"
-msgstr "이 공간에 {0}개의 알림"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:257
-msgid "{0} notifications"
-msgstr "{0} 알림들"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:260
-msgid "{0} Notifications in this Space"
-msgstr "이 공간에 {0}개의 알림"
-
 #. placeholder {0}: pinnedMessages.length
 #: src/components/message/PinnedMessagesPanel.tsx:215
 msgid "{0} pinned message in this Channel"
@@ -244,17 +224,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount}개의 대화"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:125
+#: src/components/notifications/NotificationPanel.tsx:126
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:129
+#: src/components/notifications/NotificationPanel.tsx:130
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:121
+#: src/components/notifications/NotificationPanel.tsx:122
 msgid "@you"
 msgstr "@you"
 
@@ -434,7 +414,7 @@ msgstr "고급 설정"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
 #: src/components/notifications/FarcasterNotificationsView.tsx:203
-#: src/components/notifications/NotificationPanel.tsx:305
+#: src/components/notifications/NotificationPanel.tsx:318
 msgid "All"
 msgstr "모두"
 
@@ -670,7 +650,7 @@ msgid "Bookmarked sticker"
 msgstr "북마크된 스티커"
 
 #: src/components/bookmarks/BookmarksPage.tsx:221
-#: src/components/shell/NavRail.tsx:42
+#: src/components/shell/NavRail.tsx:44
 msgid "Bookmarks"
 msgstr "북마크들"
 
@@ -712,7 +692,7 @@ msgstr "동기화할 수 없습니다: 이 기기에서 사용할 수 있는 키
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:215
+#: src/components/notifications/NotificationPanel.tsx:216
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -828,7 +808,7 @@ msgstr "Quorum에 대한 선호하는 테마를 선택하세요."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:306
+#: src/components/notifications/NotificationPanel.tsx:319
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "지우기"
@@ -867,7 +847,7 @@ msgstr "복사하려면 클릭"
 msgid "Close thread"
 msgstr "스레드 닫기"
 
-#: src/components/shell/NavRail.tsx:260
+#: src/components/shell/NavRail.tsx:276
 msgid "Collapse"
 msgstr "접기"
 
@@ -875,7 +855,7 @@ msgstr "접기"
 msgid "Collapse group"
 msgstr "그룹 접기"
 
-#: src/components/shell/NavRail.tsx:257
+#: src/components/shell/NavRail.tsx:273
 msgid "Collapse sidebar"
 msgstr "사이드바 접기"
 
@@ -1586,8 +1566,8 @@ msgstr "Esc 키로"
 msgid "Expand group"
 msgstr "그룹 펼치기"
 
-#: src/components/shell/NavRail.tsx:239
-#: src/components/shell/NavRail.tsx:247
+#: src/components/shell/NavRail.tsx:255
+#: src/components/shell/NavRail.tsx:263
 msgid "Expand sidebar"
 msgstr "사이드바 펼치기"
 
@@ -1781,8 +1761,8 @@ msgid "Failed to update profile"
 msgstr "프로필 업데이트에 실패했습니다."
 
 #: src/components/farcaster/FarcasterPage.tsx:347
-#: src/components/notifications/NotificationPanel.tsx:283
-#: src/components/shell/NavRail.tsx:54
+#: src/components/notifications/NotificationPanel.tsx:293
+#: src/components/shell/NavRail.tsx:56
 msgid "Farcaster"
 msgstr "Farcaster"
 
@@ -1793,10 +1773,6 @@ msgstr ""
 #: src/components/farcaster/FarcasterPage.tsx:509
 #: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
-msgstr ""
-
-#: src/components/notifications/NotificationPanel.tsx:254
-msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -2344,7 +2320,7 @@ msgid "Loading Mini App..."
 msgstr ""
 
 #: src/components/notifications/FarcasterNotificationsView.tsx:241
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:235
 msgid "Loading notifications..."
 msgstr "알림 로딩 중..."
 
@@ -2428,7 +2404,7 @@ msgstr "역할 관리"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "<0>{spaceName}</0>에 대한 설정 관리"
 
-#: src/components/notifications/NotificationPanel.tsx:313
+#: src/components/notifications/NotificationPanel.tsx:326
 msgid "Mark all as read"
 msgstr "모두 읽음으로 표시"
 
@@ -2436,11 +2412,11 @@ msgstr "모두 읽음으로 표시"
 msgid "Mark All as Read"
 msgstr "모두 읽음으로 표시"
 
-#: src/components/notifications/NotificationPanel.tsx:212
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "Mark all as read?"
 msgstr "모두 읽음으로 표시하시겠습니까?"
 
-#: src/components/notifications/NotificationPanel.tsx:214
+#: src/components/notifications/NotificationPanel.tsx:215
 msgid "Mark all read"
 msgstr "모두 읽음으로 표시"
 
@@ -2491,7 +2467,7 @@ msgid "Message..."
 msgstr "메시지..."
 
 #: src/components/direct/DirectMessageContactsList.tsx:548
-#: src/components/shell/NavRail.tsx:30
+#: src/components/shell/NavRail.tsx:32
 msgid "Messages"
 msgstr "메시지"
 
@@ -2736,7 +2712,7 @@ msgstr "아직 스레드가 없습니다"
 msgid "No unknown contacts"
 msgstr "알 수 없는 연락처가 없습니다"
 
-#: src/components/notifications/NotificationPanel.tsx:242
+#: src/components/notifications/NotificationPanel.tsx:243
 msgid "No unread notifications"
 msgstr "읽지 않은 알림이 없습니다"
 
@@ -2768,14 +2744,26 @@ msgstr "노트 내용이 유효하지 않습니다"
 msgid "Note must be {0} characters or less"
 msgstr "메모는 {0}자 이내로 작성해야 합니다."
 
+#: src/components/notifications/NotificationPanel.tsx:266
+msgid "notification"
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:269
+msgid "Notification in this Space"
+msgstr ""
+
 #: src/services/NotificationService.ts:193
 msgid "Notification permission not granted"
 msgstr "알림 권한이 부여되지 않음"
 
+#: src/components/notifications/NotificationPanel.tsx:267
+msgid "notifications"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:328
 #: src/components/modals/UserSettingsModal/Navigation.tsx:21
 #: src/components/modals/UserSettingsModal/Notifications.tsx:26
-#: src/components/shell/NavRail.tsx:66
+#: src/components/shell/NavRail.tsx:68
 #: src/components/space/Channel.tsx:1681
 msgid "Notifications"
 msgstr "알림"
@@ -2797,6 +2785,10 @@ msgstr "{0}에 대한 알림"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:335
 msgid "Notifications for this Space"
 msgstr "이 스페이스에 대한 알림"
+
+#: src/components/notifications/NotificationPanel.tsx:270
+msgid "Notifications in this Space"
+msgstr ""
 
 #: src/components/message/MentionDropdown.tsx:230
 msgid "Notify all members"
@@ -2865,8 +2857,8 @@ msgstr ""
 msgid "Open Quorum in your browser and import that file."
 msgstr "브라우저에서 Quorum을 열고 해당 파일을 가져오십시오."
 
-#: src/components/shell/NavRail.tsx:278
-#: src/components/shell/NavRail.tsx:293
+#: src/components/shell/NavRail.tsx:294
+#: src/components/shell/NavRail.tsx:309
 msgid "Open user settings"
 msgstr "사용자 설정 열기"
 
@@ -2999,7 +2991,7 @@ msgstr "미리 보기"
 msgid "Preview:"
 msgstr "미리 보기:"
 
-#: src/components/shell/NavRail.tsx:190
+#: src/components/shell/NavRail.tsx:206
 msgid "Primary navigation"
 msgstr "주요 네비게이션"
 
@@ -3041,7 +3033,7 @@ msgstr "공개 링크"
 msgid "Public profile"
 msgstr "공개 프로필"
 
-#: src/components/shell/NavRail.tsx:48
+#: src/components/shell/NavRail.tsx:50
 msgid "Public spaces"
 msgstr "공개 공간"
 
@@ -3190,7 +3182,7 @@ msgid "replied to your cast"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:134
+#: src/components/notifications/NotificationPanel.tsx:135
 msgid "Replies"
 msgstr "답글"
 
@@ -3522,7 +3514,7 @@ msgstr "기본 채널로 설정"
 msgid "Set up again, import your key file, and create the passkey when asked."
 msgstr "다시 설정하고, 키 파일을 가져온 다음, 요청 시 passkey를 생성하십시오."
 
-#: src/components/shell/NavRail.tsx:304
+#: src/components/shell/NavRail.tsx:320
 msgid "Settings"
 msgstr "설정"
 
@@ -3582,7 +3574,7 @@ msgstr "{total}개의 공간 중 {0}개 표시 중"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "첫 500개의 결과를 표시합니다. 더 구체적인 결과를 위해 검색을 세분화하세요."
 
-#: src/components/notifications/NotificationPanel.tsx:395
+#: src/components/notifications/NotificationPanel.tsx:408
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "가장 최근 알림 {GLOBAL_DISPLAY_CAP}개 표시"
 
@@ -3667,8 +3659,8 @@ msgid "Space Tag"
 msgstr "Space 태그"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
-#: src/components/notifications/NotificationPanel.tsx:272
-#: src/components/shell/NavRail.tsx:36
+#: src/components/notifications/NotificationPanel.tsx:282
+#: src/components/shell/NavRail.tsx:38
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
 msgstr "공간"
@@ -3836,7 +3828,7 @@ msgstr "이 링크는 만료되지 않습니다. 링크를 가진 사람은 누�
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "이 링크는 스페이스 소유자가 생성했습니다. 만료되지 않습니다."
 
-#: src/components/notifications/NotificationPanel.tsx:213
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "모든 공간에서 멘션과 답글을 읽음으로 표시합니다. 이 작업은 되돌릴 수 없습니다."
 
@@ -4279,7 +4271,7 @@ msgstr "스레드 보기"
 msgid "Waiting for Spaces to finish syncing before this device publishes again."
 msgstr "이 기기가 다시 게시하기 전에 Space가 동기화를 완료하기를 기다리는 중입니다."
 
-#: src/components/shell/NavRail.tsx:60
+#: src/components/shell/NavRail.tsx:62
 #: src/components/wallet/WalletPage.tsx:30
 msgid "Wallet"
 msgstr "지갑"
@@ -4484,7 +4476,7 @@ msgstr "이 Space에서 {resolvedNameText}의 메시지를 다시 볼 수 있습
 msgid "You're all caught up on Farcaster!"
 msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:245
 msgid "You're all caught up!"
 msgstr "모두 잘 따라잡았습니다!"
 

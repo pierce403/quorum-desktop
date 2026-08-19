@@ -147,26 +147,6 @@ msgstr "{0} ανέφερε εσένα στο {spaceName}"
 msgid "{0} messages were not restored because you deleted them after this backup was made."
 msgstr "{0} μηνύματα δεν αποκαταστάθηκαν επειδή τα διέγραψες αφού δημιουργήθηκε αυτό το backup."
 
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:256
-msgid "{0} notification"
-msgstr "{0} ειδοποίηση"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:259
-msgid "{0} Notification in this Space"
-msgstr "{0} Ειδοποίηση σε αυτόν τον Χώρο"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:257
-msgid "{0} notifications"
-msgstr "{0} ειδοποιήσεις"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:260
-msgid "{0} Notifications in this Space"
-msgstr "{0} Ειδοποιήσεις σε αυτόν τον Χώρο"
-
 #. placeholder {0}: pinnedMessages.length
 #: src/components/message/PinnedMessagesPanel.tsx:215
 msgid "{0} pinned message in this Channel"
@@ -244,17 +224,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} απαντήσεις"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:125
+#: src/components/notifications/NotificationPanel.tsx:126
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:129
+#: src/components/notifications/NotificationPanel.tsx:130
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:121
+#: src/components/notifications/NotificationPanel.tsx:122
 msgid "@you"
 msgstr "@you"
 
@@ -434,7 +414,7 @@ msgstr "Προχωρημένες Ρυθμίσεις"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
 #: src/components/notifications/FarcasterNotificationsView.tsx:203
-#: src/components/notifications/NotificationPanel.tsx:305
+#: src/components/notifications/NotificationPanel.tsx:318
 msgid "All"
 msgstr "Όλα"
 
@@ -669,7 +649,7 @@ msgid "Bookmarked sticker"
 msgstr "Αυτοκόλλητο σελιδοδείκτη"
 
 #: src/components/bookmarks/BookmarksPage.tsx:221
-#: src/components/shell/NavRail.tsx:42
+#: src/components/shell/NavRail.tsx:44
 msgid "Bookmarks"
 msgstr "Σελιδοδείκτες"
 
@@ -711,7 +691,7 @@ msgstr "Δεν είναι δυνατός ο συγχρονισμός: δεν υ�
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:215
+#: src/components/notifications/NotificationPanel.tsx:216
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -827,7 +807,7 @@ msgstr "Επίλεξε το προτιμώμενο θέμα σου για το Q
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:306
+#: src/components/notifications/NotificationPanel.tsx:319
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Καθαρισμός"
@@ -866,7 +846,7 @@ msgstr "Κάνε κλικ για αντιγραφή"
 msgid "Close thread"
 msgstr "Κλείσιμο συζήτησης"
 
-#: src/components/shell/NavRail.tsx:260
+#: src/components/shell/NavRail.tsx:276
 msgid "Collapse"
 msgstr "Συμπίεση"
 
@@ -874,7 +854,7 @@ msgstr "Συμπίεση"
 msgid "Collapse group"
 msgstr "Συμπίεση ομάδας"
 
-#: src/components/shell/NavRail.tsx:257
+#: src/components/shell/NavRail.tsx:273
 msgid "Collapse sidebar"
 msgstr "Συμπίεση πλευροδέξιας"
 
@@ -1585,8 +1565,8 @@ msgstr "Esc για"
 msgid "Expand group"
 msgstr "Επέκταση ομάδας"
 
-#: src/components/shell/NavRail.tsx:239
-#: src/components/shell/NavRail.tsx:247
+#: src/components/shell/NavRail.tsx:255
+#: src/components/shell/NavRail.tsx:263
 msgid "Expand sidebar"
 msgstr "Επέκταση πλευροδέξιας"
 
@@ -1780,8 +1760,8 @@ msgid "Failed to update profile"
 msgstr "Αποτυχία ενημέρωσης προφίλ"
 
 #: src/components/farcaster/FarcasterPage.tsx:347
-#: src/components/notifications/NotificationPanel.tsx:283
-#: src/components/shell/NavRail.tsx:54
+#: src/components/notifications/NotificationPanel.tsx:293
+#: src/components/shell/NavRail.tsx:56
 msgid "Farcaster"
 msgstr "Farcaster"
 
@@ -1792,10 +1772,6 @@ msgstr ""
 #: src/components/farcaster/FarcasterPage.tsx:509
 #: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
-msgstr ""
-
-#: src/components/notifications/NotificationPanel.tsx:254
-msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -2343,7 +2319,7 @@ msgid "Loading Mini App..."
 msgstr ""
 
 #: src/components/notifications/FarcasterNotificationsView.tsx:241
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:235
 msgid "Loading notifications..."
 msgstr "Φόρτωση ειδοποιήσεων..."
 
@@ -2427,7 +2403,7 @@ msgstr "Διαχείριση Ρόλων"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "Διαχειρίσου τις ρυθμίσεις σου για <0>{spaceName}</0>."
 
-#: src/components/notifications/NotificationPanel.tsx:313
+#: src/components/notifications/NotificationPanel.tsx:326
 msgid "Mark all as read"
 msgstr "Σήμανση όλων ως αναγνωσμένων"
 
@@ -2435,11 +2411,11 @@ msgstr "Σήμανση όλων ως αναγνωσμένων"
 msgid "Mark All as Read"
 msgstr "Σήμανση Όλων ως Διαβασμένων"
 
-#: src/components/notifications/NotificationPanel.tsx:212
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "Mark all as read?"
 msgstr "Να επισημανθούν όλα ως αναγνωσμένα;"
 
-#: src/components/notifications/NotificationPanel.tsx:214
+#: src/components/notifications/NotificationPanel.tsx:215
 msgid "Mark all read"
 msgstr "Επισήμανση όλων ως αναγνωσμένων"
 
@@ -2490,7 +2466,7 @@ msgid "Message..."
 msgstr "Μήνυμα..."
 
 #: src/components/direct/DirectMessageContactsList.tsx:548
-#: src/components/shell/NavRail.tsx:30
+#: src/components/shell/NavRail.tsx:32
 msgid "Messages"
 msgstr "Μηνύματα"
 
@@ -2735,7 +2711,7 @@ msgstr "Δεν υπάρχουν ακόμα συζητήσεις"
 msgid "No unknown contacts"
 msgstr "Καμία άγνωστη επαφή"
 
-#: src/components/notifications/NotificationPanel.tsx:242
+#: src/components/notifications/NotificationPanel.tsx:243
 msgid "No unread notifications"
 msgstr "Δεν υπάρχουν μη αναγνωσμένες ειδοποιήσεις"
 
@@ -2767,14 +2743,26 @@ msgstr "Η σημείωση περιέχει άκυρο περιεχόμενο"
 msgid "Note must be {0} characters or less"
 msgstr "Η σημείωση πρέπει να είναι {0} χαρακτήρες ή λιγότεροι"
 
+#: src/components/notifications/NotificationPanel.tsx:266
+msgid "notification"
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:269
+msgid "Notification in this Space"
+msgstr ""
+
 #: src/services/NotificationService.ts:193
 msgid "Notification permission not granted"
 msgstr "Η άδεια ειδοποίησης δεν έχει παραχωρηθεί"
 
+#: src/components/notifications/NotificationPanel.tsx:267
+msgid "notifications"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:328
 #: src/components/modals/UserSettingsModal/Navigation.tsx:21
 #: src/components/modals/UserSettingsModal/Notifications.tsx:26
-#: src/components/shell/NavRail.tsx:66
+#: src/components/shell/NavRail.tsx:68
 #: src/components/space/Channel.tsx:1681
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
@@ -2796,6 +2784,10 @@ msgstr "Ειδοποιήσεις για {0}"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:335
 msgid "Notifications for this Space"
 msgstr "Ειδοποιήσεις για αυτόν τον Χώρο"
+
+#: src/components/notifications/NotificationPanel.tsx:270
+msgid "Notifications in this Space"
+msgstr ""
 
 #: src/components/message/MentionDropdown.tsx:230
 msgid "Notify all members"
@@ -2864,8 +2856,8 @@ msgstr ""
 msgid "Open Quorum in your browser and import that file."
 msgstr "Άνοιξε το Quorum στο πρόγραμμα περιήγησής σου και εισήγαγε αυτό το αρχείο."
 
-#: src/components/shell/NavRail.tsx:278
-#: src/components/shell/NavRail.tsx:293
+#: src/components/shell/NavRail.tsx:294
+#: src/components/shell/NavRail.tsx:309
 msgid "Open user settings"
 msgstr "Άνοιγμα ρυθμίσεων χρήστη"
 
@@ -2998,7 +2990,7 @@ msgstr "Προεπισκόπηση"
 msgid "Preview:"
 msgstr "Προεπισκόπηση:"
 
-#: src/components/shell/NavRail.tsx:190
+#: src/components/shell/NavRail.tsx:206
 msgid "Primary navigation"
 msgstr "Κύρια πλοήγηση"
 
@@ -3040,7 +3032,7 @@ msgstr "Δημόσιος Σύνδεσμος"
 msgid "Public profile"
 msgstr "Δημόσιο προφίλ"
 
-#: src/components/shell/NavRail.tsx:48
+#: src/components/shell/NavRail.tsx:50
 msgid "Public spaces"
 msgstr "Δημόσιοι χώροι"
 
@@ -3189,7 +3181,7 @@ msgid "replied to your cast"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:134
+#: src/components/notifications/NotificationPanel.tsx:135
 msgid "Replies"
 msgstr "Απαντήσεις"
 
@@ -3521,7 +3513,7 @@ msgstr "Ορισμός ως προεπιλεγμένου καναλιού"
 msgid "Set up again, import your key file, and create the passkey when asked."
 msgstr "Ρύθμισε ξανά, εισήγαγε το αρχείο κλειδιού σου και δημιούργησε το passkey όταν σου ζητηθεί."
 
-#: src/components/shell/NavRail.tsx:304
+#: src/components/shell/NavRail.tsx:320
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -3581,7 +3573,7 @@ msgstr "Εμφάνιση {0} από {total} Χώρους"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "Εμφάνιση των πρώτων 500 αποτελεσμάτων. Βελτίωσε την αναζήτησή σου για πιο συγκεκριμένα αποτελέσματα."
 
-#: src/components/notifications/NotificationPanel.tsx:395
+#: src/components/notifications/NotificationPanel.tsx:408
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "Εμφάνιση των {GLOBAL_DISPLAY_CAP} πιο πρόσφατων ειδοποιήσεων"
 
@@ -3666,8 +3658,8 @@ msgid "Space Tag"
 msgstr "Ετικέτα Χώρου"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
-#: src/components/notifications/NotificationPanel.tsx:272
-#: src/components/shell/NavRail.tsx:36
+#: src/components/notifications/NotificationPanel.tsx:282
+#: src/components/shell/NavRail.tsx:38
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
 msgstr "Χώροι"
@@ -3835,7 +3827,7 @@ msgstr "Αυτός ο σύνδεσμος δεν λήγει. Οποιοσδήπο
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Αυτός ο σύνδεσμος δημιουργήθηκε από έναν κάτοχο Χώρου. Δεν λήγει."
 
-#: src/components/notifications/NotificationPanel.tsx:213
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Αυτό επισημαίνει τις αναφορές και τις απαντήσεις ως αναγνωσμένες σε όλους τους Χώρους σου. Αυτό δεν μπορεί να αναιρεθεί."
 
@@ -4278,7 +4270,7 @@ msgstr "Προβολή συζήτησης"
 msgid "Waiting for Spaces to finish syncing before this device publishes again."
 msgstr "Αναμονή για ολοκλήρωση συγχρονισμού των Χώρων πριν αυτή η συσκευή δημοσιεύσει ξανά."
 
-#: src/components/shell/NavRail.tsx:60
+#: src/components/shell/NavRail.tsx:62
 #: src/components/wallet/WalletPage.tsx:30
 msgid "Wallet"
 msgstr "Πορτοφόλι"
@@ -4483,7 +4475,7 @@ msgstr "Θα βλέπεις ξανά τα μηνύματα του/της {resolv
 msgid "You're all caught up on Farcaster!"
 msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:245
 msgid "You're all caught up!"
 msgstr "Είσαι ενήμερος!"
 

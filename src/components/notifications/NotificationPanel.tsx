@@ -263,11 +263,11 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({
   // (across all spaces) keeps the combined count.
   const panelTitle = global
     ? totalCount === 1
-      ? t`${totalCount} notification`
-      : t`${totalCount} notifications`
+      ? `${totalCount} ${t`notification`}`
+      : `${totalCount} ${t`notifications`}`
     : allNotifications.length === 1
-      ? t`${allNotifications.length} Notification in this Space`
-      : t`${allNotifications.length} Notifications in this Space`;
+      ? `${allNotifications.length} ${t`Notification in this Space`}`
+      : `${allNotifications.length} ${t`Notifications in this Space`}`;
 
   const panelBody = (
       <>

@@ -147,26 +147,6 @@ msgstr "{0} đã đề cập đến bạn trong {spaceName}"
 msgid "{0} messages were not restored because you deleted them after this backup was made."
 msgstr "{0} tin nhắn không được khôi phục vì bạn đã xóa chúng sau khi bản sao lưu này được tạo."
 
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:256
-msgid "{0} notification"
-msgstr "Thông báo {0}"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:259
-msgid "{0} Notification in this Space"
-msgstr "{0} Thông báo trong Space này"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:257
-msgid "{0} notifications"
-msgstr "Thông báo {0}"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:260
-msgid "{0} Notifications in this Space"
-msgstr "{0} Thông báo trong Space này"
-
 #. placeholder {0}: pinnedMessages.length
 #: src/components/message/PinnedMessagesPanel.tsx:215
 msgid "{0} pinned message in this Channel"
@@ -244,17 +224,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} phản hồi"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:125
+#: src/components/notifications/NotificationPanel.tsx:126
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:129
+#: src/components/notifications/NotificationPanel.tsx:130
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:121
+#: src/components/notifications/NotificationPanel.tsx:122
 msgid "@you"
 msgstr "@you"
 
@@ -434,7 +414,7 @@ msgstr "Cài đặt Nâng cao"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
 #: src/components/notifications/FarcasterNotificationsView.tsx:203
-#: src/components/notifications/NotificationPanel.tsx:305
+#: src/components/notifications/NotificationPanel.tsx:318
 msgid "All"
 msgstr "Tất cả"
 
@@ -669,7 +649,7 @@ msgid "Bookmarked sticker"
 msgstr "Nhãn dán đã đánh dấu"
 
 #: src/components/bookmarks/BookmarksPage.tsx:221
-#: src/components/shell/NavRail.tsx:42
+#: src/components/shell/NavRail.tsx:44
 msgid "Bookmarks"
 msgstr "Dấu trang"
 
@@ -711,7 +691,7 @@ msgstr "Không thể đồng bộ hóa: không có khóa nào khả dụng trên
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:215
+#: src/components/notifications/NotificationPanel.tsx:216
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -827,7 +807,7 @@ msgstr "Chọn chủ đề ưa thích của bạn cho Quorum."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:306
+#: src/components/notifications/NotificationPanel.tsx:319
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Xóa"
@@ -866,7 +846,7 @@ msgstr "Nhấp để sao chép"
 msgid "Close thread"
 msgstr "Đóng chủ đề"
 
-#: src/components/shell/NavRail.tsx:260
+#: src/components/shell/NavRail.tsx:276
 msgid "Collapse"
 msgstr "Thu gọn"
 
@@ -874,7 +854,7 @@ msgstr "Thu gọn"
 msgid "Collapse group"
 msgstr "Thu gọn nhóm"
 
-#: src/components/shell/NavRail.tsx:257
+#: src/components/shell/NavRail.tsx:273
 msgid "Collapse sidebar"
 msgstr "Thu gọn thanh bên"
 
@@ -1585,8 +1565,8 @@ msgstr "Esc để"
 msgid "Expand group"
 msgstr "Mở rộng nhóm"
 
-#: src/components/shell/NavRail.tsx:239
-#: src/components/shell/NavRail.tsx:247
+#: src/components/shell/NavRail.tsx:255
+#: src/components/shell/NavRail.tsx:263
 msgid "Expand sidebar"
 msgstr "Mở rộng thanh bên"
 
@@ -1780,8 +1760,8 @@ msgid "Failed to update profile"
 msgstr "Cập nhật hồ sơ không thành công"
 
 #: src/components/farcaster/FarcasterPage.tsx:347
-#: src/components/notifications/NotificationPanel.tsx:283
-#: src/components/shell/NavRail.tsx:54
+#: src/components/notifications/NotificationPanel.tsx:293
+#: src/components/shell/NavRail.tsx:56
 msgid "Farcaster"
 msgstr "Farcaster"
 
@@ -1792,10 +1772,6 @@ msgstr ""
 #: src/components/farcaster/FarcasterPage.tsx:509
 #: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
-msgstr ""
-
-#: src/components/notifications/NotificationPanel.tsx:254
-msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -2343,7 +2319,7 @@ msgid "Loading Mini App..."
 msgstr ""
 
 #: src/components/notifications/FarcasterNotificationsView.tsx:241
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:235
 msgid "Loading notifications..."
 msgstr "Đang tải thông báo..."
 
@@ -2427,7 +2403,7 @@ msgstr "Quản Lý Vai Trò"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "Quản lý cài đặt của bạn cho <0>{spaceName}</0>."
 
-#: src/components/notifications/NotificationPanel.tsx:313
+#: src/components/notifications/NotificationPanel.tsx:326
 msgid "Mark all as read"
 msgstr "Đánh dấu tất cả là đã đọc"
 
@@ -2435,11 +2411,11 @@ msgstr "Đánh dấu tất cả là đã đọc"
 msgid "Mark All as Read"
 msgstr "Đánh dấu tất cả là đã đọc"
 
-#: src/components/notifications/NotificationPanel.tsx:212
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "Mark all as read?"
 msgstr "Đánh dấu tất cả là đã đọc?"
 
-#: src/components/notifications/NotificationPanel.tsx:214
+#: src/components/notifications/NotificationPanel.tsx:215
 msgid "Mark all read"
 msgstr "Đánh dấu tất cả là đã đọc"
 
@@ -2490,7 +2466,7 @@ msgid "Message..."
 msgstr "Tin nhắn..."
 
 #: src/components/direct/DirectMessageContactsList.tsx:548
-#: src/components/shell/NavRail.tsx:30
+#: src/components/shell/NavRail.tsx:32
 msgid "Messages"
 msgstr "Tin nhắn"
 
@@ -2735,7 +2711,7 @@ msgstr "Chưa có chủ đề nào"
 msgid "No unknown contacts"
 msgstr "Không có liên hệ không xác định"
 
-#: src/components/notifications/NotificationPanel.tsx:242
+#: src/components/notifications/NotificationPanel.tsx:243
 msgid "No unread notifications"
 msgstr "Không có thông báo chưa đọc"
 
@@ -2767,14 +2743,26 @@ msgstr "Ghi chú chứa nội dung không hợp lệ"
 msgid "Note must be {0} characters or less"
 msgstr "Ghi chú phải có {0} ký tự trở xuống"
 
+#: src/components/notifications/NotificationPanel.tsx:266
+msgid "notification"
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:269
+msgid "Notification in this Space"
+msgstr ""
+
 #: src/services/NotificationService.ts:193
 msgid "Notification permission not granted"
 msgstr "Quyền thông báo chưa được cấp"
 
+#: src/components/notifications/NotificationPanel.tsx:267
+msgid "notifications"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:328
 #: src/components/modals/UserSettingsModal/Navigation.tsx:21
 #: src/components/modals/UserSettingsModal/Notifications.tsx:26
-#: src/components/shell/NavRail.tsx:66
+#: src/components/shell/NavRail.tsx:68
 #: src/components/space/Channel.tsx:1681
 msgid "Notifications"
 msgstr "Thông báo"
@@ -2796,6 +2784,10 @@ msgstr "Thông báo cho {0}"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:335
 msgid "Notifications for this Space"
 msgstr "Thông báo cho Space này"
+
+#: src/components/notifications/NotificationPanel.tsx:270
+msgid "Notifications in this Space"
+msgstr ""
 
 #: src/components/message/MentionDropdown.tsx:230
 msgid "Notify all members"
@@ -2864,8 +2856,8 @@ msgstr ""
 msgid "Open Quorum in your browser and import that file."
 msgstr "Mở Quorum trong trình duyệt của bạn và nhập tệp đó."
 
-#: src/components/shell/NavRail.tsx:278
-#: src/components/shell/NavRail.tsx:293
+#: src/components/shell/NavRail.tsx:294
+#: src/components/shell/NavRail.tsx:309
 msgid "Open user settings"
 msgstr "Mở cài đặt người dùng"
 
@@ -2998,7 +2990,7 @@ msgstr "Xem trước"
 msgid "Preview:"
 msgstr "Xem trước:"
 
-#: src/components/shell/NavRail.tsx:190
+#: src/components/shell/NavRail.tsx:206
 msgid "Primary navigation"
 msgstr "Điều hướng chính"
 
@@ -3040,7 +3032,7 @@ msgstr "Liên kết công khai"
 msgid "Public profile"
 msgstr "Hồ sơ công khai"
 
-#: src/components/shell/NavRail.tsx:48
+#: src/components/shell/NavRail.tsx:50
 msgid "Public spaces"
 msgstr "Các không gian công cộng"
 
@@ -3189,7 +3181,7 @@ msgid "replied to your cast"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:134
+#: src/components/notifications/NotificationPanel.tsx:135
 msgid "Replies"
 msgstr "Phản hồi"
 
@@ -3521,7 +3513,7 @@ msgstr "Đặt làm kênh mặc định"
 msgid "Set up again, import your key file, and create the passkey when asked."
 msgstr "Thiết lập lại, nhập tệp khóa của bạn và tạo passkey khi được yêu cầu."
 
-#: src/components/shell/NavRail.tsx:304
+#: src/components/shell/NavRail.tsx:320
 msgid "Settings"
 msgstr "Cài đặt"
 
@@ -3581,7 +3573,7 @@ msgstr "Hiển thị {0} trong tổng số {total} Spaces"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "Hiển thị 500 kết quả đầu tiên. Tinh chỉnh tìm kiếm của bạn để có kết quả cụ thể hơn."
 
-#: src/components/notifications/NotificationPanel.tsx:395
+#: src/components/notifications/NotificationPanel.tsx:408
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "Hiển thị {GLOBAL_DISPLAY_CAP} thông báo gần đây nhất"
 
@@ -3666,8 +3658,8 @@ msgid "Space Tag"
 msgstr "Space Tag"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
-#: src/components/notifications/NotificationPanel.tsx:272
-#: src/components/shell/NavRail.tsx:36
+#: src/components/notifications/NotificationPanel.tsx:282
+#: src/components/shell/NavRail.tsx:38
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
 msgstr "Spaces"
@@ -3835,7 +3827,7 @@ msgstr "Liên kết này không hết hạn. Bất kỳ ai có nó đều có th
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Liên kết này được tạo bởi chủ sở hữu Space. Nó không hết hạn."
 
-#: src/components/notifications/NotificationPanel.tsx:213
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Thao tác này đánh dấu các lượt đề cập và trả lời là đã đọc trên tất cả các Space của bạn. Không thể hoàn tác."
 
@@ -4278,7 +4270,7 @@ msgstr "Xem chủ đề"
 msgid "Waiting for Spaces to finish syncing before this device publishes again."
 msgstr "Đang chờ các Space hoàn tất đồng bộ hóa trước khi thiết bị này xuất bản lại."
 
-#: src/components/shell/NavRail.tsx:60
+#: src/components/shell/NavRail.tsx:62
 #: src/components/wallet/WalletPage.tsx:30
 msgid "Wallet"
 msgstr "Ví"
@@ -4483,7 +4475,7 @@ msgstr "Bạn sẽ thấy lại tin nhắn của {resolvedNameText} trong Space 
 msgid "You're all caught up on Farcaster!"
 msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:245
 msgid "You're all caught up!"
 msgstr "Bạn đã theo kịp tất cả!"
 

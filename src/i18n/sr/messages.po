@@ -147,26 +147,6 @@ msgstr "{0} vas je pomenuo u {spaceName}"
 msgid "{0} messages were not restored because you deleted them after this backup was made."
 msgstr "{0} poruka nije vraćeno jer ste ih izbrisali nakon što je ova rezervna kopija napravljena."
 
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:256
-msgid "{0} notification"
-msgstr "{0} obaveštenje"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:259
-msgid "{0} Notification in this Space"
-msgstr "{0} obaveštenje u ovom Prostoru"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:257
-msgid "{0} notifications"
-msgstr "{0} obaveštenja"
-
-#. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:260
-msgid "{0} Notifications in this Space"
-msgstr "{0} obaveštenja u ovom Prostoru"
-
 #. placeholder {0}: pinnedMessages.length
 #: src/components/message/PinnedMessagesPanel.tsx:215
 msgid "{0} pinned message in this Channel"
@@ -244,17 +224,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} odgovora"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:125
+#: src/components/notifications/NotificationPanel.tsx:126
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:129
+#: src/components/notifications/NotificationPanel.tsx:130
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:121
+#: src/components/notifications/NotificationPanel.tsx:122
 msgid "@you"
 msgstr "@you"
 
@@ -434,7 +414,7 @@ msgstr "Napredne postavke"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
 #: src/components/notifications/FarcasterNotificationsView.tsx:203
-#: src/components/notifications/NotificationPanel.tsx:305
+#: src/components/notifications/NotificationPanel.tsx:318
 msgid "All"
 msgstr "Sve"
 
@@ -669,7 +649,7 @@ msgid "Bookmarked sticker"
 msgstr "Označeni stikeri"
 
 #: src/components/bookmarks/BookmarksPage.tsx:221
-#: src/components/shell/NavRail.tsx:42
+#: src/components/shell/NavRail.tsx:44
 msgid "Bookmarks"
 msgstr "Oznake"
 
@@ -711,7 +691,7 @@ msgstr "Ne može se sinhronizovati: nijedan ključ nije dostupan na ovom uređaj
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:215
+#: src/components/notifications/NotificationPanel.tsx:216
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -827,7 +807,7 @@ msgstr "Odaberite svoj omiljeni izgled za Quorum."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:306
+#: src/components/notifications/NotificationPanel.tsx:319
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Obriši"
@@ -866,7 +846,7 @@ msgstr "Klikni da kopiraš"
 msgid "Close thread"
 msgstr "Zatvori nit"
 
-#: src/components/shell/NavRail.tsx:260
+#: src/components/shell/NavRail.tsx:276
 msgid "Collapse"
 msgstr "Sažmi"
 
@@ -874,7 +854,7 @@ msgstr "Sažmi"
 msgid "Collapse group"
 msgstr "Sažmi grupu"
 
-#: src/components/shell/NavRail.tsx:257
+#: src/components/shell/NavRail.tsx:273
 msgid "Collapse sidebar"
 msgstr "Sažmi bočnu traku"
 
@@ -1585,8 +1565,8 @@ msgstr "Pritisnite Esc za"
 msgid "Expand group"
 msgstr "Proširite grupu"
 
-#: src/components/shell/NavRail.tsx:239
-#: src/components/shell/NavRail.tsx:247
+#: src/components/shell/NavRail.tsx:255
+#: src/components/shell/NavRail.tsx:263
 msgid "Expand sidebar"
 msgstr "Proširite bočnu traku"
 
@@ -1780,8 +1760,8 @@ msgid "Failed to update profile"
 msgstr "Neuspešno ažuriranje profila"
 
 #: src/components/farcaster/FarcasterPage.tsx:347
-#: src/components/notifications/NotificationPanel.tsx:283
-#: src/components/shell/NavRail.tsx:54
+#: src/components/notifications/NotificationPanel.tsx:293
+#: src/components/shell/NavRail.tsx:56
 msgid "Farcaster"
 msgstr "Farcaster"
 
@@ -1792,10 +1772,6 @@ msgstr ""
 #: src/components/farcaster/FarcasterPage.tsx:509
 #: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
-msgstr ""
-
-#: src/components/notifications/NotificationPanel.tsx:254
-msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -2343,7 +2319,7 @@ msgid "Loading Mini App..."
 msgstr ""
 
 #: src/components/notifications/FarcasterNotificationsView.tsx:241
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:235
 msgid "Loading notifications..."
 msgstr "Učitavanje obaveštenja..."
 
@@ -2427,7 +2403,7 @@ msgstr "Upravljaj ulogama"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "Upravljaj svojim podešavanjima za <0>{spaceName}</0>."
 
-#: src/components/notifications/NotificationPanel.tsx:313
+#: src/components/notifications/NotificationPanel.tsx:326
 msgid "Mark all as read"
 msgstr "Označi sve kao pročitano"
 
@@ -2435,11 +2411,11 @@ msgstr "Označi sve kao pročitano"
 msgid "Mark All as Read"
 msgstr "Označi sve kao pročitano"
 
-#: src/components/notifications/NotificationPanel.tsx:212
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "Mark all as read?"
 msgstr "Označiti sve kao pročitano?"
 
-#: src/components/notifications/NotificationPanel.tsx:214
+#: src/components/notifications/NotificationPanel.tsx:215
 msgid "Mark all read"
 msgstr "Označi sve kao pročitano"
 
@@ -2490,7 +2466,7 @@ msgid "Message..."
 msgstr "Poruka..."
 
 #: src/components/direct/DirectMessageContactsList.tsx:548
-#: src/components/shell/NavRail.tsx:30
+#: src/components/shell/NavRail.tsx:32
 msgid "Messages"
 msgstr "Poruke"
 
@@ -2735,7 +2711,7 @@ msgstr "Još uvek nema niti"
 msgid "No unknown contacts"
 msgstr "Nema nepoznatih kontakata"
 
-#: src/components/notifications/NotificationPanel.tsx:242
+#: src/components/notifications/NotificationPanel.tsx:243
 msgid "No unread notifications"
 msgstr "Nema nepročitanih obaveštenja"
 
@@ -2767,14 +2743,26 @@ msgstr "Napomena sadrži nevažeći sadržaj"
 msgid "Note must be {0} characters or less"
 msgstr "Napomena mora da bude {0} karaktera ili manje"
 
+#: src/components/notifications/NotificationPanel.tsx:266
+msgid "notification"
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:269
+msgid "Notification in this Space"
+msgstr ""
+
 #: src/services/NotificationService.ts:193
 msgid "Notification permission not granted"
 msgstr "Dozvola za obaveštenja nije odobrena"
 
+#: src/components/notifications/NotificationPanel.tsx:267
+msgid "notifications"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:328
 #: src/components/modals/UserSettingsModal/Navigation.tsx:21
 #: src/components/modals/UserSettingsModal/Notifications.tsx:26
-#: src/components/shell/NavRail.tsx:66
+#: src/components/shell/NavRail.tsx:68
 #: src/components/space/Channel.tsx:1681
 msgid "Notifications"
 msgstr "Obaveštenja"
@@ -2796,6 +2784,10 @@ msgstr "Obaveštenja za {0}"
 #: src/components/modals/SpaceSettingsModal/Account.tsx:335
 msgid "Notifications for this Space"
 msgstr "Obaveštenja za ovaj Prostor"
+
+#: src/components/notifications/NotificationPanel.tsx:270
+msgid "Notifications in this Space"
+msgstr ""
 
 #: src/components/message/MentionDropdown.tsx:230
 msgid "Notify all members"
@@ -2864,8 +2856,8 @@ msgstr ""
 msgid "Open Quorum in your browser and import that file."
 msgstr "Otvorite Quorum u svom pretraživaču i uvezite tu datoteku."
 
-#: src/components/shell/NavRail.tsx:278
-#: src/components/shell/NavRail.tsx:293
+#: src/components/shell/NavRail.tsx:294
+#: src/components/shell/NavRail.tsx:309
 msgid "Open user settings"
 msgstr "Otvorite podešavanja korisnika"
 
@@ -2998,7 +2990,7 @@ msgstr "Pregled"
 msgid "Preview:"
 msgstr "Pregled:"
 
-#: src/components/shell/NavRail.tsx:190
+#: src/components/shell/NavRail.tsx:206
 msgid "Primary navigation"
 msgstr "Glavna navigacija"
 
@@ -3040,7 +3032,7 @@ msgstr "Javni link"
 msgid "Public profile"
 msgstr "Javni profil"
 
-#: src/components/shell/NavRail.tsx:48
+#: src/components/shell/NavRail.tsx:50
 msgid "Public spaces"
 msgstr "Javni prostori"
 
@@ -3189,7 +3181,7 @@ msgid "replied to your cast"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:134
+#: src/components/notifications/NotificationPanel.tsx:135
 msgid "Replies"
 msgstr "Odgovori"
 
@@ -3521,7 +3513,7 @@ msgstr "Postavite kao podrazumevani kanal"
 msgid "Set up again, import your key file, and create the passkey when asked."
 msgstr "Ponovo podesite, uvezite datoteku ključa i kreirajte passkey kada se to od vas zatraži."
 
-#: src/components/shell/NavRail.tsx:304
+#: src/components/shell/NavRail.tsx:320
 msgid "Settings"
 msgstr "Podešavanja"
 
@@ -3581,7 +3573,7 @@ msgstr "Prikazano {0} od {total} Prostora"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "Prikaz prvih 500 rezultata. Usavršite pretragu za specifičnije rezultate."
 
-#: src/components/notifications/NotificationPanel.tsx:395
+#: src/components/notifications/NotificationPanel.tsx:408
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "Prikazuje {GLOBAL_DISPLAY_CAP} najnovijih obaveštenja"
 
@@ -3666,8 +3658,8 @@ msgid "Space Tag"
 msgstr "Space Tag"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
-#: src/components/notifications/NotificationPanel.tsx:272
-#: src/components/shell/NavRail.tsx:36
+#: src/components/notifications/NotificationPanel.tsx:282
+#: src/components/shell/NavRail.tsx:38
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
 msgstr "Prostori"
@@ -3835,7 +3827,7 @@ msgstr "Ovaj link ne ističe. Svako ko ga ima može se pridružiti vašem Prosto
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Ovaj link je generisao vlasnik Prostora. Ne ističe."
 
-#: src/components/notifications/NotificationPanel.tsx:213
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Ovo označava pominjanja i odgovore kao pročitane u svim vašim prostorima. Ovo se ne može poništiti."
 
@@ -4278,7 +4270,7 @@ msgstr "Pregledaj nit"
 msgid "Waiting for Spaces to finish syncing before this device publishes again."
 msgstr "Čeka se da se Prostori završe sa sinhronizacijom pre nego što ovaj uređaj ponovo objavi."
 
-#: src/components/shell/NavRail.tsx:60
+#: src/components/shell/NavRail.tsx:62
 #: src/components/wallet/WalletPage.tsx:30
 msgid "Wallet"
 msgstr "Novčanik"
@@ -4483,7 +4475,7 @@ msgstr "Ponovo ćete videti poruke od {resolvedNameText} u ovom Prostoru."
 msgid "You're all caught up on Farcaster!"
 msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:245
 msgid "You're all caught up!"
 msgstr "Sve ste pratio!"
 
