@@ -220,216 +220,135 @@ const RegistrationProvider: FC<RegistrationContextProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    if (!init) {
+    if (!init && currentPasskeyInfo?.address) {
       setInit(true);
 
-      if (!registration?.registered) {
-        setTimeout(
-          () =>
-            (async () => {
-              let user_key: Uint8Array;
-              try {
-                logRegistrationEvent({
-                  stage: 'export-account-key',
-                  outcome: 'started',
-                  registered: false,
-                });
-                user_key = new Uint8Array(
-                  Buffer.from(
-                    await exportKey(currentPasskeyInfo!.address),
-                    'hex'
-                  )
-                );
-                logRegistrationEvent({
-                  stage: 'export-account-key',
-                  outcome: 'succeeded',
-                  registered: false,
-                });
-              } catch (e: any) {
-                logRegistrationEvent({
-                  stage: 'export-account-key',
-                  outcome: 'failed',
-                  registered: false,
-                });
-                if (e.name === 'NotAllowedError') {
-                  setClickRestore(true);
-                  return;
-                } else {
-                  throw e;
-                }
-              }
-              try {
-                logRegistrationEvent({
-                  stage: 'load-device-keyset',
-                  outcome: 'started',
-                  registered: false,
-                });
-                const localKeyset = await loadLocalKeyset(user_key);
-                logRegistrationEvent({
-                  stage: 'load-device-keyset',
-                  outcome: 'succeeded',
-                  registered: false,
-                });
-                const senderIdent = localKeyset.userKeyset;
-                const senderDevice = localKeyset.deviceKeyset;
-                let existing: secureChannel.UserRegistration | undefined;
-                try {
-                  existing = (
-                    await apiClient.getUser(currentPasskeyInfo!.address)
-                  )?.data;
-                } catch {
-                  /* ignore */
-                }
+      const setupKeys = async () => {
+        let user_key: Uint8Array;
+        try {
+          logRegistrationEvent({
+            stage: 'export-account-key',
+            outcome: 'started',
+            registered: Boolean(registration?.registered),
+          });
+          user_key = new Uint8Array(
+            Buffer.from(
+              await exportKey(currentPasskeyInfo.address),
+              'hex'
+            )
+          );
+          logRegistrationEvent({
+            stage: 'export-account-key',
+            outcome: 'succeeded',
+            registered: Boolean(registration?.registered),
+          });
+        } catch (e: any) {
+          logRegistrationEvent({
+            stage: 'export-account-key',
+            outcome: 'failed',
+            registered: Boolean(registration?.registered),
+          });
+          if (e?.name === 'NotAllowedError') {
+            setClickRestore(true);
+            return;
+          }
+          console.error('Failed to export account key:', e);
+          return;
+        }
 
-                const senderRegistration =
-                  await secureChannel.ConstructUserRegistration(
-                    senderIdent,
-                    existing?.device_registrations ?? [],
-                    [senderDevice]
-                  );
-                uploadRegistration({
-                  address: currentPasskeyInfo!.address,
-                  registration: senderRegistration,
-                });
-              } catch (e) {
-                const senderIdent = secureChannel.NewUserKeyset({
-                  type: 'ed448',
-                  private_key: [...user_key],
-                  public_key: [
-                    ...new Uint8Array(
-                      Buffer.from(currentPasskeyInfo!.publicKey, 'hex')
-                    ),
-                  ],
-                });
-                const senderDevice = await secureChannel.NewDeviceKeyset();
-                let existing: secureChannel.UserRegistration | undefined;
-                try {
-                  existing = (
-                    await apiClient.getUser(currentPasskeyInfo!.address)
-                  )?.data;
-                } catch {
-                  /* ignore */
-                }
+        let localKeyset: LocalKeyset;
+        try {
+          logRegistrationEvent({
+            stage: 'load-device-keyset',
+            outcome: 'started',
+            registered: Boolean(registration?.registered),
+          });
+          localKeyset = await loadLocalKeyset(user_key);
+          logRegistrationEvent({
+            stage: 'load-device-keyset',
+            outcome: 'succeeded',
+            registered: Boolean(registration?.registered),
+          });
+        } catch {
+          logRegistrationEvent({
+            stage: 'decrypt-device-keyset',
+            outcome: 'failed',
+            registered: Boolean(registration?.registered),
+          });
+          try {
+            localKeyset = await repairDevice(user_key);
+          } catch (repairErr) {
+            console.error('Device repair failed:', repairErr);
+            return;
+          }
+        }
 
-                const senderRegistration =
-                  await secureChannel.ConstructUserRegistration(
-                    senderIdent,
-                    existing?.device_registrations ?? [],
-                    [senderDevice]
-                  );
-                await persistLocalKeyset(user_key, {
-                  userKeyset: senderIdent,
-                  deviceKeyset: senderDevice,
-                });
-                uploadRegistration({
-                  address: currentPasskeyInfo!.address,
-                  registration: senderRegistration,
-                });
-              }
-            })(),
-          200
-        );
-      } else {
-        setTimeout(
-          () =>
-            (async () => {
-              try {
-                logRegistrationEvent({
-                  stage: 'export-account-key',
-                  outcome: 'started',
-                  registered: true,
-                });
-                const user_key = new Uint8Array(
-                  Buffer.from(
-                    await exportKey(currentPasskeyInfo!.address),
-                    'hex'
-                  )
-                );
-                logRegistrationEvent({
-                  stage: 'export-account-key',
-                  outcome: 'succeeded',
-                  registered: true,
-                });
-                logRegistrationEvent({
-                  stage: 'load-device-keyset',
-                  outcome: 'started',
-                  registered: true,
-                });
-                let localKeyset: LocalKeyset;
-                try {
-                  localKeyset = await loadLocalKeyset(user_key);
-                } catch {
-                  logRegistrationEvent({
-                    stage: 'decrypt-device-keyset',
-                    outcome: 'failed',
-                    registered: true,
-                  });
-                  localKeyset = await repairDevice(user_key);
-                }
-                logRegistrationEvent({
-                  stage: 'load-device-keyset',
-                  outcome: 'succeeded',
-                  registered: true,
-                });
-                const senderIdent = localKeyset.userKeyset;
-                const senderDevice = localKeyset.deviceKeyset;
-                if (
-                  !registration?.registration?.device_registrations.find(
-                    (d: secureChannel.DeviceRegistration) =>
-                      d.inbox_registration.inbox_address ==
-                      senderDevice.inbox_keyset.inbox_address
-                  )
-                ) {
-                  let existing: secureChannel.UserRegistration | undefined;
-                  try {
-                    existing = (
-                      await apiClient.getUser(currentPasskeyInfo!.address)
-                    )?.data;
-                  } catch {
-                    /* ignore */
-                  }
-                  const senderRegistration =
-                    await secureChannel.ConstructUserRegistration(
-                      senderIdent,
-                      existing?.device_registrations ?? [],
-                      [senderDevice]
-                    );
-                  uploadRegistration({
-                    address: currentPasskeyInfo!.address,
-                    registration: senderRegistration,
-                  });
-                }
-                setSelfAddress(currentPasskeyInfo!.address);
-                setKeyset({
-                  deviceKeyset: senderDevice,
-                  userKeyset: senderIdent,
-                });
-                const userConfig = await getConfig({
-                  address: currentPasskeyInfo!.address,
-                  userKey: senderIdent,
-                });
-                if (userConfig === undefined) {
-                  const defaultConfig = getDefaultUserConfig(
-                    currentPasskeyInfo!.address
-                  );
-                  saveConfig({
-                    config: defaultConfig,
-                    keyset: localKeyset,
-                  });
-                }
-              } catch (e: any) {
-                if (e.name === 'NotAllowedError') {
-                  setClickRestore(true);
-                } else {
-                  throw e;
-                }
-              }
-            })(),
-          200
-        );
-      }
+        const senderIdent = localKeyset.userKeyset;
+        const senderDevice = localKeyset.deviceKeyset;
+
+        // Ensure remote registration has our device if possible
+        try {
+          const deviceAlreadyRegistered = registration?.registration?.device_registrations?.some(
+            (d: secureChannel.DeviceRegistration) =>
+              d.inbox_registration.inbox_address === senderDevice.inbox_keyset.inbox_address
+          );
+
+          if (!deviceAlreadyRegistered) {
+            let existing: secureChannel.UserRegistration | undefined;
+            try {
+              existing = (
+                await apiClient.getUser(currentPasskeyInfo.address)
+              )?.data;
+            } catch {
+              /* ignore network failure */
+            }
+
+            const senderRegistration =
+              await secureChannel.ConstructUserRegistration(
+                senderIdent,
+                existing?.device_registrations ?? [],
+                [senderDevice]
+              );
+            await uploadRegistration({
+              address: currentPasskeyInfo.address,
+              registration: senderRegistration,
+            });
+          }
+        } catch {
+          /* ignore upload failure */
+        }
+
+        // Set self address and active keyset
+        setSelfAddress(currentPasskeyInfo.address);
+        setKeyset(localKeyset);
+
+        // Initialize user config if missing
+        try {
+          const userConfig = await getConfig({
+            address: currentPasskeyInfo.address,
+            userKey: senderIdent,
+          });
+          if (userConfig === undefined) {
+            const defaultConfig = getDefaultUserConfig(
+              currentPasskeyInfo.address
+            );
+            await saveConfig({
+              config: defaultConfig,
+              keyset: localKeyset,
+            });
+          }
+        } catch (configErr) {
+          console.error('Failed to initialize user config:', configErr);
+        }
+      };
+
+      const timer = setTimeout(() => {
+        void setupKeys();
+      }, 50);
+
+      return () => clearTimeout(timer);
     }
-  }, [init, registration]);
+  }, [init, registration, currentPasskeyInfo, exportKey, apiClient, uploadRegistration, setSelfAddress, setKeyset, getConfig, saveConfig]);
 
   return (
     <RegistrationContext.Provider
