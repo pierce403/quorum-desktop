@@ -50,6 +50,14 @@ export function initTauriBridge(): boolean {
     return false;
   }
 
+  try {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.setItem('quorum-master-prf-incompatibility', 'true');
+    }
+  } catch (_e) {
+    // Ignore localStorage access failure
+  }
+
   // If running in Tauri and window.electron is not set, shim it
   if (!window.electron) {
     const tauriBridge: DesktopBridge = {

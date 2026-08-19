@@ -12,6 +12,7 @@ import { useQuorumApiClient } from '../../../components/context/QuorumApiContext
 import { useUploadRegistration } from '../../mutations/useUploadRegistration';
 import { useKeyBackup } from '../../useKeyBackup';
 import { validateDisplayName } from '../validation';
+import { isDesktop } from '../../../utils/platform';
 import { DefaultImages } from '../../../utils';
 import { decryptUserConfig } from '../../../utils/crypto';
 import { t } from '@lingui/core/macro';
@@ -180,8 +181,16 @@ export function useUnifiedOnboardingFlow(
   // --- API callbacks for usePasskeyFlow ---
   const getUserRegistration = useCallback(
     async (address: string) => {
-      const response = await apiClient.getUser(address);
-      return response.data;
+      try {
+        const response = await apiClient.getUser(address);
+        return response.data;
+      } catch (error: unknown) {
+        // Return 404 not found error format so SDK registration correctly treats
+        // missing remote registration as expected for new account creation
+        const err = new Error('404 not found');
+        (err as unknown as { status: number }).status = 404;
+        throw err;
+      }
     },
     [apiClient]
   );
@@ -523,8 +532,8 @@ export function useUnifiedOnboardingFlow(
     setImportError(null);
     recordOnboardingEvent('flow-state', 'started', 'welcome');
 
-    if (!passkeyFlow.isPasskeySupported) {
-      // Electron / unsupported browser: skip passkey steps entirely
+    if (!passkeyFlow.isPasskeySupported || isDesktop()) {
+      // Desktop / unsupported browser: skip passkey steps entirely
       isRegisteringNewAccountRef.current = true;
       recordOnboardingEvent('flow-state', 'advanced', 'loading');
       setStep('loading');
