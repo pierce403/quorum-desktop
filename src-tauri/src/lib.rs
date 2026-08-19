@@ -163,6 +163,63 @@ pub mod commands {
         let url = "https://app.quorummessenger.com";
         tauri_plugin_opener::open_url(url, None::<&str>).map_err(|e| e.to_string())
     }
+
+    #[derive(Debug, Serialize, Deserialize)]
+    pub struct HttpResponse {
+        pub status: u16,
+        pub body: String,
+        pub ok: bool,
+    }
+
+    #[tauri::command]
+    pub async fn http_fetch(
+        url: String,
+        method: Option<String>,
+        headers: Option<std::collections::HashMap<String, String>>,
+        body: Option<String>,
+    ) -> Result<HttpResponse, String> {
+        let client = reqwest::Client::builder()
+            .timeout(Duration::from_secs(60))
+            .build()
+            .map_err(|e| e.to_string())?;
+
+        let method_str = method.unwrap_or_else(|| "GET".to_string()).to_uppercase();
+        let req_method = match method_str.as_str() {
+            "POST" => reqwest::Method::POST,
+            "PUT" => reqwest::Method::PUT,
+            "DELETE" => reqwest::Method::DELETE,
+            "PATCH" => reqwest::Method::PATCH,
+            "HEAD" => reqwest::Method::HEAD,
+            _ => reqwest::Method::GET,
+        };
+
+        let mut req = client.request(req_method, &url);
+        if let Some(h) = headers {
+            for (k, v) in h {
+                if let (Ok(hn), Ok(hv)) = (
+                    reqwest::header::HeaderName::from_bytes(k.as_bytes()),
+                    reqwest::header::HeaderValue::from_str(&v),
+                ) {
+                    req = req.header(hn, hv);
+                }
+            }
+        }
+
+        if let Some(b) = body {
+            req = req.body(b);
+        }
+
+        let resp = req.send().await.map_err(|e| e.to_string())?;
+        let status = resp.status().as_u16();
+        let ok = resp.status().is_success();
+        let body_text = resp.text().await.map_err(|e| e.to_string())?;
+
+        Ok(HttpResponse {
+            status,
+            body: body_text,
+            ok,
+        })
+    }
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -181,6 +238,7 @@ pub fn run() {
             commands::window_close,
             commands::get_platform,
             commands::open_login,
+            commands::http_fetch,
         ])
         .setup(|_app| {
             Ok(())

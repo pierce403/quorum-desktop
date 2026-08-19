@@ -8,9 +8,10 @@ import {
   type HypersnapConversationCast,
   type NormalizedCast,
 } from '@quilibrium/quorum-shared';
+import { nativeFetch } from '@/utils/nativeFetch';
 
-const client = new HypersnapClient({ timeoutMs: 60_000 });
-const legacyClient = new LegacyFarcasterClient({ timeoutMs: 60_000 });
+const client = new HypersnapClient({ timeoutMs: 60_000, fetchImpl: nativeFetch as typeof fetch });
+const legacyClient = new LegacyFarcasterClient({ timeoutMs: 60_000, fetchImpl: nativeFetch as typeof fetch });
 const PAGE_SIZE = 25;
 const SCAM_DOMAIN_RE = /(?:^|[^a-z0-9])hyrpia\.xyz(?:[/?#]|$|[^a-z0-9.])/i;
 
@@ -69,7 +70,7 @@ export function useDesktopChannelInfo(channel: string | null) {
     queryFn: async (): Promise<ChannelInfo | null> => {
       if (!channel) return null;
       try {
-        const res = await fetch(
+        const res = await nativeFetch(
           `https://farcaster.xyz/~api/v2/channel?key=${encodeURIComponent(channel)}`,
           {
             headers: {

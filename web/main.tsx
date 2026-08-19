@@ -15,12 +15,20 @@ import { dynamicActivate, getUserLocale } from '../src/i18n/i18n';
 import { initTauriBridge } from '../src/adapters/tauri/tauriBridge';
 import { installRendererDevDiagnostics } from '../src/utils/devDiagnostics';
 import { installLogControl } from '../src/utils/productionLogControl';
+import { HypersnapClient, setDefaultHypersnapClient } from '@quilibrium/quorum-shared';
+import { nativeFetch } from '../src/utils/nativeFetch';
 
 // Install the Tauri/Electron bridge before providers begin reading
 // persisted state. The helper internally gates itself to explicit dev builds.
 if (typeof window !== 'undefined') {
   initTauriBridge();
   installRendererDevDiagnostics();
+  setDefaultHypersnapClient(
+    new HypersnapClient({
+      timeoutMs: 60_000,
+      fetchImpl: nativeFetch as typeof fetch,
+    })
+  );
 }
 
 // DM Doctor's warning counters must start counting at t=0, not whenever the

@@ -49,6 +49,7 @@ describe('TauriBridge', () => {
       if (cmd === 'secure_storage_set') return undefined;
       if (cmd === 'secure_storage_delete') return true;
       if (cmd === 'clipboard_copy_secret') return 60000;
+      if (cmd === 'http_fetch') return { status: 200, body: '{"ok":true}', ok: true };
       return undefined;
     });
 
@@ -91,6 +92,21 @@ describe('TauriBridge', () => {
 
     const deleted = await window.electron?.secureStorage.delete('farcaster-account');
     expect(deleted).toBe(true);
+
+    // Verify httpFetch
+    const httpRes = await window.electron?.httpFetch?.({
+      url: 'https://client.farcaster.xyz/v2/onboarding-state',
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    });
+    expect(httpRes).toEqual({ status: 200, body: '{"ok":true}', ok: true });
+    expect(invoke).toHaveBeenCalledWith('http_fetch', {
+      url: 'https://client.farcaster.xyz/v2/onboarding-state',
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    });
 
     delete (window as unknown as Record<string, unknown>).__TAURI_INTERNALS__;
   });

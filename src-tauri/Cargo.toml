@@ -22,4 +22,5 @@ tauri-plugin-opener = "2"
 keyring = { version = "3", features = ["sync-secret-service", "windows-native", "apple-native"] }
 arboard = "3.4"
 tokio = { version = "1", features = ["sync", "time", "rt"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
 

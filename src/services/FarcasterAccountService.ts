@@ -10,6 +10,7 @@ import {
   type SignerRecord,
   type SignerStore,
 } from '@quilibrium/quorum-shared';
+import { nativeFetch } from '../utils/nativeFetch';
 
 const FARCASTER_API_BASE_URL = 'https://client.farcaster.xyz';
 const ACCOUNT_KEY = 'farcaster-account' as const;
@@ -161,7 +162,7 @@ async function lookupAccount(address: string, privateKey: string) {
     method: 'generateToken',
     params: { timestamp, expiresAt: timestamp + TOKEN_LIFETIME_MS },
   };
-  const response = await fetch(`${FARCASTER_API_BASE_URL}/v2/onboarding-state`, {
+  const response = await nativeFetch(`${FARCASTER_API_BASE_URL}/v2/onboarding-state`, {
     method: 'PUT',
     headers: {
       accept: 'application/json',

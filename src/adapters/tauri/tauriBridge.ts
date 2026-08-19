@@ -18,6 +18,12 @@ export interface DesktopBridge {
     set: (key: string, value: string) => Promise<void>;
     delete: (key: string) => Promise<boolean>;
   };
+  httpFetch?: (options: {
+    url: string;
+    method?: string;
+    headers?: Record<string, string>;
+    body?: string;
+  }) => Promise<{ status: number; body: string; ok: boolean }>;
   devDiagnostics?: {
     onboarding: (details: unknown) => void;
     registration: (details: unknown) => void;
@@ -94,6 +100,14 @@ export function initTauriBridge(): boolean {
         delete: async (key: string) => {
           return await invoke<boolean>('secure_storage_delete', { key });
         },
+      },
+      httpFetch: async (options) => {
+        return await invoke<{ status: number; body: string; ok: boolean }>('http_fetch', {
+          url: options.url,
+          method: options.method,
+          headers: options.headers,
+          body: options.body,
+        });
       },
       devDiagnostics: {
         onboarding: () => {},
