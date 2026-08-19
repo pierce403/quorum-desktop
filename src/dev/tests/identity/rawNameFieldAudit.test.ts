@@ -221,6 +221,8 @@ const EXCEPTIONS: Record<string, string> = {
     'Farcaster user account display name passed to MiniApp context RPC, not a Quorum space member.',
   'src/components/farcaster/FarcasterPage.tsx':
     'Farcaster user profile display name from external Hypersnap feed API, not a Quorum space member.',
+  'src/components/notifications/FarcasterNotificationsView.tsx':
+    'Farcaster user profile display name from external Hypersnap feed API, not a Quorum space member.',
 };
 // NOTE (final fix wave): `useMessageActions.ts` and
 // `src/components/modals/SpaceSettingsModal/Invites.tsx` were exception

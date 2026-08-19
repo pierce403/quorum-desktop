@@ -14,6 +14,8 @@ import { useMessageDB } from '../context/useMessageDB';
 import { useQueryClient } from '@tanstack/react-query';
 import { useConfirmation } from '../../hooks/ui/useConfirmation';
 import ConfirmationModal from '../modals/ConfirmationModal';
+import { FarcasterNotificationsView } from './FarcasterNotificationsView';
+import { loadDesktopFarcasterAccount, type DesktopFarcasterAccount } from '@/services/FarcasterAccountService';
 import type { SpaceNotificationTypeId } from '../../types/notifications';
 import type { Space } from '@quilibrium/quorum-shared';
 import './NotificationPanel.scss';
@@ -50,6 +52,14 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({
   const navigate = useNavigate();
   const { messageDB } = useMessageDB();
   const queryClient = useQueryClient();
+  const [activeTab, setActiveTab] = useState<'spaces' | 'farcaster'>('spaces');
+  const [farcasterAccount, setFarcasterAccount] = useState<DesktopFarcasterAccount | null>(null);
+
+  useEffect(() => {
+    if (isOpen && global) {
+      void loadDesktopFarcasterAccount().then(setFarcasterAccount);
+    }
+  }, [isOpen, global]);
 
   // Load user's saved notification settings for this space
   const { selectedTypes: savedTypes, isLoading: settingsLoading } = useMentionNotificationSettings({ spaceId });
@@ -240,134 +250,152 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({
   // Per-space panel makes the scope explicit in the title; the global panel
   // (across all spaces) keeps the plain count.
   const panelTitle = global
-    ? allNotifications.length === 1
-      ? t`${allNotifications.length} notification`
-      : t`${allNotifications.length} notifications`
+    ? activeTab === 'farcaster'
+      ? t`Farcaster Notifications`
+      : allNotifications.length === 1
+        ? t`${allNotifications.length} notification`
+        : t`${allNotifications.length} notifications`
     : allNotifications.length === 1
       ? t`${allNotifications.length} Notification in this Space`
       : t`${allNotifications.length} Notifications in this Space`;
 
   const panelBody = (
       <>
-        {/* Filter controls - only show when there are notifications */}
-        {!isLoading && allNotifications.length > 0 && (
-          <div className="notification-panel__controls">
-            <Flex className="items-center justify-between gap-2">
-              <Select
-                value={selectedTypes}
-                onChange={handleFilterChange}
-                options={filterOptions}
-                multiple={true}
-                compactMode={true}
-                compactIcon="filter"
-                showSelectionCount={false}
-                showSelectAllOption={false}
-                selectAllLabel={t`All`}
-                clearAllLabel={t`Clear`}
-                size="medium"
-                dropdownClassName="panel-select-dropdown"
-              />
-
-              <Tooltip
-                id="mark-all-read-tooltip"
-                content={t`Mark all as read`}
-                place="top"
-              >
-                <Button
-                  type="unstyled"
-                  onClick={handleMarkAllRead}
-                  className="notification-panel__mark-read"
-                  iconName="check-circle"
-                  iconOnly
-                />
-              </Tooltip>
-            </Flex>
+        {global && (
+          <div className="notification-panel__tabs">
+            <button
+              type="button"
+              className={`notification-panel__tab-btn ${activeTab === 'spaces' ? 'notification-panel__tab-btn--active' : ''}`}
+              onClick={() => setActiveTab('spaces')}
+            >
+              <Icon name="users-group" size="sm" />
+              <span>{t`Spaces`}</span>
+              {allNotifications.length > 0 && (
+                <span className="notification-panel__tab-count">{allNotifications.length}</span>
+              )}
+            </button>
+            <button
+              type="button"
+              className={`notification-panel__tab-btn ${activeTab === 'farcaster' ? 'notification-panel__tab-btn--active' : ''}`}
+              onClick={() => setActiveTab('farcaster')}
+            >
+              <Icon name="world-map" size="sm" />
+              <span>{t`Farcaster`}</span>
+            </button>
           </div>
         )}
 
-        {/* Notification list */}
-        {isLoading || allNotifications.length === 0 ? (
-          renderEmptyState()
+        {global && activeTab === 'farcaster' ? (
+          <FarcasterNotificationsView account={farcasterAccount} onClosePanel={onClose} />
         ) : (
           <>
-            {/* Mobile: Use new item list layout */}
-            {isTouchDevice() ? (
-              <div className="mobile-drawer__item-list mobile-drawer__item-list--with-controls">
-                {allNotifications.map((notification) => {
-                  const senderId = notification.message.content?.senderId;
-                  const rowSpaceId = (notification as any).spaceId ?? spaceId;
-                  return (
-                    <div
-                      key={`${notification.message.messageId}-${notification.channelId}`}
-                      className="mobile-drawer__item-box mobile-drawer__item-box--interactive"
-                    >
-                      <NotificationItem
-                        notification={notification}
-                        onNavigate={handleNavigate}
-                        // Detached surface: a notification row carries its own
-                        // spaceId, so resolve against THAT space's roster, not
-                        // whatever Space the panel happens to render inside.
-                        // `enrich`: bounded cardinality (one sender per row,
-                        // GLOBAL_DISPLAY_CAP rows) and this is where the ".q"
-                        // name has to come from. In-body @mentions resolve the
-                        // SAME way, via `currentSpaceId` — see NotificationItem.
-                        displayName={
-                          <MemberName address={senderId ?? ''} spaceId={rowSpaceId} enrich />
-                        }
-                        mapSenderToUser={mapSenderToUser}
-                        currentSpaceId={rowSpaceId}
-                        spaceRoles={spaceRoles}
-                        spaceChannels={spaceChannels}
-                        spaceName={global ? (notification as any).spaceName : undefined}
-                        compactDate={true}
-                      />
-                    </div>
-                  );
-                })}
+            {/* Filter controls - only show when there are notifications */}
+            {!isLoading && allNotifications.length > 0 && (
+              <div className="notification-panel__controls">
+                <Flex className="items-center justify-between gap-2">
+                  <Select
+                    value={selectedTypes}
+                    onChange={handleFilterChange}
+                    options={filterOptions}
+                    multiple={true}
+                    compactMode={true}
+                    compactIcon="filter"
+                    showSelectionCount={false}
+                    showSelectAllOption={false}
+                    selectAllLabel={t`All`}
+                    clearAllLabel={t`Clear`}
+                    size="medium"
+                    dropdownClassName="panel-select-dropdown"
+                  />
+
+                  <Tooltip
+                    id="mark-all-read-tooltip"
+                    content={t`Mark all as read`}
+                    place="top"
+                  >
+                    <Button
+                      type="unstyled"
+                      onClick={handleMarkAllRead}
+                      className="notification-panel__mark-read"
+                      iconName="check-circle"
+                      iconOnly
+                    />
+                  </Tooltip>
+                </Flex>
               </div>
+            )}
+
+            {/* Notification list */}
+            {isLoading || allNotifications.length === 0 ? (
+              renderEmptyState()
             ) : (
-              /* Desktop: card item layout */
-              <div className="notification-panel__list">
-                {allNotifications.map((notification) => {
-                  const senderId = notification.message.content?.senderId;
-                  const rowSpaceId = (notification as any).spaceId ?? spaceId;
-                  return (
-                    <div
-                      key={`${notification.message.messageId}-${notification.channelId}`}
-                      className="panel-item-box panel-item-box--interactive"
-                    >
-                      <NotificationItem
-                        notification={notification}
-                        onNavigate={handleNavigate}
-                        // Detached surface: a notification row carries its own
-                        // spaceId, so resolve against THAT space's roster, not
-                        // whatever Space the panel happens to render inside.
-                        // `enrich`: bounded cardinality (one sender per row,
-                        // GLOBAL_DISPLAY_CAP rows) and this is where the ".q"
-                        // name has to come from. In-body @mentions resolve the
-                        // SAME way, via `currentSpaceId` — see NotificationItem.
-                        displayName={
-                          <MemberName address={senderId ?? ''} spaceId={rowSpaceId} enrich />
-                        }
-                        mapSenderToUser={mapSenderToUser}
-                        currentSpaceId={rowSpaceId}
-                        spaceRoles={spaceRoles}
-                        spaceChannels={spaceChannels}
-                        spaceName={global ? (notification as any).spaceName : undefined}
-                      />
-                    </div>
-                  );
-                })}
+              <>
+                {/* Mobile: Use new item list layout */}
+                {isTouchDevice() ? (
+                  <div className="mobile-drawer__item-list mobile-drawer__item-list--with-controls">
+                    {allNotifications.map((notification) => {
+                      const senderId = notification.message.content?.senderId;
+                      const rowSpaceId = (notification as any).spaceId ?? spaceId;
+                      return (
+                        <div
+                          key={`${notification.message.messageId}-${notification.channelId}`}
+                          className="mobile-drawer__item-box mobile-drawer__item-box--interactive"
+                        >
+                          <NotificationItem
+                            notification={notification}
+                            onNavigate={handleNavigate}
+                            displayName={
+                              <MemberName address={senderId ?? ''} spaceId={rowSpaceId} enrich />
+                            }
+                            mapSenderToUser={mapSenderToUser}
+                            currentSpaceId={rowSpaceId}
+                            spaceRoles={spaceRoles}
+                            spaceChannels={spaceChannels}
+                            spaceName={global ? (notification as any).spaceName : undefined}
+                            compactDate={true}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  /* Desktop: card item layout */
+                  <div className="notification-panel__list">
+                    {allNotifications.map((notification) => {
+                      const senderId = notification.message.content?.senderId;
+                      const rowSpaceId = (notification as any).spaceId ?? spaceId;
+                      return (
+                        <div
+                          key={`${notification.message.messageId}-${notification.channelId}`}
+                          className="panel-item-box panel-item-box--interactive"
+                        >
+                          <NotificationItem
+                            notification={notification}
+                            onNavigate={handleNavigate}
+                            displayName={
+                              <MemberName address={senderId ?? ''} spaceId={rowSpaceId} enrich />
+                            }
+                            mapSenderToUser={mapSenderToUser}
+                            currentSpaceId={rowSpaceId}
+                            spaceRoles={spaceRoles}
+                            spaceChannels={spaceChannels}
+                            spaceName={global ? (notification as any).spaceName : undefined}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* Truncation note - only in global mode when results are capped */}
+            {global && globalTruncated && (
+              <div className="notification-panel__truncation-note">
+                {t`Showing the ${GLOBAL_DISPLAY_CAP} most recent notifications`}
               </div>
             )}
           </>
-        )}
-
-        {/* Truncation note - only in global mode when results are capped */}
-        {global && globalTruncated && (
-          <div className="notification-panel__truncation-note">
-            {t`Showing the ${GLOBAL_DISPLAY_CAP} most recent notifications`}
-          </div>
         )}
       </>
   );

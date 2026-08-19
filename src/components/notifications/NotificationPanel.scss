@@ -159,3 +159,54 @@
   font-size: $text-sm;
   color: var(--color-text-subtle);
 }
+
+.notification-panel__tabs {
+  display: flex;
+  align-items: center;
+  gap: $s-2;
+  padding: $s-2 $s-4;
+  border-bottom: 1px solid var(--color-border-panel);
+  background: var(--color-surface-base);
+  flex-shrink: 0;
+}
+
+.notification-panel__tab-btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: $rounded-full;
+  padding: 5px 14px;
+  font-size: $text-xs;
+  font-weight: $font-medium;
+  color: var(--color-text-subtle);
+  display: inline-flex;
+  align-items: center;
+  gap: $s-1-5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: var(--color-text-main);
+    background: var(--color-surface-1);
+  }
+
+  &--active {
+    background: var(--color-surface-2);
+    color: var(--color-text-main);
+    border-color: var(--color-border-default);
+    font-weight: $font-bold;
+  }
+}
+
+.notification-panel__tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  border-radius: $rounded-full;
+  background: var(--color-link);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: $font-bold;
+}
+

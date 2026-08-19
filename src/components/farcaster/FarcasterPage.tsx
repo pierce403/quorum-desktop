@@ -3,6 +3,7 @@ import { t } from '@lingui/core/macro';
 import { Button, Callout, Icon, Input, TextArea } from '../primitives';
 import { useQueryClient } from '@tanstack/react-query';
 import { useOptionalShellState } from '../shell/useShellState';
+import { useLocation } from 'react-router-dom';
 import { FarcasterCastCard } from './FarcasterCastCard';
 import { FarcasterAccountModal } from './FarcasterAccountModal';
 import { FarcasterMiniAppModal, type MiniAppSession } from './FarcasterMiniAppModal';
@@ -18,11 +19,9 @@ import {
   useTrendingFeed,
   useViewerReactions,
   useViewerReactionOverlay,
-  useFarcasterNotifications,
   fetchEmbedEnrichment,
   applyOverlayToThreadTree,
   type ThreadNode,
-  type FarcasterNotificationItem,
 } from './useFarcasterDesktop';
 import {
   useHomeFeed,
@@ -116,9 +115,10 @@ type View =
   | { kind: 'profile'; fid: number }
   | { kind: 'thread'; hash: string };
 
-type FeedTab = 'following' | 'trending' | 'notifications';
+type FeedTab = 'following' | 'trending';
 
 export const FarcasterPage: React.FC = () => {
+  const location = useLocation();
   const queryClient = useQueryClient();
   const [view, setView] = React.useState<View>({ kind: 'feed' });
   const [feedTab, setFeedTab] = React.useState<FeedTab>('following');
@@ -142,8 +142,22 @@ export const FarcasterPage: React.FC = () => {
       .finally(() => setAccountLoaded(true));
   }, []);
 
+  // Sync navigation query params (e.g. from Notifications click)
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const threadHash = params.get('thread');
+    const profileFid = params.get('profile');
+    const channelKey = params.get('channel');
+    if (threadHash) {
+      setView({ kind: 'thread', hash: threadHash });
+    } else if (profileFid) {
+      setView({ kind: 'profile', fid: Number(profileFid) });
+    } else if (channelKey) {
+      setView({ kind: 'channel', channel: channelKey });
+    }
+  }, [location.search]);
+
   const showFollowing = accountLoaded && account !== null && feedTab === 'following';
-  const showNotifications = accountLoaded && account !== null && feedTab === 'notifications';
   const trending = useTrendingFeed(accountLoaded && (feedTab === 'trending' || account === null));
   const home = useHomeFeed({
     fid: account?.fid,
@@ -274,7 +288,6 @@ export const FarcasterPage: React.FC = () => {
   } else if (view.kind === 'feed') {
     rawCasts = primaryFeed.data?.pages.flatMap((page) => page.casts) ?? [];
     if (showFollowing) title = t`Following`;
-    else if (showNotifications) title = t`Notifications`;
     else title = t`Trending`;
   }
 
@@ -383,18 +396,11 @@ export const FarcasterPage: React.FC = () => {
             >
               {t`Trending`}
             </Button>
-            <Button
-              type="unstyled"
-              className={`farcaster-tabs__button ${feedTab === 'notifications' ? 'farcaster-tabs__button--active' : ''}`}
-              onClick={() => setFeedTab('notifications')}
-            >
-              {t`Notifications`}
-            </Button>
           </div>
         )}
 
         {/* Quick channel pills */}
-        {view.kind === 'feed' && feedTab !== 'notifications' && (
+        {view.kind === 'feed' && (
           <div className="farcaster-channels-strip">
             <span className="farcaster-channels-strip__label">{t`Popular:`}</span>
             {POPULAR_CHANNELS.map((ch) => (
@@ -410,7 +416,7 @@ export const FarcasterPage: React.FC = () => {
           </div>
         )}
 
-        {account && view.kind !== 'thread' && feedTab !== 'notifications' && (
+        {account && view.kind !== 'thread' && (
           <div className="farcaster-compose">
             {composeError && <Callout variant="error" size="sm">{composeError}</Callout>}
             <TextArea
@@ -454,15 +460,7 @@ export const FarcasterPage: React.FC = () => {
 
         {view.kind === 'channel' && <ChannelHeader channelKey={view.channel} />}
 
-        {view.kind === 'feed' && feedTab === 'notifications' && account && (
-          <FarcasterNotificationsView
-            fid={account.fid}
-            onOpenProfile={cardProps.onOpenProfile}
-            onOpenThread={cardProps.onOpenThread}
-          />
-        )}
-
-        {((view.kind === 'feed' && feedTab !== 'notifications') || view.kind === 'channel') && (
+        {(view.kind === 'feed' || view.kind === 'channel') && (
           <section className="farcaster-feed" aria-label={title}>
             <div className="farcaster-feed__toolbar">
               <span>{view.kind === 'feed' ? (showFollowing ? t`Posts from accounts you follow` : t`Live from the Farcaster network`) : t`Channel feed`}</span>
@@ -498,247 +496,6 @@ export const FarcasterPage: React.FC = () => {
         }}
       />
     </div>
-  );
-};
-
-function formatNotificationTimestamp(timestamp: number): string {
-  const elapsed = Math.max(0, Date.now() - timestamp);
-  const minutes = Math.floor(elapsed / 60_000);
-  if (minutes < 1) return t`just now`;
-  if (minutes < 60) return `${minutes}m`;
-  const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h`;
-  const days = Math.floor(hours / 24);
-  if (days < 7) return `${days}d`;
-  return new Intl.DateTimeFormat(undefined, { month: 'short', day: 'numeric' }).format(timestamp);
-}
-
-type NotificationFilter = 'all' | 'mentions' | 'reactions' | 'follows';
-
-const FarcasterNotificationCard: React.FC<{
-  item: FarcasterNotificationItem;
-  onOpenProfile: (fid: number) => void;
-  onOpenThread: (hash: string) => void;
-}> = ({ item, onOpenProfile, onOpenThread }) => {
-  const isLike = item.type === 'likes' || item.type === 'like';
-  const isRecast = item.type === 'recasts' || item.type === 'recast';
-  const isReply = item.type === 'reply' || item.type === 'replies';
-  const isMention = item.type === 'mention' || item.type === 'mentions';
-  const isFollow = item.type === 'follows' || item.type === 'follow';
-
-  const handleClick = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (target.closest('button, a, .farcaster-notification__avatar-button')) return;
-
-    if (item.cast) {
-      onOpenThread(item.cast.threadHash || item.cast.parentHash || item.cast.hash);
-    } else if (isFollow) {
-      onOpenProfile(item.user.fid);
-    }
-  };
-
-  let iconName: any = 'bell';
-  let iconClass = 'farcaster-notification__icon--default';
-  let actionText = t`interacted with you`;
-
-  if (isLike) {
-    iconName = 'heart';
-    iconClass = 'farcaster-notification__icon--likes';
-    actionText = t`liked your cast`;
-  } else if (isRecast) {
-    iconName = 'refresh';
-    iconClass = 'farcaster-notification__icon--recasts';
-    actionText = t`recasted your cast`;
-  } else if (isReply) {
-    iconName = 'message';
-    iconClass = 'farcaster-notification__icon--reply';
-    actionText = t`replied to your cast`;
-  } else if (isMention) {
-    iconName = 'at-sign';
-    iconClass = 'farcaster-notification__icon--mention';
-    actionText = t`mentioned you`;
-  } else if (isFollow) {
-    iconName = 'user-plus';
-    iconClass = 'farcaster-notification__icon--follows';
-    actionText = t`followed you`;
-  }
-
-  return (
-    <article
-      className="farcaster-notification"
-      onClick={handleClick}
-      role={item.cast || isFollow ? 'button' : undefined}
-      tabIndex={item.cast || isFollow ? 0 : undefined}
-    >
-      <div className="farcaster-notification__header">
-        <div className={`farcaster-notification__icon ${iconClass}`}>
-          <Icon name={iconName} size="sm" />
-        </div>
-
-        <button
-          type="button"
-          className="farcaster-notification__avatar-button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onOpenProfile(item.user.fid);
-          }}
-        >
-          {item.user.pfpUrl ? (
-            <img className="farcaster-notification__avatar" src={item.user.pfpUrl} alt="" loading="lazy" />
-          ) : (
-            <span className="farcaster-notification__avatar farcaster-notification__avatar--fallback">
-              {(item.user.displayName || item.user.username || '?').slice(0, 1).toUpperCase()}
-            </span>
-          )}
-        </button>
-
-        <div className="farcaster-notification__byline">
-          <button
-            type="button"
-            className="farcaster-notification__name-btn"
-            onClick={(e) => {
-              e.stopPropagation();
-              onOpenProfile(item.user.fid);
-            }}
-          >
-            <strong>{item.user.displayName || item.user.username}</strong>
-            <span className="farcaster-notification__handle">@{item.user.username}</span>
-          </button>
-          <span className="farcaster-notification__action">{actionText}</span>
-        </div>
-
-        <span className="farcaster-notification__time">
-          {formatNotificationTimestamp(item.timestamp)}
-        </span>
-      </div>
-
-      {item.cast && (
-        <div className="farcaster-notification__body">
-          <div className="farcaster-notification__cast-preview">
-            <p className="farcaster-notification__cast-text">{item.cast.text}</p>
-          </div>
-        </div>
-      )}
-
-      {isFollow && item.user.bio && (
-        <div className="farcaster-notification__body">
-          <div className="farcaster-notification__bio">{item.user.bio}</div>
-        </div>
-      )}
-    </article>
-  );
-};
-
-const FarcasterNotificationsView: React.FC<{
-  fid: number;
-  onOpenProfile: (fid: number) => void;
-  onOpenThread: (hash: string) => void;
-}> = ({ fid, onOpenProfile, onOpenThread }) => {
-  const [filter, setFilter] = React.useState<NotificationFilter>('all');
-  const notificationsQuery = useFarcasterNotifications(fid);
-  const sentinelRef = React.useRef<HTMLDivElement | null>(null);
-
-  const rawNotifications =
-    notificationsQuery.data?.pages.flatMap((page) => page.notifications) ?? [];
-
-  const filteredNotifications = React.useMemo(() => {
-    if (filter === 'mentions') {
-      return rawNotifications.filter((n) => n.type === 'mention' || n.type === 'reply' || n.type === 'replies');
-    }
-    if (filter === 'reactions') {
-      return rawNotifications.filter((n) => n.type === 'likes' || n.type === 'like' || n.type === 'recasts' || n.type === 'recast');
-    }
-    if (filter === 'follows') {
-      return rawNotifications.filter((n) => n.type === 'follows' || n.type === 'follow');
-    }
-    return rawNotifications;
-  }, [rawNotifications, filter]);
-
-  useInfiniteScroll(
-    sentinelRef,
-    notificationsQuery.hasNextPage,
-    notificationsQuery.isFetchingNextPage,
-    () => void notificationsQuery.fetchNextPage()
-  );
-
-  return (
-    <section className="farcaster-notifications-view" aria-label={t`Notifications`}>
-      <div className="farcaster-notifications-view__toolbar">
-        <div className="farcaster-notifications-view__filter-pills">
-          <button
-            type="button"
-            className={`farcaster-notifications-view__pill ${filter === 'all' ? 'farcaster-notifications-view__pill--active' : ''}`}
-            onClick={() => setFilter('all')}
-          >
-            {t`All`}
-          </button>
-          <button
-            type="button"
-            className={`farcaster-notifications-view__pill ${filter === 'mentions' ? 'farcaster-notifications-view__pill--active' : ''}`}
-            onClick={() => setFilter('mentions')}
-          >
-            {t`Mentions & Replies`}
-          </button>
-          <button
-            type="button"
-            className={`farcaster-notifications-view__pill ${filter === 'reactions' ? 'farcaster-notifications-view__pill--active' : ''}`}
-            onClick={() => setFilter('reactions')}
-          >
-            {t`Likes & Recasts`}
-          </button>
-          <button
-            type="button"
-            className={`farcaster-notifications-view__pill ${filter === 'follows' ? 'farcaster-notifications-view__pill--active' : ''}`}
-            onClick={() => setFilter('follows')}
-          >
-            {t`Follows`}
-          </button>
-        </div>
-
-        <Button
-          type="unstyled"
-          iconName="refresh"
-          iconOnly
-          ariaLabel={t`Refresh notifications`}
-          onClick={() => void notificationsQuery.refetch()}
-        />
-      </div>
-
-      <div className="farcaster-notifications-list">
-        {notificationsQuery.isLoading && rawNotifications.length === 0 && (
-          <LoadingState label={t`Loading notifications...`} />
-        )}
-        {notificationsQuery.error && rawNotifications.length === 0 && (
-          <ErrorState onRetry={() => void notificationsQuery.refetch()} />
-        )}
-        {!notificationsQuery.isLoading && filteredNotifications.length === 0 && (
-          <div className="empty-state empty-state--fill">
-            <Icon name="bell" size="5xl" className="empty-state__icon" />
-            <p className="empty-state__title">{t`No notifications yet.`}</p>
-          </div>
-        )}
-        {filteredNotifications.map((item) => (
-          <FarcasterNotificationCard
-            key={item.id}
-            item={item}
-            onOpenProfile={onOpenProfile}
-            onOpenThread={onOpenThread}
-          />
-        ))}
-        {filteredNotifications.length > 0 && (
-          <div ref={sentinelRef} className="farcaster-feed__sentinel" aria-hidden="true" />
-        )}
-        {filteredNotifications.length > 0 && notificationsQuery.hasNextPage && (
-          <Button
-            type="secondary"
-            disabled={notificationsQuery.isFetchingNextPage}
-            onClick={() => void notificationsQuery.fetchNextPage()}
-          >
-            {notificationsQuery.isFetchingNextPage ? t`Loading...` : t`Load more`}
-          </Button>
-        )}
-      </div>
-    </section>
   );
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { describe, it, expect, beforeAll, vi } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { MemoryRouter } from 'react-router-dom';
 import { I18nProvider } from '@lingui/react';
 import { i18n } from '@lingui/core';
 import { messages } from '@/i18n/en/messages';
@@ -20,11 +21,13 @@ const renderFarcasterPage = () => {
   });
 
   return render(
-    <I18nProvider i18n={i18n}>
-      <QueryClientProvider client={queryClient}>
-        <FarcasterPage />
-      </QueryClientProvider>
-    </I18nProvider>
+    <MemoryRouter>
+      <I18nProvider i18n={i18n}>
+        <QueryClientProvider client={queryClient}>
+          <FarcasterPage />
+        </QueryClientProvider>
+      </I18nProvider>
+    </MemoryRouter>
   );
 };
 
