@@ -849,6 +849,232 @@
   .farcaster-feed { border-radius: 0 0 $rounded-xl $rounded-xl; border-top: 0; }
 }
 
+.farcaster-notifications-view {
+  display: flex;
+  flex-direction: column;
+  gap: $s-3;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $s-2;
+    padding: $s-2 0;
+  }
+
+  &__filter-pills {
+    display: flex;
+    align-items: center;
+    gap: $s-2;
+    flex-wrap: wrap;
+  }
+
+  &__pill {
+    appearance: none;
+    background: var(--color-surface-1);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: $rounded-full;
+    padding: 4px 12px;
+    font-size: $text-xs;
+    font-weight: $font-medium;
+    color: var(--color-text-subtle);
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: var(--color-text-main);
+      border-color: var(--color-border-default);
+    }
+
+    &--active {
+      background: var(--color-surface-2);
+      color: var(--color-text-main);
+      border-color: var(--color-link);
+      font-weight: $font-bold;
+    }
+  }
+}
+
+.farcaster-notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: $s-2;
+}
+
+.farcaster-notification {
+  display: flex;
+  flex-direction: column;
+  gap: $s-2;
+  padding: $s-3 $s-4;
+  background: var(--color-surface-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: $rounded-xl;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  text-align: left;
+
+  &[role='button'] {
+    cursor: pointer;
+
+    &:hover {
+      background: var(--color-surface-1);
+      border-color: var(--color-border-default);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $s-3;
+    width: 100%;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: $rounded-full;
+    flex-shrink: 0;
+
+    &--likes {
+      color: #f43f5e;
+      background: rgba(244, 63, 94, 0.12);
+    }
+
+    &--recasts {
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.12);
+    }
+
+    &--reply {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.12);
+    }
+
+    &--mention {
+      color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.12);
+    }
+
+    &--follows {
+      color: #06b6d4;
+      background: rgba(6, 182, 212, 0.12);
+    }
+
+    &--default {
+      color: var(--color-text-subtle);
+      background: var(--color-surface-2);
+    }
+  }
+
+  &__avatar-button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: $rounded-full;
+    object-fit: cover;
+    display: block;
+
+    &--fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-surface-2);
+      color: var(--color-text-subtle);
+      font-weight: $font-bold;
+      font-size: $text-xs;
+    }
+  }
+
+  &__byline {
+    display: flex;
+    align-items: baseline;
+    gap: $s-2;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__name-btn {
+    appearance: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: $s-1;
+    text-align: left;
+
+    strong {
+      color: var(--color-text-main);
+      font-size: $text-sm;
+      font-weight: $font-bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__handle {
+    color: var(--color-text-subtle);
+    font-size: $text-xs;
+  }
+
+  &__action {
+    color: var(--color-text-subtle);
+    font-size: $text-xs;
+  }
+
+  &__time {
+    margin-left: auto;
+    color: var(--color-text-subtle);
+    font-size: $text-xs;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  &__body {
+    padding-left: 40px;
+  }
+
+  &__cast-preview {
+    background: var(--color-surface-1);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: $rounded-lg;
+    padding: $s-2 $s-3;
+  }
+
+  &__cast-text {
+    margin: 0;
+    color: var(--color-text-main);
+    font-size: $text-sm;
+    line-height: $leading-normal;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+
+  &__bio {
+    color: var(--color-text-subtle);
+    font-size: $text-xs;
+    line-height: $leading-normal;
+    margin-top: $s-1;
+  }
+}
+
 @media (max-width: 700px) {
   .farcaster-page {
     &__inner { padding: $s-3; }

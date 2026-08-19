@@ -375,57 +375,125 @@ export async function resolveFarcasterUsername(username: string): Promise<number
   }
 }
 
-const channelUrls = new Map<string, string>();
-
-export async function resolveChannelParentUrl(channel: string): Promise<string> {
-  const cached = channelUrls.get(channel);
-  if (cached) return cached;
+export async function resolveChannelParentUrl(channel: string): Promise<string | undefined> {
   try {
-    const response = await fetch(`https://api.farcaster.xyz/v1/channel?channelId=${encodeURIComponent(channel)}`);
-    if (response.ok) {
-      const data = await response.json() as { result?: { channel?: { url?: string } } };
-      const url = data.result?.channel?.url;
-      if (url) {
-        channelUrls.set(channel, url);
-        return url;
-      }
-    }
-  } catch { /* use the canonical legacy-channel fallback */ }
-  return `https://warpcast.com/~/channel/${channel}`;
+    const res = await nativeFetch(
+      `https://farcaster.xyz/~api/v2/channel?key=${encodeURIComponent(channel)}`
+    );
+    if (!res.ok) return undefined;
+    const data = (await res.json()) as {
+      result?: {
+        channel?: {
+          parentUrl?: string;
+          url?: string;
+        };
+      };
+    };
+    return data.result?.channel?.parentUrl || data.result?.channel?.url;
+  } catch {
+    return undefined;
+  }
 }
 
 export function useDesktopUserAppContext(token?: string) {
   return useQuery({
     queryKey: ['farcaster', 'desktop', 'user-app-context', token],
+    enabled: Boolean(token),
     queryFn: async () => {
       if (!token) return null;
       try {
-        const res = await fetch('https://client.farcaster.xyz/v2/user-app-context', {
+        const res = await nativeFetch('https://client.farcaster.xyz/v2/user-app-context', {
           headers: {
-            accept: 'application/json',
             authorization: `Bearer ${token}`,
-            origin: 'https://farcaster.xyz',
-            referer: 'https://farcaster.xyz/',
           },
         });
         if (!res.ok) return null;
         const data = (await res.json()) as {
           result?: {
-            context?: {
-              regularCastByteLimit?: number;
+            userAppContext?: {
               longCastByteLimit?: number;
-              castEmbedLimit?: number;
-              isAdmin?: boolean;
-              canUploadVideo?: boolean;
+              regularCastByteLimit?: number;
             };
           };
         };
-        return data.result?.context ?? null;
+        return data.result?.userAppContext ?? null;
       } catch {
         return null;
       }
     },
-    enabled: Boolean(token),
     staleTime: 1000 * 60 * 60 * 24,
+  });
+}
+
+export interface RawFarcasterNotification {
+  object: 'notification';
+  type: 'likes' | 'recasts' | 'reply' | 'mention' | 'follows' | string;
+  user: any;
+  cast?: any | null;
+}
+
+export interface FarcasterNotificationItem {
+  id: string;
+  type: 'likes' | 'recasts' | 'reply' | 'mention' | 'follows' | string;
+  user: ReturnType<typeof fromHypersnapUser>;
+  cast?: NormalizedCast | null;
+  timestamp: number;
+}
+
+export interface FarcasterNotificationsResponse {
+  notifications: FarcasterNotificationItem[];
+  nextCursor?: string | null;
+}
+
+export function useFarcasterNotifications(fid?: number, enabled = true) {
+  return useInfiniteQuery({
+    queryKey: ['farcaster', 'desktop', 'notifications', fid],
+    enabled: Boolean(enabled && fid && fid > 0),
+    initialPageParam: undefined as string | undefined,
+    queryFn: async ({ pageParam }): Promise<FarcasterNotificationsResponse> => {
+      if (!fid) return { notifications: [], nextCursor: null };
+      const params = new URLSearchParams({
+        fid: String(fid),
+        limit: String(PAGE_SIZE),
+      });
+      if (pageParam) params.set('cursor', pageParam);
+
+      const res = await nativeFetch(
+        `https://haatz.quilibrium.com/v2/farcaster/notifications?${params.toString()}`
+      );
+      if (!res.ok) {
+        throw new Error(`Failed to fetch notifications: HTTP ${res.status}`);
+      }
+      const data = (await res.json()) as {
+        notifications?: RawFarcasterNotification[];
+        next?: { cursor?: string | null };
+      };
+
+      const notifications: FarcasterNotificationItem[] = (data.notifications ?? []).map((n, idx) => {
+        const user = fromHypersnapUser(n.user);
+        const cast = n.cast ? fromHypersnapCast(n.cast) : null;
+        const ts = cast
+          ? cast.timestamp
+          : n.user.registered_at
+            ? new Date(n.user.registered_at).getTime()
+            : Date.now();
+        const id = `${n.type}-${user.fid}-${cast?.hash || idx}-${ts}`;
+
+        return {
+          id,
+          type: n.type,
+          user,
+          cast: cast ? (isSafeFarcasterCast(cast) ? cast : null) : null,
+          timestamp: ts,
+        };
+      });
+
+      return {
+        notifications,
+        nextCursor: data.next?.cursor ?? null,
+      };
+    },
+    getNextPageParam: (page) => page.nextCursor ?? undefined,
+    staleTime: 30_000,
   });
 }
