@@ -148,22 +148,22 @@ msgid "{0} messages were not restored because you deleted them after this backup
 msgstr "Bu yedekleme yapıldıktan sonra sildiğin için {0} mesaj geri yüklenmedi."
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:256
 msgid "{0} notification"
 msgstr "{0} bildirimi"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:247
+#: src/components/notifications/NotificationPanel.tsx:259
 msgid "{0} Notification in this Space"
 msgstr "Bu Alandaki {0} Bildirim"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:245
+#: src/components/notifications/NotificationPanel.tsx:257
 msgid "{0} notifications"
 msgstr "{0} bildirimleri"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:248
+#: src/components/notifications/NotificationPanel.tsx:260
 msgid "{0} Notifications in this Space"
 msgstr "Bu Alandaki {0} Bildirim"
 
@@ -211,9 +211,6 @@ msgstr "{bookmarkCount} yer işaret"
 msgid "{bookmarkCount} bookmarks"
 msgstr "{bookmarkCount} işaretler"
 
-#~ msgid "{contextCount} bookmark here"
-#~ msgstr "{contextCount} burada marcör"
-
 #: src/components/bookmarks/BookmarksPanel.tsx:181
 msgid "{contextCount} bookmark in this conversation"
 msgstr "Bu sohbette {contextCount} yer işareti"
@@ -221,9 +218,6 @@ msgstr "Bu sohbette {contextCount} yer işareti"
 #: src/components/bookmarks/BookmarksPanel.tsx:184
 msgid "{contextCount} bookmark in this Space"
 msgstr "Bu Alanda {contextCount} yer işareti"
-
-#~ msgid "{contextCount} bookmarks here"
-#~ msgstr "{contextCount} burada marcörler"
 
 #: src/components/bookmarks/BookmarksPanel.tsx:182
 msgid "{contextCount} bookmarks in this conversation"
@@ -250,17 +244,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} yanıt"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:115
+#: src/components/notifications/NotificationPanel.tsx:125
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:119
+#: src/components/notifications/NotificationPanel.tsx:129
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:111
+#: src/components/notifications/NotificationPanel.tsx:121
 msgid "@you"
 msgstr "@you"
 
@@ -338,9 +332,9 @@ msgstr "Hesap Anahtarı"
 msgid "Account Settings"
 msgstr "Hesap Ayarları"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:622
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:666
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:699
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:631
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:675
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:708
 msgid "Account setup isn't ready yet. Please retry creating your account."
 msgstr ""
 
@@ -439,7 +433,8 @@ msgstr "Gelişmiş Ayarlar"
 #: src/components/modals/ChannelEditorModal.tsx:206
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
-#: src/components/notifications/NotificationPanel.tsx:265
+#: src/components/notifications/FarcasterNotificationsView.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:305
 msgid "All"
 msgstr "Hepsi"
 
@@ -485,9 +480,6 @@ msgstr "Doğrudan Mesajları her zaman imzala"
 msgid "Always sign messages"
 msgstr "Mesajları her zaman imzala"
 
-#~ msgid "An error occurred while deleting the Space. Please try again."
-#~ msgstr "Space'yu silerken bir hata oluştu. Lütfen tekrar deneyin."
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:88
 msgid "An error occurred while resetting app data. Please try again."
 msgstr "Uygulama verileri sıfırlanırken bir hata oluştu. Lütfen tekrar deneyin."
@@ -522,9 +514,6 @@ msgstr ""
 "Bu kodu gören veya fotoğraflayan herkes hesabının tam kontrolünü ele geçirebilir ve içerdiği tüm fonları çalabilir.\n"
 "\n"
 "Yalnızca özel bir yerdeysen ve hemen taramaya hazırsan devam et. Kod 60 saniye sonra kendini gizler."
-
-#~ msgid "Anyone who sees or photographs this QR code can take full control of your Quorum account and steal any associated funds. Only proceed if you are in a private location and ready to scan immediately."
-#~ msgstr "Bu QR kodunu gören veya fotoğrafını çeken herkes, Quorum hesabınıza tam kontrol sağlayabilir ve ilişkili fonları çalabilir. Sadece özel bir yerdeyseniz ve hemen taramaya hazırsanız devam edin."
 
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:252
 msgid "App version"
@@ -575,9 +564,6 @@ msgstr "Bu mesajı silmek istediğinize emin misiniz?"
 msgid "Are you sure you want to delete this role?"
 msgstr "Bu rolü silmek istediğinize emin misiniz?"
 
-#~ msgid "Are you sure you want to leave this Space? You won't be able to rejoin unless you are re-invited."
-#~ msgstr "Bu Alan'dan ayrılmak istediğinize emin misiniz? Yeniden davet edilmediğiniz sürece tekrar katılamayacaksınız."
-
 #: src/components/modals/LeaveSpaceModal.tsx:47
 msgid "Are you sure you want to leave this Space? You'll need an invite to rejoin, though a public invite link will still work if this Space has one."
 msgstr "Bu Alandan ayrılmak istediğine emin misin? Yeniden katılmak için bir davetiyeye ihtiyacın olacak, ancak bu Alanın herkese açık bir davet bağlantısı varsa o yine de çalışacaktır."
@@ -606,12 +592,12 @@ msgstr "Otomatik kapat"
 msgid "Away"
 msgstr "Uzak"
 
-#: src/components/farcaster/FarcasterPage.tsx:291
-#: src/components/farcaster/FarcasterPage.tsx:749
+#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:828
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:746
+#: src/components/farcaster/FarcasterPage.tsx:825
 msgid "Back to feed"
 msgstr ""
 
@@ -627,9 +613,6 @@ msgstr "Alanlar listesine geri dön"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:17
 msgid "Back Up Your Account Key"
 msgstr "Hesap Anahtarını Yedekle"
-
-#~ msgid "Backup Failed"
-#~ msgstr "Yedekleme Başarısız"
 
 #: src/components/direct/DMUserProfileSidebar.tsx:108
 #: src/components/modals/SpaceSettingsModal/Account.tsx:269
@@ -703,7 +686,7 @@ msgstr "Bu Alandaki yer imleri"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Herkese açık Alanlara göz at ve katılacak bir topluluk bul."
 
-#: src/components/farcaster/FarcasterPage.tsx:323
+#: src/components/farcaster/FarcasterPage.tsx:376
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -711,15 +694,12 @@ msgstr ""
 msgid "Busy"
 msgstr "Meşgul"
 
-#~ msgid "Camera"
-#~ msgstr "Kamera"
-
 #: src/components/modals/UserSettingsModal/SyncStatusLine.tsx:65
 msgid "Can't sync: no key is available on this device."
 msgstr "Senkronize edilemiyor: bu cihazda anahtar yok."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterPage.tsx:703
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -732,7 +712,7 @@ msgstr "Senkronize edilemiyor: bu cihazda anahtar yok."
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:205
+#: src/components/notifications/NotificationPanel.tsx:215
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -744,7 +724,7 @@ msgstr "İptal"
 msgid "CANCEL"
 msgstr "İPTAL"
 
-#: src/components/farcaster/FarcasterPage.tsx:601
+#: src/components/farcaster/FarcasterPage.tsx:675
 msgid "Cancel reply"
 msgstr ""
 
@@ -758,23 +738,23 @@ msgstr "Varsayılan kanal içeren bir grup silinemez."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Bir seferde {0} dosyadan fazlasını yükleyemezsiniz ({remaining} slot kaldı)"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:326
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:740
+#: src/components/farcaster/FarcasterPage.tsx:819
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:521
+#: src/components/farcaster/FarcasterPage.tsx:595
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:528
+#: src/components/farcaster/FarcasterPage.tsx:602
 msgid "Casts & Replies"
 msgstr ""
 
@@ -782,7 +762,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Değişiklikler otomatik olarak yapılır, ancak aktif sayfa güncellenmeyebilir. Yeni dili uygulamak için sayfayı yenileyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Channel feed"
 msgstr ""
 
@@ -841,9 +821,6 @@ msgstr "Kanallar"
 msgid "choose file"
 msgstr "dosya seç"
 
-#~ msgid "Choose how you'd like to add your profile image"
-#~ msgstr "Profil resminizi nasıl eklemek istediğinizi seçin"
-
 #: src/components/modals/UserSettingsModal/Appearance.tsx:45
 msgid "Choose your preferred theme for Quorum."
 msgstr "Quorum için tercih ettiğiniz temayı seçin."
@@ -851,7 +828,7 @@ msgstr "Quorum için tercih ettiğiniz temayı seçin."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:266
+#: src/components/notifications/NotificationPanel.tsx:306
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Temizle"
@@ -859,6 +836,10 @@ msgstr "Temizle"
 #: src/components/search/SearchBar.tsx:139
 msgid "Clear search"
 msgstr "arama temizle"
+
+#: src/components/AppErrorScreen.tsx:138
+msgid "Clear Session"
+msgstr ""
 
 #: src/services/NotificationService.ts:211
 msgid "Clearing notifications with tag: {tag}"
@@ -924,6 +905,14 @@ msgstr "Ayrılma Onayı"
 msgid "Confirm Reset"
 msgstr "Sıfırlamayı Onayla"
 
+#: src/components/AppErrorScreen.tsx:166
+msgid "Confirm Reset & Restart"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:179
+msgid "Connect Farcaster"
+msgstr ""
+
 #: src/components/Connecting.tsx:13
 #: src/components/ConnectingClassic.tsx:22
 msgid "Connecting"
@@ -955,6 +944,10 @@ msgstr "Konuşma Ayarları"
 msgid "Conversation with {counterpartLabel}"
 msgstr "{counterpartLabel} ile sohbet"
 
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copied Diagnostics!"
+msgstr ""
+
 #: src/components/message/MessageActionsMenu.tsx:223
 #: src/components/message/MessageActionsMenu.tsx:228
 #: src/components/ui/ClickToCopyContent.tsx:153
@@ -980,8 +973,9 @@ msgstr "Bir bağlantıyı kopyala"
 msgid "Copy address"
 msgstr "Adresi kopyala"
 
-#~ msgid "Copy Failed"
-#~ msgstr "Kopyalama Başarısız"
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copy Error Report"
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/Security.tsx:523
 msgid "Copy full address"
@@ -1036,8 +1030,8 @@ msgstr "Space detaylarını almak mümkün olmadı. Lütfen tekrar deneyin."
 msgid "Could not import key"
 msgstr "Anahtar içe aktarılamadı"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:231
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:592
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:240
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:601
 msgid "Could not import that account key. Check the file or key and try again."
 msgstr ""
 
@@ -1055,7 +1049,7 @@ msgid "Couldn't decrypt your saved profile. Please re-enter your name and profil
 msgstr "Kaydedilmiş profilinizi şifreleyemedik. Lütfen adınızı ve profil resminizi tekrar girin."
 
 #: src/hooks/business/user/useOnboardingFlowLogic.ts:252
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:500
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:509
 msgid "Couldn't load your saved profile. Please re-enter your name and profile image."
 msgstr "Kaydedilmiş profilinizi yükleyemedik. Lütfen adınızı ve profil resminizi tekrar girin."
 
@@ -1343,7 +1337,7 @@ msgstr "Özel Mesaj"
 msgid "Direct messages"
 msgstr "Doğrudan mesajlar"
 
-#: src/components/farcaster/FarcasterPage.tsx:319
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Disconnect"
 msgstr ""
 
@@ -1358,9 +1352,6 @@ msgstr "Mesajlarınızda kullanıcı adınızın yanına, sahip olduğunuz bir A
 #: src/components/modals/UserSettingsModal/General.tsx:136
 msgid "Display name"
 msgstr "Görünen ad"
-
-#~ msgid "Display Name"
-#~ msgstr "Görünen Ad"
 
 #: src/hooks/business/validation/errorTranslator.ts:39
 msgid "Display name cannot contain special characters"
@@ -1616,9 +1607,6 @@ msgstr "Yedekleme dışa aktarılsın mı?"
 msgid "Export an encrypted backup of your direct messages and your Spaces, so you can restore them if you lose access to this device."
 msgstr "Doğrudan mesajlarının ve Alanlarının şifreli bir yedeğini dışa aktar, böylece bu cihaza erişimini kaybedersen geri yükleyebilirsin."
 
-#~ msgid "Export an encrypted backup of your direct messages to restore them if you lose access to this device."
-#~ msgstr "Doğrudan mesajlarınızı şifreli bir yedek olarak dışa aktarın ve bu cihaza erişimi kaybederseniz mesajlarınızı geri yükleyebilmeniz için kullanın."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:232
 msgid "Export backup"
 msgstr "Yedeklemeyi dışa aktar"
@@ -1681,6 +1669,10 @@ msgstr "Kullanıcı atılamadı"
 msgid "Failed to load bookmarks"
 msgstr "Yer işaretlerini yüklemek başarısız oldu"
 
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:206
+msgid "Failed to load Mini App"
+msgstr ""
+
 #: src/components/discover-page/DiscoverTab.tsx:87
 msgid "Failed to load public Spaces."
 msgstr "Herkese açık Alanlar yüklenemedi."
@@ -1697,9 +1689,6 @@ msgstr "WebSocket mesajını ayrıştırmada başarısız oldu:"
 #: src/services/ActionQueueHandlers.ts:276
 msgid "Failed to pin message"
 msgstr "Mesaj sabitlenemedi"
-
-#~ msgid "Failed to process image"
-#~ msgstr "Görüntü işlenemedi"
 
 #: src/components/modals/UserSettingsModal/Security.tsx:133
 msgid "Failed to read your private key"
@@ -1761,7 +1750,7 @@ msgstr "Alan ayarları kaydedilemedi"
 msgid "Failed to send invite. Please try again."
 msgstr "Davet göndermede başarısız oldu. Lütfen tekrar deneyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:583
+#: src/components/farcaster/FarcasterPage.tsx:657
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1791,7 +1780,8 @@ msgstr "Katılma önizlemesi güncellenemedi. Lütfen tekrar dene."
 msgid "Failed to update profile"
 msgstr "Profil güncellenemedi"
 
-#: src/components/farcaster/FarcasterPage.tsx:294
+#: src/components/farcaster/FarcasterPage.tsx:347
+#: src/components/notifications/NotificationPanel.tsx:283
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1800,8 +1790,13 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:439
+#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:254
+msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -1900,18 +1895,26 @@ msgstr "Klasör adı gereklidir"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Klasör adı {MAX_NAME_LENGTH} karakter veya daha az olmalıdır"
 
-#: src/components/farcaster/FarcasterPage.tsx:62
+#: src/components/notifications/FarcasterNotificationsView.tsx:71
+msgid "followed you"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:69
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:510
+#: src/components/farcaster/FarcasterPage.tsx:584
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:337
-#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:290
+#: src/components/farcaster/FarcasterPage.tsx:390
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Following"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:224
+msgid "Follows"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:60
@@ -1968,6 +1971,10 @@ msgstr "GIF dosyaları {maxSize}'den büyük olamaz. Lütfen daha küçük bir G
 msgid "Go to conversation"
 msgstr "Sohbete git"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:188
+msgid "Go to Farcaster"
+msgstr ""
+
 #: src/components/NotFound.tsx:32
 msgid "Go to Home"
 msgstr "Ana Sayfaya git"
@@ -2009,9 +2016,6 @@ msgstr "Yardım"
 msgid "Help others recognize you with a profile picture."
 msgstr "Diğerlerinin sizi tanıması için bir profil fotoğrafı ekleyin."
 
-#~ msgid "Hide"
-#~ msgstr "Gizle"
-
 #: src/components/onboarding/steps/ImportKeyStep.tsx:159
 msgid "Hide key"
 msgstr "Anahtarı gizle"
@@ -2041,12 +2045,6 @@ msgstr "Zaten bir hesabım var"
 msgid "I understand"
 msgstr "Anladım"
 
-#~ msgid "I Understand, Copy"
-#~ msgstr "Anladım, Kopyala"
-
-#~ msgid "I Understand, Show QR"
-#~ msgstr "Anladım, QR Göster"
-
 #: src/components/message/Message.tsx:978
 #: src/components/message/Message.tsx:1074
 msgid "I'm new!"
@@ -2055,6 +2053,10 @@ msgstr "Ben yeniym!"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:35
 msgid "I've already saved my key"
 msgstr "Anahtarımı zaten kaydettim"
+
+#: src/components/AppErrorScreen.tsx:182
+msgid "If this persists, check <0>status.quilibrium.com</0> or submit the copied error report."
+msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:821
 msgid "If users report that this invite link isn't working, click to republish it. The link URL stays the same."
@@ -2065,7 +2067,7 @@ msgid "Import a backup instead"
 msgstr "Bir yedekleme içe aktar"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:324
+#: src/components/farcaster/FarcasterPage.tsx:377
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Hesabı içe aktar"
@@ -2082,6 +2084,10 @@ msgstr "İçe aktarma yöntemi"
 msgid "Import your account key"
 msgstr "Hesap anahtarınızı içe aktarın"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:180
+msgid "Import your Farcaster account in the Farcaster section to receive your alerts and interaction notifications here."
+msgstr ""
+
 #: src/components/message/PinnedMessagesPanel.tsx:199
 msgid "Important messages will be pinned here"
 msgstr "Önemli mesajlar burada sabitlenecek"
@@ -2094,13 +2100,17 @@ msgstr ""
 msgid "Importing..."
 msgstr "İçe aktarılıyor..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:472
+#: src/components/farcaster/FarcasterCastCard.tsx:534
 msgid "in"
 msgstr ""
 
 #: src/components/modals/UserSettingsModal/Help.tsx:100
 msgid "Inline Code"
 msgstr "Satır İçi Kod"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:50
+msgid "interacted with you"
+msgstr ""
 
 #: src/services/MessageService.ts:4943
 msgid "invalid address for signature"
@@ -2210,6 +2220,10 @@ msgstr "Atla"
 msgid "Jump to present"
 msgstr "Şu ana atla"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:15
+msgid "just now"
+msgstr ""
+
 #: src/components/onboarding/steps/SecurityWarningStep.tsx:18
 msgid "Keep the file you downloaded safe and private! Anyone with this file can access your account."
 msgstr "İndirdiğiniz dosyayı güvenli ve gizli tutun! Bu dosyaya sahip olan herkes hesabınıza erişebilir."
@@ -2230,12 +2244,6 @@ msgstr "Anahtar onaltılık olmayan karakterler içeriyor."
 #: src/components/onboarding/steps/ImportKeyStep.tsx:55
 msgid "Key must be {ED448_PRIVATE_KEY_HEX_LENGTH} characters ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
 msgstr "Anahtar {ED448_PRIVATE_KEY_HEX_LENGTH} karakter olmalı ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
-
-#~ msgid "Key Ready"
-#~ msgstr "Anahtar Hazır"
-
-#~ msgid "Key Saved"
-#~ msgstr "Anahtar Kaydedildi"
 
 #: src/components/modals/UserSettingsModal/Help.tsx:76
 msgid "Keyboard Shortcuts"
@@ -2291,17 +2299,26 @@ msgstr "Sadece A–Z harfleri ve 0–9 rakamları. Otomatik büyük harf."
 msgid "Light"
 msgstr "Işık"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:55
+msgid "liked your cast"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:217
+msgid "Likes & Recasts"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:601
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Bağlantı kopyalandı. Paylaşmak istediğin yere yapıştır."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Load more"
 msgstr "Daha fazla yükle"
 
@@ -2310,11 +2327,11 @@ msgstr "Daha fazla yükle"
 msgid "Loading bookmarks..."
 msgstr "Yer işaretleri yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:539
+#: src/components/farcaster/FarcasterPage.tsx:613
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:409
+#: src/components/farcaster/FarcasterPage.tsx:469
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2322,7 +2339,12 @@ msgstr ""
 msgid "Loading message..."
 msgstr "Mesaj yükleniyor..."
 
-#: src/components/notifications/NotificationPanel.tsx:224
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:187
+msgid "Loading Mini App..."
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:241
+#: src/components/notifications/NotificationPanel.tsx:234
 msgid "Loading notifications..."
 msgstr "Bildirimler yükleniyor..."
 
@@ -2330,7 +2352,7 @@ msgstr "Bildirimler yükleniyor..."
 msgid "Loading pinned messages..."
 msgstr "Sabit mesajlar yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:495
+#: src/components/farcaster/FarcasterPage.tsx:569
 msgid "Loading profile..."
 msgstr ""
 
@@ -2338,7 +2360,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Herkese açık Alanlar yükleniyor..."
 
-#: src/components/farcaster/FarcasterPage.tsx:774
+#: src/components/farcaster/FarcasterPage.tsx:853
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Konu yükleniyor..."
@@ -2348,8 +2370,9 @@ msgid "Loading your profile..."
 msgstr "Profilinizi yüklüyoruz..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
@@ -2405,7 +2428,7 @@ msgstr "Rolleri Yönet"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "<0>{spaceName}</0> için ayarlarını yönet"
 
-#: src/components/notifications/NotificationPanel.tsx:273
+#: src/components/notifications/NotificationPanel.tsx:313
 msgid "Mark all as read"
 msgstr "Hepsini okunmuş olarak işaretle"
 
@@ -2413,15 +2436,15 @@ msgstr "Hepsini okunmuş olarak işaretle"
 msgid "Mark All as Read"
 msgstr "Hepsini Okundu Olarak İşaretle"
 
-#: src/components/notifications/NotificationPanel.tsx:202
+#: src/components/notifications/NotificationPanel.tsx:212
 msgid "Mark all as read?"
 msgstr "Tümünü okundu olarak işaretle?"
 
-#: src/components/notifications/NotificationPanel.tsx:204
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "Mark all read"
 msgstr "Tümünü okundu olarak işaretle"
 
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:609
 msgid "Media"
 msgstr ""
 
@@ -2444,6 +2467,14 @@ msgstr "Seçilen rollerin üyeleri, bu yalnızca okunabilir kanalda mesaj gönde
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:168
 msgid "Mention Everyone"
 msgstr "Herkesi Etiketle"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:67
+msgid "mentioned you"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:210
+msgid "Mentions & Replies"
+msgstr ""
 
 #: src/components/message/MessageActionsDrawer.tsx:189
 msgid "Message actions"
@@ -2471,6 +2502,11 @@ msgstr "Mesajlar İMZALANMAMIŞTIR!"
 #: src/components/message/MessageComposer.tsx:976
 msgid "Messages are signed!"
 msgstr "Mesajlar imzalanmıştır!"
+
+#: src/components/farcaster/FarcasterCastCard.tsx:173
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:133
+msgid "Mini App"
+msgstr ""
 
 #: src/components/discover-page/SpaceCard.tsx:166
 msgid "More"
@@ -2611,8 +2647,8 @@ msgstr "Aranan marcörlerle eşleşen sonuç bulunamadı."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Henüz marcör yok. Daha sonra başvurmak için mesajları marcörleyin."
 
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:544
+#: src/components/farcaster/FarcasterPage.tsx:474
+#: src/components/farcaster/FarcasterPage.tsx:618
 msgid "No casts found."
 msgstr ""
 
@@ -2660,6 +2696,10 @@ msgstr "Eksik Alan bulunamadı"
 msgid "No muted conversations"
 msgstr "Sessize alınmış sohbet yok"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:254
+msgid "No notifications yet"
+msgstr ""
+
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:75
 msgid "No passkey on this account. Your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Bu hesapta passkey yok. Hesap anahtarın bu cihazda saklanıyor, bu yüzden dosyalarını okuyabilen herkes hesabını ele geçirebilir."
@@ -2696,7 +2736,7 @@ msgstr "Henüz konu yok"
 msgid "No unknown contacts"
 msgstr "Bilinmeyen kişiler yok"
 
-#: src/components/notifications/NotificationPanel.tsx:232
+#: src/components/notifications/NotificationPanel.tsx:242
 msgid "No unread notifications"
 msgstr "Yeni okunmamış bildirim yok"
 
@@ -2774,9 +2814,6 @@ msgstr "Şimdi hesap anahtarınızı passkey'inizin içinde depolayalım. Bir on
 msgid "Offline"
 msgstr "Çevrimdışı"
 
-#~ msgid "OK"
-#~ msgstr "Tamam"
-
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:214
 msgid "One-Time"
 msgstr "Tek Seferlik"
@@ -2789,7 +2826,7 @@ msgstr "Çevrimiçi"
 msgid "Only space owners can generate public invite links."
 msgstr "Herkese açık davet bağlantılarını yalnızca Alan sahipleri oluşturabilir."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Open"
 msgstr ""
 
@@ -2798,15 +2835,23 @@ msgstr ""
 msgid "Open {0}"
 msgstr "{0} aç"
 
-#: src/components/farcaster/FarcasterPage.tsx:305
+#: src/components/farcaster/FarcasterPage.tsx:358
 msgid "Open @username or /channel"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:177
+msgid "Open in browser"
+msgstr ""
+
+#: src/components/farcaster/FarcasterCastCard.tsx:171
+msgid "Open Mini App"
 msgstr ""
 
 #: src/components/bookmarks/BookmarksPage.tsx:32
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:39
+#: src/components/farcaster/FarcasterPage.tsx:46
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2849,15 +2894,9 @@ msgstr "Sayfa Bulunamadı"
 msgid "Passkey setup failed. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "passkey kurulumu başarısız oldu. Tekrar deneyebilir veya passkey olmadan devam edebilirsin. passkey olmadan hesap anahtarın bu cihazda saklanır, bu nedenle dosyalarını okuyabilen herkes hesabını ele geçirebilir."
 
-#~ msgid "Passkey setup failed. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Passkey kurulumu başarısız oldu. Tekrar deneyebilir veya Passkey olmadan devam edebilirsiniz (yine de güvenli, sadece cihaz donanımı koruması olmadan)."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:16
 msgid "Passkeys aren't supported on this browser, so you'll need to continue without one. Your account key will be stored on this device, so anyone who can read its files could take over your account."
 msgstr "passkey'ler bu tarayıcıda desteklenmiyor, bu yüzden passkey olmadan devam etmen gerekecek. Hesap anahtarın bu cihazda saklanacak, bu nedenle dosyalarını okuyabilen herkes hesabını ele geçirebilir."
-
-#~ msgid "Passkeys aren't supported on this browser. You'll need to continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Bu tarayıcıda passkey'ler desteklenmiyor. Passkey olmadan devam etmeniz gerekiyor (yine de güvenli, sadece cihaz donanımı koruması olmadan)."
 
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:37
 msgid "Passkeys use your device's built-in security to protect your account. This requires two quick confirmations via your device."
@@ -2887,9 +2926,6 @@ msgstr "Bekleyen kaldırma - onaylamak için Kaydet'e tıklayın"
 #: src/components/space/RolePreview.tsx:34
 msgid "Permissions:"
 msgstr "İzinler:"
-
-#~ msgid "Photo Library"
-#~ msgstr "Fotoğraf Kütüphanesi"
 
 #: src/hooks/business/messages/usePinnedMessages.ts:340
 msgid "pin"
@@ -2926,15 +2962,12 @@ msgstr "Mesajları Sabitle"
 msgid "Pin/Unpin without confirmation"
 msgstr "Onay olmadan Sabitle/Sabitliği Kaldır"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:427
+#: src/components/farcaster/FarcasterCastCard.tsx:489
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
 msgid "Pinned"
 msgstr "Sabitlenmiş"
-
-#~ msgid "Pinned by {0}"
-#~ msgstr "{0} tarafından sabitlenmiş"
 
 #: src/components/message/Message.tsx:946
 #: src/components/message/Message.tsx:1042
@@ -2946,11 +2979,11 @@ msgstr "Sabitleyen: {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Sabitlenmiş Mesajlar"
 
-#: src/components/farcaster/FarcasterPage.tsx:352
+#: src/components/farcaster/FarcasterPage.tsx:405
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2980,22 +3013,13 @@ msgstr "Gizlilik"
 msgid "Private key (hex)"
 msgstr "Özel anahtar (hex)"
 
-#~ msgid "Private key copied. It will be cleared from your clipboard automatically in 60 seconds."
-#~ msgstr "Özel anahtar kopyalandı. 60 saniye içinde panonuzdan otomatik olarak temizlenecektir."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:642
 msgid "Private key copied. Quorum will clear it from your clipboard in 60 seconds. Clipboard history tools keep their own copy, so clear those too."
 msgstr "Özel anahtar kopyalandı. Quorum 60 saniye içinde panodan temizleyecek. Pano geçmişi araçları kendi kopyalarını tutar, bu yüzden onları da temizle."
 
-#~ msgid "Private key copied. Store it securely and clear your clipboard when you're done."
-#~ msgstr "Özel anahtar kopyalandı. Güvenli bir yerde saklayın ve işiniz bittiğinde panonuzu temizleyin."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:643
 msgid "Private key copied. Store it securely, then clear your clipboard and your clipboard history."
 msgstr "Özel anahtar kopyalandı. Güvenli bir şekilde sakla, ardından panonu ve pano geçmişini temizle."
-
-#~ msgid "Private key saved to selected folder"
-#~ msgstr "Özel anahtar seçilen klasöre kaydedildi"
 
 #: src/components/message/MessageComposer.tsx:776
 msgid "Processing image... This may take a moment for large files."
@@ -3021,12 +3045,13 @@ msgstr "Herkese açık profil"
 msgid "Public spaces"
 msgstr "Kamu alanları"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Publishing..."
 msgstr ""
 
-#~ msgid "QR code will auto-hide in 60 seconds"
-#~ msgstr "QR kodu 60 saniye içinde otomatik olarak gizlenecektir"
+#: src/components/AppErrorScreen.tsx:105
+msgid "Quorum encountered an unexpected issue during operation. You can reload, clear temporary session data, or reset local app data to recover."
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:129
 msgid "Quorum for desktop cannot use passkeys. To protect your account key with one, set your account up in a web browser using your key file."
@@ -3040,11 +3065,11 @@ msgstr "Quorum altyapısı şu anda dağıtılıyor. Lütfen sayfayı yenileyin 
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum, kimliğinize sahip olduğunuz merkezi olmayan bir mesajlaşma platformudur. E-posta veya telefon numarası olmadan - sadece sizin kontrol ettiğiniz güvenli bir anahtarla."
 
-#: src/components/context/RegistrationPersister.tsx:512
+#: src/components/context/RegistrationPersister.tsx:431
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum, tarayıcı odak dışındayken veya bir passkey isteği reddedildiğinde yüklendi. Mesajlarınıza erişmek için lütfen yeniden yetkilendirin."
 
-#: src/components/farcaster/FarcasterPage.tsx:214
+#: src/components/farcaster/FarcasterPage.tsx:263
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3081,9 +3106,13 @@ msgstr "Anahtarın okunuyor..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Gerçekten özel bir sohbete başlamaya hazır mısınız?"
 
-#: src/components/context/RegistrationPersister.tsx:527
+#: src/components/context/RegistrationPersister.tsx:446
 msgid "Reauthorize"
 msgstr "Yeniden Yetkilendir"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:59
+msgid "recasted your cast"
+msgstr ""
 
 #: src/services/ConfigService.ts:99
 msgid "received config with invalid signature!"
@@ -3093,27 +3122,31 @@ msgstr "geçersiz imzaya sahip yapılandırma alındı!"
 msgid "Recipient has no devices"
 msgstr "Alıcının cihazı yok"
 
-#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:467
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Yenile"
 
-#: src/components/farcaster/FarcasterPage.tsx:756
+#: src/components/notifications/FarcasterNotificationsView.tsx:232
+msgid "Refresh notifications"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:835
 msgid "Refresh thread"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:165
+msgid "Reload"
 msgstr ""
 
 #: src/components/RouteErrorFallback.tsx:64
 msgid "Reload app"
 msgstr "Uygulamayı yeniden yükle"
 
-#: src/components/AppErrorScreen.tsx:55
+#: src/components/AppErrorScreen.tsx:131
 msgid "Reload Quorum"
 msgstr "Quorum'u Yeniden Yükle"
-
-#: src/components/AppErrorScreen.tsx:36
-msgid "Reloading usually fixes it. If it keeps happening, check <0>status.quilibrium.com</0> for service updates."
-msgstr "Yeniden yüklemek genellikle sorunu çözer. Eğer devam ederse, hizmet güncellemeleri için <0>status.quilibrium.com</0> adresini kontrol et."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:560
 msgid "Remove"
@@ -3143,22 +3176,26 @@ msgstr "Bu cihazı yeniden adlandır"
 msgid "Reopen"
 msgstr "Yeniden aç"
 
-#: src/components/context/RegistrationPersister.tsx:448
-#: src/components/context/RegistrationPersister.tsx:483
+#: src/components/context/RegistrationPersister.tsx:367
+#: src/components/context/RegistrationPersister.tsx:402
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:482
+#: src/components/context/RegistrationPersister.tsx:401
 msgid "Repairing…"
 msgstr ""
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:63
+msgid "replied to your cast"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:124
+#: src/components/notifications/NotificationPanel.tsx:134
 msgid "Replies"
 msgstr "Yanıtlar"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:519
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterCastCard.tsx:582
+#: src/components/farcaster/FarcasterPage.tsx:712
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3169,15 +3206,12 @@ msgstr "Cevapla"
 msgid "Reply in thread..."
 msgstr "Konuya yanıt ver..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:432
-#: src/components/farcaster/FarcasterPage.tsx:591
+#: src/components/farcaster/FarcasterCastCard.tsx:494
+#: src/components/farcaster/FarcasterPage.tsx:665
 msgid "Replying to"
 msgstr ""
 
-#~ msgid "Replying to {user}"
-#~ msgstr "{user} ile yanıt veriliyor"
-
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterPage.tsx:712
 msgid "Replying..."
 msgstr ""
 
@@ -3203,12 +3237,10 @@ msgstr "Sıfırla"
 msgid "Reset All"
 msgstr "Tümünü Sıfırla"
 
+#: src/components/AppErrorScreen.tsx:157
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:72
 msgid "Reset App Data"
 msgstr "Uygulama Verilerini Sıfırla"
-
-#~ msgid "Reset Encryption Session"
-#~ msgstr "Şifreleme Oturumunu Sıfırla"
 
 #: src/components/modals/ConversationSettingsModal.tsx:473
 msgid "Reset if messages fail to send or decrypt"
@@ -3218,9 +3250,6 @@ msgstr "Mesajlar gönderilemez veya şifresi çözülemezse sıfırla"
 msgid "Reset Session"
 msgstr "Oturumu Sıfırla"
 
-#~ msgid "Reset the encryption session if messages fail to send or decrypt. The next message will establish a fresh secure connection."
-#~ msgstr "Mesajlar gönderilemez veya şifresi çözülemezse şifreleme oturumunu sıfırla. Bir sonraki mesaj yeni bir güvenli bağlantı kuracaktır."
-
 #: src/components/modals/ConversationSettingsModal.tsx:365
 #: src/components/modals/ConversationSettingsModal.tsx:404
 msgid "Reset to global"
@@ -3229,6 +3258,10 @@ msgstr "Genel ayara sıfırla"
 #: src/components/modals/UserSettingsModal/Help.tsx:113
 msgid "Reset your DM encryption sessions if messages are failing to send or decrypt."
 msgstr "Mesajlar gönderilemez veya şifresi çözülemezse DM şifreleme oturumlarını sıfırla."
+
+#: src/components/AppErrorScreen.tsx:173
+msgid "Resetting will clear all local databases and return to onboarding. Ensure you have your recovery backup phrase if restoring an existing account."
+msgstr ""
 
 #: src/components/modals/ConversationSettingsModal.tsx:538
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:109
@@ -3274,8 +3307,9 @@ msgid "Restoring..."
 msgstr "Geri Yükleniyor..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:440
+#: src/components/farcaster/FarcasterPage.tsx:510
 #: src/components/message/Message.tsx:1637
+#: src/components/notifications/FarcasterNotificationsView.tsx:248
 msgid "Retry"
 msgstr "Tekrar dene"
 
@@ -3315,9 +3349,6 @@ msgstr "Düzenleme Geçmişini Kaydet"
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:395
 msgid "Save Failed"
 msgstr "Kaydetme Başarısız"
-
-#~ msgid "Save Private Key"
-#~ msgstr "Özel Anahtarı Kaydet"
 
 #: src/components/onboarding/steps/SaveKeyToPasskeyStep.tsx:31
 msgid "Save to Passkey"
@@ -3404,7 +3435,7 @@ msgstr "Kullanıcı Adı veya Adres Ara"
 msgid "Search..."
 msgstr "Ara..."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Aranıyor..."
@@ -3434,9 +3465,6 @@ msgstr "Seç"
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:161
 msgid "Select permissions"
 msgstr "İzinleri seçin"
-
-#~ msgid "Select Profile Image"
-#~ msgstr "Profil Resmini Seçin"
 
 #: src/components/modals/ChannelEditorModal.tsx:204
 msgid "Select Roles"
@@ -3481,7 +3509,7 @@ msgstr "DM ile gönder"
 msgid "Sending..."
 msgstr "Gönderiliyor..."
 
-#: src/components/context/RegistrationPersister.tsx:499
+#: src/components/context/RegistrationPersister.tsx:418
 msgid "Session Encrypted"
 msgstr "Oturum Şifreli"
 
@@ -3554,7 +3582,7 @@ msgstr "Toplam {total} Alanın {0} tanesi gösteriliyor"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "İlk 500 sonucu gösteriliyor. Daha spesifik sonuçlar için aramanızı daraltın."
 
-#: src/components/notifications/NotificationPanel.tsx:369
+#: src/components/notifications/NotificationPanel.tsx:395
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "En son {GLOBAL_DISPLAY_CAP} bildirim gösteriliyor"
 
@@ -3570,7 +3598,7 @@ msgstr "Şimdi Atla"
 msgid "Someone"
 msgstr "Birisi"
 
-#: src/components/AppErrorScreen.tsx:33
+#: src/components/AppErrorScreen.tsx:102
 msgid "Something went wrong"
 msgstr "Bir şeyler ters gitti"
 
@@ -3639,6 +3667,7 @@ msgid "Space Tag"
 msgstr "Alan Etiketi"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
+#: src/components/notifications/NotificationPanel.tsx:272
 #: src/components/shell/NavRail.tsx:36
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
@@ -3696,9 +3725,6 @@ msgstr "Senkronizasyon kapalı, bu nedenle mesajlarının ve Alanlarının tek k
 msgid "Sync Kick Status"
 msgstr "Atma Durumunu Senkronize Et"
 
-#~ msgid "Syncing..."
-#~ msgstr "Senkronize ediliyor..."
-
 #: src/components/ui/ThemeRadioGroup.tsx:29
 #: src/components/ui/ThemeRadioGroup.tsx:31
 msgid "System"
@@ -3707,9 +3733,6 @@ msgstr "Sistem"
 #: src/components/modals/SpaceSettingsModal/SpaceTagSettings.tsx:82
 msgid "Tag Image"
 msgstr "Etiket Görseli"
-
-#~ msgid "Tap to copy"
-#~ msgstr "Kopyalamak için dokunun"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:275
 msgid "Tell people about yourself in this Space..."
@@ -3737,15 +3760,9 @@ msgstr "Aradığınız sayfa mevcut değil veya taşındı. Sizi tekrar yola ç�
 msgid "The passkey setup timed out. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "passkey kurulumu zaman aşımına uğradı. Tekrar deneyebilir veya passkey olmadan devam edebilirsin. passkey olmadan hesap anahtarın bu cihazda saklanır, bu nedenle dosyalarını okuyabilen herkes hesabını ele geçirebilir."
 
-#~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Passkey kurulumu zaman aşımına uğradı. Tekrar deneyebilir veya Passkey olmadan devam edebilirsiniz (yine de güvenli, sadece cihaz donanım koruması olmadan)."
-
-#: src/components/context/RegistrationPersister.tsx:468
+#: src/components/context/RegistrationPersister.tsx:387
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
-
-#~ msgid "This action cannot be undone and will permanently delete this Space and all of its channels and messages."
-#~ msgstr "Bu işlem geri alınamaz ve bu Alan'ı, tüm kanallarını ve mesajlarını kalıcı olarak silecektir."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:376
 msgid "This backup is inconsistent: it reports Space keys but contains no Space list, so Spaces could not be restored."
@@ -3763,9 +3780,6 @@ msgstr "Bu biyografi profilini görüntüleyen diğerlerine görünür olacak."
 msgid "This channel couldn't be loaded"
 msgstr "Bu kanal yüklenemedi"
 
-#~ msgid "this contact"
-#~ msgstr "bu kişi"
-
 #: src/components/RouteErrorFallback.tsx:22
 msgid "This conversation couldn't be loaded"
 msgstr "Bu konuşma yüklenemedi"
@@ -3774,9 +3788,6 @@ msgstr "Bu konuşma yüklenemedi"
 #: src/components/modals/ConversationSettingsModal.tsx:411
 msgid "This conversation overrides your global setting. Click \"Reset to global\" to use your global preference."
 msgstr "Bu sohbet genel ayarınızı geçersiz kılar. Genel tercihinizi kullanmak için \"Genel ayara sıfırla\" seçeneğine tıklayın."
-
-#~ msgid "This copies your private key to the clipboard in plain text. Anyone with access to your clipboard can take full control of your account. Store it somewhere safe and clear your clipboard afterwards."
-#~ msgstr "Bu, özel anahtarınızı düz metin olarak panoya kopyalar. Panonuza erişimi olan herkes hesabınızın tam kontrolünü ele geçirebilir. Güvenli bir yerde saklayın ve ardından panonuzu temizleyin."
 
 #: src/components/modals/CreateSpaceModal.tsx:187
 #: src/components/modals/SpaceSettingsModal/General.tsx:189
@@ -3825,7 +3836,7 @@ msgstr "Bu bağlantının süresi dolmaz. Ona sahip olan herkes Alanına katıla
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Bu bağlantı bir Alan sahibi tarafından oluşturuldu. Süresi dolmaz."
 
-#: src/components/notifications/NotificationPanel.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Bu işlem, tüm Alanlarındaki bahsetmeleri ve yanıtları okundu olarak işaretler. Bu işlem geri alınamaz."
 
@@ -3908,15 +3919,6 @@ msgstr ""
 "\n"
 "Mesajlar gönderilemez veya şifresi çözülemezse bunu kullan."
 
-#~ msgid ""
-#~ "This will reset the encryption session with {counterpartyName}. The next message will establish a fresh secure connection.\n"
-#~ "\n"
-#~ "Use this if messages are failing to send or decrypt. Message history is not affected."
-#~ msgstr ""
-#~ "Bu işlem, {counterpartyName} ile şifreleme oturumunu sıfırlayacaktır. Bir sonraki mesaj yeni bir güvenli bağlantı kuracaktır.\n"
-#~ "\n"
-#~ "Mesajlar gönderilemez veya şifresi çözülemezse bunu kullan. Mesaj geçmişi etkilenmez."
-
 #: src/components/modals/UserSettingsModal/Help.tsx:30
 msgid ""
 "This will reset the encryption sessions for all your DM conversations. Your next message to each contact will establish a fresh secure connection.\n"
@@ -3927,11 +3929,11 @@ msgstr ""
 "\n"
 "Mesajlar gönderilemez veya şifresi çözülemezse bunu kullan."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:453
+#: src/components/farcaster/FarcasterCastCard.tsx:515
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:751
+#: src/components/farcaster/FarcasterPage.tsx:830
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3987,9 +3989,9 @@ msgstr "Bugün"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Mesajda çok fazla etiket var. Maksimum {MAX_MENTIONS_PER_MESSAGE} izin verilmektedir."
 
-#: src/components/farcaster/FarcasterPage.tsx:221
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:291
+#: src/components/farcaster/FarcasterPage.tsx:397
 msgid "Trending"
 msgstr ""
 
@@ -4023,9 +4025,6 @@ msgstr "İki rol \"{0}\" adını paylaşamaz."
 msgid "Two roles can't share the tag @{0}."
 msgstr "İki rol @{0} etiketini paylaşamaz."
 
-#~ msgid "Type DELETE to confirm"
-#~ msgstr "Silmek için DELETE yazın"
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:97
 msgid "Type RESET to confirm"
 msgstr "RESET yazın ve onaylayın"
@@ -4058,9 +4057,6 @@ msgstr "Resmi sıkıştırılamıyor. Lütfen daha küçük bir resim kullanın.
 #: src/hooks/business/ui/useCustomAssets.ts:237
 msgid "Unable to compress sticker images. Please use smaller images."
 msgstr "Çıkartma resimlerini sıkıştırılamıyor. Lütfen daha küçük resimler kullanın."
-
-#~ msgid "Unable to copy to clipboard"
-#~ msgstr "Pano'ya kopyalanamadı"
 
 #: src/services/SpaceService.ts:574
 msgid "Unable to leave Space due to incomplete configuration. The Space data may be corrupted."
@@ -4122,7 +4118,8 @@ msgstr "Bilinmeyen zaman"
 #: src/components/message/MessageEditTextarea.tsx:656
 #: src/components/message/MessageEditTextarea.tsx:662
 #: src/components/modals/NewDirectMessageModal.tsx:78
-#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:15
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:10
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:18
 #: src/services/EncryptionService.ts:204
 #: src/services/MessageService.ts:3652
 #: src/services/MessageService.ts:3847
@@ -4192,9 +4189,6 @@ msgstr "Tüm üyeler için atma kayıtlarını güncelleyin. Atılan kullanıcı
 msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 2:1"
 msgstr "Alanınız için bir başlık yükleyin - PNG veya JPG - En uygun oran 2:1"
 
-#~ msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 3:1"
-#~ msgstr "Alanınız için bir afiş yükleyin - PNG veya JPG - Optimal oran 3:1"
-
 #: src/components/modals/SpaceSettingsModal/Account.tsx:237
 msgid "Upload an avatar for this Space - PNG or JPG - Optimal ratio 1:1"
 msgstr "Bu Alan için bir avatar yükleyin - PNG veya JPG - Optimal oran 1:1"
@@ -4223,9 +4217,6 @@ msgstr "Görsel Yükle"
 #: src/components/modals/SpaceSettingsModal/Stickers.tsx:62
 msgid "Upload Sticker"
 msgstr "Çıkartma Yükle"
-
-#~ msgid "Use \"Save to Files\" to save your private key"
-#~ msgstr "Özel anahtarınızı kaydetmek için \"Dosyalara Kaydet\" seçeneğini kullanın"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:219
 #: src/components/modals/SpaceSettingsModal/Account.tsx:227
@@ -4271,7 +4262,7 @@ msgstr "Davet doğrulanıyor..."
 msgid "View edit history"
 msgstr "Düzenleme geçmişini görüntüle"
 
-#: src/components/farcaster/FarcasterPage.tsx:769
+#: src/components/farcaster/FarcasterPage.tsx:848
 msgid "View full thread"
 msgstr ""
 
@@ -4293,9 +4284,6 @@ msgstr "Bu cihaz tekrar yayınlamadan önce Alanların senkronizasyonunun bitmes
 msgid "Wallet"
 msgstr "Cüzdan"
 
-#~ msgid "Welcome to Quorum, {name}! Your account is secured and ready to go."
-#~ msgstr "Hoş geldin Quorum'a, {name}! Hesabın güvenli ve hazır."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:79
 msgid "What is a Passkey?"
 msgstr "Passkey nedir?"
@@ -4316,7 +4304,7 @@ msgstr "Hesap Anahtarı nedir?"
 msgid "What should we call you?"
 msgstr "Sizi nasıl çağırmalıyız?"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:425
 msgid "What's happening?"
 msgstr ""
 
@@ -4401,7 +4389,7 @@ msgstr "Bunu neden yapmam gerekiyor?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Bu yedeğe sahip olmadan, cihazınıza erişim kaybettiğinizde hesabınızı da kaybedersiniz - 'şifremi unuttum' seçeneği yok. Bu, gizliliğin bedeli :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:612
+#: src/components/farcaster/FarcasterPage.tsx:686
 msgid "Write a reply..."
 msgstr ""
 
@@ -4412,12 +4400,6 @@ msgstr "Dün"
 #: src/utils/dateFormatting.ts:33
 msgid "Yesterday at {time}"
 msgstr "Dün saat {time}"
-
-#~ msgid "Yesterday at {timeFormatted}"
-#~ msgstr "Dün {timeFormatted} tarihinde"
-
-#~ msgid "You"
-#~ msgstr "Sen"
 
 #: src/components/modals/AddSpaceModal.tsx:116
 msgid "You are already a member of this Space."
@@ -4444,9 +4426,6 @@ msgstr "Her Alan'ın ayarlarında Alan bildirimlerinizi yönetebilirsiniz."
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:14
 msgid "You cancelled the passkey setup. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "passkey kurulumunu iptal ettin. Tekrar deneyebilir veya passkey olmadan devam edebilirsin. passkey olmadan hesap anahtarın bu cihazda saklanır, bu nedenle dosyalarını okuyabilen herkes hesabını ele geçirebilir."
-
-#~ msgid "You cancelled the passkey setup. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Passkey kurulumunu iptal ettiniz. Tekrar deneyebilir veya Passkey olmadan devam edebilirsiniz (yine de güvenli, sadece cihaz donanım koruması olmadan)."
 
 #: src/components/modals/GroupEditorModal.tsx:116
 msgid "You cannot delete a group that contains channels. Delete all {channelCount} channels in this group first."
@@ -4485,15 +4464,9 @@ msgstr "Aynı hesabı ve adresi kullanmaya devam edersin ve bu masaüstü uygula
 msgid "You must assign yourself a role for moderation actions (except kicking). Grant delete and mute permissions carefully. <0><1>Learn more</1></0>"
 msgstr "Moderasyon eylemleri için (atmak hariç) kendinize bir rol atamalısınız. Silme ve susturma izinlerini dikkatlice verin. <0><1>Daha fazla bilgi edinin</1></0>"
 
-#~ msgid "You won't be able to rejoin unless you are re-invited. Your existing messages will NOT be deleted."
-#~ msgstr "Yeniden katılmak için tekrar davet edilmeniz gerekecek. Mevcut mesajlarınız silinmeyecek."
-
 #: src/components/modals/BlockUserModal.tsx:99
 msgid "You won't see any of {resolvedNameText}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
 msgstr "Bu Alanda {resolvedNameText}'in hiçbir mesajını görmeyeceksin. Bu sadece senin görünümünü ve sadece bu Alanı etkiler. İstediğin zaman engeli kaldırabilirsin."
-
-#~ msgid "You won't see any of {userName}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
-#~ msgstr "Bu Alan'da {userName} adlı kullanıcının hiçbir mesajını görmeyeceksin. Bu yalnızca senin görünümünü ve yalnızca bu Alan'ı etkiler. Engellemeyi istediğin zaman kaldırabilirsin."
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:468
 msgid "You'll need an invite to rejoin, though a public invite link will still work if this Space has one. Your existing messages will NOT be deleted."
@@ -4507,10 +4480,11 @@ msgstr "Cihazınıza erişim kaybettiğinizde hesabınızı kurtarmak için bu d
 msgid "You'll see {resolvedNameText}'s messages in this Space again."
 msgstr "Bu Alanda {resolvedNameText}'in mesajlarını tekrar göreceksin."
 
-#~ msgid "You'll see {userName}'s messages in this Space again."
-#~ msgstr "Bu Alan'da {userName} adlı kullanıcının mesajlarını tekrar göreceksin."
+#: src/components/notifications/FarcasterNotificationsView.tsx:255
+msgid "You're all caught up on Farcaster!"
+msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:244
 msgid "You're all caught up!"
 msgstr "Her şey yolunda!"
 
@@ -4559,7 +4533,7 @@ msgstr "Hesap anahtarınız, hesabınızın sahipliğini kanıtlayan özel bir a
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Hesap anahtarınız, Quorum'daki benzersiz kimliktir. Sizin olduğunuzu kanıtlayan bir ana şifre gibidir - ancak otomatik olarak oluşturulur ve güvenli bir şekilde passkey'inizde saklanır."
 
-#: src/components/context/RegistrationPersister.tsx:461
+#: src/components/context/RegistrationPersister.tsx:380
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 

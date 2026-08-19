@@ -148,22 +148,22 @@ msgid "{0} messages were not restored because you deleted them after this backup
 msgstr "{0} сообщений не были восстановлены, так как Вы удалили их после создания этой резервной копии."
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:256
 msgid "{0} notification"
 msgstr "Уведомление {0}"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:247
+#: src/components/notifications/NotificationPanel.tsx:259
 msgid "{0} Notification in this Space"
 msgstr "{0} уведомление в этом Пространстве"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:245
+#: src/components/notifications/NotificationPanel.tsx:257
 msgid "{0} notifications"
 msgstr "Уведомления {0}"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:248
+#: src/components/notifications/NotificationPanel.tsx:260
 msgid "{0} Notifications in this Space"
 msgstr "{0} уведомления в этом Пространстве"
 
@@ -211,9 +211,6 @@ msgstr "{bookmarkCount} закладка"
 msgid "{bookmarkCount} bookmarks"
 msgstr "{bookmarkCount} закладок"
 
-#~ msgid "{contextCount} bookmark here"
-#~ msgstr "{contextCount} маркатор здесь"
-
 #: src/components/bookmarks/BookmarksPanel.tsx:181
 msgid "{contextCount} bookmark in this conversation"
 msgstr "{contextCount} закладка в этой беседе"
@@ -221,9 +218,6 @@ msgstr "{contextCount} закладка в этой беседе"
 #: src/components/bookmarks/BookmarksPanel.tsx:184
 msgid "{contextCount} bookmark in this Space"
 msgstr "{contextCount} закладка в этом Пространстве"
-
-#~ msgid "{contextCount} bookmarks here"
-#~ msgstr "{contextCount} маркаторов здесь"
 
 #: src/components/bookmarks/BookmarksPanel.tsx:182
 msgid "{contextCount} bookmarks in this conversation"
@@ -250,17 +244,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} ответов"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:115
+#: src/components/notifications/NotificationPanel.tsx:125
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:119
+#: src/components/notifications/NotificationPanel.tsx:129
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:111
+#: src/components/notifications/NotificationPanel.tsx:121
 msgid "@you"
 msgstr "@you"
 
@@ -338,9 +332,9 @@ msgstr "Ключ учетной записи"
 msgid "Account Settings"
 msgstr "Настройки аккаунта"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:622
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:666
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:699
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:631
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:675
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:708
 msgid "Account setup isn't ready yet. Please retry creating your account."
 msgstr ""
 
@@ -439,7 +433,8 @@ msgstr "Дополнительные настройки"
 #: src/components/modals/ChannelEditorModal.tsx:206
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
-#: src/components/notifications/NotificationPanel.tsx:265
+#: src/components/notifications/FarcasterNotificationsView.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:305
 msgid "All"
 msgstr "Все"
 
@@ -485,9 +480,6 @@ msgstr "Всегда подписывать прямые сообщения"
 msgid "Always sign messages"
 msgstr "Всегда подписывать сообщения"
 
-#~ msgid "An error occurred while deleting the Space. Please try again."
-#~ msgstr "Произошла ошибка при удалении Пространства. Пожалуйста, попробуйте снова."
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:88
 msgid "An error occurred while resetting app data. Please try again."
 msgstr "Произошла ошибка при сбросе данных приложения. Пожалуйста, попробуйте снова."
@@ -522,9 +514,6 @@ msgstr ""
 "Любой, кто увидит или сфотографирует этот код, может получить полный контроль над Вашей учетной записью и украсть любые средства, которые она содержит.\n"
 "\n"
 "Продолжайте только в том случае, если Вы находитесь в уединенном месте и готовы немедленно сканировать. Код скрывается через 60 секунд."
-
-#~ msgid "Anyone who sees or photographs this QR code can take full control of your Quorum account and steal any associated funds. Only proceed if you are in a private location and ready to scan immediately."
-#~ msgstr "Любой, кто увидит или сфотографирует этот QR-код, может получить полный контроль над вашей учетной записью Quorum и украсть любые связанные средства. Продолжайте только если вы находитесь в частном месте и готовы немедленно отсканировать."
 
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:252
 msgid "App version"
@@ -574,9 +563,6 @@ msgstr "Вы уверены, что хотите удалить это сооб�
 msgid "Are you sure you want to delete this role?"
 msgstr "Вы уверены, что хотите удалить эту роль?"
 
-#~ msgid "Are you sure you want to leave this Space? You won't be able to rejoin unless you are re-invited."
-#~ msgstr "Вы уверены, что хотите покинуть это Пространство? Вы не сможете вернуться, если вас не пригласят снова."
-
 #: src/components/modals/LeaveSpaceModal.tsx:47
 msgid "Are you sure you want to leave this Space? You'll need an invite to rejoin, though a public invite link will still work if this Space has one."
 msgstr "Вы уверены, что хотите покинуть это Пространство? Вам потребуется приглашение, чтобы присоединиться снова, хотя общедоступная ссылка-приглашение все равно будет работать, если это Пространство имеет таковую."
@@ -605,12 +591,12 @@ msgstr "Автозакрытие через"
 msgid "Away"
 msgstr "Отошел"
 
-#: src/components/farcaster/FarcasterPage.tsx:291
-#: src/components/farcaster/FarcasterPage.tsx:749
+#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:828
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:746
+#: src/components/farcaster/FarcasterPage.tsx:825
 msgid "Back to feed"
 msgstr ""
 
@@ -626,9 +612,6 @@ msgstr "Вернуться к списку Пространств"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:17
 msgid "Back Up Your Account Key"
 msgstr "Создайте резервную копию ключа аккаунта"
-
-#~ msgid "Backup Failed"
-#~ msgstr "Резервное копирование не удалось"
 
 #: src/components/direct/DMUserProfileSidebar.tsx:108
 #: src/components/modals/SpaceSettingsModal/Account.tsx:269
@@ -702,7 +685,7 @@ msgstr "Закладки в этом Пространстве"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Просматривайте публичные Пространства и найдите сообщество, к которому можно присоединиться."
 
-#: src/components/farcaster/FarcasterPage.tsx:323
+#: src/components/farcaster/FarcasterPage.tsx:376
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -710,15 +693,12 @@ msgstr ""
 msgid "Busy"
 msgstr "Занят"
 
-#~ msgid "Camera"
-#~ msgstr "Камера"
-
 #: src/components/modals/UserSettingsModal/SyncStatusLine.tsx:65
 msgid "Can't sync: no key is available on this device."
 msgstr "Не удается синхронизировать: на этом устройстве нет ключа."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterPage.tsx:703
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -731,7 +711,7 @@ msgstr "Не удается синхронизировать: на этом ус
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:205
+#: src/components/notifications/NotificationPanel.tsx:215
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -743,7 +723,7 @@ msgstr "Отмена"
 msgid "CANCEL"
 msgstr "ОТМЕНА"
 
-#: src/components/farcaster/FarcasterPage.tsx:601
+#: src/components/farcaster/FarcasterPage.tsx:675
 msgid "Cancel reply"
 msgstr ""
 
@@ -757,23 +737,23 @@ msgstr "Невозможно удалить группу, содержащую �
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Невозможно загрузить более {0} файлов одновременно ({remaining} слотов осталось)"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:326
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:740
+#: src/components/farcaster/FarcasterPage.tsx:819
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:521
+#: src/components/farcaster/FarcasterPage.tsx:595
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:528
+#: src/components/farcaster/FarcasterPage.tsx:602
 msgid "Casts & Replies"
 msgstr ""
 
@@ -781,7 +761,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Изменения вносятся автоматически, но активная страница может не обновиться. Обновите страницу, чтобы применить новый язык."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Channel feed"
 msgstr ""
 
@@ -840,9 +820,6 @@ msgstr "Каналы"
 msgid "choose file"
 msgstr "выберите файл"
 
-#~ msgid "Choose how you'd like to add your profile image"
-#~ msgstr "Выберите, как вы хотите добавить изображение профиля"
-
 #: src/components/modals/UserSettingsModal/Appearance.tsx:45
 msgid "Choose your preferred theme for Quorum."
 msgstr "Выберите предпочитаемую тему для Quorum."
@@ -850,7 +827,7 @@ msgstr "Выберите предпочитаемую тему для Quorum."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:266
+#: src/components/notifications/NotificationPanel.tsx:306
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Очистить"
@@ -858,6 +835,10 @@ msgstr "Очистить"
 #: src/components/search/SearchBar.tsx:139
 msgid "Clear search"
 msgstr "Очистить поиск"
+
+#: src/components/AppErrorScreen.tsx:138
+msgid "Clear Session"
+msgstr ""
 
 #: src/services/NotificationService.ts:211
 msgid "Clearing notifications with tag: {tag}"
@@ -923,6 +904,14 @@ msgstr "Подтвердить выход"
 msgid "Confirm Reset"
 msgstr "Подтвердить сброс"
 
+#: src/components/AppErrorScreen.tsx:166
+msgid "Confirm Reset & Restart"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:179
+msgid "Connect Farcaster"
+msgstr ""
+
 #: src/components/Connecting.tsx:13
 #: src/components/ConnectingClassic.tsx:22
 msgid "Connecting"
@@ -954,6 +943,10 @@ msgstr "Настройки беседы"
 msgid "Conversation with {counterpartLabel}"
 msgstr "Разговор с {counterpartLabel}"
 
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copied Diagnostics!"
+msgstr ""
+
 #: src/components/message/MessageActionsMenu.tsx:223
 #: src/components/message/MessageActionsMenu.tsx:228
 #: src/components/ui/ClickToCopyContent.tsx:153
@@ -979,8 +972,9 @@ msgstr "Скопировать ссылку"
 msgid "Copy address"
 msgstr "Скопировать адрес"
 
-#~ msgid "Copy Failed"
-#~ msgstr "Копирование не удалось"
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copy Error Report"
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/Security.tsx:523
 msgid "Copy full address"
@@ -1035,8 +1029,8 @@ msgstr "Не удалось получить данные Пространств
 msgid "Could not import key"
 msgstr "Не удалось импортировать ключ"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:231
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:592
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:240
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:601
 msgid "Could not import that account key. Check the file or key and try again."
 msgstr ""
 
@@ -1054,7 +1048,7 @@ msgid "Couldn't decrypt your saved profile. Please re-enter your name and profil
 msgstr "Не удалось расшифровать ваш сохраненный профиль. Пожалуйста, введите снова ваше имя и изображение профиля."
 
 #: src/hooks/business/user/useOnboardingFlowLogic.ts:252
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:500
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:509
 msgid "Couldn't load your saved profile. Please re-enter your name and profile image."
 msgstr "Не удалось загрузить ваш сохраненный профиль. Пожалуйста, введите снова ваше имя и изображение профиля."
 
@@ -1342,7 +1336,7 @@ msgstr "Прямое сообщение"
 msgid "Direct messages"
 msgstr "Прямые сообщения"
 
-#: src/components/farcaster/FarcasterPage.tsx:319
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Disconnect"
 msgstr ""
 
@@ -1357,9 +1351,6 @@ msgstr "Отображайте тег из одного из ваших Space р
 #: src/components/modals/UserSettingsModal/General.tsx:136
 msgid "Display name"
 msgstr "Отображаемое имя"
-
-#~ msgid "Display Name"
-#~ msgstr "Отображаемое имя"
 
 #: src/hooks/business/validation/errorTranslator.ts:39
 msgid "Display name cannot contain special characters"
@@ -1615,9 +1606,6 @@ msgstr "Экспортировать резервную копию?"
 msgid "Export an encrypted backup of your direct messages and your Spaces, so you can restore them if you lose access to this device."
 msgstr "Экспортируйте зашифрованную резервную копию Ваших личных сообщений и Пространств, чтобы Вы могли восстановить их, если потеряете доступ к этому устройству."
 
-#~ msgid "Export an encrypted backup of your direct messages to restore them if you lose access to this device."
-#~ msgstr "Экспортируйте зашифрованную резервную копию ваших личных сообщений, чтобы восстановить их в случае потери доступа к этому устройству."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:232
 msgid "Export backup"
 msgstr "Экспортировать резервную копию"
@@ -1680,6 +1668,10 @@ msgstr "Не удалось исключить пользователя"
 msgid "Failed to load bookmarks"
 msgstr "Не удалось загрузить закладки"
 
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:206
+msgid "Failed to load Mini App"
+msgstr ""
+
 #: src/components/discover-page/DiscoverTab.tsx:87
 msgid "Failed to load public Spaces."
 msgstr "Не удалось загрузить публичные Пространства."
@@ -1696,9 +1688,6 @@ msgstr "Не удалось разобрать сообщение WebSocket:"
 #: src/services/ActionQueueHandlers.ts:276
 msgid "Failed to pin message"
 msgstr "Не удалось прикрепить сообщение"
-
-#~ msgid "Failed to process image"
-#~ msgstr "Не удалось обработать изображение"
 
 #: src/components/modals/UserSettingsModal/Security.tsx:133
 msgid "Failed to read your private key"
@@ -1760,7 +1749,7 @@ msgstr "Не удалось сохранить настройки Простра
 msgid "Failed to send invite. Please try again."
 msgstr "Не удалось отправить приглашение. Пожалуйста, попробуйте снова."
 
-#: src/components/farcaster/FarcasterPage.tsx:583
+#: src/components/farcaster/FarcasterPage.tsx:657
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1790,7 +1779,8 @@ msgstr "Не удалось обновить предварительный пр
 msgid "Failed to update profile"
 msgstr "Не удалось обновить профиль"
 
-#: src/components/farcaster/FarcasterPage.tsx:294
+#: src/components/farcaster/FarcasterPage.tsx:347
+#: src/components/notifications/NotificationPanel.tsx:283
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1799,8 +1789,13 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:439
+#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:254
+msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -1899,18 +1894,26 @@ msgstr "Название папки обязательно"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Название папки должно содержать {MAX_NAME_LENGTH} символов или меньше"
 
-#: src/components/farcaster/FarcasterPage.tsx:62
+#: src/components/notifications/FarcasterNotificationsView.tsx:71
+msgid "followed you"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:69
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:510
+#: src/components/farcaster/FarcasterPage.tsx:584
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:337
-#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:290
+#: src/components/farcaster/FarcasterPage.tsx:390
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Following"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:224
+msgid "Follows"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:60
@@ -1967,6 +1970,10 @@ msgstr "GIF-файлы не могут превышать {maxSize}. Пожал�
 msgid "Go to conversation"
 msgstr "Перейти к разговору"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:188
+msgid "Go to Farcaster"
+msgstr ""
+
 #: src/components/NotFound.tsx:32
 msgid "Go to Home"
 msgstr "Перейти на главную"
@@ -2008,9 +2015,6 @@ msgstr "Помощь"
 msgid "Help others recognize you with a profile picture."
 msgstr "Помогите другим узнать вас с помощью фотографии профиля."
 
-#~ msgid "Hide"
-#~ msgstr "Скрыть"
-
 #: src/components/onboarding/steps/ImportKeyStep.tsx:159
 msgid "Hide key"
 msgstr "Скрыть ключ"
@@ -2040,12 +2044,6 @@ msgstr "У меня уже есть аккаунт"
 msgid "I understand"
 msgstr "Я понимаю"
 
-#~ msgid "I Understand, Copy"
-#~ msgstr "Я понимаю, копировать"
-
-#~ msgid "I Understand, Show QR"
-#~ msgstr "Я понимаю, показать QR"
-
 #: src/components/message/Message.tsx:978
 #: src/components/message/Message.tsx:1074
 msgid "I'm new!"
@@ -2054,6 +2052,10 @@ msgstr "Я новый!"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:35
 msgid "I've already saved my key"
 msgstr "Я уже сохранил свой ключ"
+
+#: src/components/AppErrorScreen.tsx:182
+msgid "If this persists, check <0>status.quilibrium.com</0> or submit the copied error report."
+msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:821
 msgid "If users report that this invite link isn't working, click to republish it. The link URL stays the same."
@@ -2064,7 +2066,7 @@ msgid "Import a backup instead"
 msgstr "Импортировать резервную копию вместо этого"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:324
+#: src/components/farcaster/FarcasterPage.tsx:377
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Импортировать учетную запись"
@@ -2081,6 +2083,10 @@ msgstr "Метод импорта"
 msgid "Import your account key"
 msgstr "Импортировать ключ аккаунта"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:180
+msgid "Import your Farcaster account in the Farcaster section to receive your alerts and interaction notifications here."
+msgstr ""
+
 #: src/components/message/PinnedMessagesPanel.tsx:199
 msgid "Important messages will be pinned here"
 msgstr "Важные сообщения будут закреплены здесь"
@@ -2093,13 +2099,17 @@ msgstr ""
 msgid "Importing..."
 msgstr "Импорт..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:472
+#: src/components/farcaster/FarcasterCastCard.tsx:534
 msgid "in"
 msgstr ""
 
 #: src/components/modals/UserSettingsModal/Help.tsx:100
 msgid "Inline Code"
 msgstr "Встроенный код"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:50
+msgid "interacted with you"
+msgstr ""
 
 #: src/services/MessageService.ts:4943
 msgid "invalid address for signature"
@@ -2209,6 +2219,10 @@ msgstr "Перейти"
 msgid "Jump to present"
 msgstr "Перейти к настоящему"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:15
+msgid "just now"
+msgstr ""
+
 #: src/components/onboarding/steps/SecurityWarningStep.tsx:18
 msgid "Keep the file you downloaded safe and private! Anyone with this file can access your account."
 msgstr "Сохраняйте скачанный файл в безопасности и в секрете! Любой, кто получит доступ к этому файлу, сможет войти в ваш аккаунт."
@@ -2229,12 +2243,6 @@ msgstr "Ключ содержит нешестнадцатеричные сим�
 #: src/components/onboarding/steps/ImportKeyStep.tsx:55
 msgid "Key must be {ED448_PRIVATE_KEY_HEX_LENGTH} characters ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
 msgstr "Ключ должен состоять из {ED448_PRIVATE_KEY_HEX_LENGTH} символов ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
-
-#~ msgid "Key Ready"
-#~ msgstr "Ключ готов"
-
-#~ msgid "Key Saved"
-#~ msgstr "Ключ сохранен"
 
 #: src/components/modals/UserSettingsModal/Help.tsx:76
 msgid "Keyboard Shortcuts"
@@ -2290,17 +2298,26 @@ msgstr "Только буквы A–Z и цифры 0–9. Автоматиче�
 msgid "Light"
 msgstr "Светлая"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:55
+msgid "liked your cast"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:217
+msgid "Likes & Recasts"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:601
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Ссылка скопирована. Вставьте ее туда, где хотите поделиться."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Load more"
 msgstr "Загрузить еще"
 
@@ -2309,11 +2326,11 @@ msgstr "Загрузить еще"
 msgid "Loading bookmarks..."
 msgstr "Загрузка закладок..."
 
-#: src/components/farcaster/FarcasterPage.tsx:539
+#: src/components/farcaster/FarcasterPage.tsx:613
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:409
+#: src/components/farcaster/FarcasterPage.tsx:469
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2321,7 +2338,12 @@ msgstr ""
 msgid "Loading message..."
 msgstr "Загрузка сообщения..."
 
-#: src/components/notifications/NotificationPanel.tsx:224
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:187
+msgid "Loading Mini App..."
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:241
+#: src/components/notifications/NotificationPanel.tsx:234
 msgid "Loading notifications..."
 msgstr "Загрузка уведомлений..."
 
@@ -2329,7 +2351,7 @@ msgstr "Загрузка уведомлений..."
 msgid "Loading pinned messages..."
 msgstr "Загрузка закреплённых сообщений..."
 
-#: src/components/farcaster/FarcasterPage.tsx:495
+#: src/components/farcaster/FarcasterPage.tsx:569
 msgid "Loading profile..."
 msgstr ""
 
@@ -2337,7 +2359,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Загрузка публичных Пространств..."
 
-#: src/components/farcaster/FarcasterPage.tsx:774
+#: src/components/farcaster/FarcasterPage.tsx:853
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Загрузка темы..."
@@ -2347,8 +2369,9 @@ msgid "Loading your profile..."
 msgstr "Загрузка вашего профиля..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Loading..."
 msgstr "Загрузка..."
 
@@ -2404,7 +2427,7 @@ msgstr "Управлять ролями"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "Управляйте своими настройками для <0>{spaceName}</0>."
 
-#: src/components/notifications/NotificationPanel.tsx:273
+#: src/components/notifications/NotificationPanel.tsx:313
 msgid "Mark all as read"
 msgstr "Отметить все как прочитанные"
 
@@ -2412,15 +2435,15 @@ msgstr "Отметить все как прочитанные"
 msgid "Mark All as Read"
 msgstr "Отметить все как прочитанное"
 
-#: src/components/notifications/NotificationPanel.tsx:202
+#: src/components/notifications/NotificationPanel.tsx:212
 msgid "Mark all as read?"
 msgstr "Отметить все как прочитанные?"
 
-#: src/components/notifications/NotificationPanel.tsx:204
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "Mark all read"
 msgstr "Отметить все прочитанным"
 
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:609
 msgid "Media"
 msgstr ""
 
@@ -2443,6 +2466,14 @@ msgstr "Члены выбранных ролей могут отправлять
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:168
 msgid "Mention Everyone"
 msgstr "Упомянуть всех"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:67
+msgid "mentioned you"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:210
+msgid "Mentions & Replies"
+msgstr ""
 
 #: src/components/message/MessageActionsDrawer.tsx:189
 msgid "Message actions"
@@ -2470,6 +2501,11 @@ msgstr "Сообщения НЕ подписаны!"
 #: src/components/message/MessageComposer.tsx:976
 msgid "Messages are signed!"
 msgstr "Сообщения подписаны!"
+
+#: src/components/farcaster/FarcasterCastCard.tsx:173
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:133
+msgid "Mini App"
+msgstr ""
 
 #: src/components/discover-page/SpaceCard.tsx:166
 msgid "More"
@@ -2610,8 +2646,8 @@ msgstr "Нет маркаторов, соответствующих вашему
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Нет маркаторов. Добавьте маркаторы, чтобы сохранить сообщения для последующего использования."
 
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:544
+#: src/components/farcaster/FarcasterPage.tsx:474
+#: src/components/farcaster/FarcasterPage.tsx:618
 msgid "No casts found."
 msgstr ""
 
@@ -2659,6 +2695,10 @@ msgstr "Не найдено отсутствующих Пространств"
 msgid "No muted conversations"
 msgstr "Нет отключенных разговоров"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:254
+msgid "No notifications yet"
+msgstr ""
+
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:75
 msgid "No passkey on this account. Your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "На этой учетной записи нет passkey. Ключ Вашей учетной записи хранится на этом устройстве, поэтому любой, кто сможет прочитать его файлы, может получить доступ к Вашей учетной записи."
@@ -2695,7 +2735,7 @@ msgstr "Пока нет тем"
 msgid "No unknown contacts"
 msgstr "Нет неизвестных контактов"
 
-#: src/components/notifications/NotificationPanel.tsx:232
+#: src/components/notifications/NotificationPanel.tsx:242
 msgid "No unread notifications"
 msgstr "Нет непрочитанных уведомлений"
 
@@ -2773,9 +2813,6 @@ msgstr "Теперь давайте сохраним ваш ключ аккау�
 msgid "Offline"
 msgstr "Оффлайн"
 
-#~ msgid "OK"
-#~ msgstr "Хорошо"
-
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:214
 msgid "One-Time"
 msgstr "Одноразовое"
@@ -2788,7 +2825,7 @@ msgstr "Онлайн"
 msgid "Only space owners can generate public invite links."
 msgstr "Только владельцы Пространства могут генерировать публичные ссылки-приглашения."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Open"
 msgstr ""
 
@@ -2797,15 +2834,23 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Открыть {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:305
+#: src/components/farcaster/FarcasterPage.tsx:358
 msgid "Open @username or /channel"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:177
+msgid "Open in browser"
+msgstr ""
+
+#: src/components/farcaster/FarcasterCastCard.tsx:171
+msgid "Open Mini App"
 msgstr ""
 
 #: src/components/bookmarks/BookmarksPage.tsx:32
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:39
+#: src/components/farcaster/FarcasterPage.tsx:46
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2848,15 +2893,9 @@ msgstr "Страница не найдена"
 msgid "Passkey setup failed. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Не удалось настроить passkey. Вы можете попробовать еще раз или продолжить без него. Без passkey ключ вашей учетной записи хранится на этом устройстве, поэтому любой, кто сможет прочитать его файлы, может получить доступ к вашей учетной записи."
 
-#~ msgid "Passkey setup failed. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Настройка passkey не удалась. Вы можете попробовать снова или продолжить без passkey (все равно безопасно, просто без защиты аппаратного обеспечения устройства)."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:16
 msgid "Passkeys aren't supported on this browser, so you'll need to continue without one. Your account key will be stored on this device, so anyone who can read its files could take over your account."
 msgstr "passkey не поддерживаются в этом браузере, поэтому вам придется продолжить без него. Ключ вашей учетной записи будет храниться на этом устройстве, поэтому любой, кто сможет прочитать его файлы, может получить доступ к вашей учетной записи."
-
-#~ msgid "Passkeys aren't supported on this browser. You'll need to continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Passkeys не поддерживаются в этом браузере. Вам придется продолжить без passkey (все равно безопасно, просто без защиты аппаратного обеспечения устройства)."
 
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:37
 msgid "Passkeys use your device's built-in security to protect your account. This requires two quick confirmations via your device."
@@ -2886,9 +2925,6 @@ msgstr "Ожидает удаления - нажмите Сохранить, ч�
 #: src/components/space/RolePreview.tsx:34
 msgid "Permissions:"
 msgstr "Разрешения:"
-
-#~ msgid "Photo Library"
-#~ msgstr "Фотоальбом"
 
 #: src/hooks/business/messages/usePinnedMessages.ts:340
 msgid "pin"
@@ -2925,15 +2961,12 @@ msgstr "Закрепить сообщения"
 msgid "Pin/Unpin without confirmation"
 msgstr "Закрепить/Открепить без подтверждения"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:427
+#: src/components/farcaster/FarcasterCastCard.tsx:489
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
 msgid "Pinned"
 msgstr "Закреплено"
-
-#~ msgid "Pinned by {0}"
-#~ msgstr "Закреплено пользователем {0}"
 
 #: src/components/message/Message.tsx:946
 #: src/components/message/Message.tsx:1042
@@ -2945,11 +2978,11 @@ msgstr "Закреплено {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Закреплённые сообщения"
 
-#: src/components/farcaster/FarcasterPage.tsx:352
+#: src/components/farcaster/FarcasterPage.tsx:405
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2979,22 +3012,13 @@ msgstr "Конфиденциальность"
 msgid "Private key (hex)"
 msgstr "Закрытый ключ (шестнадцатеричный)"
 
-#~ msgid "Private key copied. It will be cleared from your clipboard automatically in 60 seconds."
-#~ msgstr "Закрытый ключ скопирован. Он будет автоматически удален из Вашего буфера обмена через 60 секунд."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:642
 msgid "Private key copied. Quorum will clear it from your clipboard in 60 seconds. Clipboard history tools keep their own copy, so clear those too."
 msgstr "Закрытый ключ скопирован. Quorum очистит его из Вашего буфера обмена через 60 секунд. Инструменты истории буфера обмена сохраняют свою собственную копию, поэтому очистите и их."
 
-#~ msgid "Private key copied. Store it securely and clear your clipboard when you're done."
-#~ msgstr "Закрытый ключ скопирован. Храните его в безопасном месте и очистите буфер обмена, когда закончите."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:643
 msgid "Private key copied. Store it securely, then clear your clipboard and your clipboard history."
 msgstr "Закрытый ключ скопирован. Храните его надежно, затем очистите буфер обмена и его историю."
-
-#~ msgid "Private key saved to selected folder"
-#~ msgstr "Приватный ключ сохранен в выбранной папке"
 
 #: src/components/message/MessageComposer.tsx:776
 msgid "Processing image... This may take a moment for large files."
@@ -3020,12 +3044,13 @@ msgstr "Публичный профиль"
 msgid "Public spaces"
 msgstr "Публичные пространства"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Publishing..."
 msgstr ""
 
-#~ msgid "QR code will auto-hide in 60 seconds"
-#~ msgstr "QR-код будет автоматически скрыт через 60 секунд"
+#: src/components/AppErrorScreen.tsx:105
+msgid "Quorum encountered an unexpected issue during operation. You can reload, clear temporary session data, or reset local app data to recover."
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:129
 msgid "Quorum for desktop cannot use passkeys. To protect your account key with one, set your account up in a web browser using your key file."
@@ -3039,11 +3064,11 @@ msgstr "Инфраструктура Quorum развертывается в да
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum — это децентрализованная платформа для обмена сообщениями, где вы владеете своей идентификацией. Никаких электронных писем, никаких номеров телефонов — только безопасный ключ, которым управляете только вы."
 
-#: src/components/context/RegistrationPersister.tsx:512
+#: src/components/context/RegistrationPersister.tsx:431
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum был загружен, когда браузер не был в фокусе или запрос на passkey был отклонен. Пожалуйста, повторно авторизуйтесь, чтобы получить доступ к вашим сообщениям."
 
-#: src/components/farcaster/FarcasterPage.tsx:214
+#: src/components/farcaster/FarcasterPage.tsx:263
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3080,9 +3105,13 @@ msgstr "Чтение Вашего ключа..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Готовы начать по-настоящему частный разговор?"
 
-#: src/components/context/RegistrationPersister.tsx:527
+#: src/components/context/RegistrationPersister.tsx:446
 msgid "Reauthorize"
 msgstr "Повторная авторизация"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:59
+msgid "recasted your cast"
+msgstr ""
 
 #: src/services/ConfigService.ts:99
 msgid "received config with invalid signature!"
@@ -3092,27 +3121,31 @@ msgstr "получена конфигурация с недействитель�
 msgid "Recipient has no devices"
 msgstr "У получателя нет устройств"
 
-#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:467
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Обновление"
 
-#: src/components/farcaster/FarcasterPage.tsx:756
+#: src/components/notifications/FarcasterNotificationsView.tsx:232
+msgid "Refresh notifications"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:835
 msgid "Refresh thread"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:165
+msgid "Reload"
 msgstr ""
 
 #: src/components/RouteErrorFallback.tsx:64
 msgid "Reload app"
 msgstr "Перезагрузить приложение"
 
-#: src/components/AppErrorScreen.tsx:55
+#: src/components/AppErrorScreen.tsx:131
 msgid "Reload Quorum"
 msgstr "Перезагрузить Quorum"
-
-#: src/components/AppErrorScreen.tsx:36
-msgid "Reloading usually fixes it. If it keeps happening, check <0>status.quilibrium.com</0> for service updates."
-msgstr "Перезагрузка обычно помогает. Если проблема повторяется, проверьте <0>status.quilibrium.com</0> для получения информации об обновлениях сервиса."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:560
 msgid "Remove"
@@ -3142,22 +3175,26 @@ msgstr "Переименовать это устройство"
 msgid "Reopen"
 msgstr "Открыть заново"
 
-#: src/components/context/RegistrationPersister.tsx:448
-#: src/components/context/RegistrationPersister.tsx:483
+#: src/components/context/RegistrationPersister.tsx:367
+#: src/components/context/RegistrationPersister.tsx:402
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:482
+#: src/components/context/RegistrationPersister.tsx:401
 msgid "Repairing…"
 msgstr ""
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:63
+msgid "replied to your cast"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:124
+#: src/components/notifications/NotificationPanel.tsx:134
 msgid "Replies"
 msgstr "Ответы"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:519
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterCastCard.tsx:582
+#: src/components/farcaster/FarcasterPage.tsx:712
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3168,15 +3205,12 @@ msgstr "Ответить"
 msgid "Reply in thread..."
 msgstr "Ответить в теме..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:432
-#: src/components/farcaster/FarcasterPage.tsx:591
+#: src/components/farcaster/FarcasterCastCard.tsx:494
+#: src/components/farcaster/FarcasterPage.tsx:665
 msgid "Replying to"
 msgstr ""
 
-#~ msgid "Replying to {user}"
-#~ msgstr "Ответ на {user}"
-
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterPage.tsx:712
 msgid "Replying..."
 msgstr ""
 
@@ -3202,12 +3236,10 @@ msgstr "Сбросить"
 msgid "Reset All"
 msgstr "Сбросить все"
 
+#: src/components/AppErrorScreen.tsx:157
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:72
 msgid "Reset App Data"
 msgstr "Сбросить данные приложения"
-
-#~ msgid "Reset Encryption Session"
-#~ msgstr "Сбросить сеанс шифрования"
 
 #: src/components/modals/ConversationSettingsModal.tsx:473
 msgid "Reset if messages fail to send or decrypt"
@@ -3217,9 +3249,6 @@ msgstr "Сбросьте, если сообщения не отправляют�
 msgid "Reset Session"
 msgstr "Сбросить сеанс"
 
-#~ msgid "Reset the encryption session if messages fail to send or decrypt. The next message will establish a fresh secure connection."
-#~ msgstr "Сбросьте сеанс шифрования, если сообщения не отправляются или не расшифровываются. Следующее сообщение установит новое безопасное соединение."
-
 #: src/components/modals/ConversationSettingsModal.tsx:365
 #: src/components/modals/ConversationSettingsModal.tsx:404
 msgid "Reset to global"
@@ -3228,6 +3257,10 @@ msgstr "Сбросить к глобальным настройкам"
 #: src/components/modals/UserSettingsModal/Help.tsx:113
 msgid "Reset your DM encryption sessions if messages are failing to send or decrypt."
 msgstr "Сбросьте сеансы шифрования Ваших личных сообщений, если сообщения не отправляются или не расшифровываются."
+
+#: src/components/AppErrorScreen.tsx:173
+msgid "Resetting will clear all local databases and return to onboarding. Ensure you have your recovery backup phrase if restoring an existing account."
+msgstr ""
 
 #: src/components/modals/ConversationSettingsModal.tsx:538
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:109
@@ -3273,8 +3306,9 @@ msgid "Restoring..."
 msgstr "Восстановление..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:440
+#: src/components/farcaster/FarcasterPage.tsx:510
 #: src/components/message/Message.tsx:1637
+#: src/components/notifications/FarcasterNotificationsView.tsx:248
 msgid "Retry"
 msgstr "Повторить"
 
@@ -3314,9 +3348,6 @@ msgstr "Сохранить историю изменений"
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:395
 msgid "Save Failed"
 msgstr "Сохранение не удалось"
-
-#~ msgid "Save Private Key"
-#~ msgstr "Сохранить приватный ключ"
 
 #: src/components/onboarding/steps/SaveKeyToPasskeyStep.tsx:31
 msgid "Save to Passkey"
@@ -3403,7 +3434,7 @@ msgstr "Поиск имени пользователя или адреса"
 msgid "Search..."
 msgstr "Поиск..."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Поиск..."
@@ -3433,9 +3464,6 @@ msgstr "Выбрать"
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:161
 msgid "Select permissions"
 msgstr "Выберите разрешения"
-
-#~ msgid "Select Profile Image"
-#~ msgstr "Выберите изображение профиля"
 
 #: src/components/modals/ChannelEditorModal.tsx:204
 msgid "Select Roles"
@@ -3480,7 +3508,7 @@ msgstr "Отправить через личное сообщение"
 msgid "Sending..."
 msgstr "Отправка..."
 
-#: src/components/context/RegistrationPersister.tsx:499
+#: src/components/context/RegistrationPersister.tsx:418
 msgid "Session Encrypted"
 msgstr "Сессия зашифрована"
 
@@ -3553,7 +3581,7 @@ msgstr "Показано {0} из {total} Пространств"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "Показаны первые 500 результатов. Уточните поиск для более конкретных результатов."
 
-#: src/components/notifications/NotificationPanel.tsx:369
+#: src/components/notifications/NotificationPanel.tsx:395
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "Показаны {GLOBAL_DISPLAY_CAP} самых последних уведомлений"
 
@@ -3569,7 +3597,7 @@ msgstr "Пропустить пока"
 msgid "Someone"
 msgstr "Кто-то"
 
-#: src/components/AppErrorScreen.tsx:33
+#: src/components/AppErrorScreen.tsx:102
 msgid "Something went wrong"
 msgstr "Что-то пошло не так"
 
@@ -3638,6 +3666,7 @@ msgid "Space Tag"
 msgstr "Тег Space"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
+#: src/components/notifications/NotificationPanel.tsx:272
 #: src/components/shell/NavRail.tsx:36
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
@@ -3695,9 +3724,6 @@ msgstr "Синхронизация отключена, поэтому это у�
 msgid "Sync Kick Status"
 msgstr "Синхронизировать статус исключения"
 
-#~ msgid "Syncing..."
-#~ msgstr "Синхронизация..."
-
 #: src/components/ui/ThemeRadioGroup.tsx:29
 #: src/components/ui/ThemeRadioGroup.tsx:31
 msgid "System"
@@ -3706,9 +3732,6 @@ msgstr "Система"
 #: src/components/modals/SpaceSettingsModal/SpaceTagSettings.tsx:82
 msgid "Tag Image"
 msgstr "Изображение тега"
-
-#~ msgid "Tap to copy"
-#~ msgstr "Нажмите, чтобы скопировать"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:275
 msgid "Tell people about yourself in this Space..."
@@ -3736,15 +3759,9 @@ msgstr "Страница, которую вы ищете, не существу�
 msgid "The passkey setup timed out. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Время настройки passkey истекло. Вы можете попробовать еще раз или продолжить без него. Без passkey ключ вашей учетной записи хранится на этом устройстве, поэтому любой, кто сможет прочитать его файлы, может получить доступ к вашей учетной записи."
 
-#~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Время настройки passkey истекло. Вы можете попробовать снова или продолжить без passkey (все равно безопасно, просто без защиты аппаратного обеспечения устройства)."
-
-#: src/components/context/RegistrationPersister.tsx:468
+#: src/components/context/RegistrationPersister.tsx:387
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
-
-#~ msgid "This action cannot be undone and will permanently delete this Space and all of its channels and messages."
-#~ msgstr "Это действие нельзя отменить, и оно приведет к постоянному удалению этого Ространства и всех его каналов и сообщений."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:376
 msgid "This backup is inconsistent: it reports Space keys but contains no Space list, so Spaces could not be restored."
@@ -3762,9 +3779,6 @@ msgstr "Эта биография будет видна другим, когда
 msgid "This channel couldn't be loaded"
 msgstr "Этот канал не удалось загрузить"
 
-#~ msgid "this contact"
-#~ msgstr "этот контакт"
-
 #: src/components/RouteErrorFallback.tsx:22
 msgid "This conversation couldn't be loaded"
 msgstr "Эту беседу не удалось загрузить"
@@ -3773,9 +3787,6 @@ msgstr "Эту беседу не удалось загрузить"
 #: src/components/modals/ConversationSettingsModal.tsx:411
 msgid "This conversation overrides your global setting. Click \"Reset to global\" to use your global preference."
 msgstr "Этот чат переопределяет вашу глобальную настройку. Нажмите \"Сбросить к глобальным настройкам\", чтобы использовать ваше глобальное предпочтение."
-
-#~ msgid "This copies your private key to the clipboard in plain text. Anyone with access to your clipboard can take full control of your account. Store it somewhere safe and clear your clipboard afterwards."
-#~ msgstr "Это копирует Ваш закрытый ключ в буфер обмена в виде обычного текста. Любой, кто имеет доступ к Вашему буферу обмена, может получить полный контроль над Вашей учетной записью. Храните его в безопасном месте и очистите буфер обмена после использования."
 
 #: src/components/modals/CreateSpaceModal.tsx:187
 #: src/components/modals/SpaceSettingsModal/General.tsx:189
@@ -3824,7 +3835,7 @@ msgstr "Эта ссылка не истекает. Любой, у кого он�
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Эта ссылка была сгенерирована владельцем Пространства. Она не истекает."
 
-#: src/components/notifications/NotificationPanel.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Это помечает упоминания и ответы как прочитанные во всех Ваших Пространствах. Это действие нельзя отменить."
 
@@ -3907,15 +3918,6 @@ msgstr ""
 "\n"
 "Используйте это, если сообщения не отправляются или не расшифровываются."
 
-#~ msgid ""
-#~ "This will reset the encryption session with {counterpartyName}. The next message will establish a fresh secure connection.\n"
-#~ "\n"
-#~ "Use this if messages are failing to send or decrypt. Message history is not affected."
-#~ msgstr ""
-#~ "Это сбросит сеанс шифрования с {counterpartyName}. Следующее сообщение установит новое безопасное соединение.\n"
-#~ "\n"
-#~ "Используйте это, если сообщения не отправляются или не расшифровываются. История сообщений не затрагивается."
-
 #: src/components/modals/UserSettingsModal/Help.tsx:30
 msgid ""
 "This will reset the encryption sessions for all your DM conversations. Your next message to each contact will establish a fresh secure connection.\n"
@@ -3926,11 +3928,11 @@ msgstr ""
 "\n"
 "Используйте это, если сообщения не отправляются или не расшифровываются."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:453
+#: src/components/farcaster/FarcasterCastCard.tsx:515
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:751
+#: src/components/farcaster/FarcasterPage.tsx:830
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3986,9 +3988,9 @@ msgstr "Сегодня"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Слишком много упоминаний в сообщении. Максимум {MAX_MENTIONS_PER_MESSAGE} разрешено."
 
-#: src/components/farcaster/FarcasterPage.tsx:221
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:291
+#: src/components/farcaster/FarcasterPage.tsx:397
 msgid "Trending"
 msgstr ""
 
@@ -4022,9 +4024,6 @@ msgstr "Две роли не могут иметь одинаковое имя �
 msgid "Two roles can't share the tag @{0}."
 msgstr "Две роли не могут иметь одинаковый тег @{0}."
 
-#~ msgid "Type DELETE to confirm"
-#~ msgstr "Введите DELETE для подтверждения"
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:97
 msgid "Type RESET to confirm"
 msgstr "Введите RESET для подтверждения"
@@ -4057,9 +4056,6 @@ msgstr "Не удалось сжать изображение. Пожалуйс�
 #: src/hooks/business/ui/useCustomAssets.ts:237
 msgid "Unable to compress sticker images. Please use smaller images."
 msgstr "Не удалось сжать изображения стикеров. Пожалуйста, используйте меньшие изображения."
-
-#~ msgid "Unable to copy to clipboard"
-#~ msgstr "Не удалось скопировать в буфер обмена"
 
 #: src/services/SpaceService.ts:574
 msgid "Unable to leave Space due to incomplete configuration. The Space data may be corrupted."
@@ -4121,7 +4117,8 @@ msgstr "Неизвестное время"
 #: src/components/message/MessageEditTextarea.tsx:656
 #: src/components/message/MessageEditTextarea.tsx:662
 #: src/components/modals/NewDirectMessageModal.tsx:78
-#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:15
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:10
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:18
 #: src/services/EncryptionService.ts:204
 #: src/services/MessageService.ts:3652
 #: src/services/MessageService.ts:3847
@@ -4191,9 +4188,6 @@ msgstr "Обновите записи о кикнутых для всех уча
 msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 2:1"
 msgstr "Загрузите баннер для Вашего Пространства — PNG или JPG — Оптимальное соотношение 2:1"
 
-#~ msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 3:1"
-#~ msgstr "Загрузите баннер для вашего пространства - PNG или JPG - Оптимальное соотношение 3:1"
-
 #: src/components/modals/SpaceSettingsModal/Account.tsx:237
 msgid "Upload an avatar for this Space - PNG or JPG - Optimal ratio 1:1"
 msgstr "Загрузите аватар для этого Пространства - PNG или JPG - Оптимальное соотношение 1:1"
@@ -4222,9 +4216,6 @@ msgstr "Загрузить изображение"
 #: src/components/modals/SpaceSettingsModal/Stickers.tsx:62
 msgid "Upload Sticker"
 msgstr "Загрузить наклейку"
-
-#~ msgid "Use \"Save to Files\" to save your private key"
-#~ msgstr "Используйте \"Сохранить в файлы\", чтобы сохранить ваш приватный ключ"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:219
 #: src/components/modals/SpaceSettingsModal/Account.tsx:227
@@ -4270,7 +4261,7 @@ msgstr "Проверка приглашения..."
 msgid "View edit history"
 msgstr "Просмотреть историю изменений"
 
-#: src/components/farcaster/FarcasterPage.tsx:769
+#: src/components/farcaster/FarcasterPage.tsx:848
 msgid "View full thread"
 msgstr ""
 
@@ -4292,9 +4283,6 @@ msgstr "Ожидание завершения синхронизации Про�
 msgid "Wallet"
 msgstr "Кошелек"
 
-#~ msgid "Welcome to Quorum, {name}! Your account is secured and ready to go."
-#~ msgstr "Добро пожаловать в Quorum, {name}! Ваш аккаунт защищен и готов к использованию."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:79
 msgid "What is a Passkey?"
 msgstr "Что такое passkey?"
@@ -4315,7 +4303,7 @@ msgstr "Что такое ключ аккаунта?"
 msgid "What should we call you?"
 msgstr "Как вас называть?"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:425
 msgid "What's happening?"
 msgstr ""
 
@@ -4400,7 +4388,7 @@ msgstr "Почему мне нужно это делать?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Без этой резервной копии, потеря устройства означает потерю аккаунта — нет опции \"забыли пароль\". Это цена, которую вы платите за конфиденциальность :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:612
+#: src/components/farcaster/FarcasterPage.tsx:686
 msgid "Write a reply..."
 msgstr ""
 
@@ -4411,12 +4399,6 @@ msgstr "Вчера"
 #: src/utils/dateFormatting.ts:33
 msgid "Yesterday at {time}"
 msgstr "Вчера в {time}"
-
-#~ msgid "Yesterday at {timeFormatted}"
-#~ msgstr "Вчера в {timeFormatted}"
-
-#~ msgid "You"
-#~ msgstr "Вы"
 
 #: src/components/modals/AddSpaceModal.tsx:116
 msgid "You are already a member of this Space."
@@ -4443,9 +4425,6 @@ msgstr "Вы можете управлять уведомлениями о уп�
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:14
 msgid "You cancelled the passkey setup. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Вы отменили настройку passkey. Вы можете попробовать еще раз или продолжить без него. Без passkey ключ вашей учетной записи хранится на этом устройстве, поэтому любой, кто сможет прочитать его файлы, может получить доступ к вашей учетной записи."
-
-#~ msgid "You cancelled the passkey setup. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Вы отменили настройку passkey. Вы можете попробовать снова или продолжить без passkey (все равно безопасно, просто без защиты аппаратного обеспечения устройства)."
 
 #: src/components/modals/GroupEditorModal.tsx:116
 msgid "You cannot delete a group that contains channels. Delete all {channelCount} channels in this group first."
@@ -4484,15 +4463,9 @@ msgstr "Вы сохраняете ту же учетную запись и ад�
 msgid "You must assign yourself a role for moderation actions (except kicking). Grant delete and mute permissions carefully. <0><1>Learn more</1></0>"
 msgstr "Вы должны назначить себе роль для действий модерации (кроме кика). Осторожно предоставляйте разрешения на удаление и отключение звука. <0><1>Узнать больше</1></0>"
 
-#~ msgid "You won't be able to rejoin unless you are re-invited. Your existing messages will NOT be deleted."
-#~ msgstr "Вы не сможете вернуться, если вас не пригласят снова. Ваши существующие сообщения НЕ будут удалены."
-
 #: src/components/modals/BlockUserModal.tsx:99
 msgid "You won't see any of {resolvedNameText}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
 msgstr "Вы не увидите сообщений {resolvedNameText} в этом Пространстве. Это влияет только на Ваш просмотр и только в этом Пространстве. Вы можете разблокировать в любое время."
-
-#~ msgid "You won't see any of {userName}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
-#~ msgstr "Вы не будете видеть сообщения пользователя {userName} в этом Пространстве. Это влияет только на Ваш просмотр и только в этом Пространстве. Вы можете разблокировать пользователя в любое время."
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:468
 msgid "You'll need an invite to rejoin, though a public invite link will still work if this Space has one. Your existing messages will NOT be deleted."
@@ -4506,10 +4479,11 @@ msgstr "Вам понадобится этот файл для восстано�
 msgid "You'll see {resolvedNameText}'s messages in this Space again."
 msgstr "Вы снова увидите сообщения {resolvedNameText} в этом Пространстве."
 
-#~ msgid "You'll see {userName}'s messages in this Space again."
-#~ msgstr "Вы снова будете видеть сообщения пользователя {userName} в этом Пространстве."
+#: src/components/notifications/FarcasterNotificationsView.tsx:255
+msgid "You're all caught up on Farcaster!"
+msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:244
 msgid "You're all caught up!"
 msgstr "Вы в курсе всех событий!"
 
@@ -4558,7 +4532,7 @@ msgstr "Ключ Вашей учетной записи — это закрыт�
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Ваш ключ аккаунта — это ваш уникальный идентификатор в Quorum. Это как мастер-пароль, который подтверждает, что вы — это вы, но он генерируется автоматически и хранится безопасно в вашем passkey."
 
-#: src/components/context/RegistrationPersister.tsx:461
+#: src/components/context/RegistrationPersister.tsx:380
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 

@@ -12,6 +12,8 @@ import { useOptionalShellState } from './useShellState';
 import { useSpaces } from '../../hooks/queries/spaces';
 import { useSpaceMentionCounts } from '../../hooks/business/mentions';
 import { useSpaceReplyCounts } from '../../hooks/business/replies';
+import { useFarcasterNotifications } from '../farcaster/useFarcasterDesktop';
+import { loadDesktopFarcasterAccount, type DesktopFarcasterAccount } from '@/services/FarcasterAccountService';
 import './NavRail.scss';
 
 type RailSectionId = 'dm' | 'spaces' | 'notifications' | 'bookmarks' | 'discover' | 'farcaster' | 'wallet';
@@ -114,8 +116,22 @@ export const NavRail: React.FunctionComponent<NavRailProps> = ({ collapsed, onTo
   const { data: spaces = [] } = useSpaces();
   const mentionCounts = useSpaceMentionCounts({ spaces });
   const replyCounts = useSpaceReplyCounts({ spaces });
+
+  const [farcasterAccount, setFarcasterAccount] = React.useState<DesktopFarcasterAccount | null>(null);
+  React.useEffect(() => {
+    void loadDesktopFarcasterAccount().then(setFarcasterAccount);
+  }, []);
+
+  const farcasterNotifs = useFarcasterNotifications(
+    farcasterAccount?.fid,
+    Boolean(farcasterAccount?.fid)
+  );
+  const farcasterCount = farcasterNotifs.data?.pages?.[0]?.notifications?.length ?? 0;
+
   const hasUnreadNotifications =
-    Object.keys(mentionCounts).length > 0 || Object.keys(replyCounts).length > 0;
+    Object.keys(mentionCounts).length > 0 ||
+    Object.keys(replyCounts).length > 0 ||
+    farcasterCount > 0;
 
   // Compute active section from pathname.
   // /discover/* → "discover"; /spaces or /spaces/:id/:id → "spaces"; /messages → "dm".

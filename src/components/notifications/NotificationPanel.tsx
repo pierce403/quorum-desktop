@@ -15,6 +15,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useConfirmation } from '../../hooks/ui/useConfirmation';
 import ConfirmationModal from '../modals/ConfirmationModal';
 import { FarcasterNotificationsView } from './FarcasterNotificationsView';
+import { useFarcasterNotifications } from '../farcaster/useFarcasterDesktop';
 import { loadDesktopFarcasterAccount, type DesktopFarcasterAccount } from '@/services/FarcasterAccountService';
 import type { SpaceNotificationTypeId } from '../../types/notifications';
 import type { Space } from '@quilibrium/quorum-shared';
@@ -247,14 +248,23 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({
     );
   };
 
+  // Query farcaster notifications for combined counts & badges
+  const farcasterNotifs = useFarcasterNotifications(
+    farcasterAccount?.fid,
+    Boolean(global && farcasterAccount?.fid)
+  );
+  const farcasterNotifications =
+    farcasterNotifs.data?.pages?.flatMap((p) => p.notifications) ?? [];
+  const farcasterCount = farcasterNotifications.length;
+  const spacesCount = allNotifications.length;
+  const totalCount = spacesCount + (farcasterAccount ? farcasterCount : 0);
+
   // Per-space panel makes the scope explicit in the title; the global panel
-  // (across all spaces) keeps the plain count.
+  // (across all spaces) keeps the combined count.
   const panelTitle = global
-    ? activeTab === 'farcaster'
-      ? t`Farcaster Notifications`
-      : allNotifications.length === 1
-        ? t`${allNotifications.length} notification`
-        : t`${allNotifications.length} notifications`
+    ? totalCount === 1
+      ? t`${totalCount} notification`
+      : t`${totalCount} notifications`
     : allNotifications.length === 1
       ? t`${allNotifications.length} Notification in this Space`
       : t`${allNotifications.length} Notifications in this Space`;
@@ -270,8 +280,8 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({
             >
               <Icon name="users-group" size="sm" />
               <span>{t`Spaces`}</span>
-              {allNotifications.length > 0 && (
-                <span className="notification-panel__tab-count">{allNotifications.length}</span>
+              {spacesCount > 0 && (
+                <span className="notification-panel__tab-count">{spacesCount}</span>
               )}
             </button>
             <button
@@ -281,6 +291,9 @@ export const NotificationPanel: React.FC<NotificationPanelProps> = ({
             >
               <Icon name="world-map" size="sm" />
               <span>{t`Farcaster`}</span>
+              {farcasterCount > 0 && (
+                <span className="notification-panel__tab-count">{farcasterCount}</span>
+              )}
             </button>
           </div>
         )}

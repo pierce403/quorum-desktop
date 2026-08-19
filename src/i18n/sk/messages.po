@@ -148,22 +148,22 @@ msgid "{0} messages were not restored because you deleted them after this backup
 msgstr "{0} správ nebolo obnovených, pretože ste ich odstránili po vytvorení tejto zálohy."
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:256
 msgid "{0} notification"
 msgstr "{0} oznámenie"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:247
+#: src/components/notifications/NotificationPanel.tsx:259
 msgid "{0} Notification in this Space"
 msgstr "{0} upozornenie v tomto Priestore"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:245
+#: src/components/notifications/NotificationPanel.tsx:257
 msgid "{0} notifications"
 msgstr "{0} oznámenia"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:248
+#: src/components/notifications/NotificationPanel.tsx:260
 msgid "{0} Notifications in this Space"
 msgstr "{0} upozornení v tomto Priestore"
 
@@ -211,9 +211,6 @@ msgstr "{bookmarkCount} záložka"
 msgid "{bookmarkCount} bookmarks"
 msgstr "{bookmarkCount} záložiek"
 
-#~ msgid "{contextCount} bookmark here"
-#~ msgstr "{contextCount} záložka tu"
-
 #: src/components/bookmarks/BookmarksPanel.tsx:181
 msgid "{contextCount} bookmark in this conversation"
 msgstr "{contextCount} záložka v tejto konverzácii"
@@ -221,9 +218,6 @@ msgstr "{contextCount} záložka v tejto konverzácii"
 #: src/components/bookmarks/BookmarksPanel.tsx:184
 msgid "{contextCount} bookmark in this Space"
 msgstr "{contextCount} záložka v tomto Priestore"
-
-#~ msgid "{contextCount} bookmarks here"
-#~ msgstr "{contextCount} záložky tu"
 
 #: src/components/bookmarks/BookmarksPanel.tsx:182
 msgid "{contextCount} bookmarks in this conversation"
@@ -250,17 +244,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} odpovede"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:115
+#: src/components/notifications/NotificationPanel.tsx:125
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:119
+#: src/components/notifications/NotificationPanel.tsx:129
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:111
+#: src/components/notifications/NotificationPanel.tsx:121
 msgid "@you"
 msgstr "@you"
 
@@ -338,9 +332,9 @@ msgstr "Kľúč účtu"
 msgid "Account Settings"
 msgstr "Nastavenia účtu"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:622
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:666
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:699
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:631
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:675
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:708
 msgid "Account setup isn't ready yet. Please retry creating your account."
 msgstr ""
 
@@ -439,7 +433,8 @@ msgstr "Pokročilé nastavenia"
 #: src/components/modals/ChannelEditorModal.tsx:206
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
-#: src/components/notifications/NotificationPanel.tsx:265
+#: src/components/notifications/FarcasterNotificationsView.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:305
 msgid "All"
 msgstr "Všetko"
 
@@ -485,9 +480,6 @@ msgstr "Vždy podpisovať priame správy"
 msgid "Always sign messages"
 msgstr "Vždy podpisovať správy"
 
-#~ msgid "An error occurred while deleting the Space. Please try again."
-#~ msgstr "Pri odstraňovaní Space došlo k chybe. Skúste to prosím znova."
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:88
 msgid "An error occurred while resetting app data. Please try again."
 msgstr "Pri obnove údajov aplikácie nastala chyba. Skúste to znova."
@@ -522,9 +514,6 @@ msgstr ""
 "Ktokoľvek, kto uvidí alebo odfotí tento kód, môže prevziať plnú kontrolu nad vaším účtom a ukradnúť všetky prostriedky, ktoré obsahuje.\n"
 "\n"
 "Pokračujte len vtedy, ak ste na súkromnom mieste a ste pripravení okamžite skenovať. Kód sa skryje po 60 sekundách."
-
-#~ msgid "Anyone who sees or photographs this QR code can take full control of your Quorum account and steal any associated funds. Only proceed if you are in a private location and ready to scan immediately."
-#~ msgstr "Ktokoľvek, kto vidí alebo fotografuje tento QR kód, môže získať plnú kontrolu nad vaším Quorum účtom a ukradnúť akékoľvek priradené prostriedky. Pokračujte iba v prípade, že sa nachádzate na súkromnom mieste a ste pripravení okamžite skenovať."
 
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:252
 msgid "App version"
@@ -575,9 +564,6 @@ msgstr "Ste si istí, že chcete odstrániť túto správu?"
 msgid "Are you sure you want to delete this role?"
 msgstr "Ste si istí, že chcete odstrániť túto rolu?"
 
-#~ msgid "Are you sure you want to leave this Space? You won't be able to rejoin unless you are re-invited."
-#~ msgstr "Si si istý, že chceš opustiť tento Space? Nebudeš sa môcť znovu pripojiť, pokiaľ ťa znova nepozvú."
-
 #: src/components/modals/LeaveSpaceModal.tsx:47
 msgid "Are you sure you want to leave this Space? You'll need an invite to rejoin, though a public invite link will still work if this Space has one."
 msgstr "Naozaj chcete opustiť tento Priestor? Budete potrebovať pozvánku na opätovné pripojenie, hoci verejný odkaz na pozvánku bude stále fungovať, ak ho tento Priestor má."
@@ -606,12 +592,12 @@ msgstr "Automaticky uzavrieť po"
 msgid "Away"
 msgstr "Preč"
 
-#: src/components/farcaster/FarcasterPage.tsx:291
-#: src/components/farcaster/FarcasterPage.tsx:749
+#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:828
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:746
+#: src/components/farcaster/FarcasterPage.tsx:825
 msgid "Back to feed"
 msgstr ""
 
@@ -627,9 +613,6 @@ msgstr "Späť na zoznam Priestorov"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:17
 msgid "Back Up Your Account Key"
 msgstr "Zálohovať kľúč účtu"
-
-#~ msgid "Backup Failed"
-#~ msgstr "Zálohovanie zlyhalo"
 
 #: src/components/direct/DMUserProfileSidebar.tsx:108
 #: src/components/modals/SpaceSettingsModal/Account.tsx:269
@@ -703,7 +686,7 @@ msgstr "Záložky v tomto Priestore"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Prezrite si verejné Priestory a nájdite komunitu, ku ktorej sa pripojíte."
 
-#: src/components/farcaster/FarcasterPage.tsx:323
+#: src/components/farcaster/FarcasterPage.tsx:376
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -711,15 +694,12 @@ msgstr ""
 msgid "Busy"
 msgstr "Zaneprázdnený"
 
-#~ msgid "Camera"
-#~ msgstr "Kamera"
-
 #: src/components/modals/UserSettingsModal/SyncStatusLine.tsx:65
 msgid "Can't sync: no key is available on this device."
 msgstr "Nedá sa synchronizovať: na tomto zariadení nie je k dispozícii žiadny kľúč."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterPage.tsx:703
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -732,7 +712,7 @@ msgstr "Nedá sa synchronizovať: na tomto zariadení nie je k dispozícii žiad
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:205
+#: src/components/notifications/NotificationPanel.tsx:215
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -744,7 +724,7 @@ msgstr "Zrušiť"
 msgid "CANCEL"
 msgstr "ZRUŠIŤ"
 
-#: src/components/farcaster/FarcasterPage.tsx:601
+#: src/components/farcaster/FarcasterPage.tsx:675
 msgid "Cancel reply"
 msgstr ""
 
@@ -758,23 +738,23 @@ msgstr "Nemôžete zmazať skupinu obsahujúcu predvolený kanál."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Nie je možné nahrať viac ako {0} súborov naraz ({remaining} voľných miest zostáva)"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:326
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:740
+#: src/components/farcaster/FarcasterPage.tsx:819
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:521
+#: src/components/farcaster/FarcasterPage.tsx:595
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:528
+#: src/components/farcaster/FarcasterPage.tsx:602
 msgid "Casts & Replies"
 msgstr ""
 
@@ -782,7 +762,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Zmeny sa vykonávajú automaticky, ale aktívna stránka sa nemusí aktualizovať. Obnovte stránku, aby ste použili nový jazyk."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Channel feed"
 msgstr ""
 
@@ -841,9 +821,6 @@ msgstr "Kanály"
 msgid "choose file"
 msgstr "vybrať súbor"
 
-#~ msgid "Choose how you'd like to add your profile image"
-#~ msgstr "Vyber, ako by si chcel pridať svoj profilový obrázok"
-
 #: src/components/modals/UserSettingsModal/Appearance.tsx:45
 msgid "Choose your preferred theme for Quorum."
 msgstr "Vyberte si preferovanú tému pre Quorum."
@@ -851,7 +828,7 @@ msgstr "Vyberte si preferovanú tému pre Quorum."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:266
+#: src/components/notifications/NotificationPanel.tsx:306
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Vymazať"
@@ -859,6 +836,10 @@ msgstr "Vymazať"
 #: src/components/search/SearchBar.tsx:139
 msgid "Clear search"
 msgstr "Vymazať vyhľadávanie"
+
+#: src/components/AppErrorScreen.tsx:138
+msgid "Clear Session"
+msgstr ""
 
 #: src/services/NotificationService.ts:211
 msgid "Clearing notifications with tag: {tag}"
@@ -924,6 +905,14 @@ msgstr "Potvrdiť odchod"
 msgid "Confirm Reset"
 msgstr "Potvrď obnovenie"
 
+#: src/components/AppErrorScreen.tsx:166
+msgid "Confirm Reset & Restart"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:179
+msgid "Connect Farcaster"
+msgstr ""
+
 #: src/components/Connecting.tsx:13
 #: src/components/ConnectingClassic.tsx:22
 msgid "Connecting"
@@ -955,6 +944,10 @@ msgstr "Nastavenia konverzácie"
 msgid "Conversation with {counterpartLabel}"
 msgstr "Konverzácia s {counterpartLabel}"
 
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copied Diagnostics!"
+msgstr ""
+
 #: src/components/message/MessageActionsMenu.tsx:223
 #: src/components/message/MessageActionsMenu.tsx:228
 #: src/components/ui/ClickToCopyContent.tsx:153
@@ -980,8 +973,9 @@ msgstr "Kopírovať odkaz"
 msgid "Copy address"
 msgstr "Kopírovať adresu"
 
-#~ msgid "Copy Failed"
-#~ msgstr "Kopírovanie zlyhalo"
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copy Error Report"
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/Security.tsx:523
 msgid "Copy full address"
@@ -1036,8 +1030,8 @@ msgstr "Nepodarilo sa načítať podrobnosti o Space. Skúste to prosím znova."
 msgid "Could not import key"
 msgstr "Nepodarilo sa importovať kľúč"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:231
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:592
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:240
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:601
 msgid "Could not import that account key. Check the file or key and try again."
 msgstr ""
 
@@ -1055,7 +1049,7 @@ msgid "Couldn't decrypt your saved profile. Please re-enter your name and profil
 msgstr "Nepodarilo sa dešifrovať váš uložený profil. Prosím, zadajte svoje meno a profilový obrázok."
 
 #: src/hooks/business/user/useOnboardingFlowLogic.ts:252
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:500
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:509
 msgid "Couldn't load your saved profile. Please re-enter your name and profile image."
 msgstr "Nepodarilo sa načítať váš uložený profil. Prosím, zadajte svoje meno a profilový obrázok."
 
@@ -1343,7 +1337,7 @@ msgstr "Priama správa"
 msgid "Direct messages"
 msgstr "Priame správy"
 
-#: src/components/farcaster/FarcasterPage.tsx:319
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Disconnect"
 msgstr ""
 
@@ -1358,9 +1352,6 @@ msgstr "Zobrazte tag z jedného z vašich Spaces vedľa svojho mena v správach.
 #: src/components/modals/UserSettingsModal/General.tsx:136
 msgid "Display name"
 msgstr "Zobrazované meno"
-
-#~ msgid "Display Name"
-#~ msgstr "Zobrazované meno"
 
 #: src/hooks/business/validation/errorTranslator.ts:39
 msgid "Display name cannot contain special characters"
@@ -1616,9 +1607,6 @@ msgstr "Exportovať zálohu?"
 msgid "Export an encrypted backup of your direct messages and your Spaces, so you can restore them if you lose access to this device."
 msgstr "Exportujte šifrovanú zálohu vašich priamych správ a vašich Priestorov, aby ste ich mohli obnoviť, ak stratíte prístup k tomuto zariadeniu."
 
-#~ msgid "Export an encrypted backup of your direct messages to restore them if you lose access to this device."
-#~ msgstr "Exportujte zašifrovanú zálohu svojich priamyh správ, aby ste ich mohli obnoviť, ak stratíte prístup k tomuto zariadeniu."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:232
 msgid "Export backup"
 msgstr "Exportovať zálohu"
@@ -1681,6 +1669,10 @@ msgstr "Nepodarilo sa vykopnúť používateľa"
 msgid "Failed to load bookmarks"
 msgstr "Nepodarilo sa načítať záložky"
 
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:206
+msgid "Failed to load Mini App"
+msgstr ""
+
 #: src/components/discover-page/DiscoverTab.tsx:87
 msgid "Failed to load public Spaces."
 msgstr "Nepodarilo sa načítať verejné Priestory."
@@ -1697,9 +1689,6 @@ msgstr "Nepodarilo sa analyzovať WebSocket správu:"
 #: src/services/ActionQueueHandlers.ts:276
 msgid "Failed to pin message"
 msgstr "Nepodarilo sa pripnúť správu"
-
-#~ msgid "Failed to process image"
-#~ msgstr "Nepodarilo sa spracovať obrázok"
 
 #: src/components/modals/UserSettingsModal/Security.tsx:133
 msgid "Failed to read your private key"
@@ -1761,7 +1750,7 @@ msgstr "Nepodarilo sa uložiť nastavenia Priestoru"
 msgid "Failed to send invite. Please try again."
 msgstr "Nepodarilo sa odoslať pozvánku. Skúste to prosím znova."
 
-#: src/components/farcaster/FarcasterPage.tsx:583
+#: src/components/farcaster/FarcasterPage.tsx:657
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1791,7 +1780,8 @@ msgstr "Nepodarilo sa aktualizovať náhľad pripojenia. Skúste to znova."
 msgid "Failed to update profile"
 msgstr "Nepodarilo sa aktualizovať profil"
 
-#: src/components/farcaster/FarcasterPage.tsx:294
+#: src/components/farcaster/FarcasterPage.tsx:347
+#: src/components/notifications/NotificationPanel.tsx:283
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1800,8 +1790,13 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:439
+#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:254
+msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -1900,18 +1895,26 @@ msgstr "Názov priečinka je povinný"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Názov priečinka musí mať maximálne {MAX_NAME_LENGTH} znakov"
 
-#: src/components/farcaster/FarcasterPage.tsx:62
+#: src/components/notifications/FarcasterNotificationsView.tsx:71
+msgid "followed you"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:69
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:510
+#: src/components/farcaster/FarcasterPage.tsx:584
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:337
-#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:290
+#: src/components/farcaster/FarcasterPage.tsx:390
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Following"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:224
+msgid "Follows"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:60
@@ -1968,6 +1971,10 @@ msgstr "GIF súbory nemôžu byť väčšie ako {maxSize}. Prosím, použite men
 msgid "Go to conversation"
 msgstr "Prejdite na konverzáciu"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:188
+msgid "Go to Farcaster"
+msgstr ""
+
 #: src/components/NotFound.tsx:32
 msgid "Go to Home"
 msgstr "Prejdite na domovskú stránku"
@@ -2009,9 +2016,6 @@ msgstr "Pomoc"
 msgid "Help others recognize you with a profile picture."
 msgstr "Pomôžte iným vás poznávať pomocou profilovej fotografie."
 
-#~ msgid "Hide"
-#~ msgstr "Skryť"
-
 #: src/components/onboarding/steps/ImportKeyStep.tsx:159
 msgid "Hide key"
 msgstr "Skryť kľúč"
@@ -2041,12 +2045,6 @@ msgstr "Už mám účet"
 msgid "I understand"
 msgstr "Rozumiem"
 
-#~ msgid "I Understand, Copy"
-#~ msgstr "Rozumiem, kopírovať"
-
-#~ msgid "I Understand, Show QR"
-#~ msgstr "Chápem, zobraziť QR"
-
 #: src/components/message/Message.tsx:978
 #: src/components/message/Message.tsx:1074
 msgid "I'm new!"
@@ -2055,6 +2053,10 @@ msgstr "Som nový!"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:35
 msgid "I've already saved my key"
 msgstr "Už som si uložil svoj kľúč"
+
+#: src/components/AppErrorScreen.tsx:182
+msgid "If this persists, check <0>status.quilibrium.com</0> or submit the copied error report."
+msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:821
 msgid "If users report that this invite link isn't working, click to republish it. The link URL stays the same."
@@ -2065,7 +2067,7 @@ msgid "Import a backup instead"
 msgstr "Namiesto toho importujte zálohu"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:324
+#: src/components/farcaster/FarcasterPage.tsx:377
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Importovať účet"
@@ -2082,6 +2084,10 @@ msgstr "Metóda importu"
 msgid "Import your account key"
 msgstr "Importovať kľúč účtu"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:180
+msgid "Import your Farcaster account in the Farcaster section to receive your alerts and interaction notifications here."
+msgstr ""
+
 #: src/components/message/PinnedMessagesPanel.tsx:199
 msgid "Important messages will be pinned here"
 msgstr "Dôležité správy budú pripnuté tu"
@@ -2094,13 +2100,17 @@ msgstr ""
 msgid "Importing..."
 msgstr "Importujem..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:472
+#: src/components/farcaster/FarcasterCastCard.tsx:534
 msgid "in"
 msgstr ""
 
 #: src/components/modals/UserSettingsModal/Help.tsx:100
 msgid "Inline Code"
 msgstr "Inline kód"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:50
+msgid "interacted with you"
+msgstr ""
 
 #: src/services/MessageService.ts:4943
 msgid "invalid address for signature"
@@ -2210,6 +2220,10 @@ msgstr "Skákať"
 msgid "Jump to present"
 msgstr "Preskočiť na prítomnosť"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:15
+msgid "just now"
+msgstr ""
+
 #: src/components/onboarding/steps/SecurityWarningStep.tsx:18
 msgid "Keep the file you downloaded safe and private! Anyone with this file can access your account."
 msgstr "Uchovávajte súbor, ktorý ste si stiahli, v bezpečí a v súkromí! Ktoľvek, kto má tento súbor, môže pristupovať k vášmu účtu."
@@ -2230,12 +2244,6 @@ msgstr "Kľúč obsahuje nehexadecimálne znaky."
 #: src/components/onboarding/steps/ImportKeyStep.tsx:55
 msgid "Key must be {ED448_PRIVATE_KEY_HEX_LENGTH} characters ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
 msgstr "Kľúč musí mať {ED448_PRIVATE_KEY_HEX_LENGTH} znakov ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
-
-#~ msgid "Key Ready"
-#~ msgstr "Kľúč pripravený"
-
-#~ msgid "Key Saved"
-#~ msgstr "Kľúč uložený"
 
 #: src/components/modals/UserSettingsModal/Help.tsx:76
 msgid "Keyboard Shortcuts"
@@ -2291,17 +2299,26 @@ msgstr "Použite iba písmená A–Z a čísla 0–9. Automaticky veľké písme
 msgid "Light"
 msgstr "Svetlo"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:55
+msgid "liked your cast"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:217
+msgid "Likes & Recasts"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:601
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Odkaz skopírovaný. Vložte ho tam, kde ho chcete zdieľať."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Load more"
 msgstr "Načítať viac"
 
@@ -2310,11 +2327,11 @@ msgstr "Načítať viac"
 msgid "Loading bookmarks..."
 msgstr "Načítavam záložky..."
 
-#: src/components/farcaster/FarcasterPage.tsx:539
+#: src/components/farcaster/FarcasterPage.tsx:613
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:409
+#: src/components/farcaster/FarcasterPage.tsx:469
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2322,7 +2339,12 @@ msgstr ""
 msgid "Loading message..."
 msgstr "Načítavam správu..."
 
-#: src/components/notifications/NotificationPanel.tsx:224
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:187
+msgid "Loading Mini App..."
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:241
+#: src/components/notifications/NotificationPanel.tsx:234
 msgid "Loading notifications..."
 msgstr "Načítavam upozornenia..."
 
@@ -2330,7 +2352,7 @@ msgstr "Načítavam upozornenia..."
 msgid "Loading pinned messages..."
 msgstr "Načítavam pripnuté správy..."
 
-#: src/components/farcaster/FarcasterPage.tsx:495
+#: src/components/farcaster/FarcasterPage.tsx:569
 msgid "Loading profile..."
 msgstr ""
 
@@ -2338,7 +2360,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Načítavajú sa verejné Priestory..."
 
-#: src/components/farcaster/FarcasterPage.tsx:774
+#: src/components/farcaster/FarcasterPage.tsx:853
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Načítavanie vlákna..."
@@ -2348,8 +2370,9 @@ msgid "Loading your profile..."
 msgstr "Načítavam váš profil..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Loading..."
 msgstr "Načítava sa..."
 
@@ -2405,7 +2428,7 @@ msgstr "Spravovať úlohy"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "Spravujte svoje nastavenia pre <0>{spaceName}</0>."
 
-#: src/components/notifications/NotificationPanel.tsx:273
+#: src/components/notifications/NotificationPanel.tsx:313
 msgid "Mark all as read"
 msgstr "Označiť všetko ako prečítané"
 
@@ -2413,15 +2436,15 @@ msgstr "Označiť všetko ako prečítané"
 msgid "Mark All as Read"
 msgstr "Označiť všetko ako prečítané"
 
-#: src/components/notifications/NotificationPanel.tsx:202
+#: src/components/notifications/NotificationPanel.tsx:212
 msgid "Mark all as read?"
 msgstr "Označiť všetko ako prečítané?"
 
-#: src/components/notifications/NotificationPanel.tsx:204
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "Mark all read"
 msgstr "Označiť všetko ako prečítané"
 
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:609
 msgid "Media"
 msgstr ""
 
@@ -2444,6 +2467,14 @@ msgstr "Členovia vybraných rolí môžu posielať, mazať a pripínať správy
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:168
 msgid "Mention Everyone"
 msgstr "Oznámiť všetkým"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:67
+msgid "mentioned you"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:210
+msgid "Mentions & Replies"
+msgstr ""
 
 #: src/components/message/MessageActionsDrawer.tsx:189
 msgid "Message actions"
@@ -2471,6 +2502,11 @@ msgstr "Správy NIE sú podpísané!"
 #: src/components/message/MessageComposer.tsx:976
 msgid "Messages are signed!"
 msgstr "Správy sú podpísané!"
+
+#: src/components/farcaster/FarcasterCastCard.tsx:173
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:133
+msgid "Mini App"
+msgstr ""
 
 #: src/components/discover-page/SpaceCard.tsx:166
 msgid "More"
@@ -2611,8 +2647,8 @@ msgstr "Nenájdené žiadne záložky, ktoré by zodpovedali vašemu vyhľadáva
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Zatiaľ žiadne záložky. Založte správy, aby ste ich mohli neskôr použiť ako referenciu."
 
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:544
+#: src/components/farcaster/FarcasterPage.tsx:474
+#: src/components/farcaster/FarcasterPage.tsx:618
 msgid "No casts found."
 msgstr ""
 
@@ -2660,6 +2696,10 @@ msgstr "Nenašli sa žiadne chýbajúce Priestory"
 msgid "No muted conversations"
 msgstr "Žiadne stlmené konverzácie"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:254
+msgid "No notifications yet"
+msgstr ""
+
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:75
 msgid "No passkey on this account. Your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Žiadny passkey pre tento účet. Kľúč k vášmu účtu je uložený na tomto zariadení, takže ktokoľvek, kto dokáže čítať jeho súbory, by mohol prevziať váš účet."
@@ -2696,7 +2736,7 @@ msgstr "Zatiaľ žiadne vlákna"
 msgid "No unknown contacts"
 msgstr "Žiadne neznáme kontakty"
 
-#: src/components/notifications/NotificationPanel.tsx:232
+#: src/components/notifications/NotificationPanel.tsx:242
 msgid "No unread notifications"
 msgstr "Žiadne neprečítané oznámenia"
 
@@ -2774,9 +2814,6 @@ msgstr "Teraz si uložme kľúč účtu do vášho passkey. Potrebujeme ešte je
 msgid "Offline"
 msgstr "Offline"
 
-#~ msgid "OK"
-#~ msgstr "OK"
-
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:214
 msgid "One-Time"
 msgstr "Jednorazové"
@@ -2789,7 +2826,7 @@ msgstr "Online"
 msgid "Only space owners can generate public invite links."
 msgstr "Verejné odkazy na pozvánky môžu generovať iba vlastníci Space."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Open"
 msgstr ""
 
@@ -2798,15 +2835,23 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Otvoriť {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:305
+#: src/components/farcaster/FarcasterPage.tsx:358
 msgid "Open @username or /channel"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:177
+msgid "Open in browser"
+msgstr ""
+
+#: src/components/farcaster/FarcasterCastCard.tsx:171
+msgid "Open Mini App"
 msgstr ""
 
 #: src/components/bookmarks/BookmarksPage.tsx:32
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:39
+#: src/components/farcaster/FarcasterPage.tsx:46
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2849,15 +2894,9 @@ msgstr "Stránka nebola nájdená"
 msgid "Passkey setup failed. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Nastavenie passkey zlyhalo. Môžete to skúsiť znova, alebo pokračovať bez neho. Bez passkey je kľúč k vášmu účtu uložený na tomto zariadení, takže ktokoľvek, kto dokáže čítať jeho súbory, by mohol prevziať kontrolu nad vaším účtom."
 
-#~ msgid "Passkey setup failed. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Nastavenie passkey zlyhalo. Môžete to skúsiť znovu alebo pokračovať bez Passkey (stále bezpečné, iba bez hardvérovej ochrany zariadenia)."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:16
 msgid "Passkeys aren't supported on this browser, so you'll need to continue without one. Your account key will be stored on this device, so anyone who can read its files could take over your account."
 msgstr "passkeys nie sú podporované v tomto prehliadači, takže budete musieť pokračovať bez neho. Kľúč k vášmu účtu bude uložený na tomto zariadení, takže ktokoľvek, kto dokáže čítať jeho súbory, by mohol prevziať kontrolu nad vaším účtom."
-
-#~ msgid "Passkeys aren't supported on this browser. You'll need to continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Passkey nie sú podporované v tomto prehliadači. Budete musieť pokračovať bez Passkey (stále bezpečné, iba bez hardvérovej ochrany zariadenia)."
 
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:37
 msgid "Passkeys use your device's built-in security to protect your account. This requires two quick confirmations via your device."
@@ -2887,9 +2926,6 @@ msgstr "Čakajúce odstránenie - kliknite na Uložiť na potvrdenie"
 #: src/components/space/RolePreview.tsx:34
 msgid "Permissions:"
 msgstr "Oprávnenia:"
-
-#~ msgid "Photo Library"
-#~ msgstr "Knižnica fotografií"
 
 #: src/hooks/business/messages/usePinnedMessages.ts:340
 msgid "pin"
@@ -2926,15 +2962,12 @@ msgstr "Pripnúť správy"
 msgid "Pin/Unpin without confirmation"
 msgstr "Pripnúť/odopnúť bez potvrdenia"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:427
+#: src/components/farcaster/FarcasterCastCard.tsx:489
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
 msgid "Pinned"
 msgstr "Pripnuté"
-
-#~ msgid "Pinned by {0}"
-#~ msgstr "Pripnuté od {0}"
 
 #: src/components/message/Message.tsx:946
 #: src/components/message/Message.tsx:1042
@@ -2946,11 +2979,11 @@ msgstr "Pripnuté používateľom {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Pripnuté správy"
 
-#: src/components/farcaster/FarcasterPage.tsx:352
+#: src/components/farcaster/FarcasterPage.tsx:405
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2980,22 +3013,13 @@ msgstr "Súkromie"
 msgid "Private key (hex)"
 msgstr "Súkromný kľúč (hex)"
 
-#~ msgid "Private key copied. It will be cleared from your clipboard automatically in 60 seconds."
-#~ msgstr "Súkromný kľúč skopírovaný. Zo schránky sa automaticky vymaže o 60 sekúnd."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:642
 msgid "Private key copied. Quorum will clear it from your clipboard in 60 seconds. Clipboard history tools keep their own copy, so clear those too."
 msgstr "Súkromný kľúč skopírovaný. Quorum ho vymaže z vašej schránky za 60 sekúnd. Nástroje histórie schránky si uchovávajú vlastnú kópiu, takže vymažte aj tie."
 
-#~ msgid "Private key copied. Store it securely and clear your clipboard when you're done."
-#~ msgstr "Súkromný kľúč skopírovaný. Uložte ho bezpečne a po dokončení vymažte schránku."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:643
 msgid "Private key copied. Store it securely, then clear your clipboard and your clipboard history."
 msgstr "Súkromný kľúč skopírovaný. Uložte ho bezpečne, potom vymažte vašu schránku a jej históriu."
-
-#~ msgid "Private key saved to selected folder"
-#~ msgstr "Súkromný kľúč bol uložený do vybraného priečinka"
 
 #: src/components/message/MessageComposer.tsx:776
 msgid "Processing image... This may take a moment for large files."
@@ -3021,12 +3045,13 @@ msgstr "Verejný profil"
 msgid "Public spaces"
 msgstr "Verejné priestory"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Publishing..."
 msgstr ""
 
-#~ msgid "QR code will auto-hide in 60 seconds"
-#~ msgstr "QR kód sa automaticky skryje za 60 sekúnd"
+#: src/components/AppErrorScreen.tsx:105
+msgid "Quorum encountered an unexpected issue during operation. You can reload, clear temporary session data, or reset local app data to recover."
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:129
 msgid "Quorum for desktop cannot use passkeys. To protect your account key with one, set your account up in a web browser using your key file."
@@ -3040,11 +3065,11 @@ msgstr "Infraštruktúra Quorum sa práve nasaduje. Skúste obnoviť stránku a 
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum je decentralizovaná komunikačná platforma, kde vlastníte svoju identitu. Bez emailu, bez telefónneho čísla - len bezpečný kľúč, ktorým riadite iba vy."
 
-#: src/components/context/RegistrationPersister.tsx:512
+#: src/components/context/RegistrationPersister.tsx:431
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum bol načítaný, zatiaľ čo prehliadač nebol v zameraní alebo bola zamietnutá žiadosť o passkey. Prosím, znovu autorizujte prístup k svojim správam."
 
-#: src/components/farcaster/FarcasterPage.tsx:214
+#: src/components/farcaster/FarcasterPage.tsx:263
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3081,9 +3106,13 @@ msgstr "Čítam váš kľúč..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Pripravení začať naozaj súkromnú konverzáciu?"
 
-#: src/components/context/RegistrationPersister.tsx:527
+#: src/components/context/RegistrationPersister.tsx:446
 msgid "Reauthorize"
 msgstr "Znovu autorizovať"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:59
+msgid "recasted your cast"
+msgstr ""
 
 #: src/services/ConfigService.ts:99
 msgid "received config with invalid signature!"
@@ -3093,27 +3122,31 @@ msgstr "prijatá konfigurácia s neplatným podpisom!"
 msgid "Recipient has no devices"
 msgstr "Prijímateľ nemá žiadne zariadenia"
 
-#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:467
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Obnoviť"
 
-#: src/components/farcaster/FarcasterPage.tsx:756
+#: src/components/notifications/FarcasterNotificationsView.tsx:232
+msgid "Refresh notifications"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:835
 msgid "Refresh thread"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:165
+msgid "Reload"
 msgstr ""
 
 #: src/components/RouteErrorFallback.tsx:64
 msgid "Reload app"
 msgstr "Znova načítať aplikáciu"
 
-#: src/components/AppErrorScreen.tsx:55
+#: src/components/AppErrorScreen.tsx:131
 msgid "Reload Quorum"
 msgstr "Znova načítať Quorum"
-
-#: src/components/AppErrorScreen.tsx:36
-msgid "Reloading usually fixes it. If it keeps happening, check <0>status.quilibrium.com</0> for service updates."
-msgstr "Opätovné načítanie to zvyčajne opraví. Ak sa to opakuje, skontrolujte <0>status.quilibrium.com</0> pre aktualizácie služieb."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:560
 msgid "Remove"
@@ -3143,22 +3176,26 @@ msgstr "Premenovať toto zariadenie"
 msgid "Reopen"
 msgstr "Znovu otvoriť"
 
-#: src/components/context/RegistrationPersister.tsx:448
-#: src/components/context/RegistrationPersister.tsx:483
+#: src/components/context/RegistrationPersister.tsx:367
+#: src/components/context/RegistrationPersister.tsx:402
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:482
+#: src/components/context/RegistrationPersister.tsx:401
 msgid "Repairing…"
 msgstr ""
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:63
+msgid "replied to your cast"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:124
+#: src/components/notifications/NotificationPanel.tsx:134
 msgid "Replies"
 msgstr "Odpovede"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:519
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterCastCard.tsx:582
+#: src/components/farcaster/FarcasterPage.tsx:712
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3169,15 +3206,12 @@ msgstr "Odpovedať"
 msgid "Reply in thread..."
 msgstr "Odpovedať vo vlákne..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:432
-#: src/components/farcaster/FarcasterPage.tsx:591
+#: src/components/farcaster/FarcasterCastCard.tsx:494
+#: src/components/farcaster/FarcasterPage.tsx:665
 msgid "Replying to"
 msgstr ""
 
-#~ msgid "Replying to {user}"
-#~ msgstr "Odpovedám {user}"
-
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterPage.tsx:712
 msgid "Replying..."
 msgstr ""
 
@@ -3203,12 +3237,10 @@ msgstr "Obnoviť"
 msgid "Reset All"
 msgstr "Resetovať všetko"
 
+#: src/components/AppErrorScreen.tsx:157
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:72
 msgid "Reset App Data"
 msgstr "Obnoviť údaje aplikácie"
-
-#~ msgid "Reset Encryption Session"
-#~ msgstr "Resetovať šifrovaciu reláciu"
 
 #: src/components/modals/ConversationSettingsModal.tsx:473
 msgid "Reset if messages fail to send or decrypt"
@@ -3218,9 +3250,6 @@ msgstr "Resetujte, ak sa správy neodosielajú alebo nedešifrujú"
 msgid "Reset Session"
 msgstr "Resetovať reláciu"
 
-#~ msgid "Reset the encryption session if messages fail to send or decrypt. The next message will establish a fresh secure connection."
-#~ msgstr "Resetujte šifrovaciu reláciu, ak sa správy nedajú odoslať alebo dešifrovať. Ďalšia správa nadviaže nové bezpečné pripojenie."
-
 #: src/components/modals/ConversationSettingsModal.tsx:365
 #: src/components/modals/ConversationSettingsModal.tsx:404
 msgid "Reset to global"
@@ -3229,6 +3258,10 @@ msgstr "Resetovať na globálne"
 #: src/components/modals/UserSettingsModal/Help.tsx:113
 msgid "Reset your DM encryption sessions if messages are failing to send or decrypt."
 msgstr "Resetujte vaše šifrovacie relácie DM, ak sa správy neodosielajú alebo nedešifrujú."
+
+#: src/components/AppErrorScreen.tsx:173
+msgid "Resetting will clear all local databases and return to onboarding. Ensure you have your recovery backup phrase if restoring an existing account."
+msgstr ""
 
 #: src/components/modals/ConversationSettingsModal.tsx:538
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:109
@@ -3274,8 +3307,9 @@ msgid "Restoring..."
 msgstr "Obnovujem..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:440
+#: src/components/farcaster/FarcasterPage.tsx:510
 #: src/components/message/Message.tsx:1637
+#: src/components/notifications/FarcasterNotificationsView.tsx:248
 msgid "Retry"
 msgstr "Skúsiť znova"
 
@@ -3315,9 +3349,6 @@ msgstr "Uložiť históriu úprav"
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:395
 msgid "Save Failed"
 msgstr "Uloženie zlyhalo"
-
-#~ msgid "Save Private Key"
-#~ msgstr "Uložiť súkromný kľúč"
 
 #: src/components/onboarding/steps/SaveKeyToPasskeyStep.tsx:31
 msgid "Save to Passkey"
@@ -3404,7 +3435,7 @@ msgstr "Hľadať používateľské meno alebo adresu"
 msgid "Search..."
 msgstr "Hľadať..."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Hľadám..."
@@ -3434,9 +3465,6 @@ msgstr "Vybrať"
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:161
 msgid "Select permissions"
 msgstr "Vyberte oprávnenia"
-
-#~ msgid "Select Profile Image"
-#~ msgstr "Vybrať profilový obrázok"
 
 #: src/components/modals/ChannelEditorModal.tsx:204
 msgid "Select Roles"
@@ -3481,7 +3509,7 @@ msgstr "Odoslať cez DM"
 msgid "Sending..."
 msgstr "Odosielanie..."
 
-#: src/components/context/RegistrationPersister.tsx:499
+#: src/components/context/RegistrationPersister.tsx:418
 msgid "Session Encrypted"
 msgstr "Relácia šifrovaná"
 
@@ -3554,7 +3582,7 @@ msgstr "Zobrazuje sa {0} z {total} Priestorov"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "Zobrazuje sa prvých 500 výsledkov. Upresnite svoje vyhľadávanie pre konkrétnejšie výsledky."
 
-#: src/components/notifications/NotificationPanel.tsx:369
+#: src/components/notifications/NotificationPanel.tsx:395
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "Zobrazuje {GLOBAL_DISPLAY_CAP} najnovších upozornení"
 
@@ -3570,7 +3598,7 @@ msgstr "Preskočiť teraz"
 msgid "Someone"
 msgstr "Niekto"
 
-#: src/components/AppErrorScreen.tsx:33
+#: src/components/AppErrorScreen.tsx:102
 msgid "Something went wrong"
 msgstr "Niečo sa pokazilo"
 
@@ -3639,6 +3667,7 @@ msgid "Space Tag"
 msgstr "Space Tag"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
+#: src/components/notifications/NotificationPanel.tsx:272
 #: src/components/shell/NavRail.tsx:36
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
@@ -3696,9 +3725,6 @@ msgstr "Synchronizácia je vypnutá, takže toto zariadenie obsahuje jedinú kó
 msgid "Sync Kick Status"
 msgstr "Synchronizovať stav vykopnutia"
 
-#~ msgid "Syncing..."
-#~ msgstr "Synchronizácia..."
-
 #: src/components/ui/ThemeRadioGroup.tsx:29
 #: src/components/ui/ThemeRadioGroup.tsx:31
 msgid "System"
@@ -3707,9 +3733,6 @@ msgstr "Systém"
 #: src/components/modals/SpaceSettingsModal/SpaceTagSettings.tsx:82
 msgid "Tag Image"
 msgstr "Obrázok tagu"
-
-#~ msgid "Tap to copy"
-#~ msgstr "Klepni na skopírovanie"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:275
 msgid "Tell people about yourself in this Space..."
@@ -3737,15 +3760,9 @@ msgstr "Stránka, ktorú hľadáte, neexistuje alebo bola presunutá. Poďme vá
 msgid "The passkey setup timed out. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Vypršal časový limit nastavenia passkey. Môžete to skúsiť znova, alebo pokračovať bez neho. Bez passkey je kľúč k vášmu účtu uložený na tomto zariadení, takže ktokoľvek, kto dokáže čítať jeho súbory, by mohol prevziať kontrolu nad vaším účtom."
 
-#~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Nastavenie passkey sa vyčasilo. Môžete to skúsiť znovu, alebo pokračovať bez Passkey (stále bezpečné, iba bez hardvérovej ochrany zariadenia)."
-
-#: src/components/context/RegistrationPersister.tsx:468
+#: src/components/context/RegistrationPersister.tsx:387
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
-
-#~ msgid "This action cannot be undone and will permanently delete this Space and all of its channels and messages."
-#~ msgstr "Táto akcia nemôže byť vrátená a trvale vymaže tento priestor a všetky jeho kanály a správy."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:376
 msgid "This backup is inconsistent: it reports Space keys but contains no Space list, so Spaces could not be restored."
@@ -3763,9 +3780,6 @@ msgstr "Tento bio bude viditeľný pre ostatných, keď si pozrú váš profil."
 msgid "This channel couldn't be loaded"
 msgstr "Tento kanál sa nepodarilo načítať"
 
-#~ msgid "this contact"
-#~ msgstr "tento kontakt"
-
 #: src/components/RouteErrorFallback.tsx:22
 msgid "This conversation couldn't be loaded"
 msgstr "Túto konverzáciu sa nepodarilo načítať"
@@ -3774,9 +3788,6 @@ msgstr "Túto konverzáciu sa nepodarilo načítať"
 #: src/components/modals/ConversationSettingsModal.tsx:411
 msgid "This conversation overrides your global setting. Click \"Reset to global\" to use your global preference."
 msgstr "Táto konverzácia prepíše vaše globálne nastavenie. Kliknite na \"Resetovať na globálne\", aby ste použili svoje globálne preferencie."
-
-#~ msgid "This copies your private key to the clipboard in plain text. Anyone with access to your clipboard can take full control of your account. Store it somewhere safe and clear your clipboard afterwards."
-#~ msgstr "Týmto sa váš súkromný kľúč skopíruje do schránky v čistom texte. Ktokoľvek s prístupom k vašej schránke môže prevziať plnú kontrolu nad vaším účtom. Uložte ho na bezpečné miesto a potom vymažte schránku."
 
 #: src/components/modals/CreateSpaceModal.tsx:187
 #: src/components/modals/SpaceSettingsModal/General.tsx:189
@@ -3825,7 +3836,7 @@ msgstr "Tento odkaz nevyprší. Ktokoľvek s ním sa môže pripojiť k vášmu 
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Tento odkaz bol vygenerovaný vlastníkom Space. Nevyprší."
 
-#: src/components/notifications/NotificationPanel.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Týmto sa označia zmienky a odpovede ako prečítané vo všetkých vašich priestoroch. Túto akciu nemožno vrátiť späť."
 
@@ -3908,15 +3919,6 @@ msgstr ""
 "\n"
 "Použite to, ak sa správy neodosielajú alebo nedešifrujú."
 
-#~ msgid ""
-#~ "This will reset the encryption session with {counterpartyName}. The next message will establish a fresh secure connection.\n"
-#~ "\n"
-#~ "Use this if messages are failing to send or decrypt. Message history is not affected."
-#~ msgstr ""
-#~ "Týmto sa resetuje šifrovacia relácia s používateľom {counterpartyName}. Ďalšia správa nadviaže nové bezpečné pripojenie.\n"
-#~ "\n"
-#~ "Použite to, ak sa správy nedajú odoslať alebo dešifrovať. História správ nie je ovplyvnená."
-
 #: src/components/modals/UserSettingsModal/Help.tsx:30
 msgid ""
 "This will reset the encryption sessions for all your DM conversations. Your next message to each contact will establish a fresh secure connection.\n"
@@ -3927,11 +3929,11 @@ msgstr ""
 "\n"
 "Použite to, ak sa správy neodosielajú alebo nedešifrujú."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:453
+#: src/components/farcaster/FarcasterCastCard.tsx:515
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:751
+#: src/components/farcaster/FarcasterPage.tsx:830
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3987,9 +3989,9 @@ msgstr "Dnes"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Príliš veľa zmienok v správe. Maximálne {MAX_MENTIONS_PER_MESSAGE} povolených."
 
-#: src/components/farcaster/FarcasterPage.tsx:221
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:291
+#: src/components/farcaster/FarcasterPage.tsx:397
 msgid "Trending"
 msgstr ""
 
@@ -4023,9 +4025,6 @@ msgstr "Dve roly nemôžu zdieľať názov „{0}“."
 msgid "Two roles can't share the tag @{0}."
 msgstr "Dve roly nemôžu zdieľať značku @{0}."
 
-#~ msgid "Type DELETE to confirm"
-#~ msgstr "Napíšte DELETE na potvrdenie"
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:97
 msgid "Type RESET to confirm"
 msgstr "Napíš RESET na potvrdenie"
@@ -4058,9 +4057,6 @@ msgstr "Nemožno komprimovať obrázok. Použite menší obrázok."
 #: src/hooks/business/ui/useCustomAssets.ts:237
 msgid "Unable to compress sticker images. Please use smaller images."
 msgstr "Nemožno komprimovať obrázky nálepiek. Použite menšie obrázky."
-
-#~ msgid "Unable to copy to clipboard"
-#~ msgstr "Nemožno skopírovať do schránky"
 
 #: src/services/SpaceService.ts:574
 msgid "Unable to leave Space due to incomplete configuration. The Space data may be corrupted."
@@ -4122,7 +4118,8 @@ msgstr "Neznámy čas"
 #: src/components/message/MessageEditTextarea.tsx:656
 #: src/components/message/MessageEditTextarea.tsx:662
 #: src/components/modals/NewDirectMessageModal.tsx:78
-#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:15
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:10
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:18
 #: src/services/EncryptionService.ts:204
 #: src/services/MessageService.ts:3652
 #: src/services/MessageService.ts:3847
@@ -4192,9 +4189,6 @@ msgstr "Aktualizujte záznamy o vylúčení pre všetkých členov. Použite to,
 msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 2:1"
 msgstr "Nahrajte banner pre váš Priestor – PNG alebo JPG – Optimálny pomer 2:1"
 
-#~ msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 3:1"
-#~ msgstr "Nahrajte banner pre váš priestor - PNG alebo JPG - Optimálny pomer 3:1"
-
 #: src/components/modals/SpaceSettingsModal/Account.tsx:237
 msgid "Upload an avatar for this Space - PNG or JPG - Optimal ratio 1:1"
 msgstr "Nahrajte avatar pre tento Space - PNG alebo JPG - Optimálny pomer 1:1"
@@ -4223,9 +4217,6 @@ msgstr "Nahrať obrázok"
 #: src/components/modals/SpaceSettingsModal/Stickers.tsx:62
 msgid "Upload Sticker"
 msgstr "Nahraj Nálepku"
-
-#~ msgid "Use \"Save to Files\" to save your private key"
-#~ msgstr "Použite \"Uložiť do súborov\" na uloženie svojho súkromného kľúča"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:219
 #: src/components/modals/SpaceSettingsModal/Account.tsx:227
@@ -4271,7 +4262,7 @@ msgstr "Overovanie pozvánky..."
 msgid "View edit history"
 msgstr "Zobraziť históriu úprav"
 
-#: src/components/farcaster/FarcasterPage.tsx:769
+#: src/components/farcaster/FarcasterPage.tsx:848
 msgid "View full thread"
 msgstr ""
 
@@ -4293,9 +4284,6 @@ msgstr "Čaká sa na dokončenie synchronizácie Priestorov, kým toto zariadeni
 msgid "Wallet"
 msgstr "Peňaženka"
 
-#~ msgid "Welcome to Quorum, {name}! Your account is secured and ready to go."
-#~ msgstr "Vitajte v Quorum, {name}! Váš účet je zabezpečený a pripravený na použitie."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:79
 msgid "What is a Passkey?"
 msgstr "Čo je Passkey?"
@@ -4316,7 +4304,7 @@ msgstr "Čo je Účtový Kľúč?"
 msgid "What should we call you?"
 msgstr "Ako vás máme volať?"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:425
 msgid "What's happening?"
 msgstr ""
 
@@ -4401,7 +4389,7 @@ msgstr "Prečo to musím robiť?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Bez tejto zálohy znamená strata zariadenia stratu účtu - neexistuje možnosť \"zabudnuté heslo\". To je cena, ktorú platíte za súkromie :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:612
+#: src/components/farcaster/FarcasterPage.tsx:686
 msgid "Write a reply..."
 msgstr ""
 
@@ -4412,12 +4400,6 @@ msgstr "Včera"
 #: src/utils/dateFormatting.ts:33
 msgid "Yesterday at {time}"
 msgstr "Včera o {time}"
-
-#~ msgid "Yesterday at {timeFormatted}"
-#~ msgstr "Včera o {timeFormatted}"
-
-#~ msgid "You"
-#~ msgstr "Vy"
 
 #: src/components/modals/AddSpaceModal.tsx:116
 msgid "You are already a member of this Space."
@@ -4444,9 +4426,6 @@ msgstr "Môžete spravovať oznámenia o zmienkach vo svojich nastaveniach každ
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:14
 msgid "You cancelled the passkey setup. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Zrušili ste nastavenie passkey. Môžete to skúsiť znova, alebo pokračovať bez neho. Bez passkey je kľúč k vášmu účtu uložený na tomto zariadení, takže ktokoľvek, kto dokáže čítať jeho súbory, by mohol prevziať kontrolu nad vaším účtom."
-
-#~ msgid "You cancelled the passkey setup. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Zrušili ste nastavenie passkey. Môžete to skúsiť znovu, alebo pokračovať bez Passkey (stále bezpečné, iba bez hardvérovej ochrany zariadenia)."
 
 #: src/components/modals/GroupEditorModal.tsx:116
 msgid "You cannot delete a group that contains channels. Delete all {channelCount} channels in this group first."
@@ -4485,15 +4464,9 @@ msgstr "Zachováte si rovnaký účet a adresu a táto počítačová aplikácia
 msgid "You must assign yourself a role for moderation actions (except kicking). Grant delete and mute permissions carefully. <0><1>Learn more</1></0>"
 msgstr "Musíte si priradiť rolu na vykonávanie moderátorských akcií (okrem vyhadzovania). Oprávnenia na vymazanie a ztlmenie dávajte opatrne. <0><1>Dozvedieť sa viac</1></0>"
 
-#~ msgid "You won't be able to rejoin unless you are re-invited. Your existing messages will NOT be deleted."
-#~ msgstr "Nebudete sa môcť znovu pripojiť, pokiaľ nebudete znovu pozvaní. Vaše existujúce správy NEBUDÚ vymazané."
-
 #: src/components/modals/BlockUserModal.tsx:99
 msgid "You won't see any of {resolvedNameText}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
 msgstr "V tomto Priestore neuvidíte žiadne správy od {resolvedNameText}. Toto ovplyvňuje iba vaše zobrazenie a iba v tomto Priestore. Odblokovať môžete kedykoľvek."
-
-#~ msgid "You won't see any of {userName}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
-#~ msgstr "V tomto Priestore neuvidíte žiadne správy od {userName}. Toto ovplyvňuje iba vaše zobrazenie a iba v tomto Priestore. Odblokovať môžete kedykoľvek."
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:468
 msgid "You'll need an invite to rejoin, though a public invite link will still work if this Space has one. Your existing messages will NOT be deleted."
@@ -4507,10 +4480,11 @@ msgstr "Budete potrebovať tento súbor na obnovenie účtu, ak stratíte príst
 msgid "You'll see {resolvedNameText}'s messages in this Space again."
 msgstr "Znova uvidíte správy od {resolvedNameText} v tomto Priestore."
 
-#~ msgid "You'll see {userName}'s messages in this Space again."
-#~ msgstr "Znova uvidíte správy od {userName} v tomto Priestore."
+#: src/components/notifications/FarcasterNotificationsView.tsx:255
+msgid "You're all caught up on Farcaster!"
+msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:244
 msgid "You're all caught up!"
 msgstr "Ste všetci v obraze!"
 
@@ -4559,7 +4533,7 @@ msgstr "Váš kľúč účtu je súkromný kľúč, ktorý dokazuje vlastníctvo
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Kľúč vášho účtu je vašou jedinečnou identitou v Quorum. Je to ako hlavné heslo, ktoré dokazuje, že ste to vy - ale generuje sa automaticky a bezpečne sa uchováva vo vašom passkey."
 
-#: src/components/context/RegistrationPersister.tsx:461
+#: src/components/context/RegistrationPersister.tsx:380
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 

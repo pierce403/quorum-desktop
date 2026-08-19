@@ -148,22 +148,22 @@ msgid "{0} messages were not restored because you deleted them after this backup
 msgstr "{0} poruka nije vraćeno jer ste ih izbrisali nakon što je ova rezervna kopija napravljena."
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:244
+#: src/components/notifications/NotificationPanel.tsx:256
 msgid "{0} notification"
 msgstr "{0} obaveštenje"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:247
+#: src/components/notifications/NotificationPanel.tsx:259
 msgid "{0} Notification in this Space"
 msgstr "{0} obaveštenje u ovom Prostoru"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:245
+#: src/components/notifications/NotificationPanel.tsx:257
 msgid "{0} notifications"
 msgstr "{0} obaveštenja"
 
 #. placeholder {0}: allNotifications.length
-#: src/components/notifications/NotificationPanel.tsx:248
+#: src/components/notifications/NotificationPanel.tsx:260
 msgid "{0} Notifications in this Space"
 msgstr "{0} obaveštenja u ovom Prostoru"
 
@@ -211,9 +211,6 @@ msgstr "{bookmarkCount} oznaka"
 msgid "{bookmarkCount} bookmarks"
 msgstr "{bookmarkCount} oznake"
 
-#~ msgid "{contextCount} bookmark here"
-#~ msgstr "{contextCount} marakar ovdje"
-
 #: src/components/bookmarks/BookmarksPanel.tsx:181
 msgid "{contextCount} bookmark in this conversation"
 msgstr "{contextCount} obeleživač u ovom razgovoru"
@@ -221,9 +218,6 @@ msgstr "{contextCount} obeleživač u ovom razgovoru"
 #: src/components/bookmarks/BookmarksPanel.tsx:184
 msgid "{contextCount} bookmark in this Space"
 msgstr "{contextCount} obeleživač u ovom Prostoru"
-
-#~ msgid "{contextCount} bookmarks here"
-#~ msgstr "{contextCount} marakara ovdje"
 
 #: src/components/bookmarks/BookmarksPanel.tsx:182
 msgid "{contextCount} bookmarks in this conversation"
@@ -250,17 +244,17 @@ msgid "{replyCount} replies"
 msgstr "{replyCount} odgovora"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:370
-#: src/components/notifications/NotificationPanel.tsx:115
+#: src/components/notifications/NotificationPanel.tsx:125
 msgid "@everyone"
 msgstr "@everyone"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:375
-#: src/components/notifications/NotificationPanel.tsx:119
+#: src/components/notifications/NotificationPanel.tsx:129
 msgid "@roles"
 msgstr "@roles"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:365
-#: src/components/notifications/NotificationPanel.tsx:111
+#: src/components/notifications/NotificationPanel.tsx:121
 msgid "@you"
 msgstr "@you"
 
@@ -338,9 +332,9 @@ msgstr "Ključ naloga"
 msgid "Account Settings"
 msgstr "Podešavanja naloga"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:622
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:666
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:699
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:631
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:675
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:708
 msgid "Account setup isn't ready yet. Please retry creating your account."
 msgstr ""
 
@@ -439,7 +433,8 @@ msgstr "Napredne postavke"
 #: src/components/modals/ChannelEditorModal.tsx:206
 #: src/components/modals/SpaceSettingsModal/Account.tsx:360
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:162
-#: src/components/notifications/NotificationPanel.tsx:265
+#: src/components/notifications/FarcasterNotificationsView.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:305
 msgid "All"
 msgstr "Sve"
 
@@ -485,9 +480,6 @@ msgstr "Uvek potpisuj direktne poruke"
 msgid "Always sign messages"
 msgstr "Uvek potpisuj poruke"
 
-#~ msgid "An error occurred while deleting the Space. Please try again."
-#~ msgstr "Došlo je do greške prilikom brisanja Space. Pokušajte ponovo."
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:88
 msgid "An error occurred while resetting app data. Please try again."
 msgstr "Došlo je do greške prilikom resetovanja podataka aplikacije. Pokušajte ponovo."
@@ -522,9 +514,6 @@ msgstr ""
 "Svako ko vidi ili fotografiše ovaj kod može preuzeti potpunu kontrolu nad vašim nalogom i ukrasti sva sredstva koja se na njemu nalaze.\n"
 "\n"
 "Nastavite samo ako ste na privatnom mestu i spremni ste da odmah skenirate. Kod se sakriva nakon 60 sekundi."
-
-#~ msgid "Anyone who sees or photographs this QR code can take full control of your Quorum account and steal any associated funds. Only proceed if you are in a private location and ready to scan immediately."
-#~ msgstr "Svako ko vidi ili fotografiše ovaj QR kod može preuzeti punu kontrolu nad vašim Quorum nalogom i ukrasti sve povezane fondove. Nastavi samo ako ste na privatnom mestu i spreman da odmah skeniraš."
 
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:252
 msgid "App version"
@@ -574,9 +563,6 @@ msgstr "Da li ste siguran da želiš da obrišeš ovu poruku?"
 msgid "Are you sure you want to delete this role?"
 msgstr "Da li ste siguran da želiš da obrišeš ovu ulogu?"
 
-#~ msgid "Are you sure you want to leave this Space? You won't be able to rejoin unless you are re-invited."
-#~ msgstr "Da li ste siguran da želiš da napustiš ovaj prostor? Nećeš moći ponovo da se pridružiš osim ako vas ponovo ne pozovu."
-
 #: src/components/modals/LeaveSpaceModal.tsx:47
 msgid "Are you sure you want to leave this Space? You'll need an invite to rejoin, though a public invite link will still work if this Space has one."
 msgstr "Da li ste sigurni da želite da napustite ovaj Prostor? Biće Vam potrebna pozivnica da se ponovo pridružite, mada će javni link za pozivnicu i dalje raditi ako ovaj Prostor ima jedan."
@@ -605,12 +591,12 @@ msgstr "Automatski zatvori nakon"
 msgid "Away"
 msgstr "Odsutan"
 
-#: src/components/farcaster/FarcasterPage.tsx:291
-#: src/components/farcaster/FarcasterPage.tsx:749
+#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:828
 msgid "Back"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:746
+#: src/components/farcaster/FarcasterPage.tsx:825
 msgid "Back to feed"
 msgstr ""
 
@@ -626,9 +612,6 @@ msgstr "Nazad na listu Prostora"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:17
 msgid "Back Up Your Account Key"
 msgstr "Napravite rezervnu kopiju ključa naloga"
-
-#~ msgid "Backup Failed"
-#~ msgstr "Backup nije uspeo"
 
 #: src/components/direct/DMUserProfileSidebar.tsx:108
 #: src/components/modals/SpaceSettingsModal/Account.tsx:269
@@ -702,7 +685,7 @@ msgstr "Obeleživači u ovom Prostoru"
 msgid "Browse public Spaces and find a community to join."
 msgstr "Pretražite javne Prostore i pronađite zajednicu kojoj ćete se pridružiti."
 
-#: src/components/farcaster/FarcasterPage.tsx:323
+#: src/components/farcaster/FarcasterPage.tsx:376
 msgid "Browse the public network or import your Farcaster account to post and react."
 msgstr ""
 
@@ -710,15 +693,12 @@ msgstr ""
 msgid "Busy"
 msgstr "Zauzet"
 
-#~ msgid "Camera"
-#~ msgstr "Kamera"
-
 #: src/components/modals/UserSettingsModal/SyncStatusLine.tsx:65
 msgid "Can't sync: no key is available on this device."
 msgstr "Ne može se sinhronizovati: nijedan ključ nije dostupan na ovom uređaju."
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:77
-#: src/components/farcaster/FarcasterPage.tsx:629
+#: src/components/farcaster/FarcasterPage.tsx:703
 #: src/components/modals/BlockUserModal.tsx:106
 #: src/components/modals/ConfirmationModal.tsx:31
 #: src/components/modals/ConversationSettingsModal.tsx:105
@@ -731,7 +711,7 @@ msgstr "Ne može se sinhronizovati: nijedan ključ nije dostupan na ovom uređaj
 #: src/components/modals/UserSettingsModal/Security.tsx:266
 #: src/components/modals/UserSettingsModal/Security.tsx:291
 #: src/components/modals/UserSettingsModal/Security.tsx:310
-#: src/components/notifications/NotificationPanel.tsx:205
+#: src/components/notifications/NotificationPanel.tsx:215
 #: src/hooks/business/channels/useChannelManagement.ts:244
 #: src/hooks/business/messages/useMessageActions.ts:457
 #: src/hooks/business/messages/usePinnedMessages.ts:338
@@ -743,7 +723,7 @@ msgstr "Otkaži"
 msgid "CANCEL"
 msgstr "OTKAŽI"
 
-#: src/components/farcaster/FarcasterPage.tsx:601
+#: src/components/farcaster/FarcasterPage.tsx:675
 msgid "Cancel reply"
 msgstr ""
 
@@ -757,23 +737,23 @@ msgstr "Ne možete obrisati grupu koja sadrži podrazumevani kanal."
 msgid "Cannot upload more than {0} files at once ({remaining} slots remaining)"
 msgstr "Ne možete da otpremite više od {0} datoteka odjednom ({remaining} slobodnih mesta preostalih)"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Cast"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:273
+#: src/components/farcaster/FarcasterPage.tsx:326
 msgid "Cast could not be published."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:740
+#: src/components/farcaster/FarcasterPage.tsx:819
 msgid "Cast thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:521
+#: src/components/farcaster/FarcasterPage.tsx:595
 msgid "Casts"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:528
+#: src/components/farcaster/FarcasterPage.tsx:602
 msgid "Casts & Replies"
 msgstr ""
 
@@ -781,7 +761,7 @@ msgstr ""
 msgid "Changes are made automatically, but the active page may not be updated. Refresh the page to apply the new language."
 msgstr "Promene se automatski primenjuju, ali aktivna stranica možda nije ažurirana. Osveži stranicu da bi primenio novi jezik."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Channel feed"
 msgstr ""
 
@@ -840,9 +820,6 @@ msgstr "Kanali"
 msgid "choose file"
 msgstr "izaberite datoteku"
 
-#~ msgid "Choose how you'd like to add your profile image"
-#~ msgstr "Izaberite kako želite da dodate svoju profilnu sliku"
-
 #: src/components/modals/UserSettingsModal/Appearance.tsx:45
 msgid "Choose your preferred theme for Quorum."
 msgstr "Odaberite svoj omiljeni izgled za Quorum."
@@ -850,7 +827,7 @@ msgstr "Odaberite svoj omiljeni izgled za Quorum."
 #: src/components/modals/ChannelEditorModal.tsx:207
 #: src/components/modals/SpaceSettingsModal/Account.tsx:361
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:163
-#: src/components/notifications/NotificationPanel.tsx:266
+#: src/components/notifications/NotificationPanel.tsx:306
 #: src/components/space/IconPicker/IconPicker.tsx:195
 msgid "Clear"
 msgstr "Obriši"
@@ -858,6 +835,10 @@ msgstr "Obriši"
 #: src/components/search/SearchBar.tsx:139
 msgid "Clear search"
 msgstr "Obriši pretragu"
+
+#: src/components/AppErrorScreen.tsx:138
+msgid "Clear Session"
+msgstr ""
 
 #: src/services/NotificationService.ts:211
 msgid "Clearing notifications with tag: {tag}"
@@ -923,6 +904,14 @@ msgstr "Potvrdi napuštanje"
 msgid "Confirm Reset"
 msgstr "Potvrdi reset"
 
+#: src/components/AppErrorScreen.tsx:166
+msgid "Confirm Reset & Restart"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:179
+msgid "Connect Farcaster"
+msgstr ""
+
 #: src/components/Connecting.tsx:13
 #: src/components/ConnectingClassic.tsx:22
 msgid "Connecting"
@@ -954,6 +943,10 @@ msgstr "Podešavanja razgovora"
 msgid "Conversation with {counterpartLabel}"
 msgstr "Razgovor sa {counterpartLabel}"
 
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copied Diagnostics!"
+msgstr ""
+
 #: src/components/message/MessageActionsMenu.tsx:223
 #: src/components/message/MessageActionsMenu.tsx:228
 #: src/components/ui/ClickToCopyContent.tsx:153
@@ -979,8 +972,9 @@ msgstr "Kopirajte link"
 msgid "Copy address"
 msgstr "Kopiraj adresu"
 
-#~ msgid "Copy Failed"
-#~ msgstr "Kopiranje nije uspelo"
+#: src/components/AppErrorScreen.tsx:148
+msgid "Copy Error Report"
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/Security.tsx:523
 msgid "Copy full address"
@@ -1035,8 +1029,8 @@ msgstr "Nije moguće preuzeti detalje o Space. Pokušajte ponovo."
 msgid "Could not import key"
 msgstr "Nije moguće uvesti ključ"
 
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:231
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:592
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:240
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:601
 msgid "Could not import that account key. Check the file or key and try again."
 msgstr ""
 
@@ -1054,7 +1048,7 @@ msgid "Couldn't decrypt your saved profile. Please re-enter your name and profil
 msgstr "Nije moguće dekriptovati vaš sačuvani profil. Molimo ponovo unesite svoje ime i sliku profila."
 
 #: src/hooks/business/user/useOnboardingFlowLogic.ts:252
-#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:500
+#: src/hooks/business/user/useUnifiedOnboardingFlow.ts:509
 msgid "Couldn't load your saved profile. Please re-enter your name and profile image."
 msgstr "Nije moguće učitati vaš sačuvani profil. Molimo ponovo unesite svoje ime i sliku profila."
 
@@ -1342,7 +1336,7 @@ msgstr "Direktna poruka"
 msgid "Direct messages"
 msgstr "Direktne poruke"
 
-#: src/components/farcaster/FarcasterPage.tsx:319
+#: src/components/farcaster/FarcasterPage.tsx:372
 msgid "Disconnect"
 msgstr ""
 
@@ -1357,9 +1351,6 @@ msgstr "Prikaz oznake iz jednog od vaših prostora pored vašeg korisničkog ime
 #: src/components/modals/UserSettingsModal/General.tsx:136
 msgid "Display name"
 msgstr "Prikazano ime"
-
-#~ msgid "Display Name"
-#~ msgstr "Prikazano ime"
 
 #: src/hooks/business/validation/errorTranslator.ts:39
 msgid "Display name cannot contain special characters"
@@ -1615,9 +1606,6 @@ msgstr "Izvesti rezervnu kopiju?"
 msgid "Export an encrypted backup of your direct messages and your Spaces, so you can restore them if you lose access to this device."
 msgstr "Izvezite šifrovanu rezervnu kopiju vaših direktnih poruka i vaših Prostora, tako da ih možete vratiti ako izgubite pristup ovom uređaju."
 
-#~ msgid "Export an encrypted backup of your direct messages to restore them if you lose access to this device."
-#~ msgstr "Izvezi šifriranu rezervnu kopiju vaših direktnih poruka da biste ih obnovili u slučaju da izgubite pristup ovom uređaju."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:232
 msgid "Export backup"
 msgstr "Izvezi rezervnu kopiju"
@@ -1680,6 +1668,10 @@ msgstr "Nije uspelo izbacivanje korisnika"
 msgid "Failed to load bookmarks"
 msgstr "Nije moguće učitati oznake"
 
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:206
+msgid "Failed to load Mini App"
+msgstr ""
+
 #: src/components/discover-page/DiscoverTab.tsx:87
 msgid "Failed to load public Spaces."
 msgstr "Učitavanje javnih Prostora nije uspelo."
@@ -1696,9 +1688,6 @@ msgstr "Neuspešno parsiranje WebSocket poruke:"
 #: src/services/ActionQueueHandlers.ts:276
 msgid "Failed to pin message"
 msgstr "Nije uspelo zakačiti poruku"
-
-#~ msgid "Failed to process image"
-#~ msgstr "Nije uspelo da se obradi slika"
 
 #: src/components/modals/UserSettingsModal/Security.tsx:133
 msgid "Failed to read your private key"
@@ -1760,7 +1749,7 @@ msgstr "Čuvanje podešavanja Prostora nije uspelo"
 msgid "Failed to send invite. Please try again."
 msgstr "Slanje pozivnice nije uspelo. Pokušajte ponovo."
 
-#: src/components/farcaster/FarcasterPage.tsx:583
+#: src/components/farcaster/FarcasterPage.tsx:657
 msgid "Failed to send reply."
 msgstr ""
 
@@ -1790,7 +1779,8 @@ msgstr "Ažuriranje pregleda pridruživanja nije uspelo. Molimo Vas pokušajte p
 msgid "Failed to update profile"
 msgstr "Neuspešno ažuriranje profila"
 
-#: src/components/farcaster/FarcasterPage.tsx:294
+#: src/components/farcaster/FarcasterPage.tsx:347
+#: src/components/notifications/NotificationPanel.tsx:283
 #: src/components/shell/NavRail.tsx:54
 msgid "Farcaster"
 msgstr "Farcaster"
@@ -1799,8 +1789,13 @@ msgstr "Farcaster"
 msgid "Farcaster account import failed."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:439
+#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/notifications/FarcasterNotificationsView.tsx:247
 msgid "Farcaster could not be reached."
+msgstr ""
+
+#: src/components/notifications/NotificationPanel.tsx:254
+msgid "Farcaster Notifications"
 msgstr ""
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:74
@@ -1899,18 +1894,26 @@ msgstr "Ime fascikle je obavezno"
 msgid "Folder name must be {MAX_NAME_LENGTH} characters or less"
 msgstr "Ime fascikle mora imati {MAX_NAME_LENGTH} karaktera ili manje"
 
-#: src/components/farcaster/FarcasterPage.tsx:62
+#: src/components/notifications/FarcasterNotificationsView.tsx:71
+msgid "followed you"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:69
 msgid "followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:510
+#: src/components/farcaster/FarcasterPage.tsx:584
 msgid "Followers"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:337
-#: src/components/farcaster/FarcasterPage.tsx:509
+#: src/components/farcaster/FarcasterPage.tsx:290
+#: src/components/farcaster/FarcasterPage.tsx:390
+#: src/components/farcaster/FarcasterPage.tsx:583
 msgid "Following"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:224
+msgid "Follows"
 msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:60
@@ -1967,6 +1970,10 @@ msgstr "GIF datoteke ne mogu biti veće od {maxSize}. Molimo koristite manji GIF
 msgid "Go to conversation"
 msgstr "Idi na razgovor"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:188
+msgid "Go to Farcaster"
+msgstr ""
+
 #: src/components/NotFound.tsx:32
 msgid "Go to Home"
 msgstr "Idi na Početnu"
@@ -2008,9 +2015,6 @@ msgstr "Pomoć"
 msgid "Help others recognize you with a profile picture."
 msgstr "Pomozite drugima da vas prepoznaju sa profilnom fotografijom."
 
-#~ msgid "Hide"
-#~ msgstr "Sakrij"
-
 #: src/components/onboarding/steps/ImportKeyStep.tsx:159
 msgid "Hide key"
 msgstr "Sakrij ključ"
@@ -2040,12 +2044,6 @@ msgstr "Već imam nalog"
 msgid "I understand"
 msgstr "Razumem"
 
-#~ msgid "I Understand, Copy"
-#~ msgstr "Razumem, kopiraj"
-
-#~ msgid "I Understand, Show QR"
-#~ msgstr "Razumem, prikaži QR"
-
 #: src/components/message/Message.tsx:978
 #: src/components/message/Message.tsx:1074
 msgid "I'm new!"
@@ -2054,6 +2052,10 @@ msgstr "Ja sam nov!"
 #: src/components/onboarding/steps/BackupKeyStep.tsx:35
 msgid "I've already saved my key"
 msgstr "Već sam sačuvao svoj ključ"
+
+#: src/components/AppErrorScreen.tsx:182
+msgid "If this persists, check <0>status.quilibrium.com</0> or submit the copied error report."
+msgstr ""
 
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:821
 msgid "If users report that this invite link isn't working, click to republish it. The link URL stays the same."
@@ -2064,7 +2066,7 @@ msgid "Import a backup instead"
 msgstr "Uvezi rezervnu kopiju"
 
 #: src/components/farcaster/FarcasterAccountModal.tsx:79
-#: src/components/farcaster/FarcasterPage.tsx:324
+#: src/components/farcaster/FarcasterPage.tsx:377
 #: src/components/onboarding/steps/ImportKeyStep.tsx:172
 msgid "Import account"
 msgstr "Uvezite nalog"
@@ -2081,6 +2083,10 @@ msgstr "Metoda uvoza"
 msgid "Import your account key"
 msgstr "Uvezi svoj ključ naloga"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:180
+msgid "Import your Farcaster account in the Farcaster section to receive your alerts and interaction notifications here."
+msgstr ""
+
 #: src/components/message/PinnedMessagesPanel.tsx:199
 msgid "Important messages will be pinned here"
 msgstr "Važne poruke će biti zakačene ovde"
@@ -2093,13 +2099,17 @@ msgstr ""
 msgid "Importing..."
 msgstr "Uvoz..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:472
+#: src/components/farcaster/FarcasterCastCard.tsx:534
 msgid "in"
 msgstr ""
 
 #: src/components/modals/UserSettingsModal/Help.tsx:100
 msgid "Inline Code"
 msgstr "Inline kod"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:50
+msgid "interacted with you"
+msgstr ""
 
 #: src/services/MessageService.ts:4943
 msgid "invalid address for signature"
@@ -2209,6 +2219,10 @@ msgstr "Skoči"
 msgid "Jump to present"
 msgstr "Skoči na sadašnji trenutak"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:15
+msgid "just now"
+msgstr ""
+
 #: src/components/onboarding/steps/SecurityWarningStep.tsx:18
 msgid "Keep the file you downloaded safe and private! Anyone with this file can access your account."
 msgstr "Sačuvaj preuzetu datoteku bezbedno i privatno! Svako ko ima ovu datoteku može pristupiti vašem nalogu."
@@ -2229,12 +2243,6 @@ msgstr "Ključ sadrži neheksadecimalne znakove."
 #: src/components/onboarding/steps/ImportKeyStep.tsx:55
 msgid "Key must be {ED448_PRIVATE_KEY_HEX_LENGTH} characters ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
 msgstr "Ključ mora imati {ED448_PRIVATE_KEY_HEX_LENGTH} znakova ({0}/{ED448_PRIVATE_KEY_HEX_LENGTH})."
-
-#~ msgid "Key Ready"
-#~ msgstr "Ključ je spreman"
-
-#~ msgid "Key Saved"
-#~ msgstr "Ključ je sačuvan"
 
 #: src/components/modals/UserSettingsModal/Help.tsx:76
 msgid "Keyboard Shortcuts"
@@ -2290,17 +2298,26 @@ msgstr "Samo slova A–Z i brojevi 0–9. Automatsko veliko slovo."
 msgid "Light"
 msgstr "Svetlo"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:55
+msgid "liked your cast"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:217
+msgid "Likes & Recasts"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:601
 msgid "Link copied. Paste it where you want to share it."
 msgstr "Link kopiran. Nalepite ga tamo gde želite da ga podelite."
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Live from the Farcaster network"
 msgstr ""
 
 #: src/components/discover-page/DiscoverTab.tsx:132
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Load more"
 msgstr "Učitajte više"
 
@@ -2309,11 +2326,11 @@ msgstr "Učitajte više"
 msgid "Loading bookmarks..."
 msgstr "Učitavanje oznaka..."
 
-#: src/components/farcaster/FarcasterPage.tsx:539
+#: src/components/farcaster/FarcasterPage.tsx:613
 msgid "Loading casts..."
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:409
+#: src/components/farcaster/FarcasterPage.tsx:469
 msgid "Loading Farcaster..."
 msgstr ""
 
@@ -2321,7 +2338,12 @@ msgstr ""
 msgid "Loading message..."
 msgstr "Učitavanje poruke..."
 
-#: src/components/notifications/NotificationPanel.tsx:224
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:187
+msgid "Loading Mini App..."
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:241
+#: src/components/notifications/NotificationPanel.tsx:234
 msgid "Loading notifications..."
 msgstr "Učitavanje obaveštenja..."
 
@@ -2329,7 +2351,7 @@ msgstr "Učitavanje obaveštenja..."
 msgid "Loading pinned messages..."
 msgstr "Učitavanje zakačenih poruka..."
 
-#: src/components/farcaster/FarcasterPage.tsx:495
+#: src/components/farcaster/FarcasterPage.tsx:569
 msgid "Loading profile..."
 msgstr ""
 
@@ -2337,7 +2359,7 @@ msgstr ""
 msgid "Loading public Spaces..."
 msgstr "Učitavanje javnih Prostora..."
 
-#: src/components/farcaster/FarcasterPage.tsx:774
+#: src/components/farcaster/FarcasterPage.tsx:853
 #: src/components/thread/ThreadPanel.tsx:453
 msgid "Loading thread..."
 msgstr "Učitavanje niti..."
@@ -2347,8 +2369,9 @@ msgid "Loading your profile..."
 msgstr "Učitavanje vašeg profila..."
 
 #: src/components/discover-page/DiscoverPage.tsx:123
-#: src/components/farcaster/FarcasterPage.tsx:421
-#: src/components/farcaster/FarcasterPage.tsx:557
+#: src/components/farcaster/FarcasterPage.tsx:481
+#: src/components/farcaster/FarcasterPage.tsx:631
+#: src/components/notifications/FarcasterNotificationsView.tsx:275
 msgid "Loading..."
 msgstr "Učitavanje..."
 
@@ -2404,7 +2427,7 @@ msgstr "Upravljaj ulogama"
 msgid "Manage your settings for <0>{spaceName}</0>."
 msgstr "Upravljaj svojim podešavanjima za <0>{spaceName}</0>."
 
-#: src/components/notifications/NotificationPanel.tsx:273
+#: src/components/notifications/NotificationPanel.tsx:313
 msgid "Mark all as read"
 msgstr "Označi sve kao pročitano"
 
@@ -2412,15 +2435,15 @@ msgstr "Označi sve kao pročitano"
 msgid "Mark All as Read"
 msgstr "Označi sve kao pročitano"
 
-#: src/components/notifications/NotificationPanel.tsx:202
+#: src/components/notifications/NotificationPanel.tsx:212
 msgid "Mark all as read?"
 msgstr "Označiti sve kao pročitano?"
 
-#: src/components/notifications/NotificationPanel.tsx:204
+#: src/components/notifications/NotificationPanel.tsx:214
 msgid "Mark all read"
 msgstr "Označi sve kao pročitano"
 
-#: src/components/farcaster/FarcasterPage.tsx:535
+#: src/components/farcaster/FarcasterPage.tsx:609
 msgid "Media"
 msgstr ""
 
@@ -2443,6 +2466,14 @@ msgstr "Članovi odabranih uloga mogu da objavljuju, brišu i zakače poruke u o
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:168
 msgid "Mention Everyone"
 msgstr "Pomeni sve"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:67
+msgid "mentioned you"
+msgstr ""
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:210
+msgid "Mentions & Replies"
+msgstr ""
 
 #: src/components/message/MessageActionsDrawer.tsx:189
 msgid "Message actions"
@@ -2470,6 +2501,11 @@ msgstr "Poruke NISU potpisane!"
 #: src/components/message/MessageComposer.tsx:976
 msgid "Messages are signed!"
 msgstr "Poruke su potpisane!"
+
+#: src/components/farcaster/FarcasterCastCard.tsx:173
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:133
+msgid "Mini App"
+msgstr ""
 
 #: src/components/discover-page/SpaceCard.tsx:166
 msgid "More"
@@ -2610,8 +2646,8 @@ msgstr "Nema marakara koji odgovaraju vašem pretrazivanju."
 msgid "No bookmarks yet. Bookmark messages to save them for later reference."
 msgstr "Još nema marakara. Marakirajte poruke kako biste ih kasnije koristili kao referencu."
 
-#: src/components/farcaster/FarcasterPage.tsx:414
-#: src/components/farcaster/FarcasterPage.tsx:544
+#: src/components/farcaster/FarcasterPage.tsx:474
+#: src/components/farcaster/FarcasterPage.tsx:618
 msgid "No casts found."
 msgstr ""
 
@@ -2659,6 +2695,10 @@ msgstr "Nije pronađen nijedan nedostajući Prostor"
 msgid "No muted conversations"
 msgstr "Nema isključenih razgovora"
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:254
+msgid "No notifications yet"
+msgstr ""
+
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:75
 msgid "No passkey on this account. Your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Nema passkey-a na ovom nalogu. Ključ vašeg naloga je sačuvan na ovom uređaju, tako da svako ko može da pročita njegove datoteke može preuzeti kontrolu nad vašim nalogom."
@@ -2695,7 +2735,7 @@ msgstr "Još uvek nema niti"
 msgid "No unknown contacts"
 msgstr "Nema nepoznatih kontakata"
 
-#: src/components/notifications/NotificationPanel.tsx:232
+#: src/components/notifications/NotificationPanel.tsx:242
 msgid "No unread notifications"
 msgstr "Nema nepročitanih obaveštenja"
 
@@ -2773,9 +2813,6 @@ msgstr "Sada ćemo sačuvati vaš ključ naloga unutar vašeg passkey-a. Potrebn
 msgid "Offline"
 msgstr "Van mreže"
 
-#~ msgid "OK"
-#~ msgstr "U redu"
-
 #: src/components/modals/SpaceSettingsModal/Invites.tsx:214
 msgid "One-Time"
 msgstr "Jednokratno"
@@ -2788,7 +2825,7 @@ msgstr "Na mreži"
 msgid "Only space owners can generate public invite links."
 msgstr "Samo vlasnici Prostora mogu generisati javne pozivne linkove."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 msgid "Open"
 msgstr ""
 
@@ -2797,15 +2834,23 @@ msgstr ""
 msgid "Open {0}"
 msgstr "Otvorite {0}"
 
-#: src/components/farcaster/FarcasterPage.tsx:305
+#: src/components/farcaster/FarcasterPage.tsx:358
 msgid "Open @username or /channel"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:177
+msgid "Open in browser"
+msgstr ""
+
+#: src/components/farcaster/FarcasterCastCard.tsx:171
+msgid "Open Mini App"
 msgstr ""
 
 #: src/components/bookmarks/BookmarksPage.tsx:32
 #: src/components/direct/DirectMessage.tsx:986
 #: src/components/direct/EmptyDirectMessage.tsx:27
 #: src/components/discover-page/DiscoverPage.tsx:28
-#: src/components/farcaster/FarcasterPage.tsx:39
+#: src/components/farcaster/FarcasterPage.tsx:46
 #: src/components/space/Channel.tsx:1573
 #: src/components/wallet/WalletPage.tsx:19
 msgid "Open navigation"
@@ -2848,15 +2893,9 @@ msgstr "Stranica nije pronađena"
 msgid "Passkey setup failed. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Podešavanje passkey-a nije uspelo. Možete pokušati ponovo ili nastaviti bez njega. Bez passkey-a, ključ vašeg naloga se čuva na ovom uređaju, tako da svako ko može da pročita njegove datoteke može preuzeti vaš nalog."
 
-#~ msgid "Passkey setup failed. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Postavljanje passkey-a nije uspelo. Možete pokušati ponovo ili nastaviti bez passkey-a (i dalje sigurno, samo bez zaštite hardvera uređaja)."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:16
 msgid "Passkeys aren't supported on this browser, so you'll need to continue without one. Your account key will be stored on this device, so anyone who can read its files could take over your account."
 msgstr "passkey-evi nisu podržani u ovom pregledaču, tako da ćete morati da nastavite bez njega. Ključ vašeg naloga će biti sačuvan na ovom uređaju, tako da svako ko može da pročita njegove datoteke može preuzeti vaš nalog."
-
-#~ msgid "Passkeys aren't supported on this browser. You'll need to continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Passkey-i nisu podržani u ovom pretraživaču. Moraš nastaviti bez passkey-a (i dalje sigurno, samo bez zaštite hardvera uređaja)."
 
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:37
 msgid "Passkeys use your device's built-in security to protect your account. This requires two quick confirmations via your device."
@@ -2886,9 +2925,6 @@ msgstr "Na čekanju za uklanjanje - kliknite Sačuvaj da potvrdite"
 #: src/components/space/RolePreview.tsx:34
 msgid "Permissions:"
 msgstr "Dozvole:"
-
-#~ msgid "Photo Library"
-#~ msgstr "Biblioteka fotografija"
 
 #: src/hooks/business/messages/usePinnedMessages.ts:340
 msgid "pin"
@@ -2925,15 +2961,12 @@ msgstr "Zakači poruke"
 msgid "Pin/Unpin without confirmation"
 msgstr "Prikvači/otkači bez potvrde"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:427
+#: src/components/farcaster/FarcasterCastCard.tsx:489
 #: src/components/message/Message.tsx:947
 #: src/components/message/Message.tsx:1043
 #: src/components/message/Message.tsx:1163
 msgid "Pinned"
 msgstr "Zakačeno"
-
-#~ msgid "Pinned by {0}"
-#~ msgstr "Zakačeno od {0}"
 
 #: src/components/message/Message.tsx:946
 #: src/components/message/Message.tsx:1042
@@ -2945,11 +2978,11 @@ msgstr "Zakačio/la {pinnedByName}"
 msgid "Pinned Messages"
 msgstr "Zakačene poruke"
 
-#: src/components/farcaster/FarcasterPage.tsx:352
+#: src/components/farcaster/FarcasterPage.tsx:405
 msgid "Popular:"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:406
+#: src/components/farcaster/FarcasterPage.tsx:466
 msgid "Posts from accounts you follow"
 msgstr ""
 
@@ -2979,22 +3012,13 @@ msgstr "Privatnost"
 msgid "Private key (hex)"
 msgstr "Privatni ključ (heksadecimalni)"
 
-#~ msgid "Private key copied. It will be cleared from your clipboard automatically in 60 seconds."
-#~ msgstr "Privatni ključ je kopiran. Automatski će biti obrisan iz vašeg međuspremnika za 60 sekundi."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:642
 msgid "Private key copied. Quorum will clear it from your clipboard in 60 seconds. Clipboard history tools keep their own copy, so clear those too."
 msgstr "Privatni ključ kopiran. Quorum će ga obrisati iz vašeg clipboarda za 60 sekundi. Alati za istoriju clipboarda čuvaju sopstvenu kopiju, pa obrišite i njih."
 
-#~ msgid "Private key copied. Store it securely and clear your clipboard when you're done."
-#~ msgstr "Privatni ključ je kopiran. Čuvajte ga bezbedno i obrišite vaš međuspremnik kada završite."
-
 #: src/components/modals/UserSettingsModal/Security.tsx:643
 msgid "Private key copied. Store it securely, then clear your clipboard and your clipboard history."
 msgstr "Privatni ključ kopiran. Čuvajte ga sigurno, a zatim obrišite vaš clipboard i istoriju clipboarda."
-
-#~ msgid "Private key saved to selected folder"
-#~ msgstr "Privatni ključ je sačuvan u izabranom folderu"
 
 #: src/components/message/MessageComposer.tsx:776
 msgid "Processing image... This may take a moment for large files."
@@ -3020,12 +3044,13 @@ msgstr "Javni profil"
 msgid "Public spaces"
 msgstr "Javni prostori"
 
-#: src/components/farcaster/FarcasterPage.tsx:381
+#: src/components/farcaster/FarcasterPage.tsx:434
 msgid "Publishing..."
 msgstr ""
 
-#~ msgid "QR code will auto-hide in 60 seconds"
-#~ msgstr "QR kod će se automatski sakriti za 60 sekundi"
+#: src/components/AppErrorScreen.tsx:105
+msgid "Quorum encountered an unexpected issue during operation. You can reload, clear temporary session data, or reset local app data to recover."
+msgstr ""
 
 #: src/components/modals/UserSettingsModal/PasskeyStatus.tsx:129
 msgid "Quorum for desktop cannot use passkeys. To protect your account key with one, set your account up in a web browser using your key file."
@@ -3039,11 +3064,11 @@ msgstr "Infrastruktura Quorum se trenutno postavlja. Molimo osveži stranicu i p
 msgid "Quorum is a decentralized messaging platform where you own your identity. No email, no phone number - just a secure key that only you control."
 msgstr "Quorum je decentralizovana platforma za razmenu poruka gde vi kontrolišete svoj identitet. Bez e-pošte, bez broja telefona - samo siguran ključ koji samo vi kontrolišete."
 
-#: src/components/context/RegistrationPersister.tsx:512
+#: src/components/context/RegistrationPersister.tsx:431
 msgid "Quorum was loaded while the browser was not in focus or a passkey request was rejected. Please reauthorize to access your messages."
 msgstr "Quorum je učitan dok pretraživač nije bio u fokusu ili je zahtev za passkey odbijen. Ponovo se autorizuj da pristupiš porukama."
 
-#: src/components/farcaster/FarcasterPage.tsx:214
+#: src/components/farcaster/FarcasterPage.tsx:263
 msgid "Reaction could not be published."
 msgstr ""
 
@@ -3080,9 +3105,13 @@ msgstr "Čitanje vašeg ključa..."
 msgid "Ready to start a truly private conversation?"
 msgstr "Spremni za započinjanje zaista privatnog razgovora?"
 
-#: src/components/context/RegistrationPersister.tsx:527
+#: src/components/context/RegistrationPersister.tsx:446
 msgid "Reauthorize"
 msgstr "Ponovo autorizuj"
+
+#: src/components/notifications/FarcasterNotificationsView.tsx:59
+msgid "recasted your cast"
+msgstr ""
 
 #: src/services/ConfigService.ts:99
 msgid "received config with invalid signature!"
@@ -3092,27 +3121,31 @@ msgstr "primljena konfiguracija sa nevažećim potpisom!"
 msgid "Recipient has no devices"
 msgstr "Primalac nema uređaje"
 
-#: src/components/farcaster/FarcasterPage.tsx:407
+#: src/components/farcaster/FarcasterPage.tsx:467
 #: src/components/Maintenance.tsx:49
 #: src/components/modals/UserSettingsModal/Appearance.tsx:90
 msgid "Refresh"
 msgstr "Osveži"
 
-#: src/components/farcaster/FarcasterPage.tsx:756
+#: src/components/notifications/FarcasterNotificationsView.tsx:232
+msgid "Refresh notifications"
+msgstr ""
+
+#: src/components/farcaster/FarcasterPage.tsx:835
 msgid "Refresh thread"
+msgstr ""
+
+#: src/components/farcaster/FarcasterMiniAppModal.tsx:165
+msgid "Reload"
 msgstr ""
 
 #: src/components/RouteErrorFallback.tsx:64
 msgid "Reload app"
 msgstr "Ponovo učitajte aplikaciju"
 
-#: src/components/AppErrorScreen.tsx:55
+#: src/components/AppErrorScreen.tsx:131
 msgid "Reload Quorum"
 msgstr "Ponovo učitajte Quorum"
-
-#: src/components/AppErrorScreen.tsx:36
-msgid "Reloading usually fixes it. If it keeps happening, check <0>status.quilibrium.com</0> for service updates."
-msgstr "Ponovno učitavanje obično rešava problem. Ako se problem nastavi, proverite <0>status.quilibrium.com</0> za ažuriranja usluge."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:560
 msgid "Remove"
@@ -3142,22 +3175,26 @@ msgstr "Preimenujte ovaj uređaj"
 msgid "Reopen"
 msgstr "Ponovo otvori"
 
-#: src/components/context/RegistrationPersister.tsx:448
-#: src/components/context/RegistrationPersister.tsx:483
+#: src/components/context/RegistrationPersister.tsx:367
+#: src/components/context/RegistrationPersister.tsx:402
 msgid "Repair this device"
 msgstr ""
 
-#: src/components/context/RegistrationPersister.tsx:482
+#: src/components/context/RegistrationPersister.tsx:401
 msgid "Repairing…"
 msgstr ""
 
+#: src/components/notifications/FarcasterNotificationsView.tsx:63
+msgid "replied to your cast"
+msgstr ""
+
 #: src/components/modals/SpaceSettingsModal/Account.tsx:381
-#: src/components/notifications/NotificationPanel.tsx:124
+#: src/components/notifications/NotificationPanel.tsx:134
 msgid "Replies"
 msgstr "Odgovori"
 
-#: src/components/farcaster/FarcasterCastCard.tsx:519
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterCastCard.tsx:582
+#: src/components/farcaster/FarcasterPage.tsx:712
 #: src/components/message/MessageActions.tsx:83
 #: src/components/message/MessageActionsDrawer.tsx:200
 #: src/components/message/MessageActionsMenu.tsx:211
@@ -3168,15 +3205,12 @@ msgstr "Odgovori"
 msgid "Reply in thread..."
 msgstr "Odgovori u niti..."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:432
-#: src/components/farcaster/FarcasterPage.tsx:591
+#: src/components/farcaster/FarcasterCastCard.tsx:494
+#: src/components/farcaster/FarcasterPage.tsx:665
 msgid "Replying to"
 msgstr ""
 
-#~ msgid "Replying to {user}"
-#~ msgstr "Odgovaram {user}"
-
-#: src/components/farcaster/FarcasterPage.tsx:638
+#: src/components/farcaster/FarcasterPage.tsx:712
 msgid "Replying..."
 msgstr ""
 
@@ -3202,12 +3236,10 @@ msgstr "Resetuj"
 msgid "Reset All"
 msgstr "Resetuj sve"
 
+#: src/components/AppErrorScreen.tsx:157
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:72
 msgid "Reset App Data"
 msgstr "Poništi podatke aplikacije"
-
-#~ msgid "Reset Encryption Session"
-#~ msgstr "Resetujte sesiju šifrovanja"
 
 #: src/components/modals/ConversationSettingsModal.tsx:473
 msgid "Reset if messages fail to send or decrypt"
@@ -3217,9 +3249,6 @@ msgstr "Resetujte ako poruke ne uspevaju da se pošalju ili dešifruju"
 msgid "Reset Session"
 msgstr "Resetujte sesiju"
 
-#~ msgid "Reset the encryption session if messages fail to send or decrypt. The next message will establish a fresh secure connection."
-#~ msgstr "Resetujte sesiju šifrovanja ako poruke ne uspevaju da se pošalju ili dešifruju. Sledeća poruka će uspostaviti novu sigurnu vezu."
-
 #: src/components/modals/ConversationSettingsModal.tsx:365
 #: src/components/modals/ConversationSettingsModal.tsx:404
 msgid "Reset to global"
@@ -3228,6 +3257,10 @@ msgstr "Resetuj na globalno"
 #: src/components/modals/UserSettingsModal/Help.tsx:113
 msgid "Reset your DM encryption sessions if messages are failing to send or decrypt."
 msgstr "Resetujte vaše sesije enkripcije DM-a ako poruke ne uspevaju da se pošalju ili dešifruju."
+
+#: src/components/AppErrorScreen.tsx:173
+msgid "Resetting will clear all local databases and return to onboarding. Ensure you have your recovery backup phrase if restoring an existing account."
+msgstr ""
 
 #: src/components/modals/ConversationSettingsModal.tsx:538
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:109
@@ -3273,8 +3306,9 @@ msgid "Restoring..."
 msgstr "Obnavljanje..."
 
 #: src/components/discover-page/DiscoverTab.tsx:89
-#: src/components/farcaster/FarcasterPage.tsx:440
+#: src/components/farcaster/FarcasterPage.tsx:510
 #: src/components/message/Message.tsx:1637
+#: src/components/notifications/FarcasterNotificationsView.tsx:248
 msgid "Retry"
 msgstr "Pokušaj ponovo"
 
@@ -3314,9 +3348,6 @@ msgstr "Sačuvaj istoriju izmena"
 #: src/components/modals/UserSettingsModal/UserSettingsModal.tsx:395
 msgid "Save Failed"
 msgstr "Čuvanje nije uspelo"
-
-#~ msgid "Save Private Key"
-#~ msgstr "Sačuvaj privatni ključ"
 
 #: src/components/onboarding/steps/SaveKeyToPasskeyStep.tsx:31
 msgid "Save to Passkey"
@@ -3403,7 +3434,7 @@ msgstr "Pretraži korisničko ime ili adresu"
 msgid "Search..."
 msgstr "Pretraži..."
 
-#: src/components/farcaster/FarcasterPage.tsx:310
+#: src/components/farcaster/FarcasterPage.tsx:363
 #: src/components/search/SearchResults.tsx:148
 msgid "Searching..."
 msgstr "Pretraživanje..."
@@ -3433,9 +3464,6 @@ msgstr "Izaberi"
 #: src/components/modals/SpaceSettingsModal/Roles.tsx:161
 msgid "Select permissions"
 msgstr "Izaberite dozvole"
-
-#~ msgid "Select Profile Image"
-#~ msgstr "Izaberi profilnu sliku"
 
 #: src/components/modals/ChannelEditorModal.tsx:204
 msgid "Select Roles"
@@ -3480,7 +3508,7 @@ msgstr "Pošalji putem DM-a"
 msgid "Sending..."
 msgstr "Šaljem..."
 
-#: src/components/context/RegistrationPersister.tsx:499
+#: src/components/context/RegistrationPersister.tsx:418
 msgid "Session Encrypted"
 msgstr "Sesija je enkriptovana"
 
@@ -3553,7 +3581,7 @@ msgstr "Prikazano {0} od {total} Prostora"
 msgid "Showing first 500 results. Refine your search for more specific results."
 msgstr "Prikaz prvih 500 rezultata. Usavršite pretragu za specifičnije rezultate."
 
-#: src/components/notifications/NotificationPanel.tsx:369
+#: src/components/notifications/NotificationPanel.tsx:395
 msgid "Showing the {GLOBAL_DISPLAY_CAP} most recent notifications"
 msgstr "Prikazuje {GLOBAL_DISPLAY_CAP} najnovijih obaveštenja"
 
@@ -3569,7 +3597,7 @@ msgstr "Preskoči sada"
 msgid "Someone"
 msgstr "Neko"
 
-#: src/components/AppErrorScreen.tsx:33
+#: src/components/AppErrorScreen.tsx:102
 msgid "Something went wrong"
 msgstr "Nešto je pošlo naopako"
 
@@ -3638,6 +3666,7 @@ msgid "Space Tag"
 msgstr "Space Tag"
 
 #: src/components/bookmarks/BookmarksPage.tsx:75
+#: src/components/notifications/NotificationPanel.tsx:272
 #: src/components/shell/NavRail.tsx:36
 #: src/components/space/SpacesSidebar.tsx:547
 msgid "Spaces"
@@ -3695,9 +3724,6 @@ msgstr "Sinhronizacija je isključena, tako da ovaj uređaj sadrži jedinu kopij
 msgid "Sync Kick Status"
 msgstr "Sinhronizuj status izbacivanja"
 
-#~ msgid "Syncing..."
-#~ msgstr "Sinhronizacija..."
-
 #: src/components/ui/ThemeRadioGroup.tsx:29
 #: src/components/ui/ThemeRadioGroup.tsx:31
 msgid "System"
@@ -3706,9 +3732,6 @@ msgstr "Sistem"
 #: src/components/modals/SpaceSettingsModal/SpaceTagSettings.tsx:82
 msgid "Tag Image"
 msgstr "Slika oznake"
-
-#~ msgid "Tap to copy"
-#~ msgstr "Dodirnite da kopirate"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:275
 msgid "Tell people about yourself in this Space..."
@@ -3736,15 +3759,9 @@ msgstr "Stranica koju tražite ne postoji ili je premestena. Vratimo vas na prav
 msgid "The passkey setup timed out. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Podešavanje passkey-a je isteklo. Možete pokušati ponovo ili nastaviti bez njega. Bez passkey-a, ključ vašeg naloga se čuva na ovom uređaju, tako da svako ko može da pročita njegove datoteke može preuzeti vaš nalog."
 
-#~ msgid "The passkey setup timed out. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Postavljanje passkey-a je isteklo. Možete pokušati ponovo ili nastaviti bez passkey-a (i dalje sigurno, samo bez zaštite hardvera uređaja)."
-
-#: src/components/context/RegistrationPersister.tsx:468
+#: src/components/context/RegistrationPersister.tsx:387
 msgid "The repair could not be completed. Check your connection and try again."
 msgstr ""
-
-#~ msgid "This action cannot be undone and will permanently delete this Space and all of its channels and messages."
-#~ msgstr "Ova akcija ne može da se poništi i trajno će obrisati ovaj Prostor i sve njegove kanale i poruke."
 
 #: src/components/modals/UserSettingsModal/Security.tsx:376
 msgid "This backup is inconsistent: it reports Space keys but contains no Space list, so Spaces could not be restored."
@@ -3762,9 +3779,6 @@ msgstr "Ova biografija će biti vidljiva drugima kada pogledaju vaš profil."
 msgid "This channel couldn't be loaded"
 msgstr "Ovaj kanal nije mogao biti učitan"
 
-#~ msgid "this contact"
-#~ msgstr "ovaj kontakt"
-
 #: src/components/RouteErrorFallback.tsx:22
 msgid "This conversation couldn't be loaded"
 msgstr "Ovaj razgovor nije mogao biti učitan"
@@ -3773,9 +3787,6 @@ msgstr "Ovaj razgovor nije mogao biti učitan"
 #: src/components/modals/ConversationSettingsModal.tsx:411
 msgid "This conversation overrides your global setting. Click \"Reset to global\" to use your global preference."
 msgstr "Ovaj razgovor nadjačava tvoju globalnu postavku. Klikni \"Resetuj na globalno\" da koristiš svoju globalnu preferenciju."
-
-#~ msgid "This copies your private key to the clipboard in plain text. Anyone with access to your clipboard can take full control of your account. Store it somewhere safe and clear your clipboard afterwards."
-#~ msgstr "Ovo kopira vaš privatni ključ u međuspremnik u čistom tekstu. Svako ko ima pristup vašem međuspremniku može preuzeti potpunu kontrolu nad vašim nalogom. Čuvajte ga na sigurnom mestu i obrišite vaš međuspremnik nakon toga."
 
 #: src/components/modals/CreateSpaceModal.tsx:187
 #: src/components/modals/SpaceSettingsModal/General.tsx:189
@@ -3824,7 +3835,7 @@ msgstr "Ovaj link ne ističe. Svako ko ga ima može se pridružiti vašem Prosto
 msgid "This link was generated by a Space owner. It does not expire."
 msgstr "Ovaj link je generisao vlasnik Prostora. Ne ističe."
 
-#: src/components/notifications/NotificationPanel.tsx:203
+#: src/components/notifications/NotificationPanel.tsx:213
 msgid "This marks mentions and replies as read across all your spaces. This can't be undone."
 msgstr "Ovo označava pominjanja i odgovore kao pročitane u svim vašim prostorima. Ovo se ne može poništiti."
 
@@ -3907,15 +3918,6 @@ msgstr ""
 "\n"
 "Koristite ovo ako poruke ne uspevaju da se pošalju ili dešifruju."
 
-#~ msgid ""
-#~ "This will reset the encryption session with {counterpartyName}. The next message will establish a fresh secure connection.\n"
-#~ "\n"
-#~ "Use this if messages are failing to send or decrypt. Message history is not affected."
-#~ msgstr ""
-#~ "Ovo će resetovati sesiju šifrovanja sa {counterpartyName}. Sledeća poruka će uspostaviti novu sigurnu vezu.\n"
-#~ "\n"
-#~ "Koristite ovo ako poruke ne uspevaju da se pošalju ili dešifruju. Istorija poruka nije pogođena."
-
 #: src/components/modals/UserSettingsModal/Help.tsx:30
 msgid ""
 "This will reset the encryption sessions for all your DM conversations. Your next message to each contact will establish a fresh secure connection.\n"
@@ -3926,11 +3928,11 @@ msgstr ""
 "\n"
 "Koristite ovo ako poruke ne uspevaju da se pošalju ili dešifruju."
 
-#: src/components/farcaster/FarcasterCastCard.tsx:453
+#: src/components/farcaster/FarcasterCastCard.tsx:515
 msgid "thread"
 msgstr ""
 
-#: src/components/farcaster/FarcasterPage.tsx:751
+#: src/components/farcaster/FarcasterPage.tsx:830
 #: src/components/notifications/NotificationItem.tsx:193
 #: src/components/search/SearchResultItem.tsx:141
 msgid "Thread"
@@ -3986,9 +3988,9 @@ msgstr "Danas"
 msgid "Too many mentions in message. Maximum {MAX_MENTIONS_PER_MESSAGE} allowed."
 msgstr "Previše pominjanja u poruci. Maksimalno {MAX_MENTIONS_PER_MESSAGE} dozvoljeno."
 
-#: src/components/farcaster/FarcasterPage.tsx:221
-#: src/components/farcaster/FarcasterPage.tsx:241
-#: src/components/farcaster/FarcasterPage.tsx:344
+#: src/components/farcaster/FarcasterPage.tsx:270
+#: src/components/farcaster/FarcasterPage.tsx:291
+#: src/components/farcaster/FarcasterPage.tsx:397
 msgid "Trending"
 msgstr ""
 
@@ -4022,9 +4024,6 @@ msgstr "Dve uloge ne mogu deliti ime „{0}“."
 msgid "Two roles can't share the tag @{0}."
 msgstr "Dve uloge ne mogu deliti oznaku @{0}."
 
-#~ msgid "Type DELETE to confirm"
-#~ msgstr "Unesite DELETE da biste potvrdili"
-
 #: src/components/modals/UserSettingsModal/DangerZone.tsx:97
 msgid "Type RESET to confirm"
 msgstr "Unesite RESET da biste potvrdili"
@@ -4057,9 +4056,6 @@ msgstr "Nije moguće kompresovati sliku. Molimo koristite manju sliku."
 #: src/hooks/business/ui/useCustomAssets.ts:237
 msgid "Unable to compress sticker images. Please use smaller images."
 msgstr "Nije moguće kompresovati slike stikera. Molimo koristite manje slike."
-
-#~ msgid "Unable to copy to clipboard"
-#~ msgstr "Nije moguće kopirati u međuspremnik"
 
 #: src/services/SpaceService.ts:574
 msgid "Unable to leave Space due to incomplete configuration. The Space data may be corrupted."
@@ -4121,7 +4117,8 @@ msgstr "Nepoznat vreme"
 #: src/components/message/MessageEditTextarea.tsx:656
 #: src/components/message/MessageEditTextarea.tsx:662
 #: src/components/modals/NewDirectMessageModal.tsx:78
-#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:15
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:10
+#: src/hooks/queries/userInfo/buildUserInfoFetcher.ts:18
 #: src/services/EncryptionService.ts:204
 #: src/services/MessageService.ts:3652
 #: src/services/MessageService.ts:3847
@@ -4191,9 +4188,6 @@ msgstr "Ažurirajte zapise o izbacivanju za sve članove. Koristite ovo ako izba
 msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 2:1"
 msgstr "Otpremite baner za vaš Prostor – PNG ili JPG – Optimalni odnos 2:1"
 
-#~ msgid "Upload a banner for your Space - PNG or JPG - Optimal ratio 3:1"
-#~ msgstr "Otpremi baner za vaš prostor - PNG ili JPG - Optimalan odnos 3:1"
-
 #: src/components/modals/SpaceSettingsModal/Account.tsx:237
 msgid "Upload an avatar for this Space - PNG or JPG - Optimal ratio 1:1"
 msgstr "Otpremite avatar za ovaj Space - PNG ili JPG - Optimalan odnos 1:1"
@@ -4222,9 +4216,6 @@ msgstr "Pošalji sliku"
 #: src/components/modals/SpaceSettingsModal/Stickers.tsx:62
 msgid "Upload Sticker"
 msgstr "Otpremi nalepnicu"
-
-#~ msgid "Use \"Save to Files\" to save your private key"
-#~ msgstr "Koristi \"Sačuvaj u datoteke\" da sačuvaš privatni ključ"
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:219
 #: src/components/modals/SpaceSettingsModal/Account.tsx:227
@@ -4270,7 +4261,7 @@ msgstr "Validacija pozivnice..."
 msgid "View edit history"
 msgstr "Pogledaj istoriju izmena"
 
-#: src/components/farcaster/FarcasterPage.tsx:769
+#: src/components/farcaster/FarcasterPage.tsx:848
 msgid "View full thread"
 msgstr ""
 
@@ -4292,9 +4283,6 @@ msgstr "Čeka se da se Prostori završe sa sinhronizacijom pre nego što ovaj ur
 msgid "Wallet"
 msgstr "Novčanik"
 
-#~ msgid "Welcome to Quorum, {name}! Your account is secured and ready to go."
-#~ msgstr "Dobrodošli u Quorum, {name}! Vaš nalog je zaštićen i spreman za korišćenje."
-
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:79
 msgid "What is a Passkey?"
 msgstr "Šta je Passkey?"
@@ -4315,7 +4303,7 @@ msgstr "Šta je Ključ Naloga?"
 msgid "What should we call you?"
 msgstr "Kako da vas zovemo?"
 
-#: src/components/farcaster/FarcasterPage.tsx:372
+#: src/components/farcaster/FarcasterPage.tsx:425
 msgid "What's happening?"
 msgstr ""
 
@@ -4400,7 +4388,7 @@ msgstr "Zašto moram ovo da uradim?"
 msgid "Without this backup, losing your device means losing your account - there's no 'forgot password' option. This is the price you pay for privacy :-)"
 msgstr "Bez ove rezerve, gubitak uređaja znači gubitak naloga - nema opcije 'zaboravljena lozinka'. Ovo je cena privatnosti :-)"
 
-#: src/components/farcaster/FarcasterPage.tsx:612
+#: src/components/farcaster/FarcasterPage.tsx:686
 msgid "Write a reply..."
 msgstr ""
 
@@ -4411,12 +4399,6 @@ msgstr "Juče"
 #: src/utils/dateFormatting.ts:33
 msgid "Yesterday at {time}"
 msgstr "Juče u {time}"
-
-#~ msgid "Yesterday at {timeFormatted}"
-#~ msgstr "Juče u {timeFormatted}"
-
-#~ msgid "You"
-#~ msgstr "Ti"
 
 #: src/components/modals/AddSpaceModal.tsx:116
 msgid "You are already a member of this Space."
@@ -4443,9 +4425,6 @@ msgstr "Možete upravljati obaveštenjima o pomenima vašeg prostora u podešava
 #: src/components/onboarding/steps/CreatePasskeyStep.tsx:14
 msgid "You cancelled the passkey setup. You can try again, or continue without one. Without a passkey your account key is stored on this device, so anyone who can read its files could take over your account."
 msgstr "Otkazali ste podešavanje passkey-a. Možete pokušati ponovo ili nastaviti bez njega. Bez passkey-a, ključ vašeg naloga se čuva na ovom uređaju, tako da svako ko može da pročita njegove datoteke može preuzeti vaš nalog."
-
-#~ msgid "You cancelled the passkey setup. You can try again, or continue without Passkey (still secure, just without device hardware protection)."
-#~ msgstr "Otkazao ste postavljanje passkey-a. Možete pokušati ponovo ili nastaviti bez passkey-a (i dalje sigurno, samo bez zaštite hardvera uređaja)."
 
 #: src/components/modals/GroupEditorModal.tsx:116
 msgid "You cannot delete a group that contains channels. Delete all {channelCount} channels in this group first."
@@ -4484,15 +4463,9 @@ msgstr "Zadržavate isti nalog i adresu, a ova desktop aplikacija nastavlja da r
 msgid "You must assign yourself a role for moderation actions (except kicking). Grant delete and mute permissions carefully. <0><1>Learn more</1></0>"
 msgstr "Morate sebi dodeliti ulogu za moderacione akcije (osim izbacivanja). Pažljivo dodeljujte dozvole za brisanje i utišavanje. <0><1>Saznajte više</1></0>"
 
-#~ msgid "You won't be able to rejoin unless you are re-invited. Your existing messages will NOT be deleted."
-#~ msgstr "Nećeš moći da se ponovo pridružiš osim ako ne budeš ponovo pozvan. Vaše postojeće poruke NEĆE biti obrisane."
-
 #: src/components/modals/BlockUserModal.tsx:99
 msgid "You won't see any of {resolvedNameText}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
 msgstr "Nećete videti nijednu poruku od {resolvedNameText} u ovom Prostoru. Ovo utiče samo na vaš prikaz, i to samo u ovom Prostoru. Možete deblokirati bilo kada."
-
-#~ msgid "You won't see any of {userName}'s messages in this Space. This only affects your view, and only in this Space. You can unblock anytime."
-#~ msgstr "Nećete videti nijednu poruku korisnika {userName} u ovom Prostoru. Ovo utiče samo na vaš prikaz, i to samo u ovom Prostoru. Možete deblokirati bilo kada."
 
 #: src/components/modals/SpaceSettingsModal/Account.tsx:468
 msgid "You'll need an invite to rejoin, though a public invite link will still work if this Space has one. Your existing messages will NOT be deleted."
@@ -4506,10 +4479,11 @@ msgstr "Trebaće vam ova datoteka da oporaviš nalog ako izgubiš pristup uređa
 msgid "You'll see {resolvedNameText}'s messages in this Space again."
 msgstr "Ponovo ćete videti poruke od {resolvedNameText} u ovom Prostoru."
 
-#~ msgid "You'll see {userName}'s messages in this Space again."
-#~ msgstr "Ponovo ćete videti poruke korisnika {userName} u ovom Prostoru."
+#: src/components/notifications/FarcasterNotificationsView.tsx:255
+msgid "You're all caught up on Farcaster!"
+msgstr ""
 
-#: src/components/notifications/NotificationPanel.tsx:234
+#: src/components/notifications/NotificationPanel.tsx:244
 msgid "You're all caught up!"
 msgstr "Sve ste pratio!"
 
@@ -4558,7 +4532,7 @@ msgstr "Ključ vašeg naloga je privatni ključ koji dokazuje vlasništvo nad va
 msgid "Your account key is your unique identity in Quorum. It's like a master password that proves you are you - but it's generated automatically and stored securely in your passkey."
 msgstr "Ključ vašeg naloga je vaš jedinstveni identitet u Quorumu. To je kao glavna lozinka koja dokazuje da ste to vi – ali se automatski generiše i sigurno čuva u vašem passkey-u."
 
-#: src/components/context/RegistrationPersister.tsx:461
+#: src/components/context/RegistrationPersister.tsx:380
 msgid "Your account was restored, but this device's encrypted messaging keys can no longer be opened. Repairing creates a new device session without changing your account key."
 msgstr ""
 
