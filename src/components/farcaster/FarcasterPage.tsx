@@ -5,6 +5,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useOptionalShellState } from '../shell/useShellState';
 import { FarcasterCastCard } from './FarcasterCastCard';
 import { FarcasterAccountModal } from './FarcasterAccountModal';
+import { FarcasterMiniAppModal, type MiniAppSession } from './FarcasterMiniAppModal';
 import {
   resolveFarcasterUsername,
   resolveChannelParentUrl,
@@ -18,6 +19,7 @@ import {
   useViewerReactions,
   useViewerReactionOverlay,
   useFarcasterNotifications,
+  fetchEmbedEnrichment,
   applyOverlayToThreadTree,
   type ThreadNode,
   type FarcasterNotificationItem,
@@ -26,6 +28,7 @@ import {
   useHomeFeed,
   useReactToCast,
   useSubmitCast,
+  useEnrichEmbeds,
   type NormalizedCast,
 } from '@quilibrium/quorum-shared';
 import {
@@ -125,6 +128,7 @@ export const FarcasterPage: React.FC = () => {
   const [account, setAccount] = React.useState<DesktopFarcasterAccount | null>(null);
   const [accountLoaded, setAccountLoaded] = React.useState(false);
   const [showImport, setShowImport] = React.useState(false);
+  const [activeMiniApp, setActiveMiniApp] = React.useState<MiniAppSession | null>(null);
   const [composeText, setComposeText] = React.useState('');
   const [composeError, setComposeError] = React.useState<string | null>(null);
   const sentinelRef = React.useRef<HTMLDivElement | null>(null);
@@ -204,6 +208,9 @@ export const FarcasterPage: React.FC = () => {
     onOpenThread: (hash: string) => setView({ kind: 'thread', hash }),
     onOpenChannel: (nextChannel: string) => setView({ kind: 'channel', channel: nextChannel }),
     onOpenUsername: openUsername,
+    onOpenMiniApp: (url: string, title?: string, iconUrl?: string) => {
+      setActiveMiniApp({ url, title, iconUrl });
+    },
     onReact: account ? async (targetCast: NormalizedCast, reaction: 'like' | 'recast') => {
       setComposeError(null);
       const isRemoving = reaction === 'like'
@@ -271,7 +278,8 @@ export const FarcasterPage: React.FC = () => {
     else title = t`Trending`;
   }
 
-  const casts = useViewerReactionOverlay(rawCasts, account?.fid);
+  const overlaidCasts = useViewerReactionOverlay(rawCasts, account?.fid);
+  const casts = useEnrichEmbeds({ casts: overlaidCasts, resolver: fetchEmbedEnrichment });
 
   useInfiniteScroll(
     sentinelRef,
@@ -479,6 +487,16 @@ export const FarcasterPage: React.FC = () => {
         )}
       </div>
       <FarcasterAccountModal visible={showImport} onClose={() => setShowImport(false)} onImported={(next) => { setAccount(next); setFeedTab('following'); setView({ kind: 'feed' }); }} />
+      <FarcasterMiniAppModal
+        app={activeMiniApp}
+        onClose={() => setActiveMiniApp(null)}
+        account={account}
+        onOpenProfile={cardProps.onOpenProfile}
+        onComposeCast={(text) => {
+          setComposeText(text);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
     </div>
   );
 };
@@ -779,7 +797,8 @@ const ProfileView: React.FC<{
     return rawCasts;
   }, [rawCasts, tab]);
 
-  const casts = useViewerReactionOverlay(filteredCasts, viewerFid);
+  const overlaidCasts = useViewerReactionOverlay(filteredCasts, viewerFid);
+  const casts = useEnrichEmbeds({ casts: overlaidCasts, resolver: fetchEmbedEnrichment });
 
   useInfiniteScroll(
     profileSentinelRef,

@@ -15,6 +15,7 @@ interface FarcasterCastCardProps {
   onOpenThread: (hash: string) => void;
   onOpenChannel: (channel: string) => void;
   onOpenUsername: (username: string) => void;
+  onOpenMiniApp?: (url: string, title?: string, iconUrl?: string) => void;
   onReply?: (cast: NormalizedCast) => void;
   onReact?: (cast: NormalizedCast, reaction: 'like' | 'recast') => Promise<void>;
   isRoot?: boolean;
@@ -159,10 +160,70 @@ const CastEmbed: React.FC<{
   embed: NormalizedEmbed;
   onOpenThread: (hash: string) => void;
   onOpenProfile: (fid: number) => void;
-}> = ({ embed, onOpenThread, onOpenProfile }) => {
+  onOpenMiniApp?: (url: string, title?: string, iconUrl?: string) => void;
+}> = ({ embed, onOpenThread, onOpenProfile, onOpenMiniApp }) => {
   const imageUrl = embed.image?.url ?? (embed.url && isImageUrl(embed.url) ? embed.url : undefined);
   const videoUrl = embed.video?.url ?? (embed.url && isVideoUrl(embed.url) ? embed.url : undefined);
   const linkUrl = embed.openGraph?.sourceUrl ?? embed.url;
+
+  if (embed.frame) {
+    const frame = embed.frame;
+    const buttonTitle = frame.button?.title || t`Open Mini App`;
+    const appUrl = frame.button?.action?.url || linkUrl;
+    const appName = frame.button?.action?.name || embed.openGraph?.title || t`Mini App`;
+    const splashImg = frame.imageUrl || frame.button?.action?.splashImageUrl || embed.openGraph?.image;
+
+    return (
+      <div className="farcaster-cast__miniapp-card">
+        {splashImg && (
+          <div className="farcaster-cast__miniapp-image-container">
+            <img className="farcaster-cast__miniapp-image" src={splashImg} alt="" loading="lazy" />
+          </div>
+        )}
+        <div className="farcaster-cast__miniapp-footer">
+          <div className="farcaster-cast__miniapp-info">
+            <strong className="farcaster-cast__miniapp-title">{appName}</strong>
+            {linkUrl && (
+              <span className="farcaster-cast__miniapp-domain">
+                {(() => {
+                  try {
+                    return new URL(linkUrl).hostname;
+                  } catch {
+                    return '';
+                  }
+                })()}
+              </span>
+            )}
+          </div>
+          {onOpenMiniApp && appUrl ? (
+            <Button
+              type="primary"
+              size="small"
+              className="farcaster-cast__miniapp-launch-btn"
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                onOpenMiniApp(appUrl, appName, splashImg);
+              }}
+            >
+              <Icon name="world-map" size="sm" />
+              <span>{buttonTitle}</span>
+            </Button>
+          ) : (
+            <Button
+              type="secondary"
+              size="small"
+              onClick={(e: React.MouseEvent) => {
+                e.stopPropagation();
+                if (appUrl) openExternal(appUrl);
+              }}
+            >
+              <span>{buttonTitle}</span>
+            </Button>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   if (imageUrl) {
     return (
@@ -292,6 +353,7 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
   onOpenThread,
   onOpenChannel,
   onOpenUsername,
+  onOpenMiniApp,
   onReply,
   onReact,
   isRoot,
@@ -496,6 +558,7 @@ export const FarcasterCastCard: React.FC<FarcasterCastCardProps> = ({
                 embed={embed}
                 onOpenThread={onOpenThread}
                 onOpenProfile={onOpenProfile}
+                onOpenMiniApp={onOpenMiniApp}
               />
             ))}
           </div>

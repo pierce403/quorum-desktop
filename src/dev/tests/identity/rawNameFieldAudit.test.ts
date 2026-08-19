@@ -217,6 +217,8 @@ const EXCEPTIONS: Record<string, string> = {
     "VERIFIED real bug: `generateVirtualizedUserList`'s member-sidebar SEARCH filter (`member.displayName?.toLowerCase().includes(term)`) matches only `curr.display_name` — the per-space OVERRIDE tier alone, no global-name or QNS fallback. A member with no per-space nickname (the default/common state, per this file's own avatar-ladder comment) has an EMPTY `displayName`, so the sidebar search can only find them by pasting their raw address, never by the global/QNS name `<MemberName>` visibly renders beside them (fixed for the AVATAR half of this same file's output in finding 2, but not this search path). Left unfixed: not named in this wave's 9 findings; flagged rather than silently patched.",
   'src/components/farcaster/FarcasterCastCard.tsx':
     'Farcaster author profile display name from external Hypersnap feed API, not a Quorum space member.',
+  'src/components/farcaster/FarcasterMiniAppModal.tsx':
+    'Farcaster user account display name passed to MiniApp context RPC, not a Quorum space member.',
   'src/components/farcaster/FarcasterPage.tsx':
     'Farcaster user profile display name from external Hypersnap feed API, not a Quorum space member.',
 };

@@ -497,3 +497,78 @@ export function useFarcasterNotifications(fid?: number, enabled = true) {
     staleTime: 30_000,
   });
 }
+
+export async function fetchEmbedEnrichment(url: string): Promise<Partial<NormalizedEmbed> | null> {
+  try {
+    const res = await nativeFetch(url, {
+      headers: {
+        'user-agent': 'Mozilla/5.0 (compatible; FarcasterBot/1.0; +https://farcaster.xyz)',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      },
+    });
+    if (!res.ok) return null;
+    const html = await res.text();
+
+    const getMeta = (props: string[]) => {
+      for (const prop of props) {
+        const escaped = prop.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`<meta\\s+(?:[^>]*?\\s+)?(?:property|name)=["']${escaped}["']\\s+content=["']([^"']*)["']`, 'i');
+        const match = html.match(regex);
+        if (match && match[1]) return match[1].trim();
+        const revRegex = new RegExp(`<meta\\s+(?:[^>]*?\\s+)?content=["']([^"']*)["']\\s+(?:property|name)=["']${escaped}["']`, 'i');
+        const revMatch = html.match(revRegex);
+        if (revMatch && revMatch[1]) return revMatch[1].trim();
+      }
+      return undefined;
+    };
+
+    const title = getMeta(['og:title', 'twitter:title', 'fc:frame:title']) || html.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1]?.trim();
+    const description = getMeta(['og:description', 'twitter:description', 'description']);
+    const image = getMeta(['og:image', 'twitter:image', 'fc:frame:image', 'fc:frame:image:url']);
+
+    // Check for Farcaster Frame / MiniApp meta tags
+    const frameVersion = getMeta(['fc:frame', 'fc:frame:version', 'fc:miniapp']);
+    const frameImage = getMeta(['fc:frame:image', 'fc:frame:image:url']) || image;
+    const frameButtonTitle = getMeta(['fc:frame:button:1', 'fc:frame:button:1:title', 'fc:frame:button:1:label']);
+    const frameButtonAction = getMeta(['fc:frame:button:1:action']);
+    const frameButtonTarget = getMeta(['fc:frame:button:1:target']);
+    const framePostUrl = getMeta(['fc:frame:post_url']);
+
+    const isFrame = Boolean(frameVersion || frameImage || frameButtonTitle || framePostUrl);
+
+    let parsedDomain = '';
+    try {
+      parsedDomain = new URL(url).hostname;
+    } catch {
+      parsedDomain = '';
+    }
+
+    return {
+      openGraph: {
+        title,
+        description,
+        image,
+        domain: parsedDomain,
+        sourceUrl: url,
+      },
+      frame: isFrame
+        ? {
+            version: frameVersion || 'vNext',
+            imageUrl: frameImage,
+            button: {
+              title: frameButtonTitle || 'Launch Mini App',
+              action: {
+                type: frameButtonAction || 'launch_frame',
+                url: frameButtonTarget || framePostUrl || url,
+                name: title,
+                splashImageUrl: frameImage,
+              },
+            },
+          }
+        : undefined,
+    };
+  } catch {
+    return null;
+  }
+}
+
