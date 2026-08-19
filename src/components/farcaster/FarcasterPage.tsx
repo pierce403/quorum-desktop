@@ -15,6 +15,9 @@ import {
   useFarcasterProfile,
   useFarcasterThread,
   useTrendingFeed,
+  useViewerReactions,
+  useViewerReactionOverlay,
+  applyOverlayToThreadTree,
   type ThreadNode,
 } from './useFarcasterDesktop';
 import {
@@ -203,6 +206,26 @@ export const FarcasterPage: React.FC = () => {
       const isRemoving = reaction === 'like'
         ? Boolean(targetCast.reactions.viewerLiked)
         : Boolean(targetCast.reactions.viewerRecasted);
+
+      // Optimistically update viewer reactions query cache
+      const normHash = targetCast.hash.toLowerCase();
+      queryClient.setQueryData(
+        ['farcaster', 'desktop', 'viewer-reactions', account.fid],
+        (old: { likedHashes: Set<string>; recastedHashes: Set<string> } | undefined) => {
+          if (!old) return old;
+          const nextLiked = new Set(old.likedHashes);
+          const nextRecasted = new Set(old.recastedHashes);
+          if (reaction === 'like') {
+            if (isRemoving) nextLiked.delete(normHash);
+            else nextLiked.add(normHash);
+          } else {
+            if (isRemoving) nextRecasted.delete(normHash);
+            else nextRecasted.add(normHash);
+          }
+          return { likedHashes: nextLiked, recastedHashes: nextRecasted };
+        }
+      );
+
       try {
         await reactToCast.mutateAsync({
           castHashHex: targetCast.hash,
@@ -210,7 +233,9 @@ export const FarcasterPage: React.FC = () => {
           reaction,
           remove: isRemoving,
         });
+        void queryClient.invalidateQueries({ queryKey: ['farcaster'] });
       } catch (cause) {
+        void queryClient.invalidateQueries({ queryKey: ['farcaster', 'desktop', 'viewer-reactions', account.fid] });
         setComposeError(cause instanceof Error ? cause.message : t`Reaction could not be published.`);
         throw cause;
       }
@@ -219,7 +244,7 @@ export const FarcasterPage: React.FC = () => {
 
   const primaryFeed = showFollowing ? home : trending;
   let title = t`Trending`;
-  let casts: NormalizedCast[] = [];
+  let rawCasts: NormalizedCast[] = [];
   let isLoading = primaryFeed.isLoading;
   let isFetchingNextPage = primaryFeed.isFetchingNextPage;
   let hasNextPage = primaryFeed.hasNextPage;
@@ -229,7 +254,7 @@ export const FarcasterPage: React.FC = () => {
 
   if (view.kind === 'channel') {
     title = `/${view.channel}`;
-    casts = channel.data?.pages.flatMap((page) => page.casts) ?? [];
+    rawCasts = channel.data?.pages.flatMap((page) => page.casts) ?? [];
     isLoading = channel.isLoading;
     isFetchingNextPage = channel.isFetchingNextPage;
     hasNextPage = channel.hasNextPage;
@@ -237,9 +262,11 @@ export const FarcasterPage: React.FC = () => {
     fetchNextPage = () => { void channel.fetchNextPage(); };
     refetch = () => { void channel.refetch(); };
   } else if (view.kind === 'feed') {
-    casts = primaryFeed.data?.pages.flatMap((page) => page.casts) ?? [];
+    rawCasts = primaryFeed.data?.pages.flatMap((page) => page.casts) ?? [];
     title = showFollowing ? t`Following` : t`Trending`;
   }
+
+  const casts = useViewerReactionOverlay(rawCasts, account?.fid);
 
   useInfiniteScroll(
     sentinelRef,
@@ -384,7 +411,14 @@ export const FarcasterPage: React.FC = () => {
           </div>
         )}
 
-        {view.kind === 'profile' && <ProfileView fid={view.fid} profile={profile} cardProps={cardProps} />}
+        {view.kind === 'profile' && (
+          <ProfileView
+            fid={view.fid}
+            viewerFid={account?.fid}
+            profile={profile}
+            cardProps={cardProps}
+          />
+        )}
 
         {view.kind === 'thread' && (
           <ThreadView
@@ -447,16 +481,17 @@ type ProfileTab = 'casts' | 'replies' | 'media';
 
 const ProfileView: React.FC<{
   fid: number;
+  viewerFid?: number;
   profile: ProfileHook;
   cardProps: Omit<React.ComponentProps<typeof FarcasterCastCard>, 'cast'>;
-}> = ({ fid, profile, cardProps }) => {
+}> = ({ fid, viewerFid, profile, cardProps }) => {
   const [tab, setTab] = React.useState<ProfileTab>('casts');
   const user = profile.user.data;
   const profileSentinelRef = React.useRef<HTMLDivElement | null>(null);
 
   const activeQuery = tab === 'replies' ? profile.replies : profile.casts;
   const rawCasts = activeQuery.data?.pages.flatMap((page) => page.casts) ?? [];
-  const casts = React.useMemo(() => {
+  const filteredCasts = React.useMemo(() => {
     if (tab === 'casts') {
       return rawCasts.filter((c) => !c.parentHash && !c.parentAuthor);
     }
@@ -482,6 +517,8 @@ const ProfileView: React.FC<{
     }
     return rawCasts;
   }, [rawCasts, tab]);
+
+  const casts = useViewerReactionOverlay(filteredCasts, viewerFid);
 
   useInfiniteScroll(
     profileSentinelRef,
@@ -713,7 +750,12 @@ const ThreadView: React.FC<{
 }> = ({ rootHash, account, onBack, onOpenThread, cardProps, submitCast, maxByteLimit }) => {
   const queryClient = useQueryClient();
   const thread = useFarcasterThread(rootHash);
+  const viewerReactions = useViewerReactions(account?.fid);
   const [activeReplyCast, setActiveReplyCast] = React.useState<NormalizedCast | null>(null);
+
+  const overlaidThread = React.useMemo(() => {
+    return applyOverlayToThreadTree(thread.data ?? null, viewerReactions.data);
+  }, [thread.data, viewerReactions.data]);
 
   const handleSubmitReply = async (text: string, targetCast: NormalizedCast) => {
     await submitCast.mutateAsync({
@@ -729,7 +771,7 @@ const ThreadView: React.FC<{
     });
   };
 
-  const rootCast = thread.data?.cast;
+  const rootCast = overlaidThread?.cast;
   const isSubthread = Boolean(
     rootCast &&
       ((rootCast.threadHash && rootCast.threadHash !== rootCast.hash) || rootCast.parentHash)
@@ -774,10 +816,10 @@ const ThreadView: React.FC<{
       {thread.isLoading && <LoadingState label={t`Loading thread...`} />}
       {thread.error && <ErrorState onRetry={() => thread.refetch()} />}
 
-      {thread.data && (
+      {overlaidThread && (
         <div className="farcaster-thread-tree">
           <ThreadNodeItem
-            node={thread.data}
+            node={overlaidThread}
             activeReplyCast={activeReplyCast}
             onSelectReply={setActiveReplyCast}
             onSubmitReply={handleSubmitReply}
@@ -788,7 +830,7 @@ const ThreadView: React.FC<{
           {!activeReplyCast && account && (
             <div className="farcaster-thread-tree__bottom-reply">
               <InlineReplyComposer
-                targetCast={thread.data.cast}
+                targetCast={overlaidThread.cast}
                 onSubmit={handleSubmitReply}
                 isSubmitting={submitCast.isPending}
                 maxByteLimit={maxByteLimit}

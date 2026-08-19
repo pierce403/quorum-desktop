@@ -252,6 +252,120 @@ export function useFarcasterThread(hash: string | null) {
   });
 }
 
+export function useViewerReactions(fid?: number) {
+  return useQuery({
+    queryKey: ['farcaster', 'desktop', 'viewer-reactions', fid],
+    enabled: Boolean(fid && fid > 0),
+    queryFn: async () => {
+      if (!fid) return { likedHashes: new Set<string>(), recastedHashes: new Set<string>() };
+      const likedHashes = new Set<string>();
+      const recastedHashes = new Set<string>();
+
+      try {
+        const [likesRes, recastsRes] = await Promise.all([
+          nativeFetch(`https://haatz.quilibrium.com/v1/reactionsByFid?fid=${fid}&reaction_type=Like&reverse=true&pageSize=1000`),
+          nativeFetch(`https://haatz.quilibrium.com/v1/reactionsByFid?fid=${fid}&reaction_type=Recast&reverse=true&pageSize=1000`),
+        ]);
+
+        if (likesRes.ok) {
+          const data = (await likesRes.json()) as {
+            messages?: Array<{
+              data?: {
+                reactionBody?: {
+                  targetCastId?: { hash?: string };
+                };
+              };
+            }>;
+          };
+          for (const msg of data.messages ?? []) {
+            const h = msg.data?.reactionBody?.targetCastId?.hash;
+            if (h) likedHashes.add(h.toLowerCase());
+          }
+        }
+
+        if (recastsRes.ok) {
+          const data = (await recastsRes.json()) as {
+            messages?: Array<{
+              data?: {
+                reactionBody?: {
+                  targetCastId?: { hash?: string };
+                };
+              };
+            }>;
+          };
+          for (const msg of data.messages ?? []) {
+            const h = msg.data?.reactionBody?.targetCastId?.hash;
+            if (h) recastedHashes.add(h.toLowerCase());
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to load viewer reactions:', err);
+      }
+
+      return { likedHashes, recastedHashes };
+    },
+    staleTime: 60_000,
+  });
+}
+
+export function useViewerReactionOverlay(casts: NormalizedCast[], fid?: number): NormalizedCast[] {
+  const viewerReactions = useViewerReactions(fid);
+  const reactionsData = viewerReactions.data;
+
+  if (!fid || !reactionsData) return casts;
+  const { likedHashes, recastedHashes } = reactionsData;
+
+  return casts.map((cast) => {
+    const hashLower = cast.hash.toLowerCase();
+    const viewerLiked = Boolean(cast.reactions.viewerLiked || likedHashes.has(hashLower));
+    const viewerRecasted = Boolean(cast.reactions.viewerRecasted || recastedHashes.has(hashLower));
+
+    if (viewerLiked === cast.reactions.viewerLiked && viewerRecasted === cast.reactions.viewerRecasted) {
+      return cast;
+    }
+
+    return {
+      ...cast,
+      reactions: {
+        ...cast.reactions,
+        viewerLiked,
+        viewerRecasted,
+      },
+    };
+  });
+}
+
+export function applyOverlayToThreadTree(
+  node: ThreadNode | null,
+  reactionsData?: { likedHashes: Set<string>; recastedHashes: Set<string> }
+): ThreadNode | null {
+  if (!node) return null;
+  const hashLower = node.cast.hash.toLowerCase();
+  const viewerLiked = Boolean(node.cast.reactions.viewerLiked || reactionsData?.likedHashes.has(hashLower));
+  const viewerRecasted = Boolean(node.cast.reactions.viewerRecasted || reactionsData?.recastedHashes.has(hashLower));
+
+  const cast = {
+    ...node.cast,
+    reactions: {
+      ...node.cast.reactions,
+      viewerLiked,
+      viewerRecasted,
+    },
+  };
+
+  const replies: ThreadNode[] = [];
+  for (const child of node.replies) {
+    const overlaidChild = applyOverlayToThreadTree(child, reactionsData);
+    if (overlaidChild) replies.push(overlaidChild);
+  }
+
+  return {
+    ...node,
+    cast,
+    replies,
+  };
+}
+
 export async function resolveFarcasterUsername(username: string): Promise<number | null> {
   try {
     const user = await client.getUserByUsername(username.replace(/^@/, '').trim());
